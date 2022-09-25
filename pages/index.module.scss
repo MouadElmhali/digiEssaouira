@@ -1,0 +1,73 @@
+@tailwind utilities;
+
+.courses-section > div,
+.about-section > div {
+  @apply grid gap-y-6 gap-x-10;
+
+  .img,
+  video {
+    @apply row-start-2;
+  }
+
+  @media screen and (screen(sm)) {
+    a {
+      @apply place-self-start;
+    }
+  }
+}
+
+.courses-section > div {
+  @media screen and (screen(sm)) {
+    @apply grid-cols-2;
+
+    video {
+      @apply row-start-1 row-end-4 col-start-2 self-center;
+    }
+  }
+}
+
+.about-section > div {
+  @media screen and (screen(sm)) {
+    grid-template-columns: 280px auto;
+
+    .img {
+      @apply row-start-1 row-span-3;
+    }
+  }
+}
+
+.infos-section > div,
+.benefits-section > div {
+  @apply flex flex-col  gap-y-16;
+}
+
+.i-want-section > div {
+  @apply flex flex-col gap-y-20;
+
+  div {
+    @apply flex-wrap sm:flex-nowrap;
+  }
+}
+
+.infos-section > div {
+  @apply items-center;
+
+  h2 {
+    @apply text-primary;
+  }
+
+  div > * {
+    @apply bg-white shadow-md;
+  }
+}
+
+.main {
+  section {
+    @apply py-20;
+  }
+}
+
+.main section > div,
+.footer > div {
+  @apply max-w-7xl mx-auto;
+}
