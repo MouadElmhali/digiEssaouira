@@ -11,6 +11,13 @@ import Section from "../components/Section";
 import { routes } from "../constants/routes";
 import { connectToDatabase } from "../src/mongodb";
 import styles from "./index.module.scss";
+import { Swiper, SwiperSlide } from "swiper/react";
+// Import Swiper styles
+import "swiper/css";
+import InteractiveMap from "../components/interactiveMap";
+
+// Import Swiper styles
+import "swiper/css";
 
 export async function getServerSideProps() {
   try {
@@ -126,96 +133,96 @@ export default function Home({
           </div>
         </Section>
 
-        <Section
-          title="خريطة تفاعلية"
-          description="لوريم إيبسوم(Lorem Ipsum) هو ببساطة نص شكلي (بمعنى أن الغاية هي الشكل وليس المحتوى) ويُستخدم في صناعات المطابع ودور النشر. كان لوريم إيبسوم ولايزال المعيار للنص"
-        ></Section>
+        <InteractiveMap />
 
         <Section
           className={`${styles["infos-section"]}`}
           title="الشركاء ومعلومات الإتصال"
         >
-          <div className="overflow-x-scroll flex gap-20  w-full">
-            <div>
-              <Image
-                src="/images/partners/partner-1.jpeg"
-                layout="fixed"
-                height={150}
-                width={150}
-                alt=""
-                objectFit="contain"
-              />
-            </div>
-            <div>
-              <Image
-                src="/images/partners/partner-2.png"
-                layout="fixed"
-                height={150}
-                width={150}
-                alt=""
-                objectFit="contain"
-              />
-            </div>
-            <div>
-              <Image
-                src="/images/partners/partner-3.png"
-                layout="fixed"
-                height={150}
-                width={150}
-                alt=""
-                objectFit="contain"
-              />
-            </div>
-            <div>
-              <Image
-                src="/images/partners/partner-4.png"
-                layout="fixed"
-                height={150}
-                width={150}
-                alt=""
-                objectFit="contain"
-              />
-            </div>
-            <div>
-              <Image
-                src="/images/partners/partner-5.png"
-                layout="fixed"
-                height={150}
-                width={150}
-                alt=""
-                objectFit="contain"
-              />
-            </div>
-            <div>
-              <Image
-                src="/images/partners/partner-6.jpg"
-                layout="fixed"
-                height={150}
-                width={150}
-                alt=""
-                objectFit="contain"
-              />
-            </div>
-            <div>
-              <Image
-                src="/images/partners/partner-7.png"
-                layout="fixed"
-                height={150}
-                width={150}
-                alt=""
-                objectFit="contain"
-              />
-            </div>
-            <div>
-              <Image
-                src="/images/partners/partner-8.jpg"
-                layout="fixed"
-                height={150}
-                width={150}
-                alt=""
-                objectFit="contain"
-              />
-            </div>
+          <div className=" flex gap-20  w-full">
+            <Swiper spaceBetween={50} slidesPerView={3} className="h-150">
+              <SwiperSlide>
+                <Image
+                  src="/images/partners/partner-1.jpeg"
+                  layout="fixed"
+                  height={150}
+                  width={150}
+                  alt=""
+                  objectFit="contain"
+                />
+              </SwiperSlide>
+              <SwiperSlide>
+                <Image
+                  src="/images/partners/partner-2.png"
+                  layout="fixed"
+                  height={150}
+                  width={150}
+                  alt=""
+                  objectFit="contain"
+                />
+              </SwiperSlide>
+              <SwiperSlide>
+                <Image
+                  src="/images/partners/partner-3.png"
+                  layout="fixed"
+                  height={150}
+                  width={150}
+                  alt=""
+                  objectFit="contain"
+                />
+              </SwiperSlide>
+              <SwiperSlide>
+                <Image
+                  src="/images/partners/partner-4.png"
+                  layout="fixed"
+                  height={150}
+                  width={150}
+                  alt=""
+                  objectFit="contain"
+                />
+              </SwiperSlide>
+              <SwiperSlide>
+                <Image
+                  src="/images/partners/partner-5.png"
+                  layout="fixed"
+                  height={150}
+                  width={150}
+                  alt=""
+                  objectFit="contain"
+                />
+              </SwiperSlide>
+              <SwiperSlide>
+                <Image
+                  src="/images/partners/partner-6.jpg"
+                  layout="fixed"
+                  height={150}
+                  width={150}
+                  alt=""
+                  objectFit="contain"
+                />
+              </SwiperSlide>
+              <SwiperSlide>
+                <Image
+                  src="/images/partners/partner-7.png"
+                  layout="fixed"
+                  height={150}
+                  width={150}
+                  alt=""
+                  objectFit="contain"
+                />
+              </SwiperSlide>
+              <SwiperSlide>
+                <Image
+                  src="/images/partners/partner-8.jpg"
+                  layout="fixed"
+                  height={150}
+                  width={150}
+                  alt=""
+                  objectFit="contain"
+                />
+              </SwiperSlide>
+            </Swiper>
+       
           </div>
         </Section>
       </main>
