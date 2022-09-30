@@ -3,12 +3,16 @@ import { NextApiRequest, NextApiResponse } from "next";
 import { ApolloServer } from "apollo-server-micro";
 import { ApolloServerPluginLandingPageGraphQLPlayground } from "apollo-server-core";
 import { buildSchema } from "type-graphql";
-import { CommonResolver } from "../../src/common/common.resolver";
-import { connectToDatabase } from "../../src/mongodb";
 import Container from "typedi";
 
+import { ElectedResolver } from "../../src/elected/elected.resolver";
+import { connectToDatabase } from "../../src/mongodb";
+import { BranchResolver } from "../../src/branch/branch.resolver";
+import { GroupResolver } from "../../src/group/group.resolver";
+import { PartyResolver } from "../../src/party/party.resolver";
+
 const schema = await buildSchema({
-  resolvers: [CommonResolver],
+  resolvers: [ElectedResolver, BranchResolver, GroupResolver, PartyResolver],
   container: Container,
 });
 
@@ -21,6 +25,7 @@ export const config = {
 const server = new ApolloServer({
   schema,
   plugins: [ApolloServerPluginLandingPageGraphQLPlayground()],
+  csrfPrevention: true,
 });
 
 (async () => await connectToDatabase())();

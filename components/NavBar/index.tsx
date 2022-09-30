@@ -41,7 +41,7 @@ export default function NavBar(): JSX.Element {
               </Link>
             </li>
             <li>
-              <Link href={routes.candidates.path}>
+              <Link href={routes.electeds.path}>
                 <a>تعرف على المنتخبين</a>
               </Link>
             </li>
