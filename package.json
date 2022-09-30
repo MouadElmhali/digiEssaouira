@@ -12,11 +12,14 @@
     "prepare": "husky install"
   },
   "dependencies": {
+    "@apollo/client": "^3.6.9",
     "apollo-server": "^3.10.2",
     "apollo-server-core": "^3.10.2",
     "apollo-server-micro": "^3.10.2",
     "class-validator": "^0.13.2",
+    "deepmerge": "^4.2.2",
     "graphql": "^15.8.0",
+    "lodash": "^4.17.21",
     "micro": "^9.4.1",
     "mongoose": "^6.6.0",
     "next": "12.3.0",
@@ -31,6 +34,7 @@
   "devDependencies": {
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
+    "@types/lodash": "^4.14.186",
     "@types/node": "18.7.14",
     "@types/react": "18.0.18",
     "@types/react-dom": "18.0.6",

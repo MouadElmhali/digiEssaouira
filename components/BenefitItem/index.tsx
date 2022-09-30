@@ -5,7 +5,7 @@ interface IBenefitItemProps {
   title: string;
 }
 
-export default function BenfitItem({
+export default function BenefitItem({
   imgSrc,
   title,
 }: IBenefitItemProps): JSX.Element {
@@ -21,7 +21,7 @@ export default function BenfitItem({
           objectFit="contain"
         />
       </div>
-      <p className="text-4xl font-bold">{title}</p>
+      <p className="text-2xl font-bold">{title}</p>
     </div>
   );
 }

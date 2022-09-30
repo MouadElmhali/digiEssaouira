@@ -9,12 +9,16 @@ export const routes: IRouteRecord = Object.freeze({
     name: "courses",
     path: "/courses",
   }),
-  candidates: Object.freeze({
-    name: "candidates",
-    path: "/candidates",
+  electeds: Object.freeze({
+    name: "electedsGroups",
+    path: "/electeds-groups",
   }),
   about: Object.freeze({
     name: "about",
     path: "/about",
+  }),
+  branch: Object.freeze({
+    name: "branch",
+    path: "/electeds-groups/branch",
   }),
 });
