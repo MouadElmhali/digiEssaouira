@@ -21,4 +21,12 @@ export const routes: IRouteRecord = Object.freeze({
     name: "branch",
     path: "/electeds-groups/branch",
   }),
+  associations: Object.freeze({
+    name: "associations",
+    path: "/associations",
+  }),
+  region: Object.freeze({
+    name: "region",
+    path: "/region",
+  }),
 });

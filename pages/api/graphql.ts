@@ -10,9 +10,18 @@ import { connectToDatabase } from "../../src/mongodb";
 import { BranchResolver } from "../../src/branch/branch.resolver";
 import { GroupResolver } from "../../src/group/group.resolver";
 import { PartyResolver } from "../../src/party/party.resolver";
+import { RegionResolver } from "../../src/region/region.resolver";
+import { AssociationResolver } from "../../src/association/association.resolver";
 
 const schema = await buildSchema({
-  resolvers: [ElectedResolver, BranchResolver, GroupResolver, PartyResolver],
+  resolvers: [
+    ElectedResolver,
+    BranchResolver,
+    GroupResolver,
+    PartyResolver,
+    RegionResolver,
+    AssociationResolver,
+  ],
   container: Container,
 });
 

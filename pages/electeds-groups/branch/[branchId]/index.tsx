@@ -45,13 +45,13 @@ export default function Branch({
       <Head>
         <title>DigiEssaouira | المنتخبين</title>
       </Head>
-      <Header
+      {/* <Header
         isHero
         styles="bg-[url('/images/elections-hero.jpg')] after:bg-black/40"
       >
         <h1 className="text-7xl">المنتخبين</h1>
-      </Header>
-      <main>
+      </Header> */}
+      <main className="mt-20">
         <Section className="py-20">
           <div className="flex flex-col gap-y-12">
             <h2 className="text-primaryDarker text-3xl text-center font-bold">

@@ -56,7 +56,7 @@ export default function NavBar(): JSX.Element {
           </a>
         </Link>
 
-        <Link href={routes.about.path}>
+        <Link href={routes.associations.path}>
           <a
             className=" hover:text-blue-500 
                     cursor-pointer transition-colors duration-300"
@@ -121,7 +121,7 @@ export default function NavBar(): JSX.Element {
             </a>
           </Link>
 
-          <Link href={routes.about.path}>
+          <Link href={routes.associations.path}>
             <a
               className=" hover:text-blue-500 
                     cursor-pointer transition-colors duration-300"

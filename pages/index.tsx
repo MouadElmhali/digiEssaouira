@@ -54,7 +54,7 @@ export default function Home() {
             </div>
             <div>
               <LinkCard
-                linkTo={routes.about.path}
+                linkTo={routes.associations.path}
                 imgSrc="/images/iWant/puzzle.jpg"
                 title="أتعرف على النسيج الجمعوي"
               />
