@@ -1,15 +1,16 @@
-import { InferGetServerSidePropsType } from "next";
+import { GetServerSidePropsResult, InferGetServerSidePropsType } from "next";
 import Head from "next/head";
 import { initializeApollo } from "../../apolloClient";
 import Header from "../../components/Header";
 import LinkCard from "../../components/LinkCard";
 import Section from "../../components/Section";
 import { routes } from "../../constants/routes";
-// import Group from "../../components/Group";
 import { GET_GROUPS } from "../../graphql/group/queries";
 import { IGetGroupsData, IGroup } from "../../graphql/group/types";
 
-export async function getServerSideProps() {
+export async function getServerSideProps(): Promise<
+  GetServerSidePropsResult<{ groups: IGroup[] }>
+> {
   const client = initializeApollo();
 
   const {
@@ -62,11 +63,19 @@ function Group({ group: { title, branches } }: IGroupProps): JSX.Element {
         {branches?.map(({ name, pictureUrl, id }) => (
           <LinkCard
             key={id}
-            linkTo={`${routes.branch.path}/${id}`}
-            data={{ title }}
-            imgSrc={`/images/communs/${pictureUrl}`}
             title={name}
-            objectFit="contain"
+            linkProps={{
+              href: {
+                pathname: `${routes.branch.path}/${name}`,
+                query: { branchId: id, title },
+              },
+            }}
+            imageProps={{
+              src: `/images/communs/${pictureUrl}`,
+              width: 200,
+              height: 250,
+              objectFit: "contain",
+            }}
           />
         ))}
       </div>

@@ -1,5 +1,6 @@
 import { Types } from "mongoose";
 import { Service } from "typedi";
+import { userModel } from "../refs/schemas/user.schema";
 import { Elected } from "./models/elected.model";
 import { electedModel } from "./schemas/elected.schema";
 

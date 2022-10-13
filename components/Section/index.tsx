@@ -15,7 +15,7 @@ export default function Section({
 }: SectionProps): JSX.Element {
   return (
     <section className={className}>
-      <div className="max-w-7xl mx-auto">
+      <div className="max-w-7xl mx-auto px-6">
         {title && (
           <h2 className="text-4xl text-primaryDarker font-bold">{title}</h2>
         )}

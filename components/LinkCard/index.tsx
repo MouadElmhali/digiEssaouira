@@ -1,36 +1,24 @@
 import Image, { ImageProps } from "next/image";
-import Link from "next/link";
+import Link, { LinkProps } from "next/link";
 import { ReactNode } from "react";
 
 interface ILinkCardProps {
-  linkTo: string;
-  imgSrc: string;
-  imgAlt?: string;
   title?: string;
-  objectFit?: ImageProps["objectFit"];
-  data?: { [key: string]: string };
   customizedTitle?: ReactNode;
+  linkProps: LinkProps;
+  imageProps: ImageProps;
 }
 
 export default function LinkCard({
-  imgSrc,
-  imgAlt = "",
   title,
   customizedTitle,
-  objectFit = "cover",
-  linkTo,
-  data,
+  linkProps,
+  imageProps,
 }: ILinkCardProps): JSX.Element {
   return (
-    <Link href={{ pathname: linkTo, query: data }}>
+    <Link {...linkProps}>
       <a className="flex flex-col gap-4 flex-1">
-        <Image
-          src={imgSrc}
-          alt={imgAlt}
-          width={200}
-          height={250}
-          objectFit={objectFit}
-        />
+        <Image height={200} width={200} alt="" {...imageProps} />
         <div className="bg-primary text-white font-bold text-lg text-center py-5 px-3">
           {customizedTitle ? customizedTitle : <>{title}</>}
         </div>

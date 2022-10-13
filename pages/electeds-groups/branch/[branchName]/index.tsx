@@ -1,8 +1,7 @@
-import { InferGetServerSidePropsType } from "next";
+import { InferGetServerSidePropsType, NextPageContext } from "next";
 import Head from "next/head";
 import { useRouter } from "next/router";
 import { initializeApollo } from "../../../../apolloClient";
-import Header from "../../../../components/Header";
 import LinkCard from "../../../../components/LinkCard";
 import Section from "../../../../components/Section";
 import { routes } from "../../../../constants/routes";
@@ -14,11 +13,13 @@ import {
 } from "../../../../graphql/elected/types";
 import { combineStrings } from "../../../../utils";
 
-interface IContext {
-  params: { branchId: string };
+interface IQuery {
+  query: { branchId: string };
 }
 
-export async function getServerSideProps({ params: { branchId } }: IContext) {
+export async function getServerSideProps({
+  query: { branchId },
+}: NextPageContext & IQuery) {
   const client = initializeApollo();
   const {
     data: { electedsByBranchId: electeds },
@@ -45,12 +46,6 @@ export default function Branch({
       <Head>
         <title>DigiEssaouira | المنتخبين</title>
       </Head>
-      {/* <Header
-        isHero
-        styles="bg-[url('/images/elections-hero.jpg')] after:bg-black/40"
-      >
-        <h1 className="text-7xl">المنتخبين</h1>
-      </Header> */}
       <main className="mt-20">
         <Section className="py-20">
           <div className="flex flex-col gap-y-12">
@@ -68,9 +63,13 @@ export default function Branch({
                 }) => (
                   <div key={id}>
                     <LinkCard
-                      imgSrc={`/images/parties/${pictureUrl}`}
-                      objectFit="contain"
-                      linkTo={`${routes.branch.path}/${branchId}/elected/${id}`}
+                      imageProps={{
+                        src: `/images/parties/${pictureUrl}`,
+                        objectFit: "contain",
+                      }}
+                      linkProps={{
+                        href: `${routes.branch.path}/${branchId}/elected/${id}`,
+                      }}
                       customizedTitle={
                         <div className="flex flex-col items-center ">
                           <span>{combineStrings([firstName, lastName])}</span>

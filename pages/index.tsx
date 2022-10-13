@@ -1,15 +1,14 @@
 import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
 
 import BenefitItem from "../components/BenefitItem";
 import Header from "../components/Header";
 import LinkCard from "../components/LinkCard";
 import Section from "../components/Section";
 import { routes } from "../constants/routes";
-import { Swiper, SwiperSlide } from "swiper/react";
-// Import Swiper styles
-import "swiper/css";
 import InteractiveMap from "../components/interactiveMap";
 
 export async function getStaticProps() {
@@ -39,40 +38,58 @@ export default function Home() {
           <div className="flex gap-4 justify-center flex-wrap  [&>div]:min-w-[180px] [&>div]:max-w-[300px]  [&>div]:flex-1 ">
             <div>
               <LinkCard
-                linkTo={routes.courses.path}
-                imgSrc="/images/iWant/courses.jpg"
                 title="ألتحق بمسار تدريبي"
-                objectFit="cover"
+                linkProps={{
+                  href: routes.courses.path,
+                }}
+                imageProps={{
+                  src: "/images/iWant/courses.jpg",
+                  objectFit: "cover",
+                }}
               />
             </div>
             <div>
               <LinkCard
-                linkTo={routes.electeds.path}
-                imgSrc="/images/iWant/vote.jpg"
                 title="أتعرف على المنتخبين"
+                linkProps={{
+                  href: routes.electeds.path,
+                }}
+                imageProps={{
+                  src: "/images/iWant/vote.jpg",
+                }}
               />
             </div>
             <div>
               <LinkCard
-                linkTo={routes.associations.path}
-                imgSrc="/images/iWant/puzzle.jpg"
                 title="أتعرف على النسيج الجمعوي"
+                linkProps={{
+                  href: routes.associations.path,
+                }}
+                imageProps={{
+                  src: "/images/iWant/puzzle.jpg",
+                }}
               />
             </div>
             <div>
               <LinkCard
-                linkTo="/"
-                imgSrc="/images/iWant/question-mark.png"
                 title="أطرح سؤالا"
+                linkProps={{
+                  href: "/",
+                }}
+                imageProps={{
+                  src: "/images/iWant/question-mark.png",
+                }}
               />
             </div>
-            <div>
-              <LinkCard
-                linkTo="/"
-                imgSrc="/images/iWant/share-experience.jpg"
-                title="أشارك تجربتي"
-              />
-            </div>
+            <LinkCard
+              title="أشارك تجربتي"
+              linkProps={{
+                href: "/",
+              }}
+              imageProps={{
+                src: "/images/iWant/share-experience.jpg",
+              }}
+            />
           </div>
         </Section>
 

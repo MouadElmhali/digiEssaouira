@@ -5,9 +5,7 @@ import Header from "../../components/Header";
 import LinkCard from "../../components/LinkCard";
 import Section from "../../components/Section";
 import { routes } from "../../constants/routes";
-// import Group from "../../components/Group";
 import { GET_REGION } from "../../graphql/region/queries";
-import { IGetGroupsData, IGroup } from "../../graphql/group/types";
 
 export async function getServerSideProps() {
   const client = initializeApollo();
@@ -29,7 +27,10 @@ export default function Regions({
       <Head>
         <title>DigiEssaouira | الجمعيات</title>
       </Head>
-      <Header isHero styles="bg-[url('/images/association-hero.png')] ">
+      <Header
+        isHero
+        styles="bg-[url('/images/association-hero.png')] after:bg-black/10"
+      >
         <h1 className="text-7xl">الجمعيات</h1>
       </Header>
       <main>
@@ -43,11 +44,17 @@ export default function Regions({
               regions?.map(({ pictureUrl, name, id }) => (
                 <LinkCard
                   key={id}
-                  linkTo={`${routes.associations.path}/region/${id}`}
-                  data={{ name }}
-                  imgSrc={`/images/communs/${pictureUrl}`}
                   title={name}
-                  objectFit="contain"
+                  linkProps={{
+                    href: {
+                      pathname: `${routes.associations.path}/region/${id}`,
+                      query: { name },
+                    },
+                  }}
+                  imageProps={{
+                    src: `/images/communs/${pictureUrl}`,
+                    objectFit: "contain",
+                  }}
                 />
               ))
             }

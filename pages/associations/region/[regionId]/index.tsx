@@ -67,9 +67,13 @@ export default function Associations({
               )?.map(({ id, name, pictureUrl }) => (
                 <div key={id}>
                   <LinkCard
-                    imgSrc={`/images/association/${pictureUrl}`}
-                    objectFit="contain"
-                    linkTo={`${routes.associations.path}/region/${regionId}/association/${id}`}
+                    imageProps={{
+                      src: `/images/association/${pictureUrl}`,
+                      objectFit: "contain",
+                    }}
+                    linkProps={{
+                      href: `${routes.associations.path}/region/${regionId}/association/${id}`,
+                    }}
                     customizedTitle={
                       <div className="flex flex-col items-center ">
                         <span>{name}</span>

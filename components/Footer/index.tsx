@@ -1,14 +1,14 @@
 import Image from "next/image";
 
-export default function Footer() {
+export default function Footer(): Jsx.Element {
   return (
-    <footer className="py-16 bg-gray-800 text-white text-2xl">
+    <footer className="py-16 bg-gray-800 text-white text-2xl lg:px-6">
       <div
         className={`max-w-7xl mx-auto flex gap-20 justify-center flex-wrap lg:justify-between lg:flex-nowrap`}
       >
         <div>
           <Image
-            alt=""
+            alt="digiEssaouira logo"
             src="/images/logo.png"
             layout="fixed"
             height="128"
@@ -25,7 +25,7 @@ export default function Footer() {
         </div>
         <div className="flex flex-col gap-y-4">
           <p>إشتراك النشرة الأخبارية</p>
-          <form className="flex gap-5">
+          <form className="flex flex-col gap-5 sm:flex-row">
             <input
               className="outline-none text-black"
               type="email"

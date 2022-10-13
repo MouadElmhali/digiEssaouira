@@ -12,6 +12,7 @@ import { GroupResolver } from "../../src/group/group.resolver";
 import { PartyResolver } from "../../src/party/party.resolver";
 import { RegionResolver } from "../../src/region/region.resolver";
 import { AssociationResolver } from "../../src/association/association.resolver";
+import { CourseResolver } from "../../src/course/course.resolver";
 
 const schema = await buildSchema({
   resolvers: [
@@ -21,6 +22,7 @@ const schema = await buildSchema({
     PartyResolver,
     RegionResolver,
     AssociationResolver,
+    CourseResolver,
   ],
   container: Container,
 });
