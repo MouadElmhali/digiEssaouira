@@ -29,13 +29,13 @@ export default function Home() {
         </p>
         <button className="primary-button">اكتشف البرامج</button>
       </Header>
-      <main className="flex flex-col [&>*]:py-20">
+      <main className="flex flex-col">
         <Section
           title="أريد أن..."
           description="لوريم إيبسوم(Lorem Ipsum) هو ببساطة نص شكلي (بمعنى أن الغاية هي الشكل وليس المحتوى) ويُستخدم في صناعات المطابع ودور النشر. كان لوريم إيبسوم ولايزال المعيار للنص"
           className="[&>div]:flex [&>div]:flex-col [&>div]:gap-y-16"
         >
-          <div className="flex gap-4 justify-center flex-wrap  [&>div]:min-w-[180px] [&>div]:max-w-[300px]  [&>div]:flex-1 ">
+          <div className="flex gap-4 justify-center flex-wrap  [&>div]:min-w-[185px] [&>div]:max-w-[300px]  [&>div]:flex-1 ">
             <div>
               <LinkCard
                 title="ألتحق بمسار تدريبي"
@@ -81,15 +81,17 @@ export default function Home() {
                 }}
               />
             </div>
-            <LinkCard
-              title="أشارك تجربتي"
-              linkProps={{
-                href: "/",
-              }}
-              imageProps={{
-                src: "/images/iWant/share-experience.jpg",
-              }}
-            />
+            <div>
+              <LinkCard
+                title="أشارك تجربتي"
+                linkProps={{
+                  href: "/",
+                }}
+                imageProps={{
+                  src: "/images/iWant/share-experience.jpg",
+                }}
+              />
+            </div>
           </div>
         </Section>
 

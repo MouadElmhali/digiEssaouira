@@ -1,30 +1,32 @@
-import { InferGetServerSidePropsType } from "next";
+import { GetServerSidePropsContext, InferGetServerSidePropsType } from "next";
 import Head from "next/head";
 import Image from "next/image";
+import { ParsedUrlQuery } from "querystring";
 
 import { initializeApollo } from "../../../../../apolloClient";
-import Header from "../../../../../components/Header";
 import Section from "../../../../../components/Section";
 import { GET_ELECTED } from "../../../../../graphql/elected/queries";
 import {
-  IElected,
   IGetElectedData,
   IGetElectedVariables,
 } from "../../../../../graphql/elected/types";
 import { combineStrings } from "../../../../../utils";
 
-interface IContext {
-  params: { electedId: string };
+interface IParams extends ParsedUrlQuery {
+  electedId: string;
 }
 
-export async function getServerSideProps({ params: { electedId } }: IContext) {
-  const client = initializeApollo();
+export async function getServerSideProps({
+  params,
+}: GetServerSidePropsContext) {
+  const { electedId: id } = params as IParams;
 
+  const client = initializeApollo();
   const {
     data: { elected },
   } = await client.query<IGetElectedData, IGetElectedVariables>({
     query: GET_ELECTED,
-    variables: { args: { id: electedId } },
+    variables: { args: { id } },
   });
 
   return { props: { elected } };
@@ -39,8 +41,7 @@ export default function Branch({
     lastName,
     post: { name: post },
     party: { name: party },
-    phoneNumber,
-  } = elected as IElected;
+  } = elected;
 
   return (
     <>

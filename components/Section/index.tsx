@@ -14,10 +14,12 @@ export default function Section({
   className,
 }: SectionProps): JSX.Element {
   return (
-    <section className={className}>
+    <section className={`${className} [&>div]:py-20`}>
       <div className="max-w-7xl mx-auto px-6">
         {title && (
-          <h2 className="text-4xl text-primaryDarker font-bold">{title}</h2>
+          <h2 className="text-4xl text-primaryDarker font-bold text-center sm:text-right">
+            {title}
+          </h2>
         )}
         {description && (
           <p className="text-xl text-gray-400 font-bold">{description}</p>
