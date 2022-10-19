@@ -2,17 +2,12 @@ import { Field, ID, ObjectType } from "type-graphql";
 import { EGender } from "../../../types/enums";
 import { Branch } from "../../branch/models/branch.model";
 import { Party } from "../../party/models/party.model";
+import { Human } from "../../refs/models/human.model";
 
 @ObjectType()
-export class Elected {
+export class Elected extends Human {
   @Field(() => ID!)
   id!: string;
-
-  @Field(() => String!)
-  firstName!: string;
-
-  @Field(() => String!)
-  lastName!: string;
 
   @Field(() => String!)
   gender!: EGender;
@@ -28,9 +23,6 @@ export class Elected {
 
   @Field(() => String!)
   phoneNumber!: string;
-
-  @Field(() => String!)
-  pictureUrl!: string;
 
   @Field(() => Date!)
   createdAt!: Date;

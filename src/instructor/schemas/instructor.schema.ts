@@ -1,14 +1,14 @@
 import { models, Schema, Types } from "mongoose";
 import { schemasNames } from "../../constants";
-import { IUser, userModel } from "../../refs/schemas/user.schema";
+import { IHuman, humanModel } from "../../refs/schemas/human.schema";
 
-export interface IInstructor extends IUser {
+export interface IInstructor extends IHuman {
   post: Types.ObjectId;
 }
 
 export const instructorModel =
   models.Instructor ||
-  userModel.discriminator(
+  humanModel.discriminator(
     schemasNames.instuctor,
     new Schema<IInstructor>({
       post: { type: Schema.Types.ObjectId, ref: schemasNames.post },

@@ -5,10 +5,10 @@ import { courseModel } from "./schemas/course.shcema";
 @Service()
 export class CourseService {
   async getCourses(): Promise<Course[]> {
-    return courseModel.find();
+    return await courseModel.find();
   }
 
   async getCourse(id: string): Promise<Course | null> {
-    return courseModel.findById(id);
+    return await courseModel.findById(id);
   }
 }

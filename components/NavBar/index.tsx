@@ -68,7 +68,7 @@ export default function NavBar(): JSX.Element {
 
       <div className="items-center hidden lg:flex">
         <button
-          className="border-2 text-primary p-3 rounded border-primary hover:bg-primary hover:text-white
+          className="border-2 font-bold text-primary p-3 rounded border-primary hover:bg-primary hover:text-white
                     cursor-pointer transition-colors duration-300"
         >
           إنشاء حساب

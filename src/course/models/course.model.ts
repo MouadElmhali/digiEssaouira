@@ -1,9 +1,12 @@
-import { Field, ObjectType } from "type-graphql";
+import { Field, ObjectType, ID } from "type-graphql";
 import { Instructor } from "../../instructor/models/instructor.model";
 import { Section } from "./section.model";
 
 @ObjectType()
 export class Course {
+  @Field((type) => ID)
+  id!: string;
+
   @Field({ nullable: false })
   name!: string;
 

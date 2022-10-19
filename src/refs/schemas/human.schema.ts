@@ -1,20 +1,20 @@
 import { model, models, Schema } from "mongoose";
 import { schemasNames } from "../../constants";
 
-export interface IUser {
+export interface IHuman {
   firstName: string;
   lastName: string;
   pictureUrl: string;
 }
 
-export const userSchema = new Schema<IUser>(
+export const humanSchema = new Schema<IHuman>(
   {
     firstName: { type: String, required: true },
     lastName: { type: String, required: true },
     pictureUrl: { type: String },
   },
-  { discriminatorKey: "type" }
+  { discriminatorKey: "type", collection: "users" }
 );
 
-export const userModel =
-  models.User || model<IUser>(schemasNames.user, userSchema);
+export const humanModel =
+  models.User || model<IHuman>(schemasNames.user, humanSchema);

@@ -1,9 +1,9 @@
-import mongoose, { Schema, models, Types } from "mongoose";
+import { Schema, models, Types } from "mongoose";
 import { EGender } from "../../../types/enums";
 import { schemasNames } from "../../constants";
-import { IUser, userModel } from "../../refs/schemas/user.schema";
+import { IHuman, humanModel } from "../../refs/schemas/human.schema";
 
-export interface IElected extends IUser {
+export interface IElected extends IHuman {
   gender: EGender;
   post: Types.ObjectId;
   party: Types.ObjectId;
@@ -15,8 +15,8 @@ export interface IElected extends IUser {
 
 export const electedModel =
   models.Elected ||
-  userModel.discriminator(
-    "Elected",
+  humanModel.discriminator(
+    schemasNames.elected,
     new Schema<IElected>({
       gender: { type: String, required: true },
       phoneNumber: { type: String, required: true },
