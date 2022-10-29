@@ -85,7 +85,6 @@ export function initializeApollo(initialState = null) {
   if (typeof window === "undefined") return _apolloClient;
   // Create the Apollo Client once in the client
   if (!apolloClient) apolloClient = _apolloClient;
-
   return _apolloClient;
 }
 

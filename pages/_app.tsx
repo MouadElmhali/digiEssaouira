@@ -7,7 +7,6 @@ import { useApollo } from "../apolloClient";
 
 function MyApp({ Component, pageProps }: AppProps) {
   const client = useApollo(pageProps);
-
   return (
     <ApolloProvider client={client}>
       <NavBar />

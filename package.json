@@ -16,9 +16,12 @@
     "apollo-server": "^3.10.2",
     "apollo-server-core": "^3.10.2",
     "apollo-server-micro": "^3.10.2",
+    "bcrypt": "^5.1.0",
     "class-validator": "^0.13.2",
     "deepmerge": "^4.2.2",
+    "formik": "^2.2.9",
     "graphql": "^15.8.0",
+    "jsonwebtoken": "^8.5.1",
     "lodash": "^4.17.21",
     "micro": "^9.4.1",
     "mongoose": "^6.6.0",
@@ -30,7 +33,8 @@
     "sass": "^1.54.8",
     "swiper": "^8.4.2",
     "type-graphql": "^1.1.1",
-    "typedi": "^0.10.0"
+    "typedi": "^0.10.0",
+    "yup": "^0.32.11"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^5.16.5",
