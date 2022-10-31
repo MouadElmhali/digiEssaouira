@@ -1,16 +1,16 @@
 import { GetServerSidePropsContext, InferGetServerSidePropsType } from "next";
-import Image from "next/image";
-
 import { ParsedUrlQuery } from "querystring";
-import { ReactNode } from "react";
-import { initializeApollo } from "../../../../apolloClient";
-import { GET_COURSE_BY_ID } from "../../../../graphql/courses/queries";
+import YouTube from "react-youtube";
+import { useState } from "react";
+
+import Link from "next/link";
+import { initializeApollo } from "../../../apolloClient";
 import {
   IGetCourseByIdData,
   IGetCourseByIdVariables,
-} from "../../../../graphql/courses/types";
-import YouTube from "react-youtube";
-import { useState } from "react";
+} from "../../../graphql/courses/types";
+import { GET_COURSE_BY_ID } from "../../../graphql/courses/queries";
+import { routes } from "../../../constants/routes";
 
 interface IQuery extends ParsedUrlQuery {
   courseId: string;
@@ -30,7 +30,7 @@ export async function getServerSideProps({ query }: GetServerSidePropsContext) {
 }
 
 export default function Course({
-  course: { name, description, sections, instructor },
+  course: { name, sections, id },
 }: InferGetServerSidePropsType<typeof getServerSideProps>): JSX.Element {
   const youtube_parser = (url: string): any => {
     var regExp =
@@ -39,7 +39,7 @@ export default function Course({
     return match && match[7].length == 11 ? match[7] : false;
   };
 
-  const [videoUrl, setVideoUrl] = useState<String>(
+  const [videoUrl, setVideoUrl] = useState<string>(
     youtube_parser(sections[0].content[0])
   );
 
@@ -51,20 +51,18 @@ export default function Course({
     },
   };
 
-  console.log(youtube_parser(sections[0].content[0]));
-
   return (
     <div className="grid sm:grid-cols-4 w-full mt-28">
       <div className="sidebar hidden sm:block  lg:left-0 p-2 w-full overflow-y-auto text-center bg-gray-50">
         <div className=" text-xl">
-          <div className="p-2.5 mt-1 flex items-center">
+          <div className="p-2.5 mt-1 flex items-center gap-x-2">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
               viewBox="0 0 24 24"
               strokeWidth={1.5}
               stroke="currentColor"
-              className="w-6 h-6"
+              className="w-6 h-6 "
             >
               <path
                 strokeLinecap="round"
@@ -79,10 +77,10 @@ export default function Course({
           </div>
           <div className="my-2 bg-gray-600 h-[1px]"></div>
         </div>
-        {sections.map((section, key) => {
+        {sections.map((section) => {
           return (
             <div
-              key={key}
+              key={section.title}
               className="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-primary text-black "
               onClick={() => setVideoUrl(youtube_parser(section.content[0]))}
             >
@@ -104,7 +102,7 @@ export default function Course({
           );
         })}
         <div className=" text-xl mt-10">
-          <div className="p-2.5 mt-1 flex items-center">
+          <div className="p-2.5 mt-1 flex items-center gap-x-2">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -122,7 +120,20 @@ export default function Course({
 
             <h1 className="font-bold text-black  text-[15px] ml-3">اختبار</h1>
           </div>
-          <div className="my-2 bg-gray-600 h-[1px]"></div>
+          <div className="my-2 bg-gray-600 h-[1px]" />
+          <Link
+            href={{
+              pathname: routes.quiz.makePath?.(name),
+              query: { courseId: id },
+            }}
+          >
+            <a>
+              <div className="flex rounded-md px-2 justify-between items-center hover:bg-primary hover:text-white hover:cursor-pointer">
+                اختبار
+                <span className="text-3xl">&#8598;</span>
+              </div>
+            </a>
+          </Link>
         </div>
       </div>
       <div className="sm:col-span-3">
@@ -147,7 +158,6 @@ export default function Course({
         </div>
 
         <YouTube
-          // @ts-ignore
           videoId={videoUrl}
           opts={opts}
           className="w-full h-60 sm:h-[600px]"

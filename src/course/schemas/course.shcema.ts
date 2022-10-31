@@ -1,6 +1,16 @@
 import { model, models, Schema, Types } from "mongoose";
 import { schemasNames } from "../../constants";
-import { ISection, sectionSchema } from "./section.schema";
+import { IQuiz, quizSchema } from "./quiz.schema";
+
+export interface ISection {
+  title: string;
+  content: string[];
+}
+
+export const sectionSchema = new Schema<ISection>({
+  title: String,
+  content: [String],
+});
 
 export interface ICourse {
   name: string;
@@ -8,6 +18,7 @@ export interface ICourse {
   pictureUrl: string;
   sections: ISection[];
   instructor: Types.ObjectId;
+  quiz: IQuiz;
 }
 
 const courseSchema = new Schema<ICourse>({
@@ -24,6 +35,7 @@ const courseSchema = new Schema<ICourse>({
     ref: schemasNames.instuctor,
     required: true,
   },
+  quiz: quizSchema,
 });
 
 courseSchema.set("timestamps", { createdAt: true, updatedAt: true });
