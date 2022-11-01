@@ -27,12 +27,12 @@ export default function Footer(): JSX.Element {
           <p>إشتراك النشرة الأخبارية</p>
           <form className="flex flex-col gap-5 sm:flex-row">
             <input
-              className="outline-none text-black"
+              className="outline-none text-black text-xl p-2"
               type="email"
               name="email"
               placeholder="بريدك الإلكتروني"
             />
-            <button className="bg-primary py-1 px-5 ">إشتراك</button>
+            <button className="bg-primary py-1 px-5 text-xl">إشتراك</button>
           </form>
           <p className="text-base">جميع الحقوق محفوظة, الصويرة.2022</p>
         </div>

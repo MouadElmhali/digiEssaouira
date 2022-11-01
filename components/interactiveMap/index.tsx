@@ -3,6 +3,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import Image from "next/image";
 import { useRef } from "react";
+import { useRouter } from "next/router";
 
 interface MapData {
   id: Number;
@@ -36,6 +37,7 @@ export default function InteractiveMap(): JSX.Element {
     },
   ];
   const swiperRef = useRef();
+  const router = useRouter();
   return (
     <div className="bg-primary ">
       <div className="flex flex-col md:flex-row justify-between p-10 max-w-7xl mx-auto">
@@ -48,7 +50,7 @@ export default function InteractiveMap(): JSX.Element {
           </p>
           <Swiper
             spaceBetween={50}
-            slidesPerView={2}
+            slidesPerView={1}
             className="h-60 mt-5"
             onSwiper={(swiper) => {
               // @ts-ignore
@@ -66,6 +68,20 @@ export default function InteractiveMap(): JSX.Element {
               );
             })}
           </Swiper>
+          <div className="mt-5 flex flex-col sm:flex-row justify-between ">
+            <button
+              className="bg-white text-primary p-3 text-xl font-bold"
+              onClick={() => router.push("/electeds-groups")}
+            >
+              تعرف/ي على المنتخبين / المنتخبات
+            </button>
+            <button
+              className="bg-white text-primary p-3 text-xl font-bold"
+              onClick={() => router.push("/associations")}
+            >
+              تعرف/ي على النسيج الجمعوي{" "}
+            </button>
+          </div>
         </div>
         <div className="w-11/12 md:w-1/2 flex justify-center mt-10">
           <Image

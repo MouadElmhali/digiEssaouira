@@ -5,7 +5,6 @@ import { initializeApollo } from "../../apolloClient";
 import { REGISTER } from "../../graphql/user/queries";
 import { useMutation, useQuery } from "@apollo/client";
 import { GET_GROUPS } from "../../graphql/group/queries";
-import ClientOnly from "../ClientOnly";
 
 const SignupSchema = Yup.object().shape({
   username: Yup.string().required("لم يتم تقديم  اسم االمستخدم"),

@@ -29,4 +29,12 @@ export const routes: IRouteRecord = Object.freeze({
     name: "region",
     path: "/region",
   }),
+  askQuestion: Object.freeze({
+    name: "askQuestion",
+    path: "/askQuestion",
+  }),
+  resources: Object.freeze({
+    name: "resources",
+    path: "/resources",
+  }),
 });

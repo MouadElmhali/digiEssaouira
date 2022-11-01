@@ -74,7 +74,7 @@ export default function Home() {
               <LinkCard
                 title="أطرح سؤالا"
                 linkProps={{
-                  href: "/",
+                  href: routes.askQuestion.path,
                 }}
                 imageProps={{
                   src: "/images/iWant/question-mark.png",

@@ -41,6 +41,7 @@ export default function Branch({
     query: { title, branchId },
   } = useRouter();
 
+  console.log(electeds);
   return (
     <>
       <Head>
