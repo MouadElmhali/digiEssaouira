@@ -32,3 +32,19 @@ export const GET_COURSE_BY_ID = gql`
     }
   }
 `;
+
+export const GET_QUIZ_BY_COURSE_ID = gql`
+  query ($args: IGetQuizByCourseIdDto!) {
+    quizByCourseId(args: $args) {
+      questions {
+        id
+        question
+        options {
+          id
+          option
+        }
+        correctAnswer
+      }
+    }
+  }
+`;

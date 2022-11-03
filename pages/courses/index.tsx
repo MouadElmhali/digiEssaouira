@@ -29,12 +29,14 @@ export default function Courses({
       <Head>
         <title>DigiEssaouira | المساقات</title>
       </Head>
+
       <Header
         isHero
         styles="bg-[url('/images/courses-hero.jpg')] after:bg-black/50"
       >
         <h1 className="text-7xl">المساقات</h1>
       </Header>
+
       <main>
         <Section>
           <div className="flex flex-col sm:flex-row sm:flex-wrap gap-5">

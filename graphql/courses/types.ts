@@ -1,4 +1,4 @@
-import { ISection } from "../../src/course/schemas/section.schema";
+import { ISection } from "../../src/course/schemas/course.shcema";
 import { IInstructor } from "../instructor/types";
 
 export interface ICourse {
@@ -8,6 +8,7 @@ export interface ICourse {
   pictureUrl: string;
   sections: ISection[];
   instructor: IInstructor;
+  quiz: IQuiz;
 }
 
 export interface IGetCoursesData {
@@ -22,4 +23,34 @@ export interface IGetCourseByIdVariables {
   args: {
     id: string;
   };
+}
+export interface IGetQuizByCourseIdData {
+  quizByCourseId: IQuiz;
+}
+
+export interface IGetQuizByCourseIdVariables {
+  args: {
+    id: string;
+  };
+}
+
+export interface IOption {
+  id: string;
+  option: string;
+}
+
+export interface IAnswer {
+  question: string;
+  givenAnswer: string;
+}
+
+export interface IQuestion {
+  id: string;
+  question: string;
+  options: IOption[];
+  correctAnswer: string;
+}
+
+export interface IQuiz {
+  questions: IQuestion[];
 }

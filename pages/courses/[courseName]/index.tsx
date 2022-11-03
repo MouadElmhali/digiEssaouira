@@ -11,6 +11,8 @@ import {
 } from "../../../graphql/courses/types";
 import { combineStrings, nameWithTitle } from "../../../utils";
 import { qAndA } from "../../../data/q-and-a";
+import Link from "next/link";
+import { routes } from "../../../constants/routes";
 
 interface IQuery extends ParsedUrlQuery {
   courseId: string;
@@ -30,7 +32,7 @@ export async function getServerSideProps({ query }: GetServerSidePropsContext) {
 }
 
 export default function Course({
-  course: { description, sections, instructor },
+  course: { description, sections, instructor, name, id },
 }: InferGetServerSidePropsType<typeof getServerSideProps>): JSX.Element {
   return (
     <main className="mt-28 p-8 grid gap-8 sm:grid-cols-2">
@@ -38,6 +40,33 @@ export default function Course({
         src="/videos/Spaceman-Jellyfish.mp4"
         className="sm:col-span-full"
       ></video>
+      <div className="col-span-full flex justify-center">
+        <Link
+          href={{
+            pathname: routes.course.makePath?.(name),
+            query: { courseId: id },
+          }}
+        >
+          <a>
+            <div className="flex gap-x-4 items-center bg-primary/30 py-2 px-4  rounded-tr-xl rounded-bl-xl hover:outline-primary hover:outline-2 hover:outline-dashed font-bold">
+              أضف الى دوراتي
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth={1.5}
+                stroke="currentColor"
+                className="w-6 h-6"
+              >
+                <path
+                  strokeLinecap="round"
+                  d="M15.75 10.5l4.72-4.72a.75.75 0 011.28.53v11.38a.75.75 0 01-1.28.53l-4.72-4.72M4.5 18.75h9a2.25 2.25 0 002.25-2.25v-9a2.25 2.25 0 00-2.25-2.25h-9A2.25 2.25 0 002.25 7.5v9a2.25 2.25 0 002.25 2.25z"
+                />
+              </svg>
+            </div>
+          </a>
+        </Link>
+      </div>
       <LittleSection title="المحتويات" className="col-span-full">
         <ul className="[&>li:not(:first-child)]:border-t-0 [&>li:first-child]:rounded-t-sm [&>li:last-child]:rounded-b-sm">
           {sections.map(({ title, content }) => (
@@ -88,24 +117,15 @@ export default function Course({
         className="[&>h2]:sm:text-center"
       >
         <div className="flex gap-4 sm:justify-center">
-          <Image
-            alt=""
-            height={50}
-            width={50}
-            src="/images/icons/twitter.png"
-          />
-          <Image
-            alt=""
-            height={50}
-            width={50}
-            src="/images/icons/instagram.png"
-          />
-          <Image
-            alt=""
-            height={50}
-            width={50}
-            src="/images/icons/facebook.png"
-          />
+          {["twitter", "instagram", "facebook"].map((socialMedia) => (
+            <Image
+              key={socialMedia}
+              alt=""
+              height={50}
+              width={50}
+              src={`/images/icons/${socialMedia}.png`}
+            />
+          ))}
         </div>
       </LittleSection>
 

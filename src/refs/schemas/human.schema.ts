@@ -4,14 +4,14 @@ import { schemasNames } from "../../constants";
 export interface IHuman {
   firstName: string;
   lastName: string;
-  pictureUrl: string;
+  pictureUrl?: string;
 }
 
 export const humanSchema = new Schema<IHuman>(
   {
     firstName: { type: String, required: true },
     lastName: { type: String, required: true },
-    pictureUrl: { type: String },
+    pictureUrl: { type: String, required: false },
   },
   { discriminatorKey: "type", collection: "users" }
 );
