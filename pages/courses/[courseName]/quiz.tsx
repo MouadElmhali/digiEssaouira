@@ -22,6 +22,7 @@ import {
   IQuiz,
 } from "../../../graphql/courses/types";
 
+
 interface IQuery extends ParsedUrlQuery {
   courseId: string;
   courseName: string;
@@ -82,6 +83,8 @@ export default function Quiz({
 
       return answersArray;
     });
+
+    console.log(answers);
   };
 
   return (

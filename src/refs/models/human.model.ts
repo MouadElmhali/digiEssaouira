@@ -2,10 +2,10 @@ import { Field, ObjectType } from "type-graphql";
 
 @ObjectType()
 export class Human {
-  @Field()
+  @Field({ nullable: false })
   firstName!: string;
 
-  @Field()
+  @Field({ nullable: false })
   lastName!: string;
 
   @Field()

@@ -2,10 +2,21 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import { routes } from "../../constants/routes";
+import { getCurrentUser, logOut } from "../utils/index";
+import { useRouter } from "next/router";
 
 export default function NavBar(): JSX.Element {
+  const context = useContext(Authcontext);
+
   const [hidden, toggleHidden] = useState(false);
   const handleClick = (): void => toggleHidden((prevState) => !prevState);
+  const [currentUser, setCurrentUser] = useState(getCurrentUser());
+  const router = useRouter();
+  const handleLogout = () => {
+    logOut();
+    setCurrentUser(null);
+    router.push("/");
+  };
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-10">
@@ -75,14 +86,50 @@ export default function NavBar(): JSX.Element {
           </Link>
         </div>
 
-        <div className="items-center hidden lg:flex">
-          <button
-            className="border-2 font-bold text-primary p-3 rounded border-primary hover:bg-primary hover:text-white
+        {currentUser ? (
+          <div className="items-center hidden lg:flex">
+            <Image
+              src="/images/avatar.jpg"
+              height="50"
+              width="50"
+              alt="DigiEssaouira logo"
+              className="object-contain"
+            />
+
+            <div>
+              مرحبًا,
+              {currentUser?.user_userName}
+            </div>
+
+            <button className="mr-2" onClick={handleLogout}>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth={1.5}
+                stroke="currentColor"
+                className="w-6 h-6 text-primary"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15M12 9l-3 3m0 0l3 3m-3-3h12.75"
+                />
+              </svg>
+            </button>
+          </div>
+        ) : (
+          <div className="items-center hidden lg:flex">
+            <button
+              className="border-2 font-bold text-primary p-3 rounded border-primary hover:bg-primary hover:text-white
                     cursor-pointer transition-colors duration-300"
-          >
-            إنشاء حساب
-          </button>
-        </div>
+              onClick={() => router.push("/signUp")}
+            >
+              إنشاء حساب
+            </button>
+          </div>
+        )}
+
         <div className="items-center flex lg:hidden">
           <button onClick={handleClick}>
             <svg
@@ -138,14 +185,48 @@ export default function NavBar(): JSX.Element {
                 تعرف على النسيج الجمعوي
               </a>
             </Link>
-            <div className="items-center flex">
-              <button
-                className="border-2 text-primary p-3 rounded border-primary hover:bg-primary hover:text-white
+            {currentUser ? (
+              <div className="items-center hidden lg:flex">
+                <Image
+                  src="/images/avatar.jpg"
+                  height="50"
+                  width="50"
+                  alt="DigiEssaouira logo"
+                  className="object-contain"
+                />
+
+                <div>
+                  <span> مرحبًا,</span>
+                  <span> {currentUser.user_userName}</span>
+                </div>
+
+                <button className="mr-2" onClick={logOut()}>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    strokeWidth={1.5}
+                    stroke="currentColor"
+                    className="w-6 h-6 text-primary"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15M12 9l-3 3m0 0l3 3m-3-3h12.75"
+                    />
+                  </svg>
+                </button>
+              </div>
+            ) : (
+              <div className="items-center hidden lg:flex">
+                <button
+                  className="border-2 font-bold text-primary p-3 rounded border-primary hover:bg-primary hover:text-white
                     cursor-pointer transition-colors duration-300"
-              >
-                إنشاء حساب
-              </button>
-            </div>
+                >
+                  إنشاء حساب
+                </button>
+              </div>
+            )}
           </div>
         ) : null}
       </div>

@@ -3,8 +3,8 @@ import { userModel } from "./schemas/user.schema";
 import { User, UserInput } from "./models/user.model";
 import { Types } from "mongoose";
 import { ApolloError } from "apollo-server-core";
-// import { hash, compare } from "bcrypt";
-// import { sign } from "jsonwebtoken";
+import { hash, compare } from "bcrypt";
+import { sign } from "jsonwebtoken";
 
 @Service()
 export class UserService {
@@ -12,32 +12,37 @@ export class UserService {
     return await userModel.find();
   }
 
-  async register(user: UserInput): Promise<User> {
+  async register(email: string, userName: string, password: string) {
     // @ts-ignore
     // const newUser = new User({
-    //   userName: user.userName,
-    //   email: user.email,
-    //   password: encryptedPassword,
+    //   userName: userName,
+    //   email: email,
+    //   password: "encryptedPassword",
     // });
 
     // const jwt = sign(
-    //   { user_id: newUser.id, user_email: user.email },
+    //   { user_email: email, user_username: userName },
+    //   // @ts-ignore
     //   process.env.JWT_SECRET,
     //   { expiresIn: "1h" }
     // );
-    console.log("wa dazete");
+
     try {
-      const checkUser = await userModel.findById({ email: user.email });
-      if (checkUser) {
-        throw new ApolloError(
-          "the user whit this email " + user.email + " already exist"
-        );
+      const checkUser = await userModel.findOne({ email: email });
+      console.log(checkUser);
+      if (!checkUser) {
+        // throw new ApolloError(
+        //   "the user whit this email " + email + " already exist"
+        // );
+        return "the user whit this email " + email + " already exist";
       }
-      // const encryptedPassword = await hash(user.password, 10);
+      const encryptedPassword = await hash(password, 10);
       return await userModel.create({
-        userName: user.userName,
-        email: user.email,
-        // password: encryptedPassword,
+        userName: userName,
+        firstName: "hhhh",
+        lastName: "oioio",
+        email: email,
+        password: encryptedPassword,
       });
     } catch (error) {
       // @ts-ignore
@@ -45,15 +50,17 @@ export class UserService {
     }
   }
 
-  async login(user: UserInput) {
-    const checkUser = await userModel.findOne({
-      email: user.email,
-      password: user.password,
-    });
+  async login(user: string) {
+    // const checkUser = await userModel.findOne({
+    //   email: user.email,
+    //   password: user.password,
+    // });
 
-    if (!checkUser) {
-      throw new ApolloError("this account isnt created yet");
-    }
+    // if (!checkUser) {
+    //   throw new ApolloError("this account isnt created yet");
+    // }
+
+    console.log(user);
 
     // const jwt = sign(
     //   { user_id: checkUser.id, user_email: checkUser.email },
@@ -63,5 +70,9 @@ export class UserService {
     // );
 
     // return jwt;
+  }
+
+  async getElecteds(): Promise<User[]> {
+    return await userModel.find({});
   }
 }

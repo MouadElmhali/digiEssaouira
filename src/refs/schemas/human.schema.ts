@@ -2,8 +2,8 @@ import { model, models, Schema } from "mongoose";
 import { schemasNames } from "../../constants";
 
 export interface IHuman {
-  firstName: string;
-  lastName: string;
+  firstName?: string;
+  lastName?: string;
   pictureUrl?: string;
 }
 

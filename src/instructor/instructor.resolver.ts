@@ -1,4 +1,4 @@
-import { Types } from "mongoose";
+import { Query, Types } from "mongoose";
 import { FieldResolver, Resolver, Root } from "type-graphql";
 import { Service } from "typedi";
 import { Post } from "../post/models/post.model";
@@ -14,4 +14,6 @@ export class InstructorResolver {
   async post(@Root("post") post: Types.ObjectId): Promise<Post> {
     return await this.postService.getPost(post);
   }
+
+
 }

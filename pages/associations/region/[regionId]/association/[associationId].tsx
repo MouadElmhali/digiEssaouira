@@ -117,6 +117,7 @@ export default function Association({
                     objectFit="cover"
                     layout="fixed"
                     key={index}
+                    className="transform transition duration-500 hover:scale-125"
                   />
                 );
               })

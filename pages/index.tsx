@@ -85,7 +85,7 @@ export default function Home() {
               <LinkCard
                 title="أشارك تجربتي"
                 linkProps={{
-                  href: "/",
+                  href: routes.contactUs.path,
                 }}
                 imageProps={{
                   src: "/images/iWant/share-experience.jpg",

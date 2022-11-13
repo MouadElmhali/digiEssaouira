@@ -8,4 +8,7 @@ export class InstructorService {
   async getInstructor(id: Types.ObjectId): Promise<Instructor> {
     return (await instructorModel.findById(id)) as Instructor;
   }
+  async getInstructors() {
+    return await instructorModel.find();
+  }
 }

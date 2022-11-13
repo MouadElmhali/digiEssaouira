@@ -3,10 +3,6 @@ import SignInForm from "../../components/SignInForm";
 import { Field, Form, Formik } from "formik";
 import * as Yup from "yup";
 import Head from "next/head";
-import { GET_ELECTEDs } from "../../graphql/elected/queries";
-import { initializeApollo } from "../../apolloClient";
-import { useQuery } from "@apollo/client";
-
 export default function askQuestion(): JSX.Element {
   const ContactSchema = Yup.object().shape({
     email: Yup.string()
@@ -17,29 +13,15 @@ export default function askQuestion(): JSX.Element {
     fullname: Yup.string().required("هذه الخانة مطلوبه"),
     message: Yup.string().required("هذه الخانة مطلوبه"),
   });
-  const client = initializeApollo();
-
-  // const electedsData = async () => {
-  //   const {
-  //     data: { elected },
-  //   } = await client.query({
-  //     query: GET_ELECTEDs,
-  //   });
-  //   console.log(elected);
-  //   return elected;
-  // };
-
-  // console.log(electedsData());
-
   return (
     <>
       <Head>
-        <title>DigiEssaouira | أطرح سؤالا</title>
+        <title>DigiEssaouira | أشارك تجربتي</title>
       </Head>
       <div className="mt-48 mb-10 flex justify-center">
         <div className="rounded shadow-2xl w-11/12 sm:w-4/6">
           <div className="bg-primary text-white text-xl font-bold text-center p-2 rounded-t">
-            أطرح سؤالا
+            أشارك تجربتي
           </div>
           <Formik
             initialValues={{
@@ -57,7 +39,7 @@ export default function askQuestion(): JSX.Element {
           >
             {({ errors, touched }) => (
               <Form className="mt-10 p-5 grid grid-cols-1 sm:grid-cols-2 gap-5">
-                <div className="py-2">
+                <div className="py-2 sm:col-span-2">
                   <span className="px-1 text-sm text-gray-600">الموضوع</span>
                   <Field
                     name="object"
@@ -67,23 +49,6 @@ export default function askQuestion(): JSX.Element {
                   />
                   {errors.object && touched.object ? (
                     <div className="text-red-600 ">{errors.object}</div>
-                  ) : null}
-                </div>
-
-                <div className="py-2">
-                  <span className="px-1 text-sm text-gray-600">
-                    حدد المعني بالسؤال
-                  </span>
-                  <Field
-                    name="elected"
-                    as="select"
-                    className="text-md block px-3 py-2  rounded-lg w-full
-                bg-white border-2 border-gray-300 placeholder-gray-600 shadow-md focus:placeholder-gray-500 focus:bg-white focus:border-primary focus:outline-none"
-                  >
-                    <option value={"mouad"}>mouad</option>
-                  </Field>
-                  {errors.elected && touched.elected ? (
-                    <div className="text-red-600 ">{errors.elected}</div>
                   ) : null}
                 </div>
 
@@ -116,7 +81,9 @@ export default function askQuestion(): JSX.Element {
                   ) : null}
                 </div>
                 <div className="py-2 sm:col-span-2">
-                  <span className="px-1 text-sm text-gray-600">الرسالة </span>
+                  <span className="px-1 text-sm text-gray-600">
+                    ...شارك تجربتك معنا{" "}
+                  </span>
                   <Field
                     name="message"
                     component="textarea"

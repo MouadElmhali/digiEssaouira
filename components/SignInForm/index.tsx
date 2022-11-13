@@ -1,11 +1,10 @@
-import React from "react";
+import {  useState } from "react";
 import { Formik, Form, Field } from "formik";
 import * as Yup from "yup";
 import { initializeApollo } from "../../apolloClient";
-// import { LOGIN } from "../../graphql/user/queries";
-import { GET_REGION } from "../../graphql/region/queries";
-import { signIn } from "next-auth/react";
-// import SignIn from "../../pages/signIn";
+import { LOGIN } from "../../graphql/user/queries";
+import { decode } from "jsonwebtoken";
+import { useRouter } from "next/router";
 
 const SigninSchema = Yup.object().shape({
   email: Yup.string()
@@ -14,21 +13,27 @@ const SigninSchema = Yup.object().shape({
   password: Yup.string().required("لم يتم تقديم كلمة مرور."),
 });
 const client = initializeApollo();
-// const { data } = await client.query({
-//   query: LOGIN,
-//   variables: {
-//     user: { email: "mouad@gmail.com", password: "1234" },
-//   },
-// });
-
-// const {
-//   data: { regions },
-// } = await client.query({
-//   query: GET_REGION,
-// });
-
-// console.log(regions);
 export default function SignInForm() {
+  const router = useRouter();
+  const [toggle, setToggle] = useState(false);
+
+  const handleLogin = async (values: { email: any; password: any }) => {
+    const { data, error } = await client.query({
+      query: LOGIN,
+      variables: {
+        email: values.email,
+        password: values.password,
+      },
+    });
+    if (data) {
+      localStorage.setItem("user", JSON.stringify(data.login));
+      console.log(decode(data.login));
+
+      router.push("/");
+    } else {
+      setToggle(true);
+    }
+  };
   return (
     <Formik
       initialValues={{
@@ -36,24 +41,17 @@ export default function SignInForm() {
         password: "",
       }}
       validationSchema={SigninSchema}
-      onSubmit={async (values) => {
-        console.log(values);
-        const val = {
-          redirect: false,
-          email: values.email,
-          password: values.password,
-        };
-
-        const res = signIn("credentials", val)
-          .then((error) => console.log(error))
-          .catch((error) => console.log(error));
-
-        console.log(res);
-      }}
+      onSubmit={handleLogin}
     >
       {({ errors, touched }) => (
         <Form className="mt-5">
           <div className="mx-auto max-w-lg">
+            <div
+              className="bg-red-400 p-2 rounded mx-3 text-white text-center"
+              style={toggle ? {} : { display: "none" }}
+            >
+              البريد الإلكتروني أو كلمة المرور خاطئة
+            </div>
             <div className="py-2">
               <span className="px-1 text-sm text-gray-600">
                 البريد الالكتروني

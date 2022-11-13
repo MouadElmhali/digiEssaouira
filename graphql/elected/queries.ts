@@ -18,6 +18,16 @@ export const GET_ELECTED = gql`
   }
 `;
 
+export const GET_ELECTEDs = gql`
+  query {
+    electeds {
+      id
+      firstName
+      lastName
+    }
+  }
+`;
+
 export const GET_ELECTEDS_BY_BRANCH_ID = gql`
   query ($args: GetElectedsByBranchIdDto!) {
     electedsByBranchId(id: $args) {

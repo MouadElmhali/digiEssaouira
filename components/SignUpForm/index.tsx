@@ -4,7 +4,7 @@ import * as Yup from "yup";
 import { initializeApollo } from "../../apolloClient";
 import { REGISTER } from "../../graphql/user/queries";
 import { useMutation, useQuery } from "@apollo/client";
-import { GET_GROUPS } from "../../graphql/group/queries";
+import Link from "next/link";
 
 const SignupSchema = Yup.object().shape({
   username: Yup.string().required("لم يتم تقديم  اسم االمستخدم"),
@@ -24,9 +24,7 @@ const SignupSchema = Yup.object().shape({
 });
 
 export default function SignUpForm() {
-  // const client = initializeApollo();
-  const { data, error } = useQuery(GET_GROUPS, { client: initializeApollo() });
-  console.log({ data, error });
+  const client = initializeApollo();
   const [register, { data: mutationData, error: registerErrors, loading }] =
     useMutation(REGISTER);
   return (
@@ -42,25 +40,12 @@ export default function SignUpForm() {
         console.log(values);
         register({
           variables: {
-            user: {
-              userName: values.username,
-              email: values.email,
-              password: values.password,
-            },
+            email: values.email,
+            userName: values.username,
+            password: values.password,
           },
         });
         console.log(registerErrors);
-        // @ts-ignore
-        // const { data } = client.mutate({
-        //   mutation: REGISTER,
-        //   variables: {
-        //     user: {
-        //       userName: values.username,
-        //       email: values.email,
-        //       password: values.password,
-        //     },
-        //   },
-        // });
       }}
     >
       {({ errors, touched }) => (
@@ -121,12 +106,11 @@ export default function SignUpForm() {
             <div className="flex justify-center  text-center text-gray-500 my-4">
               <span>
                 لديك حساب؟
-                <a
-                  href="#"
-                  className="cursor-pointer  text-black border-b-2 border-gray-200 hover:border-primary hover:text-primary"
-                >
-                  سجل الدخول
-                </a>
+                <Link href={"/signIn"}>
+                  <a className="cursor-pointer  text-black border-b-2 border-gray-200 hover:border-primary hover:text-primary">
+                    سجل الدخول
+                  </a>
+                </Link>
               </span>
             </div>
             <button
@@ -142,9 +126,4 @@ export default function SignUpForm() {
       )}
     </Formik>
   );
-  // return (
-  //   <ClientOnly>
-  //     <div>{data}</div>
-  //   </ClientOnly>
-  // );
 }

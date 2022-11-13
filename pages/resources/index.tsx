@@ -36,9 +36,9 @@ export default function Resources({ resources }: any): JSX.Element {
           <div className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 gap-8">
             {
               // @ts-ignore
-              resources?.map((resource): any => {
+              resources?.map((resource, key): any => {
                 return (
-                  <Link href={resource.url}>
+                  <Link href={resource.url} key={key}>
                     <a className="flex flex-col gap-4 flex-1">
                       <Image
                         height={200}
