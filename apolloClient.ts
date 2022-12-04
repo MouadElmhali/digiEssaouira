@@ -47,7 +47,7 @@ function createApolloClient() {
   });
 
   const httpLink = new HttpLink({
-    uri: process.env.NEXT_PUBLIC_GRAPHQL_URL,
+    uri: "http://localhost:3000/api/graphql",
     credentials: "same-origin",
   });
 
