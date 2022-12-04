@@ -11,7 +11,6 @@ import {
   Font,
 } from "@react-pdf/renderer";
 import { getCurrentUser } from "../utils";
-import  cairo from "http://localhost:3000/fonts/Cairo/Cairo-Regular.ttf";
 
 // Font.register({
 //   family: "Almarai",
@@ -22,11 +21,11 @@ import  cairo from "http://localhost:3000/fonts/Cairo/Cairo-Regular.ttf";
 
 // Create styles
 
-Font.register({
-  family: "cairo",
-  format: "truetype",
-  src: cairo,
-});
+// Font.register({
+//   family: "cairo",
+//   format: "truetype",
+//   src: cairo,
+// });
 
 const styles = StyleSheet.create({
   page: {
@@ -44,7 +43,7 @@ const styles = StyleSheet.create({
   section: {
     marginBottom: "40px",
     color: "black",
-    fontFamily: "cairo",
+    // fontFamily: "cairo",
   },
 });
 
