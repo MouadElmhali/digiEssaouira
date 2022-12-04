@@ -5,7 +5,7 @@ import { ASK } from "../../graphql/askQuestion/queries";
 
 import { useMutation } from "@apollo/client";
 
-export default function askQuestion(): JSX.Element {
+export default function ContactUs(): JSX.Element {
   const ContactSchema = Yup.object().shape({
     email: Yup.string()
       .email("بريد إلكتروني خاطئ")

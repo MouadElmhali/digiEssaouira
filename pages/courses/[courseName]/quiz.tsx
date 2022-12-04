@@ -184,10 +184,11 @@ export default function Quiz({
         <div className="mt-32 py-10 px-5 w-full flex flex-col items-center">
           <div className="text-center text-2xl">
             <h1>آسف ، أنت فقط حصلت على نتيجة %{calculateResult(answers)}</h1>
-            <h1 className="font-bold"> " {courseName} "</h1>
+            <h1 className="font-bold"> &quot {courseName} &quot</h1>
           </div>
           <Image
             src="/images/certification.png"
+            alt="certification"
             width={300}
             height={300}
             objectFit="cover"
