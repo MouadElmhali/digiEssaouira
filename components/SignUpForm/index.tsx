@@ -37,7 +37,6 @@ export default function SignUpForm() {
       }}
       validationSchema={SignupSchema}
       onSubmit={(values) => {
-        console.log(values);
         register({
           variables: {
             email: values.email,
@@ -45,7 +44,6 @@ export default function SignUpForm() {
             password: values.password,
           },
         });
-        console.log(registerErrors);
       }}
     >
       {({ errors, touched }) => (
@@ -118,6 +116,7 @@ export default function SignUpForm() {
               className="mt-3 text-lg font-semibold
                 bg-primary w-full text-white rounded-lg
                 px-6 py-3 block shadow-xl hover:text-white hover:bg-primaryDarker"
+              disabled={loading}
             >
               إصنع حساب
             </button>

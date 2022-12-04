@@ -6,8 +6,6 @@ import { getCurrentUser, logOut } from "../utils/index";
 import { useRouter } from "next/router";
 
 export default function NavBar(): JSX.Element {
-  const context = useContext(Authcontext);
-
   const [hidden, toggleHidden] = useState(false);
   const handleClick = (): void => toggleHidden((prevState) => !prevState);
   const [currentUser, setCurrentUser] = useState(getCurrentUser());
@@ -15,7 +13,7 @@ export default function NavBar(): JSX.Element {
   const handleLogout = () => {
     logOut();
     setCurrentUser(null);
-    router.push("/");
+    document.location.href = "/";
   };
 
   return (
@@ -27,7 +25,7 @@ export default function NavBar(): JSX.Element {
           </Link>
           <Link href={"#"}> دليل استعمال منصة</Link>
         </div>
-        <Link href={"#"}> تواصلو معنا</Link>
+        <Link href={routes.contactUs.path}> تواصلو معنا</Link>
       </div>
       <div
         className="flex px-8 justify-between md:justify-around py-4 bg-white md:bg-white/80

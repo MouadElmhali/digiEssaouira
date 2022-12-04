@@ -96,14 +96,15 @@ export default function Course({
         <ul className="[&>li:not(:first-child)]:border-t-0 [&>li:first-child]:rounded-t-sm [&>li:last-child]:rounded-b-sm">
           {sections.map(({ title, content }) => (
             <li key={title} className="border-2 border-gray-200 bg-gray-100">
-              <details>
+              {/* <details>
                 <summary className="p-2 font-bold">{title}</summary>
                 <ul className="p-2  border-t-2 border-gray-200 bg-white">
                   {content.map((part) => (
                     <li key={part}>{part}</li>
                   ))}
                 </ul>
-              </details>
+              </details> */}
+              <summary className="p-2 font-bold">{title}</summary>
             </li>
           ))}
         </ul>

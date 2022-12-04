@@ -12,4 +12,5 @@ export const schemasNames = Object.freeze({
   resource: "Resource",
   userQuiz: "UserQuizzes",
   account: "Account",
+  askQuestion: "AskQuestion",
 });

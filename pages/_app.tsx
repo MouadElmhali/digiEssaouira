@@ -10,7 +10,8 @@ import { useRouter } from "next/router";
 function MyApp({ Component, pageProps }: AppProps) {
   const client = useApollo(pageProps);
   const router = useRouter();
-  const showHeader = router.pathname === "/courses" ? false : true;
+  const showHeader =
+    router.pathname === "/courses/[courseName]/course" ? false : true;
   return (
     <ApolloProvider client={client}>
       <NavBar />

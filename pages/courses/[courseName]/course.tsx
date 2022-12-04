@@ -52,7 +52,7 @@ export default function Course({
   };
 
   return (
-    <div className="grid sm:grid-cols-4 w-full mt-28">
+    <div className="grid sm:grid-cols-4 w-full mt-36">
       <div className="sidebar hidden sm:block  lg:left-0 p-2 w-full overflow-y-auto text-center bg-gray-50">
         <div className=" text-xl">
           <div className="p-2.5 mt-1 flex items-center gap-x-2">

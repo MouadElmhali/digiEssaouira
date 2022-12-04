@@ -13,6 +13,7 @@ import {
   useState,
 } from "react";
 import { initializeApollo } from "../../../apolloClient";
+import { routes } from "../../../constants/routes";
 import { GET_QUIZ_BY_COURSE_ID } from "../../../graphql/courses/queries";
 import {
   IAnswer,
@@ -21,12 +22,27 @@ import {
   IQuestion,
   IQuiz,
 } from "../../../graphql/courses/types";
-
+import Image from "next/image";
+import Link from "next/link";
 
 interface IQuery extends ParsedUrlQuery {
   courseId: string;
   courseName: string;
 }
+
+const calculateResult = (answers: IAnswer[]) => {
+  const results = answers.map((answer) => {
+    if (answer.givenAnswer === answer.correctAnswer) {
+      return true;
+    } else {
+      return false;
+    }
+  });
+
+  return Math.round(
+    (results.filter((r) => r === true).length / results.length) * 100
+  );
+};
 
 export async function getServerSideProps({
   query,
@@ -51,11 +67,22 @@ export default function Quiz({
   quiz: { questions },
 }: InferGetServerSidePropsType<typeof getServerSideProps>): JSX.Element {
   const { courseName } = useRouter().query as IQuery;
+  const { courseId } = useRouter().query as IQuery;
   const [currentQuestion, setCurrentQuestion] = useState<number>(1);
   const [answers, setAnswers] = useState<IAnswer[]>([]);
+  const router = useRouter();
+  const [toggle, setToggle] = useState(true);
 
   const handleClickNext: MouseEventHandler<HTMLButtonElement> = () => {
-    if (currentQuestion === questions.length) return;
+    if (currentQuestion === questions.length) {
+      if (calculateResult(answers) >= 50) {
+        // @ts-ignore
+        router.push(routes.certificate.makePath?.(courseName));
+      } else {
+        setToggle(false);
+      }
+      return;
+    }
 
     setCurrentQuestion((prevValue) => ++prevValue);
   };
@@ -67,6 +94,7 @@ export default function Quiz({
     const answer: IAnswer = {
       question: questions[currentQuestion - 1].id,
       givenAnswer: value,
+      correctAnswer: questions[currentQuestion - 1].correctAnswer,
     };
 
     setAnswers((prevValue) => {
@@ -83,8 +111,6 @@ export default function Quiz({
 
       return answersArray;
     });
-
-    console.log(answers);
   };
 
   return (
@@ -93,66 +119,91 @@ export default function Quiz({
         <title>اختبار | {decodeURIComponent(courseName)}</title>
       </Head>
 
-      <main className="mt-32 py-10 px-5 flex flex-col gap-y-5">
-        <div className="flex flex-col items-center">
-          <div className="flex flex-col gap-1 items-center w-5/6 sm:w-1/2 [&>*]:w-full">
-            <span className="text-primary text-center font-bold text-sm ">
-              سؤال {`${currentQuestion}/${questions.length}`}
-            </span>
-            {
-              <QuestionPage
-                key={questions[currentQuestion - 1].id}
-                question={questions[currentQuestion - 1]}
-                handleClickChange={handleClickChange}
-                answer={answers.find(
-                  ({ question }) =>
-                    question === questions[currentQuestion - 1].id
+      {toggle ? (
+        <main className="mt-32 py-10 px-5 flex flex-col gap-y-5">
+          <div className="flex flex-col items-center">
+            <div className="flex flex-col gap-1 items-center w-5/6 sm:w-1/2 [&>*]:w-full">
+              <span className="text-primary text-center font-bold text-sm ">
+                سؤال {`${currentQuestion}/${questions.length}`}
+              </span>
+              {
+                <QuestionPage
+                  key={questions[currentQuestion - 1].id}
+                  question={questions[currentQuestion - 1]}
+                  handleClickChange={handleClickChange}
+                  answer={answers.find(
+                    ({ question }) =>
+                      question === questions[currentQuestion - 1].id
+                  )}
+                />
+              }
+              <div className="flex justify-between mt-20">
+                {currentQuestion !== 1 && (
+                  <button
+                    className="flex items-baseline gap-x-1 mb-5 py-2   text-gray-400 text-sm font-bold"
+                    onClick={handleClickPrevious}
+                  >
+                    <span className="leading-[0] text-4xl">&#8594;</span>
+                    السؤال السابق
+                  </button>
                 )}
-              />
-            }
-            <div className="flex justify-between mt-20">
-              {currentQuestion !== 1 && (
                 <button
-                  className="flex items-baseline gap-x-1 mb-5 py-2   text-gray-400 text-sm font-bold"
-                  onClick={handleClickPrevious}
-                >
-                  <span className="leading-[0] text-4xl">&#8594;</span>
-                  السؤال السابق
-                </button>
-              )}
-              <button
-                className="flex items-baseline gap-x-3 pr-4 pl-1 mb-5 py-2 rounded-full  text-white bg-primary text-sm font-bold hover:bg-primary/80 mr-auto disabled:cursor-not-allowed"
-                onClick={handleClickNext}
-                disabled={
-                  !Boolean(
-                    answers.find(
-                      ({ question }) =>
-                        question === questions[currentQuestion - 1].id
+                  className="flex items-baseline gap-x-3 pr-4 pl-1 mb-5 py-2 rounded-full  text-white bg-primary text-sm font-bold hover:bg-primary/80 mr-auto disabled:cursor-not-allowed"
+                  onClick={handleClickNext}
+                  disabled={
+                    !Boolean(
+                      answers.find(
+                        ({ question }) =>
+                          question === questions[currentQuestion - 1].id
+                      )
                     )
-                  )
-                }
-              >
-                {`${
-                  currentQuestion === questions.length
-                    ? "انهاء"
-                    : "السؤال التالي"
-                }`}
-                <span className="leading-[0] text-4xl">&#8592;</span>
-              </button>
+                  }
+                >
+                  {`${
+                    currentQuestion === questions.length
+                      ? "انهاء"
+                      : "السؤال التالي"
+                  }`}
+                  <span className="leading-[0] text-4xl">&#8592;</span>
+                </button>
+              </div>
             </div>
           </div>
+          <ul className="flex gap-2">
+            {questions.map(({ id }, index) => (
+              <li
+                key={id}
+                className={`h-2 flex-1 rounded-full ${
+                  index + 1 <= currentQuestion ? "bg-primary" : "bg-gray-200"
+                }`}
+              />
+            ))}
+          </ul>
+        </main>
+      ) : (
+        <div className="mt-32 py-10 px-5 w-full flex flex-col items-center">
+          <div className="text-center text-2xl">
+            <h1>آسف ، أنت فقط حصلت على نتيجة %{calculateResult(answers)}</h1>
+            <h1 className="font-bold"> " {courseName} "</h1>
+          </div>
+          <Image
+            src="/images/certification.png"
+            width={300}
+            height={300}
+            objectFit="cover"
+          />
+          <Link
+            href={{
+              pathname: routes.quiz.makePath?.(courseName),
+              query: { courseId },
+            }}
+          >
+            <button className="bg-primary rounded text-white p-3">
+              العودة إلى المسار تدريبي
+            </button>
+          </Link>
         </div>
-        <ul className="flex gap-2">
-          {questions.map(({ id }, index) => (
-            <li
-              key={id}
-              className={`h-2 flex-1 rounded-full ${
-                index + 1 <= currentQuestion ? "bg-primary" : "bg-gray-200"
-              }`}
-            />
-          ))}
-        </ul>
-      </main>
+      )}
     </>
   );
 }

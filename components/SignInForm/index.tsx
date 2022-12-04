@@ -1,4 +1,4 @@
-import {  useState } from "react";
+import { useState } from "react";
 import { Formik, Form, Field } from "formik";
 import * as Yup from "yup";
 import { initializeApollo } from "../../apolloClient";
@@ -18,7 +18,7 @@ export default function SignInForm() {
   const [toggle, setToggle] = useState(false);
 
   const handleLogin = async (values: { email: any; password: any }) => {
-    const { data, error } = await client.query({
+    const { data, error, loading } = await client.query({
       query: LOGIN,
       variables: {
         email: values.email,
@@ -29,7 +29,7 @@ export default function SignInForm() {
       localStorage.setItem("user", JSON.stringify(data.login));
       console.log(decode(data.login));
 
-      router.push("/");
+      document.location.href = "/";
     } else {
       setToggle(true);
     }

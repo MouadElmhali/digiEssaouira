@@ -42,6 +42,7 @@ export interface IOption {
 export interface IAnswer {
   question: string;
   givenAnswer: string;
+  correctAnswer: string;
 }
 
 export interface IQuestion {

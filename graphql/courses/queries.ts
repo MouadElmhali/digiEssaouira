@@ -21,14 +21,14 @@ export const GET_COURSE_BY_ID = gql`
         title
         content
       }
-      # instructor {
-      #   firstName
-      #   lastName
-      #   pictureUrl
-      #   post {
-      #     name
-      #   }
-      # }
+      instructor {
+        firstName
+        lastName
+        pictureUrl
+        post {
+          name
+        }
+      }
     }
   }
 `;
