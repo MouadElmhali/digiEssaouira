@@ -1,0 +1,53 @@
+@use "components" as *;
+@use "layouts" as *;
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import url("https://fonts.googleapis.com/css2?family=Almarai:wght@300&display=swap");
+
+:root {
+  --color-white: white;
+  --primary-color: #1ebde3;
+  --primary-color-dark: #36a1bb;
+  --primary-color-darker: #427888;
+}
+
+@font-face {
+  font-family: "Cairo";
+  src: url("../public/fonts/Cairo/Cairo-Regular.ttf");
+}
+
+html {
+  font-family: "Cairo", sans-serif;
+  direction: rtl;
+}
+
+*,
+*::after,
+*::before {
+  font-family: "Cairo";
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  @layer base {
+    html {
+      font-family: "Almarai", sans-serif;
+      direction: rtl;
+    }
+
+    @layer base {
+      html {
+        font-family: "Almarai", sans-serif;
+        direction: rtl;
+      }
+    }
+
+    @layer base {
+      html {
+        font-family: "Almarai", sans-serif;
+        direction: rtl;
+      }
+    }
+  }
+}
