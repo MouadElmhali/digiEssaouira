@@ -43,10 +43,17 @@ export const config = {
   },
 };
 
+const corsOptions = {
+  origin: "http://localhost:3000",
+  credentials: true,
+};
+
 const server = new ApolloServer({
   schema,
   plugins: [ApolloServerPluginLandingPageGraphQLPlayground()],
   csrfPrevention: true,
+  // @ts-ignore
+  cors: corsOptions,
 });
 
 (async () => await connectToDatabase())();
