@@ -32,7 +32,6 @@ export default function Home() {
       <main className="flex flex-col">
         <Section
           title="أريد أن..."
-          description="لوريم إيبسوم(Lorem Ipsum) هو ببساطة نص شكلي (بمعنى أن الغاية هي الشكل وليس المحتوى) ويُستخدم في صناعات المطابع ودور النشر. كان لوريم إيبسوم ولايزال المعيار للنص"
           className="[&>div]:flex [&>div]:flex-col [&>div]:gap-y-16"
         >
           <div className="flex gap-4 justify-center flex-wrap  [&>div]:min-w-[185px] [&>div]:max-w-[300px]  [&>div]:flex-1 ">
@@ -103,20 +102,27 @@ export default function Home() {
           <Link href={routes.courses.path}>
             <a className="primary-button">مساقاتنا التعليمية</a>
           </Link>
-          <video
+          {/* <video
             autoPlay
-            src="/videos/Spaceman-Jellyfish.mp4"
             className="row-start-2 sm:row-start-1 sm:row-end-4 sm:col-start-2 sm:self-center"
-          />
+          /> */}
+          <iframe
+            src="https://www.youtube.com/embed/Do6pSo5JdLw"
+            className="row-start-2 sm:row-start-1 sm:row-end-4 sm:col-start-2 sm:self-center h-full w-full"
+          ></iframe>
         </Section>
 
         <Section
           className="[&>div]:grid  [&>div]:gap-y-6 [&>div]:gap-x-10 [&>div]:sm:grid-cols-[280px_auto]"
           title="من نحن؟"
-          description="
-        م(Lorem Ipsum) هو ببساطة نص شكلي (بمعنى أن الغاية هي الشكل وليس المحتوى) ويُستخدم في صناعات المطابع ودور النشر. كان لوريم إيبسوم ولايزال المعيار للنص
-        م(Lorem Ipsum) هو ببساطة نص شكلي (بمعنى أن الغاية هي الشكل وليس المحتوى) ويُستخدم في صناعات المطابع ودور النشر. كان لوريم إيبسوم ولايزال المعيار للنص
-        م(Lorem Ipsum) هو ببساطة نص شكلي (بمعنى أن الغاية هي الشكل وليس المحتوى) ويُستخدم في صناعات المطابع ودور النشر. كان لوريم إيبسوم ولايزال المعيار للنص"
+          description="وتتأسس فلسفة مشروع DIGI CITIZENSHIP على استثمار مميزات الفضاء الرقمي لأجل تمكين شباب إقليم الصويرة (حاحا والشياظمة) من أدوات المشاركة المواطنة؛ سواء المتعلقة بالتدريب وتقوية القدرات أو تلك المتعلقة بالتواصل مع صناع القرار إحقاقاً لمبدأ المشاركة الفاعلة والمواطنة خصوصاً في ظل المؤشرات الإيجابية التي تم تسجيلها خلال المحطة الانتخابية لثامن شتنبر 2021 والتي شهدت مشاركة مهمة للشباب.
+
+منصة DIGI CITIZENSHIP تنفتح أيضاً على مواضيع التنمية المستدامة والبيئة والتي تمس بشكل مباشر المعيش اليومي للشباب الصويري، وذلك في أفق توسيع دائرة استفادتهم ومشاركتهم في ذات الآن.
+
+وعليه، ينتظر من منصة DIGI CITIZENSHIP أن تشكل فضاء حاضناً لشباب الإقليم ويتيح لهم جميع الأدوات الكفيلة بتعزيز انخراطهم ومشاركتهم في جميع الأوراش الوطنية والمحلية والتي تقتضي إشراك الشباب.
+
+يوسف أسكور
+مدير مشروع منصة"
         >
           <Link href={routes.about.path}>
             <a className="primary-button place-self-start"> المزيد ...</a>
@@ -159,8 +165,8 @@ export default function Home() {
           title="الشركاء ومعلومات الإتصال"
         >
           <div className=" flex gap-20  w-full">
-            <Swiper spaceBetween={50} slidesPerView={3} className="h-150">
-              <SwiperSlide>
+            <Swiper spaceBetween={0} slidesPerView={5} className="h-150">
+              <SwiperSlide className="flex items-center justify-center">
                 <Image
                   src="/images/partners/partner-1.jpeg"
                   layout="fixed"
@@ -170,7 +176,7 @@ export default function Home() {
                   objectFit="contain"
                 />
               </SwiperSlide>
-              <SwiperSlide>
+              <SwiperSlide className="flex items-center justify-center">
                 <Image
                   src="/images/partners/partner-2.png"
                   layout="fixed"
@@ -180,7 +186,7 @@ export default function Home() {
                   objectFit="contain"
                 />
               </SwiperSlide>
-              <SwiperSlide>
+              <SwiperSlide className="flex items-center justify-center">
                 <Image
                   src="/images/partners/partner-3.png"
                   layout="fixed"
@@ -190,7 +196,7 @@ export default function Home() {
                   objectFit="contain"
                 />
               </SwiperSlide>
-              <SwiperSlide>
+              <SwiperSlide className="flex items-center justify-center">
                 <Image
                   src="/images/partners/partner-4.png"
                   layout="fixed"
@@ -200,7 +206,7 @@ export default function Home() {
                   objectFit="contain"
                 />
               </SwiperSlide>
-              <SwiperSlide>
+              <SwiperSlide className="flex items-center justify-center">
                 <Image
                   src="/images/partners/partner-5.png"
                   layout="fixed"
@@ -210,7 +216,7 @@ export default function Home() {
                   objectFit="contain"
                 />
               </SwiperSlide>
-              <SwiperSlide>
+              <SwiperSlide className="flex items-center justify-center">
                 <Image
                   src="/images/partners/partner-6.jpg"
                   layout="fixed"
@@ -220,7 +226,7 @@ export default function Home() {
                   objectFit="contain"
                 />
               </SwiperSlide>
-              <SwiperSlide>
+              <SwiperSlide className="flex items-center justify-center">
                 <Image
                   src="/images/partners/partner-7.png"
                   layout="fixed"
@@ -230,7 +236,17 @@ export default function Home() {
                   objectFit="contain"
                 />
               </SwiperSlide>
-              <SwiperSlide>
+              <SwiperSlide className="flex items-center justify-center">
+                <Image
+                  src="/images/partners/partner-9.jpg"
+                  layout="fixed"
+                  height={150}
+                  width={150}
+                  alt=""
+                  objectFit="contain"
+                />
+              </SwiperSlide>
+              <SwiperSlide className="flex items-center justify-center">
                 <Image
                   src="/images/partners/partner-8.jpg"
                   layout="fixed"

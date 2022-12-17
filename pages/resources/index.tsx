@@ -44,7 +44,7 @@ export default function Resources({ resources }: any): JSX.Element {
                         height={200}
                         width={150}
                         alt=""
-                        src={"/images/icons/PDF_file_icon.svg.png"}
+                        src={`/images/resources/${resource.image}`}
                         objectFit={"contain"}
                       />
                       <span className="text-primaryDarker text-center font-bold text-lg">

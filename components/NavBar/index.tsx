@@ -23,7 +23,7 @@ export default function NavBar(): JSX.Element {
           <Link href={routes.resources.path}>
             <a className="ml-5">دليل الموارد الرقمية</a>
           </Link>
-          <Link href={"#"}> دليل استعمال منصة</Link>
+          <Link href={routes.privacyPolicy.path}> دليل استعمال منصة</Link>
         </div>
         <Link href={routes.contactUs.path}> تواصلو معنا</Link>
       </div>

@@ -10,7 +10,7 @@ export class ResourcesResolver {
 
   @Query((returns) => [Resource])
   async resources(): Promise<Resource[]> {
-    console.log(await this.resourceService.getResources());
+
     return await this.resourceService.getResources();
   }
 }

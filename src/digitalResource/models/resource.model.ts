@@ -7,6 +7,9 @@ export class Resource {
 
   @Field({ nullable: true })
   name!: string;
+  
+  @Field({ nullable: true })
+  image!: string;
 
   @Field({ nullable: true })
   url!: string;

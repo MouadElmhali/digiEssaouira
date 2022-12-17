@@ -4,6 +4,7 @@ export const GET_RESOURCES = gql`
   query {
     resources {
       id
+      image
       name
       url
     }
