@@ -61,7 +61,7 @@ export default function Associations({
             <h2 className="text-primaryDarker text-3xl text-center font-bold">
               {name}
             </h2>
-            <div className="flex flex-col justify-center  gap-12 sm:flex-row">
+            <div className="grid gap-3 gap-y-8 md:grid-cols-4">
               {(
                 associations["getAssociationByRegionId"] as IAssociation[]
               )?.map(({ id, name, pictureUrl }) => (
