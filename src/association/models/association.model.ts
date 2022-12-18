@@ -13,6 +13,9 @@ export class Association {
   name!: string;
 
   @Field({ nullable: false })
+  fieldOfWork!: string;
+
+  @Field({ nullable: false })
   pictureUrl!: string;
 
   @Field()

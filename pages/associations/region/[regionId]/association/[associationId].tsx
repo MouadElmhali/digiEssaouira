@@ -29,6 +29,7 @@ export default function Association({
 }: InferGetServerSidePropsType<typeof getServerSideProps>): JSX.Element {
   const {
     name,
+    fieldOfWork,
     pictureUrl,
     pictureGallery,
     email,
@@ -37,7 +38,7 @@ export default function Association({
     instagram,
     twitter,
   } = association["getAssociationById"];
-
+  console.log(association["getAssociationById"]);
   return (
     <>
       <Head>
@@ -64,6 +65,7 @@ export default function Association({
             </div>
             <div className="flex flex-col gap-3">
               <p className="text-primaryDarker text-4xl font-bold">{name}</p>
+              <div className="text-xl mt-5">مجال الإشتغال: {fieldOfWork}</div>
               <div className="text-xl mt-5">
                 {phone} - {email}
               </div>
