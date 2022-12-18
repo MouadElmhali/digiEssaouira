@@ -53,7 +53,7 @@ export default function Branch({
             <h2 className="text-primaryDarker text-3xl text-center font-bold">
               {title}
             </h2>
-            <div className="flex flex-col justify-center  gap-12 sm:flex-row">
+            <div className="grid gap-3 gap-y-8 md:grid-cols-4 ">
               {(electeds as IElected[])?.map(
                 ({
                   id,

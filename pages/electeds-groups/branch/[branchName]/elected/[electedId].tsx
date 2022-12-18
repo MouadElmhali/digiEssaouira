@@ -1,10 +1,12 @@
 import { GetServerSidePropsContext, InferGetServerSidePropsType } from "next";
 import Head from "next/head";
 import Image from "next/image";
+import Link from "next/link";
 import { ParsedUrlQuery } from "querystring";
 
 import { initializeApollo } from "../../../../../apolloClient";
 import Section from "../../../../../components/Section";
+import { routes } from "../../../../../constants/routes";
 import { GET_ELECTED } from "../../../../../graphql/elected/queries";
 import {
   IGetElectedData,
@@ -68,9 +70,12 @@ export default function Branch({
               <p className="text-3xl ">{post}</p>
               <p className="text-2xl ">{party}</p>
             </div>
-            <button className="primary-button row-start-4 justify-self-start">
-              اتصل بالمسؤول المنتخب
-            </button>
+            <Link href={routes.askQuestion.path}>
+              <button className="primary-button row-start-4 justify-self-start">
+ 
+                اتصل بالمسؤول المنتخب
+              </button>
+            </Link>
           </div>
         </Section>
       </main>
