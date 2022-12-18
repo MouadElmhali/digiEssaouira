@@ -90,9 +90,9 @@ export default function InteractiveMap(): JSX.Element {
         </div>
         <div className="w-11/12 md:w-1/2 flex justify-center mt-10">
           <Image
-            src="/images/map.png"
-            width={200}
-            height={350}
+            src="/images/Map.svg"
+            width={300}
+            height={450}
             alt="map"
             useMap="#map-image"
           />

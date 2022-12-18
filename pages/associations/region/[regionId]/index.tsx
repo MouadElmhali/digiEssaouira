@@ -43,18 +43,12 @@ export default function Associations({
   const {
     query: { name, regionId },
   } = useRouter();
-  console.log(associations);
   return (
     <>
       <Head>
         <title>DigiEssaouira | المنتخبين</title>
       </Head>
-      {/* <Header
-        isHero
-        styles="bg-[url('/images/elections-hero.jpg')] after:bg-black/40"
-      >
-        <h1 className="text-7xl">المنتخبين</h1>
-      </Header> */}
+     
       <main className="mt-20">
         <Section className="py-20">
           <div className="flex flex-col gap-y-12">

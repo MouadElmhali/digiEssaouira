@@ -102,10 +102,7 @@ export default function Home() {
           <Link href={routes.courses.path}>
             <a className="primary-button">مساقاتنا التعليمية</a>
           </Link>
-          {/* <video
-            autoPlay
-            className="row-start-2 sm:row-start-1 sm:row-end-4 sm:col-start-2 sm:self-center"
-          /> */}
+         
           <iframe
             src="https://www.youtube.com/embed/Do6pSo5JdLw"
             className="row-start-2 sm:row-start-1 sm:row-end-4 sm:col-start-2 sm:self-center h-full w-full"

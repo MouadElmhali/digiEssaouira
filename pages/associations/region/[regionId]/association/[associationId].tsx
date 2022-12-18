@@ -30,6 +30,7 @@ export default function Association({
   const {
     name,
     fieldOfWork,
+    prisident,
     pictureUrl,
     pictureGallery,
     email,
@@ -38,18 +39,13 @@ export default function Association({
     instagram,
     twitter,
   } = association["getAssociationById"];
-  console.log(association["getAssociationById"]);
+
   return (
     <>
       <Head>
         <title>DigiEssaouira | المنتخبين</title>
       </Head>
-      {/* <Header
-        isHero
-        styles="bg-[url('/images/elections-hero.jpg')] after:bg-black/40"
-      >
-        <h1 className="text-7xl">المنتخبين</h1>
-      </Header> */}
+
       <main className="mt-20">
         <Section className="py-20">
           <div className="flex flex-col items-center gap-y-5  gap-x-8 sm:grid sm:grid-cols-[auto,_1fr] sm:grid-rows-[repeat(4,_auto)] shadow-w">
@@ -65,6 +61,7 @@ export default function Association({
             </div>
             <div className="flex flex-col gap-3">
               <p className="text-primaryDarker text-4xl font-bold">{name}</p>
+              <div className="text-xl mt-5"> الرئيس: {prisident}</div>
               <div className="text-xl mt-5">مجال الإشتغال: {fieldOfWork}</div>
               <div className="text-xl mt-5">
                 {phone} - {email}

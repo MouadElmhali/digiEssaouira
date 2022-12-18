@@ -4,6 +4,7 @@ import { schemasNames } from "../../constants";
 interface IAssociation {
   name: string;
   fieldOfWork: string;
+  prisident: string;
   pictureUrl: string;
   region: Types.ObjectId;
   email: string;
@@ -17,6 +18,7 @@ interface IAssociation {
 const associationSchema = new Schema<IAssociation>({
   name: { type: String, required: true },
   fieldOfWork: { type: String, required: true },
+  prisident: { type: String, required: true },
   pictureUrl: { type: String, required: true },
   region: { type: Schema.Types.ObjectId, ref: schemasNames.region },
   email: { type: String, required: true },

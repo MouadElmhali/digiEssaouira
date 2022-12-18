@@ -38,7 +38,7 @@ export default function Resources({ resources }: any): JSX.Element {
               // @ts-ignore
               resources?.map((resource, key): any => {
                 return (
-                  <Link href={resource.url} key={key}>
+                  <Link href={`/pdfs/${resource.url}`} key={key}>
                     <a className="flex flex-col gap-4 flex-1">
                       <Image
                         height={200}

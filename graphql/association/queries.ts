@@ -17,6 +17,7 @@ export const GET_ASSOCIATION_BY_ID = gql`
     getAssociationById(id: $id) {
       id
       name
+      prisident
       fieldOfWork
       pictureUrl
       email
