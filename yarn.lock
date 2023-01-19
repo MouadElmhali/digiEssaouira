@@ -5362,6 +5362,11 @@ react-youtube@^10.0.0:
     prop-types "15.8.1"
     youtube-player "5.5.2"
 
+react-zoom-pan-pinch@^2.2.0:
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/react-zoom-pan-pinch/-/react-zoom-pan-pinch-2.2.0.tgz#15dd97aef798699016e4e30182cc51c4bddd4739"
+  integrity sha512-khOlTeTI/ZXtbCfqUmkKW0HpM+w0RklEQ1DlFVi0D9y90r+Z8x+ipKBXvPQC3rUu5VoYK4603SY8GsA6enfa8w==
+
 react@18.2.0:
   version "18.2.0"
   resolved "https://registry.npmjs.org/react/-/react-18.2.0.tgz"
