@@ -126,7 +126,7 @@ export default function Home() {
           </Link>
           <div className={`sm:row-start-1 sm:row-end-4 row-start-2`}>
             <Image
-              src="/images/logo.png"
+              src="/images/Logo2.jpeg"
               width="100%"
               height="100%"
               layout="responsive"

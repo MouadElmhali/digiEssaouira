@@ -36,7 +36,7 @@ export default function NavBar(): JSX.Element {
           <Link href={routes.home.path}>
             <a>
               <Image
-                src="/images/logo.png"
+                src="/images/Logo2.jpeg"
                 height="72"
                 width="72"
                 alt="DigiEssaouira logo"

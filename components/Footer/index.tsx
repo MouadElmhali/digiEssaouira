@@ -9,7 +9,7 @@ export default function Footer(): JSX.Element {
         <div>
           <Image
             alt="digiEssaouira logo"
-            src="/images/logo.png"
+            src="/images/Logo2.jpeg"
             layout="fixed"
             height="128"
             width="128"
