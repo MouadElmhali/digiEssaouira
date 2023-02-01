@@ -37,8 +37,8 @@ export default function NavBar(): JSX.Element {
             <a>
               <Image
                 src="/images/Logo2.jpeg"
-                height="72"
-                width="72"
+                height="100"
+                width="100"
                 alt="DigiEssaouira logo"
                 className="object-contain"
               />
