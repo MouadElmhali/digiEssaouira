@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { routes } from "../../constants/routes";
 import { getCurrentUser, logOut } from "../utils/index";
 import { useRouter } from "next/router";
@@ -15,6 +15,11 @@ export default function NavBar(): JSX.Element {
     setCurrentUser(null);
     document.location.href = "/";
   };
+  useEffect(() => {
+    if (hidden) {
+      toggleHidden(!hidden);
+    }
+  }, [router.asPath]);
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-10">
@@ -147,7 +152,7 @@ export default function NavBar(): JSX.Element {
           </button>
         </div>
         {hidden ? (
-          <div className="items-center flex flex-col  absolute w-full h-screen top-24 transition-all ease-out duration-500 right-0 left-0 bg-white  space-y-8 lg:hidden">
+          <div className="items-center mt-10 flex flex-col  absolute w-full h-screen top-24 transition-all ease-out duration-500 right-0 left-0 bg-white  space-y-8 lg:hidden">
             <Link href={routes.home.path}>
               <a
                 className="mt-10 hover:text-blue-500 

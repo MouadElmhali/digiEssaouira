@@ -102,31 +102,6 @@ export default function InteractiveMap(): JSX.Element {
           </div>
         </div>
         <div className="w-11/12 md:w-1/2 flex justify-center mt-10">
-          {/* <Image
-            src="/images/Map.svg"
-            width={300}
-            height={450}
-            alt="map"
-            useMap="#map-image"
-          />
-          <map name="map-image">
-            {mapData.map((data, index) => {
-              return (
-                <area
-                  key={index}
-                  shape="rect"
-                  coords={data.cords}
-                  alt={data.city}
-                  href=""
-                  onClick={(e) => {
-                    e.preventDefault();
-                    // @ts-ignore
-                    swiperRef.current.slideTo(2);
-                  }}
-                ></area>
-              );
-            })}
-          </map> */}
           <TransformWrapper>
             {({ zoomIn, zoomOut, resetTransform }: any) => (
               <>
