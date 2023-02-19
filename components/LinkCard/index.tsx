@@ -14,10 +14,11 @@ export default function LinkCard({
   customizedTitle,
   linkProps,
   imageProps,
+  styles
 }: ILinkCardProps): JSX.Element {
   return (
     <Link {...linkProps}>
-      <a className="flex flex-col gap-4 flex-1">
+      <a className="flex flex-col gap-4 flex-1 h-full">
         <Image height={200} width={200} alt="" {...imageProps} />
         <div className="bg-primary text-white font-bold text-lg text-center py-5 px-3">
           {customizedTitle ? customizedTitle : <>{title}</>}

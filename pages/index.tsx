@@ -10,18 +10,34 @@ import LinkCard from "../components/LinkCard";
 import Section from "../components/Section";
 import { routes } from "../constants/routes";
 import InteractiveMap from "../components/interactiveMap";
+import HomeCourses from "../components/homePageCourses";
+import { GET_COURSES_NAME_AND_PICTURE } from "../graphql/courses/queries";
+import { initializeApollo } from "../apolloClient";
+import { IGetCoursesData } from "../graphql/courses/types";
+import { InferGetServerSidePropsType } from "next";
 
-export async function getStaticProps() {
-  return { props: {} };
+export async function getServerSideProps() {
+  const client = initializeApollo();
+  const {
+    data: { courses },
+  } = await client.query<IGetCoursesData>({
+    query: GET_COURSES_NAME_AND_PICTURE,
+
+  });
+
+  return {
+    props: { courses },
+  };
 }
-
-export default function Home() {
+export default function Home({
+  courses,
+}: InferGetServerSidePropsType<typeof getServerSideProps>): JSX.Element {
   return (
     <>
       <Head>
         <title>DigiEssaouire | الرئيسية</title>
       </Head>
-      <Header isHero styles="bg-[url('/images/home-hero.jpg')]">
+      <Header isHero styles="bg-[url('/images/thumb1.jpg')]">
         <p className="text-5xl">كن مشاركا في التنمية</p>
         <p className="text-3xl text-center">
           تعرف على صناع القرار, قم بتطوير مهارات جديدة وساهم باقتراحاتك في
@@ -34,18 +50,16 @@ export default function Home() {
           title="أريد أن..."
           className="[&>div]:flex [&>div]:flex-col [&>div]:gap-y-16"
         >
-          <div className="flex gap-4 justify-center flex-wrap  [&>div]:min-w-[185px] [&>div]:max-w-[300px]  [&>div]:flex-1 ">
-            <div>
-              <LinkCard
-                title="ألتحق بمسار تدريبي"
-                linkProps={{
-                  href: routes.courses.path,
-                }}
-                imageProps={{
-                  src: "/images/iWant/courses.jpg",
-                  objectFit: "cover",
-                }}
-              />
+          <div className="grid sm:grid-cols-4 gap-3">
+            <div className="sm:col-span-2 sm:row-span-2">
+              <Link  href={routes.courses.path}>
+                <a className="flex flex-col gap-4 flex-1 h-full">
+                  <Image height={500} width={200} alt=""  src={"/images/thumb6.jpg"} />
+                  <div className="bg-primary text-white font-bold text-lg text-center py-5 px-3">
+                  ألتحق بمسار تدريبي
+                  </div>
+                </a>
+              </Link>
             </div>
             <div>
               <LinkCard
@@ -54,7 +68,7 @@ export default function Home() {
                   href: routes.electeds.path,
                 }}
                 imageProps={{
-                  src: "/images/iWant/vote.jpg",
+                  src: "/images/thumb4.jpg",
                 }}
               />
             </div>
@@ -65,7 +79,7 @@ export default function Home() {
                   href: routes.associations.path,
                 }}
                 imageProps={{
-                  src: "/images/iWant/puzzle.jpg",
+                  src: "/images/thumb5.jpg",
                 }}
               />
             </div>
@@ -76,7 +90,7 @@ export default function Home() {
                   href: routes.askQuestion.path,
                 }}
                 imageProps={{
-                  src: "/images/iWant/question-mark.png",
+                  src: "/images/thumb3.jpg",
                 }}
               />
             </div>
@@ -87,57 +101,41 @@ export default function Home() {
                   href: routes.contactUs.path,
                 }}
                 imageProps={{
-                  src: "/images/iWant/share-experience.jpg",
+                  src: "/images/thumb2.jpg",
                 }}
               />
             </div>
+
           </div>
         </Section>
-
         <Section
-          className="bg-gray-100 [&>div]:grid [&>div]:sm:grid-cols-2  [&>div]:gap-y-6 [&>div]:gap-x-10"
+          className="bg-gray-100 "
           title="تعرف على مساقاتنا التعليمية"
-          description="لوريم إيبسوم(Lorem Ipsum) هو ببساطة نص شكلي (بمعنى أن الغاية هي الشكل وليس المحتوى) ويُستخدم في صناعات المطابع ودور النشر. كان لوريم إيبسوم ولايزال المعيار للنص الشكلي منذ القرن الخامس عشر عندما قامت مطبعة مجهولة برص مجموعة من الأحرف بشكل عشوائي أخذتها من نص، لتكوّن كتيّب بمثابة دليل أو مرجع شكلي لهذه الأحرف. خمسة قرون من الزمن لم تقضي على هذا النص، بل انه حتى صار مستخدماً وبشكله الأصلي في الطباعة والتنضيد الإلكتروني."
         >
-          <Link href={routes.courses.path}>
-            <a className="primary-button">مساقاتنا التعليمية</a>
-          </Link>
-         
-          <iframe
-            src="https://www.youtube.com/embed/Do6pSo5JdLw"
-            className="row-start-2 sm:row-start-1 sm:row-end-4 sm:col-start-2 sm:self-center h-full w-full"
-          ></iframe>
-        </Section>
+          <div className="flex items-center flex-col sm:flex-row sm:flex-wrap gap-8 mt-8">
+            {courses?.slice(0, 3).map(({ id, name, pictureUrl }) => (
+              <div key={id} className="min-w-[180px]">
+                <Link href={{
+                  pathname: `${routes.courses.path}/${name}`,
+                  query: { courseId: id },
+                }}>
+                  <a className="relative">
+                    <Image height={200} width={350} alt="" className="backdrop-brightness-50" src={`/images/courses/${pictureUrl}`} />
+                    <div className=" font-bold text-lg text-center absolute bottom-5 right-2 text-white">
+                      {name}
+                    </div>
+                  </a>
+                </Link>
+              </div>
 
-        <Section
-          className="[&>div]:grid  [&>div]:gap-y-6 [&>div]:gap-x-10 [&>div]:sm:grid-cols-[280px_auto]"
-          title="من نحن؟"
-          description="وتتأسس فلسفة مشروع DIGI CITIZENSHIP على استثمار مميزات الفضاء الرقمي لأجل تمكين شباب إقليم الصويرة (حاحا والشياظمة) من أدوات المشاركة المواطنة؛ سواء المتعلقة بالتدريب وتقوية القدرات أو تلك المتعلقة بالتواصل مع صناع القرار إحقاقاً لمبدأ المشاركة الفاعلة والمواطنة خصوصاً في ظل المؤشرات الإيجابية التي تم تسجيلها خلال المحطة الانتخابية لثامن شتنبر 2021 والتي شهدت مشاركة مهمة للشباب.
-
-منصة DIGI CITIZENSHIP تنفتح أيضاً على مواضيع التنمية المستدامة والبيئة والتي تمس بشكل مباشر المعيش اليومي للشباب الصويري، وذلك في أفق توسيع دائرة استفادتهم ومشاركتهم في ذات الآن.
-
-وعليه، ينتظر من منصة DIGI CITIZENSHIP أن تشكل فضاء حاضناً لشباب الإقليم ويتيح لهم جميع الأدوات الكفيلة بتعزيز انخراطهم ومشاركتهم في جميع الأوراش الوطنية والمحلية والتي تقتضي إشراك الشباب.
-
-يوسف أسكور
-مدير مشروع منصة"
-        >
-          <Link href={routes.about.path}>
-            <a className="primary-button place-self-start"> المزيد ...</a>
-          </Link>
-          <div className={`sm:row-start-1 sm:row-end-4 row-start-2`}>
-            <Image
-              src="/images/Logo2.jpeg"
-              width="100%"
-              height="100%"
-              layout="responsive"
-              alt=""
-            />
+            ))}
           </div>
         </Section>
+
 
         <Section
           title="ماذا ستستفيد؟"
-          className="bg-gray-100  [&>div]:flex [&>div]:flex-col [&>div]:items-center  [&>div]:gap-y-10"
+          className=" [&>div]:flex [&>div]:flex-col [&>div]:items-center  [&>div]:gap-y-10"
         >
           <div className="flex flex-col w-full gap-x-4 gap-y-10 md:gap-x-10 items-center sm:flex-row">
             <BenefitItem
@@ -165,7 +163,7 @@ export default function Home() {
             <Swiper spaceBetween={0} slidesPerView={5} className="h-150">
               <SwiperSlide className="flex items-center justify-center">
                 <Image
-                  src="/images/partners/partner-1.jpeg"
+                  src="/images/partners/partner-1.jpg"
                   layout="fixed"
                   height={150}
                   width={150}
@@ -175,7 +173,7 @@ export default function Home() {
               </SwiperSlide>
               <SwiperSlide className="flex items-center justify-center">
                 <Image
-                  src="/images/partners/partner-2.png"
+                  src="/images/partners/partner-2.jpg"
                   layout="fixed"
                   height={150}
                   width={150}
@@ -185,7 +183,7 @@ export default function Home() {
               </SwiperSlide>
               <SwiperSlide className="flex items-center justify-center">
                 <Image
-                  src="/images/partners/partner-3.png"
+                  src="/images/partners/partner-3.jpg"
                   layout="fixed"
                   height={150}
                   width={150}
@@ -195,7 +193,7 @@ export default function Home() {
               </SwiperSlide>
               <SwiperSlide className="flex items-center justify-center">
                 <Image
-                  src="/images/partners/partner-4.png"
+                  src="/images/partners/partner-4.jpg"
                   layout="fixed"
                   height={150}
                   width={150}
@@ -205,7 +203,7 @@ export default function Home() {
               </SwiperSlide>
               <SwiperSlide className="flex items-center justify-center">
                 <Image
-                  src="/images/partners/partner-5.png"
+                  src="/images/partners/partner-5.jpg"
                   layout="fixed"
                   height={150}
                   width={150}
@@ -225,7 +223,7 @@ export default function Home() {
               </SwiperSlide>
               <SwiperSlide className="flex items-center justify-center">
                 <Image
-                  src="/images/partners/partner-7.png"
+                  src="/images/partners/partner-7.jpg"
                   layout="fixed"
                   height={150}
                   width={150}

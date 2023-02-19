@@ -7,7 +7,7 @@ if (!process.env.MONGODB_URI) {
 export async function connectToDatabase() {
   if (connection.readyState) return;
 
-  await mongoose.connect("mongodb://localhost:27017/digiessaouira" as string);
+  await mongoose.connect("mongodb://127.0.0.1:27017/digiEssaouira" as string);
 
   connection.on("open", () => console.log("Connected to database ✅"));
   connection.on("error", (error) =>
