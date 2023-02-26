@@ -5,6 +5,7 @@ import { initializeApollo } from "../../apolloClient";
 import { LOGIN } from "../../graphql/user/queries";
 import { decode } from "jsonwebtoken";
 import { useRouter } from "next/router";
+import Link from "next/link";
 
 const SigninSchema = Yup.object().shape({
   email: Yup.string()
@@ -81,12 +82,13 @@ export default function SignInForm() {
             <div className="flex justify-center  text-center text-gray-500 my-4">
               <span>
                 ليس لديك حساب؟
-                <a
-                  href="#"
-                  className="cursor-pointer  text-black border-b-2 border-gray-200 hover:border-primary hover:text-primary"
-                >
-                  اصنع واحدا
-                </a>{" "}
+                <Link href={"/signUp"}>
+                  <a
+                    href=""
+                    className="cursor-pointer  text-black border-b-2 border-gray-200 hover:border-primary hover:text-primary"
+                  >
+                    أنشئ حسابك                </a>
+                </Link>
               </span>
             </div>
             <button

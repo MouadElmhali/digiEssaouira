@@ -1,6 +1,9 @@
 import Image from "next/image";
+import { useRouter } from "next/router";
 
 export default function Footer(): JSX.Element {
+  const router = useRouter();
+
   return (
     <footer className="py-16 bg-gray-800 text-white text-2xl px-6">
       <div
@@ -9,10 +12,10 @@ export default function Footer(): JSX.Element {
         <div>
           <Image
             alt="digiEssaouira logo"
-            src="/images/logo3.jpeg"
+            src="/images/logo2.png"
             layout="fixed"
-            height="128"
-            width="128"
+            height="200"
+            width="250"
             objectFit="contain"
             objectPosition="top"
           />
@@ -21,7 +24,6 @@ export default function Footer(): JSX.Element {
           <p className="my-3 text-2xl font-bold">اتصل بنا</p>
           <p className="direction-left text-right text-xl">+2126 61 64 16 40</p>
           <p className="text-xl">contact@digiessaouira.com</p>
-          <p className="text-xl">الصويرة - المغرب</p>
         </div>
         <div>
           <p className="my-3 text-2xl font-bold"> تابعنا</p>
@@ -80,13 +82,15 @@ export default function Footer(): JSX.Element {
             </a>
           </div>
         </div>
-        <div className="flex flex-col gap-y-4">
-          <p>إشتراك النشرة الأخبارية</p>
-          <button className="bg-primary py-1 px-5 text-lg w-40">
+        <div className="flex flex-col float-left sm:mt-14 items-end">
+          <button className="bg-primary py-1 px-5 text-lg w-40" onClick={() => { router.push("/signUp") }}>
             إنشاء حساب
           </button>
-          <p className="text-base">جميع الحقوق محفوظة, الصويرة.2022</p>
         </div>
+      </div>
+      <div className="flex justify-between max-w-7xl mx-auto">
+        <p className="text-base">جميع الحقوق محفوظة, الصويرة.2022</p>
+        <p className="text-base"> الصويرة - المغرب</p>
       </div>
     </footer>
   );

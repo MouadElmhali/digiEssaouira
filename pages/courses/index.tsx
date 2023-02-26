@@ -7,6 +7,9 @@ import Section from "../../components/Section";
 import { routes } from "../../constants/routes";
 import { GET_COURSES_NAME_AND_PICTURE } from "../../graphql/courses/queries";
 import { IGetCoursesData } from "../../graphql/courses/types";
+import Link from "next/link";
+import Image from "next/image";
+
 
 export async function getServerSideProps() {
   const client = initializeApollo();
@@ -39,26 +42,25 @@ export default function Courses({
 
       <main>
         <Section>
-          <div className="flex flex-col sm:flex-row sm:flex-wrap gap-5">
+          <div className="grid grid-cols-1 sm:grid-cols-4 gap-5">
             {courses.map(({ id, name, pictureUrl }) => (
               <div key={id} className="min-w-[180px]">
-                <LinkCard
-                  title={name}
-                  linkProps={{
-                    href: {
-                      pathname: `${routes.courses.path}/${name}`,
-                      query: { courseId: id },
-                    },
-                  }}
-                  imageProps={{
-                    src: `/images/courses/${pictureUrl}`,
-                  }}
-                />
+                <Link href={{
+                  pathname: `${routes.courses.path}/${name}`,
+                  query: {courseId : id},
+                }}>
+                <a className="flex flex-col gap-4 flex-1 h-full">
+                  <Image height={200} width={300} className="object-fill" alt="" src={`/images/courses/${pictureUrl}`} />
+                  <div className="bg-primary text-white font-bold text-lg text-center py-5 px-3">
+                    {name}
+                  </div>
+                </a>
+              </Link>
               </div>
             ))}
-          </div>
-        </Section>
-      </main>
+        </div>
+      </Section>
+    </main >
     </>
   );
 }

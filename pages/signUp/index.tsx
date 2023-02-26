@@ -24,17 +24,17 @@ export default function SignIn(): JSX.Element {
         <div className="max-w-sm mx-auto px-6">
           <div className="relative flex flex-wrap">
             <div className="w-full relative">
-              <div className="mt-20">
+              <div className="mt-28">
                 <div className="mb-5 pb-1border-b-2 text-center font-base text-gray-700">
                   <Image
-                    src="/images/logo.png"
+                    src="/images/logo1.png"
                     alt="Logo"
-                    width={100}
+                    width={150}
                     height={80}
                     objectFit="cover"
                   />
                 </div>
-                <div className="text-center ">مرحبًا بعودتك</div>
+                <div className="text-center ">مرحبًا بك</div>
                 <SignUpForm />
               </div>
             </div>

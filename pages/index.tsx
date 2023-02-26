@@ -48,13 +48,13 @@ export default function Home({
       <main className="flex flex-col">
         <Section
           title="أريد أن..."
-          className="[&>div]:flex [&>div]:flex-col [&>div]:gap-y-16"
+          className="[&>div]:flex [&>div]:flex-col [&>div]:gap-y-16 -mt-12"
         >
           <div className="grid sm:grid-cols-4 gap-3">
             <div className="sm:col-span-2 sm:row-span-2">
               <Link  href={routes.courses.path}>
                 <a className="flex flex-col gap-4 flex-1 h-full">
-                  <Image height={500} width={200} alt=""  src={"/images/thumb6.jpg"} />
+                  <Image height={600} width={200} className="object-fill" alt=""  src={"/images/thumb6.jpg"} />
                   <div className="bg-primary text-white font-bold text-lg text-center py-5 px-3">
                   ألتحق بمسار تدريبي
                   </div>
@@ -112,7 +112,7 @@ export default function Home({
           className="bg-gray-100 "
           title="تعرف على مساقاتنا التعليمية"
         >
-          <div className="flex items-center flex-col sm:flex-row sm:flex-wrap gap-8 mt-8">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 mt-8">
             {courses?.slice(0, 3).map(({ id, name, pictureUrl }) => (
               <div key={id} className="min-w-[180px]">
                 <Link href={{
@@ -120,8 +120,8 @@ export default function Home({
                   query: { courseId: id },
                 }}>
                   <a className="relative">
-                    <Image height={200} width={350} alt="" className="backdrop-brightness-50" src={`/images/courses/${pictureUrl}`} />
-                    <div className=" font-bold text-lg text-center absolute bottom-5 right-2 text-white">
+                    <Image height={250} width={400} alt="" className="backdrop-brightness-50" src={`/images/courses/${pictureUrl}`} />
+                    <div className=" font-bold text-lg text-center absolute bottom-8 right-5 text-white">
                       {name}
                     </div>
                   </a>

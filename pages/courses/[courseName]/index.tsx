@@ -37,11 +37,13 @@ export default function Course({
 }: InferGetServerSidePropsType<typeof getServerSideProps>): JSX.Element {
   const verifyToken = getCurrentUser();
   return (
-    <main className="mt-36 p-8 grid gap-8 sm:grid-cols-2">
-      <video
-        src="/videos/Spaceman-Jellyfish.mp4"
-        className="sm:col-span-full"
-      ></video>
+    <main className="mt-36 p-8 grid gap-8 sm:grid-cols-2 ">
+      <div className="flex justify-center sm:col-span-2">
+        <video
+          src="/videos/Spaceman-Jellyfish.mp4"
+          className="sm:col-span-full mt-10 sm:max-w-5xl"
+        ></video>
+      </div>
       <div className="col-span-full flex justify-center">
         {verifyToken ? (
           <Link
@@ -51,7 +53,7 @@ export default function Course({
             }}
           >
             <a>
-              <div className="flex gap-x-4 items-center bg-primary/30 py-2 px-4  rounded-tr-xl rounded-bl-xl hover:outline-primary hover:outline-2 hover:outline-dashed font-bold">
+              <div className="flex gap-x-4 items-center bg-primary/30 py-2 px-4    hover:outline-primary hover:outline-2 hover:outline-dashed font-bold">
                 ابدأ الدورة
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -72,7 +74,7 @@ export default function Course({
         ) : (
           <Link href={"/signIn"}>
             <a>
-              <div className="flex gap-x-4 items-center bg-primary/30 py-2 px-4  rounded-tr-xl rounded-bl-xl hover:outline-primary hover:outline-2 hover:outline-dashed font-bold">
+              <div className="flex gap-x-4 items-center text-white text-2xl bg-primary py-4 px-11  hover:outline-primary hover:outline-2 hover:outline-dashed font-bold">
                 ابدأ الدورة
                 <svg
                   xmlns="http://www.w3.org/2000/svg"

@@ -19,8 +19,8 @@ export default function LinkCard({
   return (
     <Link {...linkProps}>
       <a className="flex flex-col gap-4 flex-1 h-full">
-        <Image height={200} width={200} alt="" {...imageProps} />
-        <div className="bg-primary text-white font-bold text-lg text-center py-5 px-3">
+        <Image height={250} width={200} alt="" className="h-[75%]" {...imageProps} />
+        <div className="bg-primary text-white h-[25%] font-bold text-lg text-center py-5 px-3">
           {customizedTitle ? customizedTitle : <>{title}</>}
         </div>
       </a>

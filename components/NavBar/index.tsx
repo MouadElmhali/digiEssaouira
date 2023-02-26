@@ -28,7 +28,8 @@ export default function NavBar(): JSX.Element {
           <Link href={routes.resources.path}>
             <a className="ml-5">دليل الموارد الرقمية</a>
           </Link>
-          <Link href={routes.privacyPolicy.path}> دليل استعمال منصة</Link>
+          <Link href={routes.privacyPolicy.path} ><a className="ml-5">دليل استعمال منصة</a></Link>
+          <Link href={"#"}>  خريجي digiessaouira</Link>
         </div>
         <Link href={routes.contactUs.path}> تواصلو معنا</Link>
       </div>
@@ -41,7 +42,7 @@ export default function NavBar(): JSX.Element {
           <Link href={routes.home.path}>
             <a>
               <Image
-                src="/images/Logo2.jpeg"
+                src="/images/Logo1.png"
                 height="100"
                 width="100"
                 alt="DigiEssaouira logo"
@@ -85,6 +86,14 @@ export default function NavBar(): JSX.Element {
                     cursor-pointer transition-colors duration-300"
             >
               تعرف على النسيج الجمعوي
+            </a>
+          </Link>
+          <Link href={routes.map.path}>
+            <a
+              className=" hover:text-blue-500 
+                    cursor-pointer transition-colors duration-300"
+            >
+              الخريطة التفاعلية
             </a>
           </Link>
         </div>

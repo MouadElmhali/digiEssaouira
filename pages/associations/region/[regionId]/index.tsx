@@ -52,7 +52,7 @@ export default function Associations({
       <main className="mt-20">
         <Section className="py-20">
           <div className="flex flex-col gap-y-12">
-            <h2 className="text-primaryDarker text-3xl text-center font-bold">
+            <h2 className="text-primaryDarker text-5xl text-center font-bold">
               {name}
             </h2>
             <div className="grid gap-3 gap-y-8 md:grid-cols-4">

@@ -18,6 +18,8 @@ import { ResourcesResolver } from "../../src/digitalResource/resources.resolver"
 import { UserResolver } from "../../src/user/user.resolver";
 import { AccountResolver } from "../../src/account/account.resolver";
 import { AskQuestionResolver } from "../../src/askQuestion/askQuestion.resolver";
+import { GraduatesResolver } from "../../src/graduates/graduates.resolver";
+
 
 const schema = await buildSchema({
   resolvers: [
@@ -33,6 +35,7 @@ const schema = await buildSchema({
     UserResolver,
     AccountResolver,
     AskQuestionResolver,
+    GraduatesResolver,
   ],
   container: Container,
 });

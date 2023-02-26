@@ -57,4 +57,12 @@ export const routes: IRouteRecord = Object.freeze({
     name: "privacyPolicy",
     path: "/privacyPolicy",
   }),
+  map: Object.freeze({
+    name: "map",
+    path: "/map",
+  }),
+  graduates: Object.freeze({
+    name: "graduates",
+    path: "/graduates",
+  }),
 });
