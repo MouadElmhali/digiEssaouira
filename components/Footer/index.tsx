@@ -7,7 +7,7 @@ export default function Footer(): JSX.Element {
   return (
     <footer className="py-16 bg-gray-800 text-white text-2xl px-6">
       <div
-        className={`max-w-7xl mx-auto flex  gap-20  flex-wrap lg:justify-between lg:flex-nowrap [&>div]:flex-1 `}
+        className={`max-w-7xl mx-auto flex justify-center gap-20  flex-wrap lg:justify-between lg:flex-nowrap [&>div]:flex-1 `}
       >
         <div>
           <Image

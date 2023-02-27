@@ -14,6 +14,7 @@ export const sectionSchema = new Schema<ISection>({
 
 export interface ICourse {
   name: string;
+  video: string;
   description: string;
   pictureUrl: string;
   sections: ISection[];
@@ -23,6 +24,7 @@ export interface ICourse {
 
 const courseSchema = new Schema<ICourse>({
   name: { type: String, required: true },
+  video: { type: String, required: true },
   description: { type: String, required: true },
   pictureUrl: { type: String, required: true },
   sections: {

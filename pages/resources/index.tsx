@@ -29,7 +29,7 @@ export default function Resources({ resources }: any): JSX.Element {
         isHero
         styles="bg-[url('/images/pdf-hero.jpg')] after:bg-black/40"
       >
-        <h1 className="text-7xl">دليل الموارد الرقمية</h1>
+        <h1 className="text-7xl text-center">دليل الموارد الرقمية</h1>
       </Header>
       <main>
         <Section className="py-20">

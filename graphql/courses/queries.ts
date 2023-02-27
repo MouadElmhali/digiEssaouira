@@ -15,6 +15,7 @@ export const GET_COURSE_BY_ID = gql`
     course(args: $args) {
       id
       name
+      video
       pictureUrl
       description
       sections {

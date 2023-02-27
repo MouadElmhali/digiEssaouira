@@ -23,13 +23,13 @@ export default function NavBar(): JSX.Element {
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-10">
-      <div className="bg-primary h-10 flex justify-around items-center text-white">
+      <div className="bg-primary hidden  h-10 sm:flex justify-around items-center text-white">
         <div>
           <Link href={routes.resources.path}>
             <a className="ml-5">دليل الموارد الرقمية</a>
           </Link>
           <Link href={routes.privacyPolicy.path} ><a className="ml-5">دليل استعمال منصة</a></Link>
-          <Link href={"#"}>  خريجي digiessaouira</Link>
+          <Link href={routes.graduates.path}>  خريجي digiessaouira</Link>
         </div>
         <Link href={routes.contactUs.path}> تواصلو معنا</Link>
       </div>
@@ -52,7 +52,7 @@ export default function NavBar(): JSX.Element {
           </Link>
         </div>
 
-        <div className="items-center hidden space-x-8 lg:flex">
+        <div className="items-center hidden space-x-8 sm:flex">
           <Link href={routes.home.path}>
             <a
               className="ml-8 hover:text-blue-500 
@@ -99,7 +99,7 @@ export default function NavBar(): JSX.Element {
         </div>
 
         {currentUser ? (
-          <div className="items-center hidden lg:flex">
+          <div className="items-center hidden sm:flex">
             <Image
               src="/images/avatar.jpg"
               height="50"
@@ -197,6 +197,16 @@ export default function NavBar(): JSX.Element {
                 تعرف على النسيج الجمعوي
               </a>
             </Link>
+            <Link href={routes.resources.path}      className=" hover:text-blue-500 
+                    cursor-pointer transition-colors duration-300">
+              <a className="ml-5">دليل الموارد الرقمية</a>
+            </Link>
+            <Link href={routes.privacyPolicy.path}      className=" hover:text-blue-500 
+                    cursor-pointer transition-colors duration-300"><a className="ml-5">دليل استعمال منصة</a></Link>
+            <Link href={routes.graduates.path}      className=" hover:text-blue-500 
+                    cursor-pointer transition-colors duration-300">  خريجي digiessaouira</Link>
+            <Link href={routes.contactUs.path}      className=" hover:text-blue-500 
+                    cursor-pointer transition-colors duration-300"> تواصلو معنا</Link>
             {currentUser ? (
               <div className="items-center hidden lg:flex">
                 <Image

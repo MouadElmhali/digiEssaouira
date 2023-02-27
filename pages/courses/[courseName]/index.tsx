@@ -14,6 +14,7 @@ import { qAndA } from "../../../data/q-and-a";
 import Link from "next/link";
 import { routes } from "../../../constants/routes";
 import { getCurrentUser } from "../../../components/utils/index";
+import YouTube from "react-youtube";
 
 interface IQuery extends ParsedUrlQuery {
   courseId: string;
@@ -33,16 +34,31 @@ export async function getServerSideProps({ query }: GetServerSidePropsContext) {
 }
 
 export default function Course({
-  course: { description, sections, instructor, name, id },
+  course: { description, sections, instructor, video, name, id },
 }: InferGetServerSidePropsType<typeof getServerSideProps>): JSX.Element {
   const verifyToken = getCurrentUser();
+  const youtube_parser = (url: string): any => {
+    var regExp =
+      /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#&?]*).*/;
+    var match = url.match(regExp);
+    return match && match[7].length == 11 ? match[7] : false;
+  };
+  const opts = {
+    height: "100%",
+    width: "100%",
+    playerVars: {
+      autoplay: 1,
+    },
+  };
+
   return (
-    <main className="mt-36 p-8 grid gap-8 sm:grid-cols-2 ">
-      <div className="flex justify-center sm:col-span-2">
-        <video
-          src="/videos/Spaceman-Jellyfish.mp4"
-          className="sm:col-span-full mt-10 sm:max-w-5xl"
-        ></video>
+    <main className="mt-28 sm:mt-36 p-8 grid gap-8 sm:grid-cols-2 ">
+      <div className="flex justify-center sm:col-span-2 ">
+        <YouTube
+          videoId={youtube_parser(video)}
+          opts={opts}
+          className="w-full sm:w-3/4 h-56 sm:h-[500px] mt-10"
+        />
       </div>
       <div className="col-span-full flex justify-center">
         {verifyToken ? (
@@ -133,7 +149,7 @@ export default function Course({
           />
           <div className="text-primaryDarker flex flex-col self-center gap-y-2">
             <p className="text-lg">
-              {nameWithTitle(instructor?.firstName, instructor?.lastName, "D")}
+              {nameWithTitle(instructor?.firstName, instructor?.lastName)}
             </p>
             <p className="font-bold text-sm">{instructor?.post?.name}</p>
           </div>

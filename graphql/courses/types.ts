@@ -4,6 +4,7 @@ import { IInstructor } from "../instructor/types";
 export interface ICourse {
   id: string;
   name: string;
+  video: string;
   description: string;
   pictureUrl: string;
   sections: ISection[];

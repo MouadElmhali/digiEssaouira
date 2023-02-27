@@ -54,7 +54,7 @@ export default function Home({
             <div className="sm:col-span-2 sm:row-span-2">
               <Link  href={routes.courses.path}>
                 <a className="flex flex-col gap-4 flex-1 h-full">
-                  <Image height={600} width={200} className="object-fill" alt=""  src={"/images/thumb6.jpg"} />
+                  <img  src={"/images/thumb6.jpg"} alt="" className="sm:h-[650px] object-fill" />
                   <div className="bg-primary text-white font-bold text-lg text-center py-5 px-3">
                   ألتحق بمسار تدريبي
                   </div>

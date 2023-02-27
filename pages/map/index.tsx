@@ -19,7 +19,7 @@ export default function Test() {
     };
     return (
         <div className="flex flex-col items-center bg-primary">
-            <h1 className="text-center text-white text-2xl mt-48">خريطة تفاعلية</h1>
+            <h1 className="text-center text-white text-4xl mt-48">خريطة تفاعلية</h1>
             <svg
                 xmlns="http://www.w3.org/2000/svg"
                 id="Layer_1"
@@ -30,7 +30,7 @@ export default function Test() {
                     enableBackground: "new 0 0 397.2 715.2",
                 }}
                 xmlSpace="preserve"
-                height={550}
+                height={650}
                 className="mt-10 mb-4"
                 onClick={handleSVGClick}
 

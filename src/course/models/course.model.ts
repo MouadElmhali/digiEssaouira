@@ -20,6 +20,9 @@ export class Course {
   name!: string;
 
   @Field({ nullable: false })
+  video!: string;
+
+  @Field({ nullable: false })
   description!: string;
 
   @Field({ nullable: false })
