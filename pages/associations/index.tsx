@@ -36,7 +36,7 @@ export default function Regions({
       <main>
         <Section className="py-20">
           <h1 className="text-primaryDarker text-center text-4xl mb-10 ">
-            تعرف على النسيج الجمعوي
+          قاعدة البيانات الموحدة لجمعيات المجتمع المدني           
           </h1>
           <div className="flex flex-col gap-y-28">
             {

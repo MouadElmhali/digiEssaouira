@@ -120,7 +120,7 @@ export default function Quiz({
       </Head>
 
       {toggle ? (
-        <main className="mt-32 py-10 px-5 flex flex-col gap-y-5">
+        <main className="mt-44 py-10 px-5 flex flex-col gap-y-5">
           <div className="flex flex-col items-center">
             <div className="flex flex-col gap-1 items-center w-5/6 sm:w-1/2 [&>*]:w-full">
               <span className="text-primary text-center font-bold text-sm ">
@@ -159,11 +159,10 @@ export default function Quiz({
                     )
                   }
                 >
-                  {`${
-                    currentQuestion === questions.length
+                  {`${currentQuestion === questions.length
                       ? "انهاء"
                       : "السؤال التالي"
-                  }`}
+                    }`}
                   <span className="leading-[0] text-4xl">&#8592;</span>
                 </button>
               </div>
@@ -173,18 +172,17 @@ export default function Quiz({
             {questions.map(({ id }, index) => (
               <li
                 key={id}
-                className={`h-2 flex-1 rounded-full ${
-                  index + 1 <= currentQuestion ? "bg-primary" : "bg-gray-200"
-                }`}
+                className={`h-2 flex-1 rounded-full ${index + 1 <= currentQuestion ? "bg-primary" : "bg-gray-200"
+                  }`}
               />
             ))}
           </ul>
         </main>
       ) : (
-        <div className="mt-32 py-10 px-5 w-full flex flex-col items-center">
+        <div className="mt-44 py-10 px-5 w-full flex flex-col items-center">
           <div className="text-center text-2xl">
             <h1>آسف ، أنت فقط حصلت على نتيجة %{calculateResult(answers)}</h1>
-            <h1 className="font-bold"> &quot {courseName} &quot</h1>
+            <h1 className="font-bold">  {courseName} </h1>
           </div>
           <Image
             src="/images/certification.png"
@@ -199,9 +197,10 @@ export default function Quiz({
               query: { courseId },
             }}
           >
-            <button className="bg-primary rounded text-white p-3">
+            <a className="bg-primary rounded text-white p-3"
+            >
               العودة إلى المسار تدريبي
-            </button>
+            </a>
           </Link>
         </div>
       )}

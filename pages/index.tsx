@@ -15,6 +15,7 @@ import { GET_COURSES_NAME_AND_PICTURE } from "../graphql/courses/queries";
 import { initializeApollo } from "../apolloClient";
 import { IGetCoursesData } from "../graphql/courses/types";
 import { InferGetServerSidePropsType } from "next";
+import { useRouter } from "next/router";
 
 export async function getServerSideProps() {
   const client = initializeApollo();
@@ -32,6 +33,7 @@ export async function getServerSideProps() {
 export default function Home({
   courses,
 }: InferGetServerSidePropsType<typeof getServerSideProps>): JSX.Element {
+  const router = useRouter();
   return (
     <>
       <Head>
@@ -43,7 +45,9 @@ export default function Home({
           تعرف على صناع القرار, قم بتطوير مهارات جديدة وساهم باقتراحاتك في
           التنمية المحلية
         </p>
-        <button className="primary-button">اكتشف البرامج</button>
+        <button className="primary-button" onClick={()=>{
+          router.push("/courses")
+        }}>اكتشف البرامج</button>
       </Header>
       <main className="flex flex-col">
         <Section
@@ -153,7 +157,7 @@ export default function Home({
           </div>
         </Section>
 
-        <InteractiveMap />
+        {/* <InteractiveMap /> */}
 
         <Section
           className="[&>div>h2]:text-primary [&>div]:items-center [&>div]:flex [&>div]:flex-col  [&>div]:gap-y-16"

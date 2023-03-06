@@ -42,7 +42,7 @@ export default function NavBar(): JSX.Element {
           <Link href={routes.home.path}>
             <a>
               <Image
-                src="/images/Logo1.png"
+                src="/images/logo1.png"
                 height="100"
                 width="100"
                 alt="DigiEssaouira logo"
@@ -197,15 +197,15 @@ export default function NavBar(): JSX.Element {
                 تعرف على النسيج الجمعوي
               </a>
             </Link>
-            <Link href={routes.resources.path}      className=" hover:text-blue-500 
+            <Link href={routes.resources.path} className=" hover:text-blue-500 
                     cursor-pointer transition-colors duration-300">
               <a className="ml-5">دليل الموارد الرقمية</a>
             </Link>
-            <Link href={routes.privacyPolicy.path}      className=" hover:text-blue-500 
+            <Link href={routes.privacyPolicy.path} className=" hover:text-blue-500 
                     cursor-pointer transition-colors duration-300"><a className="ml-5">دليل استعمال منصة</a></Link>
-            <Link href={routes.graduates.path}      className=" hover:text-blue-500 
+            <Link href={routes.graduates.path} className=" hover:text-blue-500 
                     cursor-pointer transition-colors duration-300">  خريجي digiessaouira</Link>
-            <Link href={routes.contactUs.path}      className=" hover:text-blue-500 
+            <Link href={routes.contactUs.path} className=" hover:text-blue-500 
                     cursor-pointer transition-colors duration-300"> تواصلو معنا</Link>
             {currentUser ? (
               <div className="items-center hidden lg:flex">
