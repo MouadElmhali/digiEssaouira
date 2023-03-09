@@ -48,6 +48,7 @@ export default function Home({
         <button className="primary-button" onClick={()=>{
           router.push("/courses")
         }}>اكتشف البرامج</button>
+        
       </Header>
       <main className="flex flex-col">
         <Section

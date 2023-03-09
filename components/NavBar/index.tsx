@@ -34,7 +34,7 @@ export default function NavBar(): JSX.Element {
         <Link href={routes.contactUs.path}> تواصلو معنا</Link>
       </div>
       <div
-        className="flex px-8 justify-between md:justify-around py-4 bg-white md:bg-white/80
+        className="flex px-8 justify-between md:justify-around py-2 bg-white md:bg-white/80
             md:backdrop-blur-md shadow-md w-full
             "
       >
