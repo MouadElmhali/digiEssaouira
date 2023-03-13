@@ -8,9 +8,34 @@
 
 :root {
   --color-white: white;
-  --primary-color: #2596be;
+  --primary-color: #1ebde3;
   --primary-color-dark: #36a1bb;
   --primary-color-darker: #427888;
+}
+
+.text-blue {
+  color: #36A1BB;
+}
+
+.text-red {
+  color: #E94921;
+}
+
+.text-black {
+  color: #303031;
+}
+
+
+.bg-blue {
+  background-color: #36A1BB;
+}
+
+.bg-red {
+  background-color: #E94921;
+}
+
+.bg-black {
+  background-color: #303031;
 }
 
 @font-face {
