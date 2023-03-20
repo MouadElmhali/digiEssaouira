@@ -5,6 +5,7 @@ interface SectionProps {
   description?: string;
   children: ReactNode;
   className?: string;
+  childrenClassName?: string;
 }
 
 export default function Section({
@@ -12,6 +13,7 @@ export default function Section({
   description,
   children,
   className,
+  childrenClassName,
 }: SectionProps): JSX.Element {
   return (
     <section className={`${className} [&>div]:py-10 mt-10`}>
@@ -26,7 +28,7 @@ export default function Section({
         {description && (
           <p className="text-xl text-blue font-bold">{description}</p>
         )}
-        <div className="mx-52">
+        <div className={childrenClassName ?? "md:mx-52"}>
           {children}
         </div>
       </div>

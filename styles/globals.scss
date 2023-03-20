@@ -25,6 +25,10 @@
   color: #303031;
 }
 
+.bg-blue-gradient { 
+  background: rgb(18,131,158);
+  background: linear-gradient(90deg, rgba(18,131,158,1) 0%, rgba(18,199,243,1) 100%);
+}
 
 .bg-blue {
   background-color: #36A1BB;
