@@ -5,7 +5,7 @@ export default function Footer(): JSX.Element {
   const router = useRouter();
 
   return (
-    <footer className="py-16 bg-gray-800 text-white text-2xl px-6">
+    <footer className="py-8 bg-black text-white text-2xl px-6 ">
       <div
         className={`max-w-7xl mx-auto flex justify-center gap-20  flex-wrap lg:justify-between lg:flex-nowrap [&>div]:flex-1 `}
       >
@@ -14,7 +14,7 @@ export default function Footer(): JSX.Element {
             alt="digiEssaouira logo"
             src="/images/logo2.png"
             layout="fixed"
-            height="200"
+            height="80"
             width="250"
             objectFit="contain"
             objectPosition="top"
@@ -83,7 +83,7 @@ export default function Footer(): JSX.Element {
           </div>
         </div>
         <div className="flex flex-col float-left sm:mt-14 items-end">
-          <button className="bg-primary py-1 px-5 text-lg w-40" onClick={() => { router.push("/signUp") }}>
+          <button className="bg-blue-500 py-1 px-5 text-lg w-40" onClick={() => { router.push("/signUp") }}>
             إنشاء حساب
           </button>
         </div>

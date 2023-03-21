@@ -1,17 +1,18 @@
 import { Schema, model, models, Types } from "mongoose";
 import { schemasNames } from "../../constants";
 
-interface IPost {
+interface IPosts {
   name: string;
   pictureUrl: string;
 }
 
-const postSchema = new Schema<IPost>({
+const postsSchema = new Schema<IPosts>({
   name: { type: String, required: true },
   pictureUrl: { type: String, required: true },
 });
 
-postSchema.set("timestamps", { createdAt: true, updatedAt: true });
+postsSchema.set("timestamps", { createdAt: true, updatedAt: true });
 
-export const postModel =
-  models.Post || model<IPost>(schemasNames.post, postSchema);
+export const postsModel =
+  models.Posts ||
+  model<IPosts>(schemasNames.posts, postsSchema);

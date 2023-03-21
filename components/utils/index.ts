@@ -13,3 +13,8 @@ export function logOut() {
     localStorage.removeItem("user");
   }
 }
+
+export function arabicOrder(n: any) {
+  const order = ["الأول", "الثاني", "الثالث"]
+  return order[n];
+}

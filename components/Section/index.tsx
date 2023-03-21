@@ -5,6 +5,7 @@ interface SectionProps {
   description?: string;
   children: ReactNode;
   className?: string;
+  childrenClassName?: string;
 }
 
 export default function Section({
@@ -12,19 +13,24 @@ export default function Section({
   description,
   children,
   className,
+  childrenClassName,
 }: SectionProps): JSX.Element {
   return (
-    <section className={`${className} [&>div]:py-20`}>
-      <div className="max-w-7xl mx-auto px-6">
+    <section className={`${className} [&>div]:py-10 mt-10`}>
+      <div className="flex flex-row">
         {title && (
-          <h2 className="text-4xl text-primaryDarker font-bold text-center sm:text-right">
-            {title}
-          </h2>
+          
+            <div className="flex flex-row items-center gap-2">
+              <div className="sm:w-5 md:w-60 h-px bg-black"></div>
+              <h2 className="text-2xl font-bold text-blue">{title}</h2>
+            </div>
         )}
         {description && (
-          <p className="text-xl text-gray-400 font-bold">{description}</p>
+          <p className="text-xl text-blue font-bold">{description}</p>
         )}
-        {children}
+        <div className={childrenClassName ?? "md:mx-52"}>
+          {children}
+        </div>
       </div>
     </section>
   );

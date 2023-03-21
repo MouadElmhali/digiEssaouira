@@ -1,7 +1,7 @@
 import { ObjectType, ID, Field } from "type-graphql";
 
 @ObjectType()
-export class Post {
+export class Posts {
   @Field((type) => ID!, { nullable: false })
   id!: string;
 
@@ -10,4 +10,5 @@ export class Post {
 
   @Field({ nullable: false })
   pictureUrl!: string;
+
 }

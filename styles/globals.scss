@@ -13,6 +13,35 @@
   --primary-color-darker: #427888;
 }
 
+.text-blue {
+  color: #36A1BB;
+}
+
+.text-red {
+  color: #E94921;
+}
+
+.text-black {
+  color: #303031;
+}
+
+.bg-blue-gradient { 
+  background: rgb(18,131,158);
+  background: linear-gradient(90deg, rgba(18,131,158,1) 0%, rgba(18,199,243,1) 100%);
+}
+
+.bg-blue {
+  background-color: #36A1BB;
+}
+
+.bg-red {
+  background-color: #E94921;
+}
+
+.bg-black {
+  background-color: #303031;
+}
+
 @font-face {
   font-family: "Cairo";
   src: url("../public/fonts/Cairo/Cairo-Regular.ttf");
