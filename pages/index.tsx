@@ -282,25 +282,28 @@ export default function Home({
 
             
             </div>
+            {getGraduates.length > 0 ? 
             
-            <div className="flex flex-row items-center gap-x-5">
-              <button onClick={() => {
-                setGraduatesCounter( graduatesCounter === 0 ? 3 - 1 : graduatesCounter - 1);
-              }}>
-                <p className="text-bold text-2xl text-blue">{"<"}</p>
-              </button>
-              <div className="ease-in-out flex flex-col items-center bg-blue shadow-2xl overflow-hidden h-80 w-44">
-                <img src={"/images/graduates/" + getGraduates[graduatesCounter].pictureUrl} alt="img" className="h-72 object-cover"/>
-                <div className="py-4 px-4">
-                  <p className="text-bold text-xl text-white">{getGraduates[graduatesCounter].name}</p>
+              <div className="flex flex-row items-center gap-x-5">
+                <button onClick={() => {
+                  setGraduatesCounter( graduatesCounter === 0 ? 3 - 1 : graduatesCounter - 1);
+                }}>
+                  <p className="text-bold text-2xl text-blue">{"<"}</p>
+                </button>
+                <div className="ease-in-out flex flex-col items-center bg-blue shadow-2xl overflow-hidden h-80 w-44">
+                  <img src={"/images/graduates/" + getGraduates[graduatesCounter]?.pictureUrl} alt="img" className="h-72 object-cover"/>
+                  <div className="py-4 px-4">
+                    <p className="text-bold text-xl text-white">{getGraduates[graduatesCounter]?.name}</p>
+                  </div>
                 </div>
+                <button onClick={() => {
+                  setGraduatesCounter(graduatesCounter === 3 ? 0 : graduatesCounter + 1);
+                }}>
+                  <p className="text-bold text-2xl text-blue">{">"}</p>
+                </button>
               </div>
-              <button onClick={() => {
-                setGraduatesCounter(graduatesCounter === 3 ? 0 : graduatesCounter + 1);
-              }}>
-                <p className="text-bold text-2xl text-blue">{">"}</p>
-              </button>
-            </div>
+            
+            : <></> }
           
           </div>
 
