@@ -295,7 +295,7 @@ export default function Home({
           <Section
             childrenClassName=""
             className="[&>div>h2]:text-primary  [&>div]:flex [&>div]:flex-col  [&>div]:gap-y-16 "
-            title="فضاء الشباب"
+            title="المقالات"
           >
             <div
               className="flex lg:flex-row flex-col  justify-center items-center gap-x-10 gap-y-5 bg-blue-gradient md:px-52 md:pt-16"
