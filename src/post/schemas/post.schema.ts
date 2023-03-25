@@ -8,7 +8,6 @@ interface IPost {
 
 const postSchema = new Schema<IPost>({
   name: { type: String, required: true },
-  pictureUrl: { type: String, required: true },
 });
 
 postSchema.set("timestamps", { createdAt: true, updatedAt: true });

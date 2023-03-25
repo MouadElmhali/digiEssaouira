@@ -28,8 +28,6 @@ export default function SignInForm() {
     });
     if (data) {
       localStorage.setItem("user", JSON.stringify(data.login));
-      console.log(decode(data.login));
-
       document.location.href = "/";
     } else {
       setToggle(true);

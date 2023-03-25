@@ -88,11 +88,7 @@ export default function Course({
             </a>
           </Link>
         ) : (
-          <Link href={{
-            pathname: routes.course.makePath?.(name),
-            query: { courseId: id },
-          }} 
-          >
+          <Link href={"/signIn"} >
             <a>
               <div className="flex gap-x-4 items-center text-white text-2xl bg-primary py-4 px-11  hover:outline-primary hover:outline-2 hover:outline-dashed font-bold">
                 ابدأ الدورة

@@ -24,6 +24,7 @@ import { GET_GRADUATES } from "../graphql/graduates/queries";
 import { GET_RESOURCES } from '../graphql/resources/queries';
 import { GET_POSTS } from '../graphql/post/queries';
 import { useQuery } from '@apollo/client';
+import { GET_ARTICLES } from '../graphql/article/queries';
 
 export async function getServerSideProps() {
   const client = initializeApollo();
@@ -48,9 +49,9 @@ export async function getServerSideProps() {
   });
 
   const {
-    data: { posts },
+    data: { articles },
   } = await client.query({
-    query: GET_POSTS,
+    query: GET_ARTICLES,
   });
 
  
@@ -58,14 +59,14 @@ export async function getServerSideProps() {
 
 
   return {
-    props: { courses, getGraduates, resources, posts },
+    props: { courses, getGraduates, resources, articles },
   };
 }
 export default function Home({
   courses,
   getGraduates,
   resources,
-  posts
+  articles
 }: InferGetServerSidePropsType<typeof getServerSideProps>): JSX.Element {
   
   const [graduatesCounter, setGraduatesCounter] = React.useState(0);
@@ -290,7 +291,7 @@ export default function Home({
                 <p className="text-bold text-2xl text-blue">{"<"}</p>
               </button>
               <div className="ease-in-out flex flex-col items-center bg-blue shadow-2xl overflow-hidden h-80 w-44">
-                <img src={"/images/graduates/" + getGraduates[graduatesCounter].pictureUrl} alt="img" className="h-72 object-cover"/>
+                <img src={"/images/graduates/" + getGraduates[graduatesCounter]?.pictureUrl} alt="img" className="h-72 object-cover"/>
                 <div className="py-4 px-4">
                   <p className="text-bold text-xl text-white">{getGraduates[graduatesCounter].name}</p>
                 </div>
@@ -310,22 +311,22 @@ export default function Home({
         
         
         
-        {posts.length > 0 ? 
+        {articles.length > 0 ? 
           <Section
             childrenClassName = ""
             className="[&>div>h2]:text-primary  [&>div]:flex [&>div]:flex-col  [&>div]:gap-y-16 "
-            title="المقالاة"
+            title="المقالات"
           >
             <div 
               className="flex lg:flex-row flex-col  justify-center items-center gap-x-10 gap-y-5 bg-blue-gradient md:px-52 md:pt-16"
             >
-              {posts.slice(posts.length - 3, posts.length ).map(({id, name, pictureUrl}: any) => {
+              {articles.slice(articles.length - 3, articles.length ).map(({id, title, pictureUrl}: any) => {
                 return (
                   <div
                     key={id}
                     className="flex flex-col justify-center items-center"
                   >
-                    <img src={"/images/posts/" + pictureUrl} alt="Article" className='w-72 object-cover' />
+                    <img src={"/images/articles/" + pictureUrl} alt="Article" className='w-72 object-cover' />
                     <button
                       onClick={() => {
                         router.push("/posts/" + id)
@@ -333,8 +334,7 @@ export default function Home({
                       className=" bg-white text-blue font-bold text-2xl text-center py-5 relative -top-12 w-64 md:w-96 shadow-xl"
                     >
                       <p 
-                        className="hover:animate-bounce"
-                      >{name}</p>
+                      >{title}</p>
                     </button>
                   </div>
                 )

@@ -27,7 +27,7 @@ export async function getServerSideProps() {
     };
 }
 
-export default function Courses({
+export default function Graduates({
     getGraduates
 }: InferGetServerSidePropsType<typeof getServerSideProps>): JSX.Element {
     return (
@@ -45,7 +45,7 @@ export default function Courses({
                                     pathname: `${routes.graduates.path}/${id}`,
                                 }}>
                                     <a className="flex flex-col gap-4 flex-1 h-full">
-                                        <Image height={300} width={400} className="object-fill" alt="" src={`/images/graduates/${pictureUrl}`} />
+                                    <Image height={400} width={400} className="object-fill" alt="" src={`/images/graduates/${pictureUrl}`} />
                                         <div className="bg-primary text-white font-bold text-lg text-center py-5 px-3">
                                             {name} <br />
                                             {post}
