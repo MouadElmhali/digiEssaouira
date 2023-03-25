@@ -266,19 +266,16 @@ export default function Home({
             </div>
             {getGraduates.length > 0 ? 
             
-              <div className="flex flex-row items-center gap-x-5">
-                <button onClick={() => {
-                  setGraduatesCounter( graduatesCounter === 0 ? 3 - 1 : graduatesCounter - 1);
-                }}>
-                  <p className="text-bold text-2xl text-blue">{"<"}</p>
-                </button>
-                <div className="ease-in-out duration-700 flex flex-col items-center bg-blue shadow-2xl overflow-hidden h-80 w-64">
-                  <div className={`h-72 w-full object-cover ease-in-out duration-500  bg-no-repeat bg-center bg-cover bg-[url('/images/graduates/${getGraduates[graduatesCounter]?.pictureUrl}')]`} style={{backgroundImage: `url('/images/graduates/${getGraduates[graduatesCounter]?.pictureUrl}')`}}>
-                    {/* <Image src={"/images/graduates/" + getGraduates[graduatesCounter]?.pictureUrl} alt="img" height={288} width={220} style={{objectFit:"cover"}} /> */}
-                  </div>
-                  <div className="py-4 px-4 ease-in-out duration-700">
-                    <p className="text-bold text-2xl text-white ease-in-out duration-700">{getGraduates[graduatesCounter]?.name }</p>
-                  </div>
+            <div className="flex flex-row items-center gap-x-5">
+              <button onClick={() => {
+                setGraduatesCounter( graduatesCounter === 0 ? 3 - 1 : graduatesCounter - 1);
+              }}>
+                <p className="text-bold text-2xl text-blue">{"<"}</p>
+              </button>
+              <div className="ease-in-out flex flex-col items-center bg-blue shadow-2xl overflow-hidden h-80 w-44">
+                <img src={"/images/graduates/" + getGraduates[graduatesCounter]?.pictureUrl} alt="img" className="h-72 object-cover"/>
+                <div className="py-4 px-4">
+                  <p className="text-bold text-xl text-white">{getGraduates[graduatesCounter].name}</p>
                 </div>
                 <button onClick={() => {
                   setGraduatesCounter(graduatesCounter === 3 ? 0 : graduatesCounter + 1);
