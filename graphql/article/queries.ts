@@ -4,6 +4,7 @@ export const GET_ARTICLES = gql`
 query {
   articles{
     id,
+<<<<<<< HEAD
     title, 
     body, 
     pictureUrl
@@ -32,3 +33,10 @@ export const GET_ARTICLE_BY_ID = gql`
 //     }
 //   }
 // `;
+=======
+    title,
+    pictureUrl 
+  }
+}
+`;
+>>>>>>> 5f9274f (some fixes)
