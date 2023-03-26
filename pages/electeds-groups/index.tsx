@@ -37,8 +37,8 @@ export default function Electeds({
         <h1 className="text-7xl">المنتخبين</h1>
       </Header>
       <main>
-        <Section className="py-20">
-          <div className="flex flex-col gap-y-28">
+        <Section className="py-20" childrenClassName="w-full px-24">
+          <div className="flex flex-col gap-y-28 w-full">
             {groups?.map((group) => (
               <Group key={group.id} group={group} />
             ))}

@@ -34,7 +34,7 @@ export default function Regions({
         <h1 className="text-7xl">الجمعيات</h1>
       </Header>
       <main>
-        <Section className="py-20">
+        <Section className="py-20" childrenClassName="w-full px-24">
           <h1 className="text-primaryDarker text-center text-4xl mb-10 ">
           قاعدة البيانات الموحدة لجمعيات المجتمع المدني           
           </h1>
