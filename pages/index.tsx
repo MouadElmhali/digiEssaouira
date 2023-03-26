@@ -77,12 +77,12 @@ export default function Home({
         <title>DigiEssaouire | الرئيسية</title>
       </Head>
       <Header isHero styles="bg-[url('/images/thumb1.jpg')]">
-        <p className="text-5xl">كن مشاركا في التنمية</p>
-        <p className="text-3xl text-center">
+        <p className="text-5xl mt-72 md:mt-auto">كن مشاركا في التنمية</p>
+        <p className="text-3xl text-center ">
           تعرف على صناع القرار, قم بتطوير مهارات جديدة وساهم باقتراحاتك في
           التنمية المحلية
         </p>
-        <div className="flex flex-row gap-x-10 relative md:top-64 xl:top-36 2xl:top-64 invisible w-0 md:w-auto overflow-hidden  md:visible ">
+        <div className="flex flex-row gap-x-10 relative md:top-60 xl:top-36 2xl:top-64 invisible w-0 md:w-auto overflow-hidden  md:visible ">
           <div className="flex flex-row justify-content items-center shadow-lg">
             <button
               onClick={()=>{
