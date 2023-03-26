@@ -326,7 +326,7 @@ export default function Home({
                 return (
                   <div
                     key={id}
-                    className="flex flex-col justify-center items-center"
+                    className="flex flex-col justify-center items-center mt-8 md:mt-auto"
                   >
                     <img src={"/images/posts/" + pictureUrl} alt="Article" className='w-72 object-cover' />
                     <button
