@@ -1,30 +1,22 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import Head from "next/head";
 import Image from "next/image";
-import Link from "next/link";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 
 import BenefitItem from "../components/BenefitItem";
 import Header from "../components/Header";
-import LinkCard from "../components/LinkCard";
 import Section from "../components/Section";
-import { routes } from "../constants/routes";
-import InteractiveMap from "../components/interactiveMap";
-import HomeCourses from "../components/homePageCourses";
 import { GET_COURSES_NAME_AND_PICTURE } from "../graphql/courses/queries";
 import { initializeApollo } from "../apolloClient";
 import { IGetCoursesData } from "../graphql/courses/types";
 import { InferGetServerSidePropsType } from "next";
 import { useRouter } from "next/router";
-import Card from "../components/homePageComponents/Card";
 import MyCard from "../components/homePageComponents/MyCard";
 import { arabicOrder } from "../components/utils";
 import { GET_GRADUATES } from "../graphql/graduates/queries";
 import { GET_RESOURCES } from '../graphql/resources/queries';
-import { GET_POSTS } from '../graphql/post/queries';
 import { GET_ARTICLES } from '../graphql/article/queries';
-import { useQuery } from '@apollo/client';
 
 export async function getServerSideProps() {
   const client = initializeApollo();
@@ -143,12 +135,12 @@ export default function Home({
         >
           <div className="flex flex-col md:flex-row md:flex-wrap justify-center items-center gap-x-5 gap-y-5">
             <button
-              className="w-52 md:w-96 h-96 bg-white shadow-xl border"
+              className=" w-72 md:w-96 h-44 md:h-96 bg-white shadow-xl border"
               onClick = {() => {
                 router.push("/courses")
               }}
             >
-              <img src="/images/thumb6.jpg" alt="Image" className="object-cover h-80 w-full" />
+              <img src="/images/thumb6.jpg" alt="Image" className="object-cover h-28 md:h-80 w-full" />
               <div className="px-4 py-4 ">
                 <p className=" text-red font-bold text-lg px-3">ألتحق بمسار تدريبي</p>
               </div>
@@ -156,7 +148,7 @@ export default function Home({
 
             <div className="flex flex-col justify-center items-center gap-y-8">
               <button
-                className="w-52 md:w-96 h-44 bg-white shadow-xl border"
+                className="w-72 md:w-96 h-44 bg-white shadow-xl border"
                 onClick = {() => {
                   router.push("/contactUs")
                 }}
@@ -168,7 +160,7 @@ export default function Home({
               </button>
 
               <button
-                className="w-52 md:w-96 h-44 bg-white shadow-xl border"
+                className="w-72 md:w-96 h-44 bg-white shadow-xl border"
                 onClick = {() => {
                   router.push("/askQuestion")
                 }}
@@ -188,30 +180,16 @@ export default function Home({
           title="تعرف على مساقاتنا التعليمية"
         >
           <div 
-            className="flex flex-col lg:flex-row  gap-y-5 "
+            className="flex flex-col items-center justify-center lg:flex-row  gap-y-5 mx-12 md:mx-auto "
           >
-            {courses.slice(0,3).map(({ id, name, pictureUrl }, index) => (
-              <MyCard key={id} onClick={() => {router.push("/courses/" + name)}} title={"المساق " + arabicOrder(index)} text={name} picture={"/images/courses/" + pictureUrl} />
-            ))}
+            {courses.length > 0 ? 
+            
+              courses.slice(courses.length - 3, courses.length).map(({ id, name, pictureUrl }, index) => (
+                <MyCard key={id} onClick={() => {router.push("/courses/" + name)}} title={"المساق " + arabicOrder(index)} text={name} picture={"/images/courses/" + pictureUrl} />
+              ))
+            
+            : <></>}
           </div>
-          {/* <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 mt-8">
-            {courses?.slice(0, 3).map(({ id, name, pictureUrl }) => (
-              <div key={id} className="min-w-[180px]">
-                <Link href={{
-                  pathname: `${routes.courses.path}/${name}`,
-                  query: { courseId: id },
-                }}>
-                  <a className="relative">
-                    <Image height={250} width={400} alt="" className="backdrop-brightness-50" src={`/images/courses/${pictureUrl}`} />
-                    <div className=" font-bold text-lg text-center absolute bottom-8 right-5 text-white">
-                      {name}
-                    </div>
-                  </a>
-                </Link>
-              </div>
-
-            ))}
-          </div> */}
         </Section>
 
         <Section
@@ -294,7 +272,7 @@ export default function Home({
                 <div className="ease-in-out flex flex-col items-center bg-blue shadow-2xl overflow-hidden h-80 w-44">
                   <img src={"/images/graduates/" + getGraduates[graduatesCounter]?.pictureUrl} alt="img" className="h-72 object-cover"/>
                   <div className="py-4 px-4">
-                    <p className="text-bold text-xl text-white">{getGraduates[graduatesCounter]?.name}</p>
+                    <p className="text-bold text-2xl text-white">{getGraduates[graduatesCounter]?.name }</p>
                   </div>
                 </div>
                 <button onClick={() => {
@@ -334,7 +312,7 @@ export default function Home({
                       onClick={() => {
                         router.push("/articles/" + id)
                       }}
-                      className=" bg-white text-blue font-bold text-2xl text-center py-5 relative -top-12 w-64 md:w-96 shadow-xl"
+                      className=" bg-white text-blue font-bold text-2xl text-center py-5 relative -top-12 w-72 md:w-96 shadow-xl"
                     >
                       <p 
                         className="hover:animate-bounce"
@@ -353,99 +331,21 @@ export default function Home({
           className="[&>div>h2]:text-primary  [&>div]:flex [&>div]:flex-col  [&>div]:gap-y-16 "
           title="الشركاء ومعلومات الإتصال"
         >
-          <div id = "partners" className=" flex gap-20">
-            <Swiper spaceBetween={0} slidesPerView={5} className="h-150">
-              <SwiperSlide className="flex items-center justify-center ">
-                <Image
-                  src="/images/partners/partner-1.jpg"
-                  layout="fixed"
-                  height={150}
-                  width={150}
-                  alt=""
+          
+          <div className='flex flex-col md:flex-row flex-wrap justify-center items-center gap-5'>
+            {[...Array(9).keys()].map((index) => {
+              return (
+                <Image 
+                  key={index}
+                  src={"/images/partners/partner-"+ (index + 1) +".jpg"}
+                  height="150"
+                  width="150"
                   objectFit="contain"
                 />
-              </SwiperSlide>
-              <SwiperSlide className="flex items-center justify-center">
-                <Image
-                  src="/images/partners/partner-2.jpg"
-                  layout="fixed"
-                  height={150}
-                  width={150}
-                  alt=""
-                  objectFit="contain"
-                />
-              </SwiperSlide>
-              <SwiperSlide className="flex items-center justify-center">
-                <Image
-                  src="/images/partners/partner-3.jpg"
-                  layout="fixed"
-                  height={150}
-                  width={150}
-                  alt=""
-                  objectFit="contain"
-                />
-              </SwiperSlide>
-              <SwiperSlide className="flex items-center justify-center">
-                <Image
-                  src="/images/partners/partner-4.jpg"
-                  layout="fixed"
-                  height={150}
-                  width={150}
-                  alt=""
-                  objectFit="contain"
-                />
-              </SwiperSlide>
-              <SwiperSlide className="flex items-center justify-center">
-                <Image
-                  src="/images/partners/partner-5.jpg"
-                  layout="fixed"
-                  height={150}
-                  width={150}
-                  alt=""
-                  objectFit="contain"
-                />
-              </SwiperSlide>
-              <SwiperSlide className="flex items-center justify-center">
-                <Image
-                  src="/images/partners/partner-6.jpg"
-                  layout="fixed"
-                  height={150}
-                  width={150}
-                  alt=""
-                  objectFit="contain"
-                />
-              </SwiperSlide>
-              <SwiperSlide className="flex items-center justify-center">
-                <Image
-                  src="/images/partners/partner-7.jpg"
-                  layout="fixed"
-                  height={150}
-                  width={150}
-                  alt=""
-                  objectFit="contain"
-                />
-              </SwiperSlide>
-              <SwiperSlide className="flex items-center justify-center">
-                <Image
-                  src="/images/partners/partner-9.jpg"
-                  layout="fixed"
-                  height={150}
-                  width={150}
-                  alt=""
-                  objectFit="contain"
-                />
-              </SwiperSlide>
-              <SwiperSlide className="flex items-center justify-center">
-                <Image
-                  src="/images/partners/partner-8.jpg"
-                  layout="fixed"
-                  height={150}
-                  width={150}
-                  alt=""
-                  objectFit="contain"
-                />
-              </SwiperSlide>
-            </Swiper>
+              )
+            })
+
+            }
           </div>
         </Section>
       </main>

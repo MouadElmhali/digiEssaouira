@@ -18,7 +18,7 @@ const MyCard = ({
   return (
     <button
       onClick={onClick}
-      className="bg-black shadow-2xl overflow-hidden flex-1 2xl:mx-10 xl:mx-5 md:mx-2"
+      className="bg-black shadow-2xl overflow-hidden flex-1 2xl:mx-10 xl:mx-5 md:mx-2 max-w-[360px]"
     >
       
       <img src={picture} alt={alt} className="w-full h-80 object-cover" />
