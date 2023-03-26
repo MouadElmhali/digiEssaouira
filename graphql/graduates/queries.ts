@@ -18,7 +18,9 @@ export const GET_GRADUATES_BY_ID = gql`
       name
       bio
       pictureUrl
-
+      facebook
+      gmail
+      instagram
     }
   }
 `;

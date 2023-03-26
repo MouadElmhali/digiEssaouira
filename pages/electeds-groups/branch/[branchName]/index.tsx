@@ -48,7 +48,7 @@ export default function Branch({
         <title>DigiEssaouira | المنتخبين</title>
       </Head>
       <main className="mt-20">
-        <Section className="py-20">
+        <Section className="py-20" childrenClassName="w-full px-24">
           <div className="flex flex-col gap-y-12">
             <h2 className="text-primaryDarker text-3xl text-center font-bold">
               {title}

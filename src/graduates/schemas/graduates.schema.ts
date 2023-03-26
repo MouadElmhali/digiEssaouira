@@ -6,6 +6,9 @@ interface IGraduates {
   name: string;
   bio: string;
   pictureUrl: string;
+  facebook: string;
+  instagram: string;
+  gmail: string;
 }
 
 const graduatesSchema = new Schema<IGraduates>({
@@ -13,6 +16,9 @@ const graduatesSchema = new Schema<IGraduates>({
   name: { type: String, required: true },
   bio: { type: String, required: true },
   pictureUrl: { type: String, required: true },
+  facebook: { type: String, required: true },
+  instagram: { type: String, required: true },
+  gmail: { type: String, required: true },
 });
 
 graduatesSchema.set("timestamps", { createdAt: true, updatedAt: true });
