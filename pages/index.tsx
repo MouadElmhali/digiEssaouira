@@ -23,6 +23,7 @@ import { arabicOrder } from "../components/utils";
 import { GET_GRADUATES } from "../graphql/graduates/queries";
 import { GET_RESOURCES } from '../graphql/resources/queries';
 import { GET_POSTS } from '../graphql/post/queries';
+import { GET_ARTICLES } from '../graphql/article/queries';
 import { useQuery } from '@apollo/client';
 
 export async function getServerSideProps() {
@@ -48,9 +49,9 @@ export async function getServerSideProps() {
   });
 
   const {
-    data: { posts },
+    data: { articles },
   } = await client.query({
-    query: GET_POSTS,
+    query: GET_ARTICLES,
   });
 
  
@@ -58,14 +59,14 @@ export async function getServerSideProps() {
 
 
   return {
-    props: { courses, getGraduates, resources, posts },
+    props: { courses, getGraduates, resources, articles },
   };
 }
 export default function Home({
   courses,
   getGraduates,
   resources,
-  posts
+  articles
 }: InferGetServerSidePropsType<typeof getServerSideProps>): JSX.Element {
   
   const [graduatesCounter, setGraduatesCounter] = React.useState(0);
@@ -313,7 +314,7 @@ export default function Home({
         
         
         
-        {posts.length > 0 ? 
+        {articles.length > 0 ? 
           <Section
             childrenClassName = ""
             className="[&>div>h2]:text-primary  [&>div]:flex [&>div]:flex-col  [&>div]:gap-y-16 "
@@ -322,22 +323,22 @@ export default function Home({
             <div 
               className="flex lg:flex-row flex-col  justify-center items-center gap-x-10 gap-y-5 bg-blue-gradient md:px-52 md:pt-16"
             >
-              {posts.slice(posts.length - 3, posts.length ).map(({id, name, pictureUrl}: any) => {
+              {articles.slice(articles.length - 3, articles.length ).map(({id, title, pictureUrl}: any) => {
                 return (
                   <div
                     key={id}
                     className="flex flex-col justify-center items-center mt-8 md:mt-auto"
                   >
-                    <img src={"/images/posts/" + pictureUrl} alt="Article" className='w-72 object-cover' />
+                    <img src={"/images/articles/" + pictureUrl} alt="Article" className='w-72 object-cover' />
                     <button
                       onClick={() => {
-                        router.push("/posts/" + id)
+                        router.push("/articles/" + id)
                       }}
                       className=" bg-white text-blue font-bold text-2xl text-center py-5 relative -top-12 w-64 md:w-96 shadow-xl"
                     >
                       <p 
                         className="hover:animate-bounce"
-                      >{name}</p>
+                      >{title}</p>
                     </button>
                   </div>
                 )

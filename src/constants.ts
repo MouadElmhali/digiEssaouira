@@ -4,6 +4,7 @@ export const schemasNames = Object.freeze({
   group: "Group",
   party: "Party",
   post: "Post",
+  article: "Article",
   region: "Region",
   association: "Association",
   course: "Course",
