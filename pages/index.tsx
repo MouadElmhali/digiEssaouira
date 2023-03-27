@@ -29,7 +29,7 @@ import { GET_ARTICLES } from '../graphql/article/queries';
 export async function getServerSideProps() {
   const client = initializeApollo();
   const {
-    data: { courses},
+    data: { courses },
   } = await client.query<IGetCoursesData>({
     query: GET_COURSES_NAME_AND_PICTURE,
 
@@ -39,7 +39,7 @@ export async function getServerSideProps() {
     data: { getGraduates
     },
   } = await client.query({
-      query: GET_GRADUATES,
+    query: GET_GRADUATES,
   });
 
   const {
@@ -54,7 +54,7 @@ export async function getServerSideProps() {
     query: GET_ARTICLES,
   });
 
- 
+
 
 
 
@@ -68,7 +68,7 @@ export default function Home({
   resources,
   articles
 }: InferGetServerSidePropsType<typeof getServerSideProps>): JSX.Element {
-  
+
   const [graduatesCounter, setGraduatesCounter] = React.useState(0);
   const router = useRouter();
 
@@ -83,10 +83,10 @@ export default function Home({
           تعرف على صناع القرار, قم بتطوير مهارات جديدة وساهم باقتراحاتك في
           التنمية المحلية
         </p>
-        <div className="flex flex-row gap-x-10 relative top-36 invisible w-0 md:w-auto overflow-hidden  md:visible ">
+        <div className="flex flex-row gap-x-10 relative top-32 invisible w-0 md:w-auto overflow-hidden  md:visible ">
           <div className="flex flex-row justify-content items-center shadow-lg">
             <button
-              onClick={()=>{
+              onClick={() => {
                 router.push("/map")
               }}
               className="flex flex-row justify-center items-center gap-x-2 bg-blue px-5"
@@ -95,44 +95,44 @@ export default function Home({
               <p className="w-12 font-md py-5 " >الخريطة تفاعلية</p>
             </button>
             <button
-              onClick={()=>{
+              onClick={() => {
                 router.push("/courses")
               }}
               className="flex flex-row justify-center items-center bg-red px-2"
             >
               <img src="/images/icons/book.png" alt="icon" className="w-10 h-10" />
-              <p className=" font-md w-32 py-5" onClick={()=>{
+              <p className=" font-md w-32 py-5" onClick={() => {
                 router.push("/courses")
               }}>اكتشف المسرات تدريبية</p>
             </button>
             <button
-              onClick={()=>{
+              onClick={() => {
                 router.push("/#partners")
               }}
               className="flex flex-row justify-center items-center bg-blue px-2"
-            
+
             >
               <p className="bg-blue font-md py-8 ">الشركاء</p>
               <img src="/images/icons/done.png" alt="icon" className="w-10 h-10" />
             </button>
           </div>
-          
+
           <div className="flex flex-row justify-content items-center bg-white border border-gray-400">
             <button>
-              <p className="text-gray-900 font-bold font-xl py-5 px-5" onClick={()=>{
+              <p className="text-gray-900 font-bold font-xl py-5 px-5" onClick={() => {
                 router.push("/#graduated")
               }}>خريجين ديجي الصويرة</p>
             </button>
             <div className="h-12 w-px bg-orange-600"></div>
             <button>
-              <p className="text-gray-900 font-bold font-xl py-5 px-5" onClick={()=>{
+              <p className="text-gray-900 font-bold font-xl py-5 px-5" onClick={() => {
                 router.push("/contactUs")
               }}> تواصل معنا</p>
             </button>
           </div>
         </div>
-        
-        
+
+
       </Header>
 
       <main className="flex flex-col">
@@ -144,7 +144,7 @@ export default function Home({
           <div className="flex flex-col md:flex-row md:flex-wrap justify-center items-center gap-x-5 gap-y-5">
             <button
               className="w-52 md:w-96 h-96 bg-white shadow-xl border"
-              onClick = {() => {
+              onClick={() => {
                 router.push("/courses")
               }}
             >
@@ -157,7 +157,7 @@ export default function Home({
             <div className="flex flex-col justify-center items-center gap-y-8">
               <button
                 className="w-52 md:w-96 h-44 bg-white shadow-xl border"
-                onClick = {() => {
+                onClick={() => {
                   router.push("/contactUs")
                 }}
               >
@@ -169,7 +169,7 @@ export default function Home({
 
               <button
                 className="w-52 md:w-96 h-44 bg-white shadow-xl border"
-                onClick = {() => {
+                onClick={() => {
                   router.push("/askQuestion")
                 }}
               >
@@ -187,11 +187,16 @@ export default function Home({
           className="[&>div]:flex [&>div]:flex-col [&>div]:gap-y-10 -mt-12"
           title="تعرف على مساقاتنا التعليمية"
         >
-          <div 
+          <div
             className="flex flex-col lg:flex-row  gap-y-5 "
           >
-            {courses.slice(0,3).map(({ id, name, pictureUrl }, index) => (
-              <MyCard key={id} onClick={() => {router.push("/courses/" + name)}} title={"المساق " + arabicOrder(index)} text={name} picture={"/images/courses/" + pictureUrl} />
+            {courses.slice(0, 3).map(({ id, name, pictureUrl }, index) => (
+              <MyCard key={id} onClick={() => {
+                router.push({
+                  pathname: "/courses/" + name,
+                  query: { courseId: id },
+                });
+              }} title={"المساق " + arabicOrder(index)} text={name} picture={"/images/courses/" + pictureUrl} />
             ))}
           </div>
           {/* <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 mt-8">
@@ -240,10 +245,10 @@ export default function Home({
           className="[&>div>h2]:text-primary  [&>div]:flex [&>div]:flex-col  [&>div]:gap-y-16 "
           title="الموارد الرقمية و الخريجين"
         >
-          <div id = "graduated" className="flex flex-row flex-wrap-reverse gap-y-10 justify-around items-center">
+          <div id="graduated" className="flex flex-row flex-wrap-reverse gap-y-10 justify-around items-center">
 
             <div className="flex flex-col md:flex-row items-center">
-              
+
               <div className="bg-blue flex flex-col items-center h-72 py-2 w-44 shadow-xl ">
                 <img src={"/images/resources/" + resources[resources?.length - 1]?.image} alt={resources[resources?.length - 1]?.name} className="h-44 object-cover" />
                 <div className="flex flex-row justify-center items-center ">
@@ -257,7 +262,7 @@ export default function Home({
                   <p className="text-white  text-md ">{resources[resources?.length - 1]?.name}</p>
                 </div>
               </div>
-              
+
               <div className="flex flex-col md:flex-row">
                 <div className="flex flex-col justify-center bg-gray-900 h-44 w-64 md:w-72 px-5 gap-y-5">
                   <div className="flex flex-col items-center">
@@ -281,17 +286,17 @@ export default function Home({
                 <div className="h-44 invisible md:visible border-t-[175px] border-t-transparent border-r-[80px] border-r-gray-900 border-b-[0px] border-b-transparent"></div>
               </div>
 
-            
+
             </div>
-            
+
             <div className="flex flex-row items-center gap-x-5">
               <button onClick={() => {
-                setGraduatesCounter( graduatesCounter === 0 ? 3 - 1 : graduatesCounter - 1);
+                setGraduatesCounter(graduatesCounter === 0 ? 3 - 1 : graduatesCounter - 1);
               }}>
                 <p className="text-bold text-2xl text-blue">{"<"}</p>
               </button>
               <div className="ease-in-out flex flex-col items-center bg-blue shadow-2xl overflow-hidden h-80 w-44">
-                <img src={"/images/graduates/" + getGraduates[graduatesCounter]?.pictureUrl} alt="img" className="h-72 object-cover"/>
+                <img src={"/images/graduates/" + getGraduates[graduatesCounter]?.pictureUrl} alt="img" className="h-72 object-cover" />
                 <div className="py-4 px-4">
                   <p className="text-bold text-xl text-white">{getGraduates[graduatesCounter].name}</p>
                 </div>
@@ -302,25 +307,25 @@ export default function Home({
                 <p className="text-bold text-2xl text-blue">{">"}</p>
               </button>
             </div>
-          
+
           </div>
 
         </Section>
 
 
-        
-        
-        
-        {articles.length > 0 ? 
+
+
+
+        {articles.length > 0 ?
           <Section
-            childrenClassName = ""
+            childrenClassName=""
             className="[&>div>h2]:text-primary  [&>div]:flex [&>div]:flex-col  [&>div]:gap-y-16 "
             title="المقالات"
           >
-            <div 
+            <div
               className="flex lg:flex-row flex-col  justify-center items-center gap-x-10 gap-y-5 bg-blue-gradient md:px-52 md:pt-16"
             >
-              {articles.slice(articles.length - 3, articles.length ).map(({id, title, pictureUrl}: any) => {
+              {articles.slice(articles.length - 3, articles.length).map(({ id, title, pictureUrl }: any) => {
                 return (
                   <div
                     key={id}
@@ -333,13 +338,13 @@ export default function Home({
                       }}
                       className=" bg-white text-blue font-bold text-2xl text-center py-5 relative -top-12 w-64 md:w-96 shadow-xl"
                     >
-                      <p 
+                      <p
                       >{title}</p>
                     </button>
                   </div>
                 )
               })}
-              
+
             </div>
           </Section>
           :
@@ -349,7 +354,7 @@ export default function Home({
           className="[&>div>h2]:text-primary  [&>div]:flex [&>div]:flex-col  [&>div]:gap-y-16 "
           title="الشركاء ومعلومات الإتصال"
         >
-          <div id = "partners" className=" flex gap-20">
+          <div id="partners" className=" flex gap-20">
             <Swiper spaceBetween={0} slidesPerView={5} className="h-150">
               <SwiperSlide className="flex items-center justify-center ">
                 <Image
@@ -445,7 +450,7 @@ export default function Home({
           </div>
         </Section>
       </main>
-      
+
     </>
   );
 }
