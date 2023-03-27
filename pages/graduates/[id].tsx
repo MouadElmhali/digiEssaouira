@@ -24,28 +24,7 @@ export async function getServerSideProps({
   return { props: { getAssociationById } };
 }
 
-const ShareButton = ({ url }) => {
 
-  const handleShare = () => {
-    if (navigator.share) {
-      navigator.share({
-        title: document.title,
-        url: url,
-      });
-    }
-  };
-
-  return (
-
-    <button className="flex items-center justify-center bg-primary  text-white font-bold py-2 px-4 rounded w-40" onClick={handleShare}>
-      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
-        <path strokeLinecap="round" strokeLinejoin="round" d="M7.217 10.907a2.25 2.25 0 100 2.186m0-2.186c.18.324.283.696.283 1.093s-.103.77-.283 1.093m0-2.186l9.566-5.314m-9.566 7.5l9.566 5.314m0 0a2.25 2.25 0 103.935 2.186 2.25 2.25 0 00-3.935-2.186zm0-12.814a2.25 2.25 0 103.933-2.185 2.25 2.25 0 00-3.933 2.185z" />
-      </svg>
-      <span>شارك </span>
-    </button>
-
-  );
-};
 
 
 export default function Association({
@@ -62,6 +41,22 @@ export default function Association({
   } = getAssociationById["getGraduatesById"];
   const router = useRouter();
   const { asPath } = router;
+  const handleShare = () => {
+    if (navigator.share) {
+      navigator.share({
+        title: document.title,
+        url: window.location.href
+      })
+        .then(() => {
+          console.log('Successfully shared');
+        })
+        .catch((error) => {
+          console.error('Error sharing:', error);
+        });
+    } else {
+      console.error('Web Share API not supported');
+    }
+  };
   return (
     <>
       <Head>
@@ -69,7 +64,7 @@ export default function Association({
       </Head>
 
       <main className="mt-20">
-        <Section className="py-20">
+        <Section className="py-20" childrenClassName="w-full px-24">
           <div className="flex flex-col items-center gap-y-5  gap-x-8 sm:grid sm:grid-cols-[auto,_1fr] sm:grid-rows-[repeat(4,_auto)] shadow-w">
             <div className="row-span-full ">
               <Image
@@ -115,12 +110,21 @@ export default function Association({
                   </svg>
                 </a>
                 <a href={`mailto:${gmail}`}>
-                  <svg xmlns="http://www.w3.org/2000/svg" width="35"
-                    height="35" className="fill-primary font-bold" id="Layer_1" data-name="Layer 1" viewBox="0 0 122.88 88.86"><path d="M7.05,0H115.83a7.07,7.07,0,0,1,7,7.05V81.81a7,7,0,0,1-1.22,4,2.78,2.78,0,0,1-.66,1,2.62,2.62,0,0,1-.66.46,7,7,0,0,1-4.51,1.65H7.05a7.07,7.07,0,0,1-7-7V7.05A7.07,7.07,0,0,1,7.05,0Zm-.3,78.84L43.53,40.62,6.75,9.54v69.3ZM49.07,45.39,9.77,83.45h103L75.22,45.39l-11,9.21h0a2.7,2.7,0,0,1-3.45,0L49.07,45.39Zm31.6-4.84,35.46,38.6V9.2L80.67,40.55ZM10.21,5.41,62.39,47.7,112.27,5.41Z" /></svg>
-
+                  <svg   className="fill-primary" width="35" height="35" xmlns="http://www.w3.org/2000/svg" version="1.0" viewBox="0 0 512.000000 512.000000" preserveAspectRatio="xMidYMid meet">
+                    <g transform="translate(0.000000,512.000000) scale(0.100000,-0.100000)"  stroke="none">
+                      <path d="M2370 5113 c-379 -36 -661 -116 -980 -278 -378 -193 -717 -497 -965 -865 -104 -156 -232 -419 -294 -605 -49 -150 -89 -321 -113 -490 -17 -118 -17 -512 0 -630 42 -295 120 -553 242 -800 137 -280 272 -468 494 -691 221 -220 412 -357 681 -489 188 -92 309 -137 500 -185 500 -126 1002 -102 1490 71 149 53 407 182 540 271 365 243 667 578 866 963 181 348 271 694 286 1090 15 426 -73 832 -263 1214 -124 250 -263 447 -458 648 -216 224 -428 378 -711 518 -296 146 -572 225 -900 255 -102 9 -333 11 -415 3z m1669 -1428 c60 -33 110 -87 143 -154 l23 -46 0 -925 0 -925 -23 -46 c-33 -67 -83 -121 -143 -154 l-54 -30 -1425 0 -1425 0 -54 30 c-60 33 -110 87 -143 154 l-23 46 0 925 0 925 28 57 c34 69 100 130 171 157 50 20 76 20 1461 18 l1410 -2 54 -30z" />
+                      <path d="M1450 3446 c32 -30 1091 -867 1104 -872 10 -4 1048 807 1116 872 12 12 -145 14 -1110 14 -961 0 -1122 -2 -1110 -14z" />
+                      <path d="M1180 2507 c0 -776 1 -815 18 -830 17 -16 126 -17 1364 -17 1292 0 1346 1 1362 18 15 17 16 86 14 829 l-3 811 -210 -168 c-837 -666 -1111 -880 -1136 -885 -16 -4 -42 -4 -57 0 -15 3 -190 134 -388 291 -285 227 -807 640 -941 747 l-23 18 0 -814z" />
+                    </g>
+                  </svg>
                 </a>
               </div>
-              <ShareButton url={asPath} />
+              <button className="flex items-center justify-center bg-primary  text-white font-bold py-2 px-4 rounded w-40" onClick={handleShare}>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M7.217 10.907a2.25 2.25 0 100 2.186m0-2.186c.18.324.283.696.283 1.093s-.103.77-.283 1.093m0-2.186l9.566-5.314m-9.566 7.5l9.566 5.314m0 0a2.25 2.25 0 103.935 2.186 2.25 2.25 0 00-3.935-2.186zm0-12.814a2.25 2.25 0 103.933-2.185 2.25 2.25 0 00-3.933 2.185z" />
+                </svg>
+                <span>شارك </span>
+              </button>
             </div>
           </div>
 
