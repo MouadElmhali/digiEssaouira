@@ -1,9 +1,31 @@
 import React from 'react'
 import Head from "next/head";
-import Section from "../../components/Section";
+import { useRouter } from 'next/router';
+import { initializeApollo } from '../../apolloClient';
+import { GET_YOUTHARTICLES } from '../../graphql/youthArticle/queries';
+import { InferGetServerSidePropsType } from 'next';
 
+export async function getServerSideProps() {
+    const client = initializeApollo();
+    const {
+        data: { youthArticles
+        },
+    } = await client.query({
+        query: GET_YOUTHARTICLES,
+    });
 
-export default function Youth () {
+    return {
+        props: {
+            youthArticles
+        },
+    };
+}
+
+export default function Youth ({
+    youthArticles
+}: InferGetServerSidePropsType<typeof getServerSideProps>): JSX.Element {
+    const router = useRouter();
+    
     return (
         <>
             <Head>
@@ -18,20 +40,21 @@ export default function Youth () {
                         </div>
                     </div>
                     <div className='mt-24 mx-auto xl:mx-44 2xl:mx-64 flex flex-row flex-wrap gap-8 justify-center items-center'>
-                        {[...Array(6).keys()].map((index) => (
-                            <div key={index}
-                                className="h-72 w-72 bg-blue  overflow-hidden shadow-xl"
-                            >
-                                <img 
-                                    src="/images/thumb6.jpg"
-                                    className="object-cover w-full h-44"
-                                />
-                                <div className='flex flex-col mx-5 my-2'>
-                                    <p className='text-white text-xl font-bold'>فضاء الشباب الأول</p>
-                                    <p className='text-xs text-white mt-2'> {"هناك حقيقة مثبتة منذ زمن طو￾ل وهي أن المحتوى المقرو لصفحة ما سيلهي القارئ عن ال￾كيز ع￾ الشكل الخارجي للنص أو شكل توضع الفقرات ￾ الصفحة التي يقرأها.".substr(0, 100) + " ..."}</p>
-
+                        {youthArticles?.map(({id, title, body, pictureUrl}) => (
+                            <button key={id} onClick={() => router.push("/youth/" + id)}>
+                                <div
+                                    className="h-72 w-72 bg-blue  overflow-hidden shadow-xl"
+                                >
+                                    <img 
+                                        src={"/images/youthArticles/" + pictureUrl}
+                                        className="object-cover w-full h-44"
+                                    />
+                                    <div className='flex flex-col mx-5 my-2'>
+                                        <p className='text-white text-xl font-bold'>{title}</p>
+                                        <p className='text-xs text-white mt-2'> {body.substr(0, 100) + " ..."}</p>
+                                    </div>
                                 </div>
-                            </div>
+                            </button>
                         ))}
                     </div>
                 </div>
