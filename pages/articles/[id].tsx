@@ -62,31 +62,22 @@ export default function Article({
   const { asPath } = router;
   return (
     <>
+      
+
+      
+
       <Head>
-        <title>DigiEssaouira | المقالاة</title>
+          <title>DigiEssaouira | المقالاة</title>
       </Head>
+      <main>
+          <div className='mt-48 mb-48 flex flex-col items-center justify-center gap-12 mx-12 lg:mx-48'>
+              <p className='my-5 font-black text-5xl self-start'>{title}</p>
+              <div className="max-h-96 overflow-hidden flex items-center justify-center">
+                <img src={"/images/articles/" + pictureUrl} alt="object-cover w-full " />
 
-      <main className="mt-20">
-        <Section className="py-20 flex flex-col">
-          <div className="flex flex-col items-center gap-y-5  gap-x-8 sm:grid sm:grid-cols-[auto,_1fr] sm:grid-rows-[repeat(4,_auto)] shadow-w">
-            <div className="row-span-full ">
-              <Image
-                alt=""
-                width={300}
-                height={350}
-                src={`/images/articles/${pictureUrl}`}
-                objectFit="cover"
-                layout="fixed"
-              />
-            </div>
-            <div className="flex flex-col gap-3">
-              <p className="text-primaryDarker text-4xl font-bold">{title}</p>
-              <div className="text-xl mt-5">  {body}</div>
-              <ShareButton url={asPath} />
-            </div>
+              </div>
+              <p className='leading-8'>{body}</p>
           </div>
-
-        </Section>
       </main>
     </>
   );
