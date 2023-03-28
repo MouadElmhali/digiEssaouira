@@ -9,7 +9,7 @@ export class YouthArticleService {
     return await youthArticleModel.find();
   }
 
-  // async getYouthArticleById(id: string): Promise<YouthArticle> {
-  //   return (await youthArticleModel.findById(id)) as YouthArticle;
-  // }
+  async getYouthArticleById(id: string): Promise<YouthArticle> {
+    return (await youthArticleModel.findById(id)) as YouthArticle;
+  }
 }

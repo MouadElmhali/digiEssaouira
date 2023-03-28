@@ -13,8 +13,8 @@ export class YouthArticleResolver {
     return await this.youthArticleService.getYouthArticles();
   }
 
-  // @Query((returns) => YouthArticle)
-  // async youthArticle(@Arg("id") id: string) {
-  //   return await this.youthArticleService.getYouthArticleById(id);
-  // }
+  @Query((returns) => YouthArticle)
+  async youthArticle(@Arg("id") id: string) {
+    return await this.youthArticleService.getYouthArticleById(id);
+  }
 }
