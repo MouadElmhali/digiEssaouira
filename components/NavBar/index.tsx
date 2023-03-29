@@ -96,6 +96,14 @@ export default function NavBar(): JSX.Element {
               الخريطة التفاعلية
             </a>
           </Link>
+          <Link href={routes.youth.path}>
+            <a
+              className=" hover:text-blue-500 
+                    cursor-pointer transition-colors duration-300"
+            >
+              فضاء الشباب
+            </a>
+          </Link>
         </div>
 
         {currentUser ? (
