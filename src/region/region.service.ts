@@ -9,7 +9,7 @@ export class RegionService {
     return await regionModel.find();
   }
 
-  async getRegion(id: Types.ObjectId): Promise<Region> {
+  async getRegion(id: string): Promise<Region> {
     return (await regionModel.findById(id)) as Region;
   }
 }
