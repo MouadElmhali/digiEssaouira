@@ -77,7 +77,7 @@ export default function Home({
           تعرف على صناع القرار, قم بتطوير مهارات جديدة وساهم باقتراحاتك في
           التنمية المحلية
         </p>
-        <div className="flex flex-row gap-x-10 relative md:top-60 xl:top-36 2xl:top-64 invisible w-0 md:w-auto overflow-hidden  md:visible ">
+        <div className="flex flex-row gap-x-10 relative md:top-48 xl:top-32 2xl:top-56 invisible w-0 md:w-auto overflow-hidden  md:visible ">
           <div className="flex flex-row justify-content items-center shadow-lg">
             <button
               onClick={() => {
@@ -95,7 +95,7 @@ export default function Home({
               className="flex flex-row justify-center items-center bg-red px-2"
             >
               <img src="/images/icons/book.png" alt="icon" className="w-10 h-10" />
-              <p className=" font-md w-32 py-5" onClick={() => {
+              <p className=" font-md w-24 py-5" onClick={() => {
                 router.push("/courses")
               }}>اكتشف المسرات تدريبية</p>
             </button>
