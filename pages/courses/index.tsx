@@ -49,7 +49,7 @@ export default function Courses({
                   pathname: `${routes.courses.path}/${name}`,
                   query: {courseId : id},
                 }}>
-                <a className="flex flex-col gap-4 flex-1 h-full">
+                <a className="flex flex-col gap-4 flex-1 h-full flex-wrap">
                   <Image height={200} width={300} className="object-fill" alt="" src={`/images/courses/${pictureUrl}`} />
                   <div className="bg-primary text-white font-bold text-lg text-center py-5 px-3">
                     {name}

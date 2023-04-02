@@ -65,4 +65,12 @@ export const routes: IRouteRecord = Object.freeze({
     name: "graduates",
     path: "/graduates",
   }),
+  articles: Object.freeze({
+    name: "articles",
+    path: "/articles",
+  }),
+  youth: Object.freeze({
+    name: "youth",
+    path: "/youth",
+  }),
 });

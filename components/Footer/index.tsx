@@ -7,9 +7,9 @@ export default function Footer(): JSX.Element {
   return (
     <footer className="py-8 bg-black text-white text-2xl px-6 ">
       <div
-        className={`max-w-7xl mx-auto flex justify-center gap-20  flex-wrap lg:justify-between lg:flex-nowrap [&>div]:flex-1 `}
+        className={`max-w-7xl mx-auto flex justify-center  gap-20  flex-wrap lg:justify-between lg:flex-nowrap [&>div]:flex-1 `}
       >
-        <div>
+        <div className="md:text-auto text-center">
           <Image
             alt="digiEssaouira logo"
             src="/images/logo2.png"
@@ -20,14 +20,14 @@ export default function Footer(): JSX.Element {
             objectPosition="top"
           />
         </div>
-        <div>
+        <div className="md:text-right text-center">
           <p className="my-3 text-2xl font-bold">اتصل بنا</p>
-          <p className="direction-left text-right text-xl">+2126 61 64 16 40</p>
+          <p className="direction-left  text-xl">+2126 61 64 16 40</p>
           <p className="text-xl">contact@digiessaouira.com</p>
         </div>
-        <div>
+        <div className="md:text-right text-center">
           <p className="my-3 text-2xl font-bold"> تابعنا</p>
-          <div className="flex gap-3">
+          <div className="flex gap-3 items-center justify-center md:items-start md:justify-start">
             <a href="#" title="Share on Facebook">
               <svg
                 className="fill-white text-white"
@@ -82,7 +82,7 @@ export default function Footer(): JSX.Element {
             </a>
           </div>
         </div>
-        <div className="flex flex-col float-left sm:mt-14 items-end">
+        <div className="flex flex-col float-left sm:mt-14 items-center md:items-end mb-20 md:mb-auto">
           <button className="bg-blue-500 py-1 px-5 text-lg w-40" onClick={() => { router.push("/signUp") }}>
             إنشاء حساب
           </button>

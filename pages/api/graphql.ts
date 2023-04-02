@@ -20,7 +20,9 @@ import { AccountResolver } from "../../src/account/account.resolver";
 import { AskQuestionResolver } from "../../src/askQuestion/askQuestion.resolver";
 import { GraduatesResolver } from "../../src/graduates/graduates.resolver";
 import { PostResolver } from "../../src/post/post.resolver";
-import { ArticleResolver } from "../../src/articles/article.resolver";
+import { ArticleResolver } from "../../src/article/article.resolver";
+import { YouthArticleResolver } from "../../src/youth/youthArticle.resolver";
+
 
 
 const schema = await buildSchema({
@@ -39,7 +41,8 @@ const schema = await buildSchema({
     AskQuestionResolver,
     GraduatesResolver,
     PostResolver,
-    ArticleResolver
+    ArticleResolver,
+    YouthArticleResolver
   ],
   container: Container,
 });

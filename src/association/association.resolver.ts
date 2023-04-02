@@ -1,13 +1,14 @@
 import {
   Arg,
   FieldResolver,
+  Mutation,
   Query,
   Resolver,
   ResolverInterface,
   Root,
 } from "type-graphql";
 import { Inject, Service } from "typedi";
-import { Association } from "./models/association.model";
+import { Association, AssociationInput } from "./models/association.model";
 import { AssociationService } from "./association.service";
 
 @Service()
@@ -30,5 +31,10 @@ export class AssociationResolver implements ResolverInterface<Association> {
   @Query((returns) => Association)
   async getAssociationById(@Arg("id") id: string) {
     return await this.associationService.getAssociationById(id);
+  }
+
+  @Mutation((returns) => String)
+  async createAssociation(@Arg('input') input: AssociationInput) {
+    return this.associationService.createAssociation(input);
   }
 }

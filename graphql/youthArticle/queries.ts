@@ -1,23 +1,25 @@
 import { gql } from "@apollo/client";
 
-export const GET_ARTICLES = gql`
+export const GET_YOUTHARTICLES = gql`
 query {
-  articles{
+  youthArticles{
     id,
     title, 
     body, 
-    pictureUrl
+    pictureUrl,
+    videoUrl
   }
 }
 `;
 
-export const GET_ARTICLE_BY_ID = gql`
+export const GET_YOUTHARTICLE_BY_ID = gql`
   query ($id: String!) {
-    article (id : $id) {
-        id,
-        title ,
-        body ,
+    youthArticle (id : $id) {
+        id
+        title 
+        body 
         pictureUrl
+        videoUrl
     }
   }
 `;
@@ -32,4 +34,3 @@ export const GET_ARTICLE_BY_ID = gql`
 //     }
 //   }
 // `;
-
