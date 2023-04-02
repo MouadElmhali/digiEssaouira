@@ -3,7 +3,7 @@ import { Region } from "../../region/models/region.model";
 
 @ObjectType()
 export class Association {
-  @Field((type) => ID!, { nullable: false })
+  @Field((type) => ID!)
   readonly id!: string;
 
   @Field(() => String!)
@@ -43,7 +43,7 @@ export class Association {
 @InputType()
 export class AssociationInput {
 
-  @Field((type) => ID!, { nullable: false })
+  @Field((type) => ID!)
   readonly id!: string;
 
   @Field(() => String!)

@@ -33,7 +33,7 @@ export class AssociationResolver implements ResolverInterface<Association> {
     return await this.associationService.getAssociationById(id);
   }
 
-  @Mutation(() => Association)
+  @Mutation((returns) => String)
   async createAssociation(@Arg('input') input: AssociationInput) {
     return this.associationService.createAssociation(input);
   }

@@ -21,5 +21,6 @@ export class AssociationService {
   async createAssociation(input: Partial<AssociationInput>) {
       const region = await regionModel.findById(input.region);
       const association = await associationModel.create({...input, region: region});
+      return "success";
   }
 }

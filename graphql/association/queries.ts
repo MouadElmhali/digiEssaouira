@@ -26,3 +26,23 @@ export const GET_ASSOCIATION_BY_ID = gql`
     }
   }
 `;
+
+export const CREATE_ASSOCIATION = gql`
+  mutation($input: AssociationInput!){
+    createAssociation(input: $input){
+            id
+            region
+            name
+            fieldOfWork
+            prisident
+            pictureUrl
+            email
+            phone
+            facebook
+            twitter
+            instagram
+            pictureGallery
+        
+    }
+  }
+`;
