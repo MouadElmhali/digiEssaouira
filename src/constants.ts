@@ -15,5 +15,6 @@ export const schemasNames = Object.freeze({
   account: "Account",
   askQuestion: "AskQuestion",
   graduates:"Graduates",
-  youthArticle: "YouthArticle"
+  youthArticle: "YouthArticle",
+  article:"Article"
 });

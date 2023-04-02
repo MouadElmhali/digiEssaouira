@@ -17,4 +17,13 @@ export class Graduates {
   @Field({ nullable: false })
   pictureUrl!: string;
 
+  @Field({ nullable: true })
+  facebook!: string;
+
+  @Field({ nullable: true })
+  instagram!: string;
+
+  @Field({ nullable: true })
+  gmail!: string;
+
 }

@@ -8,6 +8,4 @@ export class Post {
   @Field({ nullable: false })
   name!: string;
 
-  @Field({ nullable: false })
-  pictureUrl!: string;
 }

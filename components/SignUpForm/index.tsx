@@ -44,6 +44,7 @@ export default function SignUpForm() {
             password: values.password,
           },
         });
+        document.location.href = "/signIn";
       }}
     >
       {({ errors, touched }) => (

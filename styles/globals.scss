@@ -47,15 +47,20 @@
   src: url("../public/fonts/Cairo/Cairo-Regular.ttf");
 }
 
+@font-face {
+  font-family: "4_67";
+  src: url("../public/fonts/4_67.ttf");
+}
+
 html {
-  font-family: "Cairo", sans-serif;
+  font-family: "4_67";
   direction: rtl;
 }
 
 *,
 *::after,
 *::before {
-  font-family: "Cairo";
+  font-family: "4_67";
   margin: 0;
   padding: 0;
   box-sizing: border-box;
