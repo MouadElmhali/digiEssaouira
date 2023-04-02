@@ -32,9 +32,8 @@ export default function Electeds({
       </Head>
       <Header
         isHero
-        styles="bg-[url('/images/elections-hero.jpg')] after:bg-black/40"
+        styles="bg-[url('/images/hero/hero-electeds.jpeg')]"
       >
-        <h1 className="text-7xl">المنتخبين</h1>
       </Header>
       <main>
         <Section className="py-20" childrenClassName="w-full px-24">

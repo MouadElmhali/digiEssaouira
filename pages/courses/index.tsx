@@ -35,9 +35,8 @@ export default function Courses({
 
       <Header
         isHero
-        styles="bg-[url('/images/courses-hero.jpg')] after:bg-black/50"
+        styles="bg-[url('/images/hero/hero-electeds.jpeg')]"
       >
-        <h1 className="text-7xl">المساقات</h1>
       </Header>
 
       <main>

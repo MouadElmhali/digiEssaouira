@@ -29,9 +29,8 @@ export default function Regions({
       </Head>
       <Header
         isHero
-        styles="bg-[url('/images/association-hero.png')] after:bg-black/10"
+        styles="bg-[url('/images/hero/hero-association.jpeg')]"
       >
-        <h1 className="text-7xl">الجمعيات</h1>
       </Header>
       <main>
         <Section className="py-20" childrenClassName="w-full px-24">
