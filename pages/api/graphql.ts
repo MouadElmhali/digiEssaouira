@@ -24,6 +24,7 @@ import { ArticleResolver } from "../../src/article/article.resolver";
 import { YouthArticleResolver } from "../../src/youth/youthArticle.resolver";
 
 
+
 const schema = await buildSchema({
   resolvers: [
     ElectedResolver,

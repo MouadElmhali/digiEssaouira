@@ -14,9 +14,9 @@ query {
 export const GET_ARTICLE_BY_ID = gql`
   query ($id: String!) {
     article (id : $id) {
-        id
-        title 
-        body 
+        id,
+        title ,
+        body ,
         pictureUrl
     }
   }
@@ -32,3 +32,7 @@ export const GET_ARTICLE_BY_ID = gql`
 //     }
 //   }
 // `;
+<<<<<<< HEAD
+=======
+
+>>>>>>> dd659bd0cda708cfc0878ead504fd3b5a9862826
