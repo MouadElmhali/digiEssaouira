@@ -32,7 +32,3 @@ export const GET_ARTICLE_BY_ID = gql`
 //     }
 //   }
 // `;
-<<<<<<< HEAD
-=======
-
->>>>>>> dd659bd0cda708cfc0878ead504fd3b5a9862826
