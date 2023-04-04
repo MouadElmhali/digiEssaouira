@@ -71,7 +71,7 @@ export default function Home({
       <Head>
         <title>DigiEssaouire | الرئيسية</title>
       </Head>
-      <Header isHero styles="bg-[url('/images/thumb1.jpg')]">
+      <Header isHero styles="bg-[url('/images/thumb1.jpg')] h-screen">
         <p className="text-5xl mt-72 md:mt-auto">كن مشاركا في التنمية</p>
         <p className="text-3xl text-center ">
           تعرف على صناع القرار, قم بتطوير مهارات جديدة وساهم باقتراحاتك في
