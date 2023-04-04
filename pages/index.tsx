@@ -72,10 +72,11 @@ export default function Home({
       <Head>
         <title>DigiEssaouire | الرئيسية</title>
       </Head>
-      <Header isHero styles="bg-[url('/images/thumb1.jpg')] h-screen  after:bg-black/30 ">
-        <p className="text-6xl mt-72 font-bold md:mt-auto ">كن مشاركا في التنمية</p>
-        <p className="text-3xl text-center shadow-2xl">
-        تعرف على صناع القرار، قم بتطوير مهارات جديدة وساهم باقتراحاتك في التنمية المحلية  
+      <Header isHero styles="bg-[url('/images/thumb1.jpg')] h-screen">
+        <p className="text-5xl mt-72 md:mt-auto">كن مشاركا في التنمية</p>
+        <p className="text-3xl text-center ">
+          تعرف على صناع القرار, قم بتطوير مهارات جديدة وساهم باقتراحاتك في
+          التنمية المحلية
         </p>
         <div className="flex flex-row gap-x-10 relative md:top-48 xl:top-32 2xl:top-56 invisible w-0 md:w-auto overflow-hidden  md:visible ">
           <div className="flex flex-row justify-content items-center shadow-lg">
