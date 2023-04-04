@@ -142,7 +142,7 @@ export default function Home({
                 router.push("/courses")
               }}
             >
-              <img src="/images/thumb6.jpg" alt="Image" className="object-cover h-28 md:h-80 w-full" />
+              <img src="/images/courses.jpg" alt="Image" className="object-cover h-28 md:h-80 w-full" />
               <div className="px-4 py-4 ">
                 <p className=" text-red font-bold text-lg px-3">ألتحق بمسار تدريبي</p>
               </div>
@@ -155,7 +155,7 @@ export default function Home({
                   router.push("/contactUs")
                 }}
               >
-                <img src="/images/thumb2.jpg" alt="Image" className="object-cover h-28 w-full" />
+                <img src="/images/share.jpg" alt="Image" className="object-cover h-28 w-full" />
                 <div className="px-4 py-4">
                   <p className=" text-red font-bold text-md px-3">اشارك تجربتي</p>
                 </div>
@@ -167,7 +167,7 @@ export default function Home({
                   router.push("/askQuestion")
                 }}
               >
-                <img src="/images/thumb3.jpg" alt="Image" className="object-cover h-28 w-full" />
+                <img src="/images/questions.jpg" alt="Image" className="object-cover h-28 w-full" />
                 <div className="px-4 py-4">
                   <p className=" text-red font-bold text-md px-3">اطرح سؤال</p>
                 </div>
