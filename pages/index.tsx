@@ -77,7 +77,7 @@ export default function Home({
           تعرف على صناع القرار, قم بتطوير مهارات جديدة وساهم باقتراحاتك في
           التنمية المحلية
         </p>
-        <div className="flex flex-row gap-x-10 relative md:top-60 xl:top-36 2xl:top-64 invisible w-0 md:w-auto overflow-hidden  md:visible ">
+        <div className="flex flex-row gap-x-10 relative md:top-48 xl:top-32 2xl:top-56 invisible w-0 md:w-auto overflow-hidden  md:visible ">
           <div className="flex flex-row justify-content items-center shadow-lg">
             <button
               onClick={() => {
@@ -95,7 +95,7 @@ export default function Home({
               className="flex flex-row justify-center items-center bg-red px-2"
             >
               <img src="/images/icons/book.png" alt="icon" className="w-10 h-10" />
-              <p className=" font-md w-32 py-5" onClick={() => {
+              <p className=" font-md w-24 py-5" onClick={() => {
                 router.push("/courses")
               }}>اكتشف المسرات تدريبية</p>
             </button>
@@ -142,7 +142,7 @@ export default function Home({
                 router.push("/courses")
               }}
             >
-              <img src="/images/thumb6.jpg" alt="Image" className="object-cover h-28 md:h-80 w-full" />
+              <img src="/images/courses.jpg" alt="Image" className="object-cover h-28 md:h-80 w-full" />
               <div className="px-4 py-4 ">
                 <p className=" text-red font-bold text-lg px-3">ألتحق بمسار تدريبي</p>
               </div>
@@ -155,7 +155,7 @@ export default function Home({
                   router.push("/contactUs")
                 }}
               >
-                <img src="/images/thumb2.jpg" alt="Image" className="object-cover h-28 w-full" />
+                <img src="/images/share.jpg" alt="Image" className="object-cover h-28 w-full" />
                 <div className="px-4 py-4">
                   <p className=" text-red font-bold text-md px-3">اشارك تجربتي</p>
                 </div>
@@ -167,7 +167,7 @@ export default function Home({
                   router.push("/askQuestion")
                 }}
               >
-                <img src="/images/thumb3.jpg" alt="Image" className="object-cover h-28 w-full" />
+                <img src="/images/questions.jpg" alt="Image" className="object-cover h-28 w-full" />
                 <div className="px-4 py-4">
                   <p className=" text-red font-bold text-md px-3">اطرح سؤال</p>
                 </div>
@@ -300,7 +300,7 @@ export default function Home({
             <div
               className="flex lg:flex-row flex-col  justify-center items-center gap-x-10 gap-y-5 bg-blue-gradient md:px-52 md:pt-16"
             >
-              {articles.slice(articles.length - 3, articles.length ).map(({id, title, pictureUrl}: any) => {
+              {articles.slice(articles.length - 3, articles.length).map(({ id, title, pictureUrl }: any) => {
                 return (
                   <div
                     key={id}

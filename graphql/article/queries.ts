@@ -32,4 +32,3 @@ export const GET_ARTICLE_BY_ID = gql`
 //     }
 //   }
 // `;
-
