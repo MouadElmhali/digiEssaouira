@@ -162,7 +162,7 @@ export default function AddAssociation({
             type: "text"
         },
         {
-            name: "تاريخ تأسيس الجمعية",
+            name: "تارخ تأسيس الجمعية",
             required: true,
             inputType: "textInput",
             id : "date",
@@ -198,7 +198,7 @@ export default function AddAssociation({
             type: "text"
         },
         {
-            name: "مكان (الجماعة / الإقليم)",
+            name: "مكان عمل الجمعية (الجماعة / الإقليم)",
             required: true,
             inputType: "selectInput",
             id : "region",
@@ -252,8 +252,9 @@ export default function AddAssociation({
 
     return (
         <>
-            <div className='mt-40'>
-                <img className='object-cover w-full h-64' src="/images/thumb1.jpg" alt="" />
+            <div className='mt-40 relative'>
+                <div className={"bg-[url('/images/thumb1.jpg')]  w-full h-64 bg-cover bg-center  "}></div>
+                <div className="absolute top-0 left-0 w-full h-64 bg-black/40 opacity-75 "></div> 
                 <p className='font-black text-4xl text-white relative -top-40 text-center shadow-2xl'>إظافة جمعية</p>
             </div>
             <form className='flex flex-col items-center' onSubmit={handleSubmit}>

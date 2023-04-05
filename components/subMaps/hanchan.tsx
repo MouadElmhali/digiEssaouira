@@ -10,18 +10,21 @@ export default function HanchanMap() {
         {
             city: "جماعة سيدي محمد أو مرزوق",
             president: "الرئيس",
+            partie: "",
             image: "/images/electeds/sidimohammedomerzouke.jpg",
         },
 
         {
             city: "جماعة مزيلات",
             president: "الرئيس",
+            partie: "",
             image: "/images/electeds/mzilate.jpg",
         },
 
         {
             city: "جماعة مرامر",
             president: "الرئيس",
+            partie: "",
             image: "/images/electeds/meramer.jpg",
         },
 
@@ -29,6 +32,7 @@ export default function HanchanMap() {
         {
             city: "جماعة سيدي بوعلام",
             president: "الرئيس",
+            partie: "",
             image: "/images/electeds/sidiboualame.jpg",
         },
 
@@ -36,60 +40,68 @@ export default function HanchanMap() {
         {
             city: "جماعة سيدي عيسى الركراكي",
             president: "الرئيس",
+            partie: "",
             image: "/images/electeds/sidiissaregragi.jpg",
         },
 
         {
             city: "جماعة أولاد امرابط",
             president: "الرئيس جمال خنبوبي حزب الإستقلال",
+            partie: "حزب الإستقلال",
             image: "/images/electeds/ouladmrabet.jpg",
         },
         {
             city: "جماعة تفتاشت ",
-            president: "الرئيس ميلود المتوكي حزب الأصالة والمعاصرة",
+            president: "الرئيس ميلود المتوكي ",
+            partie: " حزب الأصالة والمعاصرة",
             image: "/images/electeds/taftachte.jpg",
         },
         {
             city: "جماعة مجي",
             president: "الرئيس",
+            partie: " حزب الأصالة والمعاصرة",
             image: "/images/electeds/mji.jpg",
         },
-
-
         {
             city: "جماعة لكدادرة",
             president: "الرئيس",
+            partie: " ",
             image: "/images/electeds/legdadra.jpg",
         },
 
         {
             city: "جماعة كشولة",
             president: "الرئيس",
+            partie: "",
             image: "/images/electeds/kechoula.jpg",
         },
 
         {
             city: "جماعة الكريمات",
-            president: "الرئيس عزالدين الزريويل حزب التجمع الوطني للأحرار",
+            president: "الرئيس عزالدين الزريويل ",
+            partie: "حزب التجمع الوطني للأحرار",
             image: "/images/electeds/korimate.jpg",
         },
 
         {
             city: "جماعة الحنشان",
-            president: "الرئيسة امينة الشليح حزب الإتحاد الإشتراكي للقوات الشعبية",
+            president: "الرئيسة امينة الشليح ",
+            partie: " حزب الإتحاد الإشتراكي للقوات الشعبية",
             image: "/images/electeds/elhenchane.jpg",
         },
 
         {
             city: "جماعة الحسينات",
             president: "الرئيس",
+            partie:"",
             image: "/images/electeds/lehsinate.jpg",
         },
 
 
         {
             city: "جماعة أيت سعيد  ",
-            president: "الرئيس المصطفى الاشم حزب الأصالة والمعاصرة",
+            president: "الرئيس المصطفى الاشم ",
+            partie:"حزب الأصالة والمعاصرة",
             image: "/images/electeds/aitsaid.jpg",
         },
 
@@ -144,7 +156,7 @@ export default function HanchanMap() {
                     <path data-region="3" className="st0" d="M133.6,57.5c0,0,9.6-1.8,13.4-9.3c0,0,2.4,0.3,3.2,9.4s2.4,7.8,2.4,7.8s0.9,4.6-0.2,7.7   c-1.1,3.1-9.1,14-9.1,14s-9.9,4.8-9.8,5.6s-4.5,2.8-4.5,2.8s-11,9.5-21.6,12.4c0,0-4.2,0.9-6.3-1.2l5-21c0,0,2-14.6,9.3-18.5   c0,0,2.2-1.9,8.2-2.5C128.7,64.2,133.7,60.9,133.6,57.5z" />
                     <path data-region="1" className="st0" d="M215.3,97.3l12.5-11.4c0,0-8.4-0.3-6.4-13.8s-6.4-19.4-6.4-19.4s-15.6-8.2-18.4-8.7c-2.8-0.5-7.9-13-7.9-13   s-7.7-7.9-8.4-7.7c-0.8,0.3-9.5,10.9-9.5,10.9l-2.7,2.6l-5.4-5c0,0-2.8-5.4-6.5,2.4s-9.2,14-9.2,14s3,3.7,3.2,9.4s2.4,7.8,2.4,7.8   s1.2,5.2-0.2,7.7c0,0,14.4,6.6,25.1,0.9l16.7,12.1c0,0,2.2,0,0.5,3.4s-0.1,5-0.1,5s5.9-1.5,10.1,1s7.8,1,7.8,1   S215.1,96.1,215.3,97.3z" />
                     <path data-region="0" className="st0" d="M242,0.7h3.7c0,0,2.8-1.4,2.8,2.7s0,6.1,0,6.1s-1.3,2.7,2.7,2.7c4,0,9.6-3.2,13.1,1.1s4.1,5.9,4.3,12.3   c0.3,6.4-4.6,29.4-2.6,35.2c2,5.9,6.9,28.3-5.9,28.3c-12.8,0-22.2-5.1-32.4-3.3c0,0-8.2,0.3-6.4-13.8s-6.4-19.4-6.4-19.4L196.7,44   c0,0-8.4-9.7-7.9-13l-8.4-7.7c0,0-2-14.5,7.1-14.6s20.4-1.2,20.4-1.2l14-4.4c0,0,4.9,0.7,6.3,1.5S242,0.7,242,0.7z" />
-                    <path className="st0" d="M162.6,139.8l-0.8,1.9c0,0-1.1,1.9-1.5,2.3c-0.4,0.4-1.1,1.3-2.2,0.9c-1.1-0.4-4.1,0-9.6,2.4   c0,0-3.6,0.4-5.2,1.1c-1.6,0.7-1.6,0.8-1.6,0.8s-2.3,2-5.4-0.8l-6.6,9.4l-10.6,2.2l-1.7,0.9c-0.2,0.1-0.3,0.4-0.1,0.6l3.1,3.5   l-6.6,7.7l-16.3,2.2l0.2,8.2c0,0,3.3,2.3,17.7,3.4l5.8,0.5c0,0,5.7-1.3,10.5-0.9c4.8,0.4,8.9,0.3,13.6-1.3   c4.7-1.6,13.5-7.6,16.7-11.4l5.3,2.9l2.2-2.7l-2.2-3.4l3.9-4.6c0,0-2-9-5.1-14.7c0,0-1.3-2.5-0.5-4.9   C166.3,143.5,162.6,139.8,162.6,139.8z" />
+                    <path  data-region="9"  className="st0" d="M162.6,139.8l-0.8,1.9c0,0-1.1,1.9-1.5,2.3c-0.4,0.4-1.1,1.3-2.2,0.9c-1.1-0.4-4.1,0-9.6,2.4   c0,0-3.6,0.4-5.2,1.1c-1.6,0.7-1.6,0.8-1.6,0.8s-2.3,2-5.4-0.8l-6.6,9.4l-10.6,2.2l-1.7,0.9c-0.2,0.1-0.3,0.4-0.1,0.6l3.1,3.5   l-6.6,7.7l-16.3,2.2l0.2,8.2c0,0,3.3,2.3,17.7,3.4l5.8,0.5c0,0,5.7-1.3,10.5-0.9c4.8,0.4,8.9,0.3,13.6-1.3   c4.7-1.6,13.5-7.6,16.7-11.4l5.3,2.9l2.2-2.7l-2.2-3.4l3.9-4.6c0,0-2-9-5.1-14.7c0,0-1.3-2.5-0.5-4.9   C166.3,143.5,162.6,139.8,162.6,139.8z" />
                 </g>
             </svg>
         </div>
@@ -163,6 +175,8 @@ export default function HanchanMap() {
                     <span className="text-2xl font-semibold"> {mapData[show].city}</span>
                     <br />
                     <span className="text-2xl font-semibold"> {mapData[show].president}</span>
+                    <br />
+                    <span className="text-2xl font-semibold"> {mapData[show].partie}</span>
                 </div>
             </div>}
     </>
