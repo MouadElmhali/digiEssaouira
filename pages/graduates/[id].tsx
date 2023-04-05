@@ -57,6 +57,9 @@ export default function Association({
       console.error('Web Share API not supported');
     }
   };
+
+  
+  
   return (
     <>
       <Head>
@@ -79,8 +82,7 @@ export default function Association({
             <div className="flex flex-col gap-3">
               <p className="text-primaryDarker text-4xl font-bold">{name}</p>
               <div className="text-xl mt-5">  {post}</div>
-              <div className="text-xl mt-5">
-                {bio}
+              <div dangerouslySetInnerHTML={{ __html: bio }} className="text-xl mt-5">
               </div>
               <div className="flex gap-3">
                 <a href={facebook} title="Share on Facebook">
@@ -110,21 +112,23 @@ export default function Association({
                   </svg>
                 </a>
                 <a href={`mailto:${gmail}`}>
-                  <svg   className="fill-primary" width="35" height="35" xmlns="http://www.w3.org/2000/svg" version="1.0" viewBox="0 0 512.000000 512.000000" preserveAspectRatio="xMidYMid meet">
-                    <g transform="translate(0.000000,512.000000) scale(0.100000,-0.100000)"  stroke="none">
+                  <svg className="fill-primary" width="35" height="35" xmlns="http://www.w3.org/2000/svg" version="1.0" viewBox="0 0 512.000000 512.000000" preserveAspectRatio="xMidYMid meet">
+                    <g transform="translate(0.000000,512.000000) scale(0.100000,-0.100000)" stroke="none">
                       <path d="M2370 5113 c-379 -36 -661 -116 -980 -278 -378 -193 -717 -497 -965 -865 -104 -156 -232 -419 -294 -605 -49 -150 -89 -321 -113 -490 -17 -118 -17 -512 0 -630 42 -295 120 -553 242 -800 137 -280 272 -468 494 -691 221 -220 412 -357 681 -489 188 -92 309 -137 500 -185 500 -126 1002 -102 1490 71 149 53 407 182 540 271 365 243 667 578 866 963 181 348 271 694 286 1090 15 426 -73 832 -263 1214 -124 250 -263 447 -458 648 -216 224 -428 378 -711 518 -296 146 -572 225 -900 255 -102 9 -333 11 -415 3z m1669 -1428 c60 -33 110 -87 143 -154 l23 -46 0 -925 0 -925 -23 -46 c-33 -67 -83 -121 -143 -154 l-54 -30 -1425 0 -1425 0 -54 30 c-60 33 -110 87 -143 154 l-23 46 0 925 0 925 28 57 c34 69 100 130 171 157 50 20 76 20 1461 18 l1410 -2 54 -30z" />
                       <path d="M1450 3446 c32 -30 1091 -867 1104 -872 10 -4 1048 807 1116 872 12 12 -145 14 -1110 14 -961 0 -1122 -2 -1110 -14z" />
                       <path d="M1180 2507 c0 -776 1 -815 18 -830 17 -16 126 -17 1364 -17 1292 0 1346 1 1362 18 15 17 16 86 14 829 l-3 811 -210 -168 c-837 -666 -1111 -880 -1136 -885 -16 -4 -42 -4 -57 0 -15 3 -190 134 -388 291 -285 227 -807 640 -941 747 l-23 18 0 -814z" />
                     </g>
                   </svg>
                 </a>
+                <button className="flex items-center justify-center bg-primary  text-white font-bold p-2 rounded-full " onClick={handleShare}>
+                  <svg xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" fill="#ffffff" version="1.1" className="w-5 h-5" viewBox="0 0 512 512" xmlSpace="preserve" stroke="#ffffff">
+                    <g id="SVGRepo_bgCarrier" strokeWidth="0" />
+                    <g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round" />
+                    <g id="SVGRepo_iconCarrier"> <g id="7935ec95c421cee6d86eb22ecd12b5bb"> <path style={{display: "inline;"}} d="M505.705,421.851c0,49.528-40.146,89.649-89.637,89.649c-49.527,0-89.662-40.121-89.662-89.649 c0-1.622,0.148-3.206,0.236-4.815l-177.464-90.474c-14.883,11.028-33.272,17.641-53.221,17.641 c-49.528,0-89.662-40.134-89.662-89.649s40.134-89.649,89.662-89.649c22.169,0,42.429,8.097,58.086,21.433l172.774-88.09 c-0.25-2.682-0.412-5.364-0.412-8.097c0-49.503,40.135-89.649,89.662-89.649c49.49,0,89.637,40.146,89.637,89.649 c0,49.516-40.146,89.65-89.637,89.65c-22.082,0-42.242-8.009-57.861-21.221l-172.999,88.215c0.224,2.558,0.387,5.14,0.387,7.76 c0,4.653-0.474,9.182-1.148,13.648l171.389,87.379c15.92-14.472,37.004-23.379,60.232-23.379 C465.559,332.201,505.705,372.348,505.705,421.851z"> </path> </g> </g>
+                  </svg>
+                </button>
               </div>
-              <button className="flex items-center justify-center bg-primary  text-white font-bold py-2 px-4 rounded w-40" onClick={handleShare}>
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M7.217 10.907a2.25 2.25 0 100 2.186m0-2.186c.18.324.283.696.283 1.093s-.103.77-.283 1.093m0-2.186l9.566-5.314m-9.566 7.5l9.566 5.314m0 0a2.25 2.25 0 103.935 2.186 2.25 2.25 0 00-3.935-2.186zm0-12.814a2.25 2.25 0 103.933-2.185 2.25 2.25 0 00-3.933 2.185z" />
-                </svg>
-                <span>شارك </span>
-              </button>
+
             </div>
           </div>
 

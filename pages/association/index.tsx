@@ -260,38 +260,38 @@ export default function AddAssociation({
                 <div className='flex flex-row w-auto md:w-[50rem] flex-wrap justify-center gap-x-10 mb-5'>
                     <div>
                         {
-                            // labels.slice(0, 5).map(({id, name, inputType, required, type}, index) => {
-                            //     if(inputType === "textArea") 
-                            //         return (
-                            //             <TextArea key={index} label={name} name={id} id={id} placeholder={name} required = {required} onChange={handleChangeText}/>
-                            //         )
-                            //     return (    
-                            //         <TextInput type={type} key={index} label={name} name={id} id={id} placeholder={name} required = {required} handleChange={handleChangeText} />
-                            // )})
+                            labels.slice(0, 5).map(({id, name, inputType, required, type}, index) => {
+                                if(inputType === "textArea") 
+                                    return (
+                                        <TextArea key={index} label={name} name={id} id={id} placeholder={name} required = {required} onChange={handleChangeText}/>
+                                    )
+                                return (    
+                                    <TextInput type={type} key={index} label={name} name={id} id={id} placeholder={name} required = {required} handleChange={handleChangeText} />
+                            )})
                         }
                     </div>
 
                     <div>
                         {
-                            // labels.slice(5, labels.length).map(({id, name, inputType, required, type}, index) => {
-                            //     if(inputType === "textArea") 
-                            //         return (
-                            //             <TextArea key={index} label={name} name={id} id={id} placeholder={name} required = {required} handleChange={handleChangeText}/>
-                            //         )
-                            //     if(inputType === "fileInput") 
-                            //         return (
-                            //             <FileInput key={index} label={name} name={id} id={id} placeholder={name} required = {required} inputRef = {inputRef} handleChange = {handleChangeFile}/>
-                            //         )
+                            labels.slice(5, labels.length).map(({id, name, inputType, required, type}, index) => {
+                                if(inputType === "textArea") 
+                                    return (
+                                        <TextArea key={index} label={name} name={id} id={id} placeholder={name} required = {required} handleChange={handleChangeText}/>
+                                    )
+                                if(inputType === "fileInput") 
+                                    return (
+                                        <FileInput key={index} label={name} name={id} id={id} placeholder={name} required = {required} inputRef = {inputRef} handleChange = {handleChangeFile}/>
+                                    )
 
-                            //     if(inputType === "selectInput") 
-                            //         return (
-                            //             <SelectInput key={index} values={regions} label={name} name={id} id={id} placeholder={name} required = {required} inputRef = {inputRef} handleChange = {handleChangeText}/>
-                            //         )
+                                if(inputType === "selectInput") 
+                                    return (
+                                        <SelectInput key={index} values={regions} label={name} name={id} id={id} placeholder={name} required = {required} inputRef = {inputRef} handleChange = {handleChangeText}/>
+                                    )
 
 
-                            //     return (    
-                            //         <TextInput type={type} key={index} label={name} name={id} id={id} placeholder={name} required = {required} handleChange={handleChangeText} />
-                            // )})
+                                return (    
+                                    <TextInput type={type} key={index} label={name} name={id} id={id} placeholder={name} required = {required} handleChange={handleChangeText} />
+                            )})
                         }
                     </div>
                         

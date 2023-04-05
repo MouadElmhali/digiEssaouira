@@ -71,8 +71,8 @@ export default function Home({
       <Head>
         <title>DigiEssaouire | الرئيسية</title>
       </Head>
-      <Header isHero styles="bg-[url('/images/thumb1.jpg')] h-screen">
-        <p className="text-5xl mt-72 md:mt-auto">كن مشاركا في التنمية</p>
+      <Header isHero styles="bg-[url('/images/thumb1.jpg')] h-screen  after:bg-black/10 ">
+        <p className="text-6xl mt-72 font-bold md:mt-auto ">كن مشاركا في التنمية</p>
         <p className="text-3xl text-center ">
           تعرف على صناع القرار, قم بتطوير مهارات جديدة وساهم باقتراحاتك في
           التنمية المحلية
@@ -185,14 +185,12 @@ export default function Home({
             className="flex flex-col items-center justify-center lg:flex-row  gap-y-5 mx-12 md:mx-auto "
           >
             {courses.length > 0 ? 
-            
               courses.slice(courses.length - 3, courses.length).map(({ id, name, pictureUrl }, index) => (
                 <MyCard key={id} onClick={() => {router.push({
                   pathname: "/courses/" + name,
                   query: { courseId: id },
                 });}} title={"المساق " + arabicOrder(index)} text={name} picture={"/images/courses/" + pictureUrl} />
               ))
-            
             : <></>}
           </div>
         </Section>

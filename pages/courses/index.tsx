@@ -41,16 +41,16 @@ export default function Courses({
 
       <main>
         <Section>
-          <div className="grid grid-cols-1 sm:grid-cols-4 gap-5">
+          <div className="grid  grid-cols-1 sm:grid-cols-4 gap-5">
             {courses.map(({ id, name, pictureUrl }) => (
               <div key={id} className="min-w-[180px]">
                 <Link href={{
                   pathname: `${routes.courses.path}/${name}`,
                   query: {courseId : id},
                 }}>
-                <a className="flex flex-col gap-4 flex-1 h-full flex-wrap">
-                  <Image height={200} width={300} className="object-fill" alt="" src={`/images/courses/${pictureUrl}`} />
-                  <div className="bg-primary text-white font-bold text-lg text-center py-5 px-3">
+                <a className="flex flex-col gap-4  h-full">
+                  <Image height={250} width={200} className="object-fill h-[75%]"  alt="" src={`/images/courses/${pictureUrl}`} />
+                  <div className="bg-primary text-white font-bold text-lg text-center py-5 px-3 h-[25%]">
                     {name}
                   </div>
                 </a>

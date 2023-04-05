@@ -43,18 +43,25 @@ export default function Associations({
   const {
     query: { name, regionId },
   } = useRouter();
+  const router = useRouter();
   return (
     <>
       <Head>
         <title>DigiEssaouira | المنتخبين</title>
       </Head>
-     
+
       <main className="mt-20">
         <Section className="py-20">
           <div className="flex flex-col gap-y-12">
             <h2 className="text-primaryDarker text-5xl text-center font-bold">
               {name}
             </h2>
+            <div className="flex flex-col sm:flex-row items-center justify-center w-full">
+              <h2 className="text-primary text-2xl text-center font-bold">
+                أضف جمعيتك من خلال ملئ الإستمارة
+              </h2>
+              <button onClick={() => router.push("/association")} className="bg-primary text-white rounded-full p-2 px-6 mr-10">أضف جمعيتك</button>
+            </div>
             <div className="grid gap-3 gap-y-8 md:grid-cols-4">
               {(
                 associations["getAssociationByRegionId"] as IAssociation[]

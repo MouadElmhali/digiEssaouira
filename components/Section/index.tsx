@@ -22,7 +22,7 @@ export default function Section({
           
             <div className="flex flex-row  justify-center md:justify-start items-center gap-2">
               <div className="sm:w-5 md:w-60 h-px bg-black"></div>
-              <h2 className="text-2xl font-bold text-blue">{title}</h2>
+              <h2 className="text-4xl font-bold text-blue">{title}</h2>
             </div>
         )}
         {description && (
