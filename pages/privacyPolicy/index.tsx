@@ -11,10 +11,9 @@ export default function PrivacyPolicy(): JSX.Element {
       </Head>
       <Header
         isHero
-        styles="bg-[url('/images/association-hero.png')] after:bg-black/10"
-      >
-        <h1 className="text-7xl"> دليل استعمال منصة</h1>
-      </Header>
+        title = "دليل استعمال منصة" 
+        image = "/images/courses-svg.svg"
+      ></Header>
       <main>
         <Section className="py-20 text-2xl font-semibold">
           استنادا إلى الفصل الأول من دستور المغرب الصادر سنة 2011 “يقوم النظام

@@ -67,7 +67,7 @@ export default function NavBar(): JSX.Element {
               className=" hover:text-blue-500 
                     cursor-pointer transition-colors duration-300"
             >
-              إلتحق بمسار تدريبي
+              إلتحق بمساق تدريبي
             </a>
           </Link>
 
@@ -184,7 +184,7 @@ export default function NavBar(): JSX.Element {
                 className=" hover:text-blue-500 
                     cursor-pointer transition-colors duration-300"
               >
-                إلتحق بمسار تدريبي
+                إلتحق بمساق تدريبي
               </a>
             </Link>
 

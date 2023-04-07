@@ -35,8 +35,10 @@ export default function Courses({
 
       <Header
         isHero
-        styles="bg-[url('/images/hero/hero-courses.jpeg')] bg-no-repeat bg-cover bg-center bg-contain   h-[35vh] mt-10"
+        title = "مساقاة تدريبية متخصصة في مجال المشاركة العامة الديمقراطية"
+        image = "/images/courses-svg.svg"
       >
+       
       </Header>
 
       <main>

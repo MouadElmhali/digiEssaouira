@@ -25,12 +25,12 @@ export default function Resources({ resources }: any): JSX.Element {
       <Head>
         <title>DigiEssaouira | دليل الموارد الرقمية</title>
       </Head>
+   
       <Header
         isHero
-        styles="bg-[url('/images/pdf-hero.jpg')] after:bg-black/40"
-      >
-        <h1 className="text-7xl text-center">دليل الموارد الرقمية</h1>
-      </Header>
+        title = "دليل الموارد الرقمية" 
+        image = "/images/resources-svg.svg"
+      ></Header>
       <main>
         <Section className="py-20">
           <div className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 gap-8">

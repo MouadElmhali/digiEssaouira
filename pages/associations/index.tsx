@@ -29,7 +29,8 @@ export default function Regions({
       </Head>
       <Header
         isHero
-        styles="bg-[url('/images/hero/hero-association.jpeg')] bg-no-repeat bg-cover bg-center bg-contain   h-[35vh] mt-10"
+        title = "قاعدة البيانات الموحدة لجمعيات المجتمع المدني بالصويرة" 
+        image = "/images/asso-svg.svg"
       >
       </Header>
       <main>

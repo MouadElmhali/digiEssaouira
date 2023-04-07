@@ -193,7 +193,7 @@ export default function Quiz({
           />
           <Link
             href={{
-              pathname: routes.quiz.makePath?.(courseName),
+              pathname: routes.course.makePath?.(courseName),
               query: { courseId },
             }}
           >

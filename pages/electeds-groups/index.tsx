@@ -32,7 +32,8 @@ export default function Electeds({
       </Head>
       <Header
         isHero
-        styles="bg-[url('/images/hero/hero-electeds.jpeg')] bg-no-repeat bg-cover bg-center bg-contain   h-[35vh] mt-10"
+        title = "منتخبي إقليم الصويرة"
+        image = "/images/elected-svg.svg"
       >
       </Header>
       <main>
