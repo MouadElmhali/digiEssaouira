@@ -29,7 +29,7 @@ export default function NavBar(): JSX.Element {
             <a className="ml-5">دليل الموارد الرقمية</a>
           </Link>
           <Link href={routes.privacyPolicy.path} ><a className="ml-5">دليل استعمال منصة</a></Link>
-          <Link href={routes.graduates.path}>  خريجي digiessaouira</Link>
+          <Link href={routes.graduates.path}>  خريجي DIGIESSAOUIRA</Link>
         </div>
         <Link href={routes.contactUs.path}> تواصلو معنا</Link>
       </div>
@@ -212,7 +212,7 @@ export default function NavBar(): JSX.Element {
             <Link href={routes.privacyPolicy.path} className=" hover:text-blue-500 
                     cursor-pointer transition-colors duration-300"><a className="ml-5">دليل استعمال منصة</a></Link>
             <Link href={routes.graduates.path} className=" hover:text-blue-500 
-                    cursor-pointer transition-colors duration-300">  خريجي digiessaouira</Link>
+                    cursor-pointer transition-colors duration-300">  خريجي DIGIESSAOUIRA</Link>
             <Link href={routes.contactUs.path} className=" hover:text-blue-500 
                     cursor-pointer transition-colors duration-300"> تواصلو معنا</Link>
             {currentUser ? (

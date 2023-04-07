@@ -26,6 +26,7 @@
     "gm": "^1.25.0",
     "graphql": "^15.8.0",
     "jsonwebtoken": "^8.5.1",
+    "keen-slider": "^6.8.5",
     "lodash": "^4.17.21",
     "micro": "^9.4.1",
     "micro-cors": "^0.1.1",
