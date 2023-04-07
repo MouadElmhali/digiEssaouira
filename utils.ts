@@ -3,4 +3,6 @@ export const nameWithTitle = (
   firstName: string,
   lastName: string,
   title: string
-) => `${title}. ${combineStrings([firstName, lastName])}`;
+) => {
+  `${title}. ${combineStrings([firstName, lastName])}`
+};

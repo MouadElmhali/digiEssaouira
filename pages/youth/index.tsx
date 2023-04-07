@@ -2,27 +2,27 @@ import React from 'react'
 import Head from "next/head";
 import { useRouter } from 'next/router';
 import { initializeApollo } from '../../apolloClient';
-import { GET_YOUTHARTICLES } from '../../graphql/youthArticle/queries';
+import { GET_ARTICLES } from '../../graphql/article/queries';
 import { InferGetServerSidePropsType } from 'next';
 
 export async function getServerSideProps() {
     const client = initializeApollo();
     const {
-        data: { youthArticles
+        data: { articles
         },
     } = await client.query({
-        query: GET_YOUTHARTICLES,
+        query: GET_ARTICLES,
     });
 
     return {
         props: {
-            youthArticles
+            articles
         },
     };
 }
 
 export default function Youth ({
-    youthArticles
+    articles
 }: InferGetServerSidePropsType<typeof getServerSideProps>): JSX.Element {
     const router = useRouter();
     
@@ -40,13 +40,13 @@ export default function Youth ({
                         </div>
                     </div>
                     <div className='mt-24 mx-auto xl:mx-44 2xl:mx-64 flex flex-row flex-wrap gap-8 justify-center items-center'>
-                        {youthArticles?.map(({id, title, body, pictureUrl}) => (
+                        {articles?.map(({id, title, body, pictureUrl}) => (
                             <button key={id} onClick={() => router.push("/youth/" + id)}>
                                 <div
                                     className="h-72 w-72 bg-blue  overflow-hidden shadow-xl"
                                 >
                                     <img 
-                                        src={"/images/youthArticles/" + pictureUrl}
+                                        src={"/images/articles/" + pictureUrl}
                                         className="object-cover w-full h-44"
                                     />
                                     <div className='flex flex-col mx-5 my-2'>

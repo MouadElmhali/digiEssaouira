@@ -22,7 +22,7 @@ export default function Footer(): JSX.Element {
         </div>
         <div className="md:text-right text-center">
           <p className="my-3 text-2xl font-bold">اتصل بنا</p>
-          <p className="direction-left  text-xl">+2126 61 64 16 40</p>
+          <p className="direction-left  text-xl">+212 695132454</p>
           <p className="text-xl">contact@digiessaouira.com</p>
         </div>
         <div className="md:text-right text-center">
@@ -89,8 +89,10 @@ export default function Footer(): JSX.Element {
         </div>
       </div>
       <div className="flex justify-between max-w-7xl mx-auto">
-        <p className="text-base">جميع الحقوق محفوظة, الصويرة.2022</p>
-        <p className="text-base"> الصويرة - المغرب</p>
+        
+          <p className="text-base text-center">جميع الحقوق محفوظة لجمعية أصدقاء الكلمة<br/> الصويرة.2023</p>
+          <p className="text-base"> الصويرة - المغرب</p>
+        
       </div>
     </footer>
   );

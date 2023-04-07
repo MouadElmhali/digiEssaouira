@@ -162,7 +162,7 @@ export default function AddAssociation({
             type: "text"
         },
         {
-            name: "تارخ تأسيس الجمعية",
+            name: "تاريخ تأسيس الجمعية",
             required: true,
             inputType: "textInput",
             id : "date",
@@ -198,7 +198,7 @@ export default function AddAssociation({
             type: "text"
         },
         {
-            name: "مكان عمل الجمعية (الجماعة / الإقليم)",
+            name: "مكان (الجماعة / الإقليم)",
             required: true,
             inputType: "selectInput",
             id : "region",

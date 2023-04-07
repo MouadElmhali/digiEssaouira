@@ -149,7 +149,7 @@ export default function Course({
           />
           <div className="text-primaryDarker flex flex-col self-center gap-y-2">
             <p className="text-lg">
-              {nameWithTitle(instructor?.firstName, instructor?.lastName)}
+              {nameWithTitle(instructor?.firstName, instructor?.lastName, instructor?.title)}
             </p>
             <p className="font-bold text-sm">{instructor?.post?.name}</p>
           </div>

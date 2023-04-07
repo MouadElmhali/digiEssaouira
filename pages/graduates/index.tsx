@@ -37,7 +37,7 @@ export default function Graduates({
             </Head>
             <main>
                 <Section>
-                    <h1 className="text-2xl font-semibold text-center text-primaryDarker mt-36 mb-10">خريجي digiessaouira</h1>
+                    <h1 className="text-2xl font-semibold text-center text-primaryDarker mt-36 mb-10">خريجي DIGIESSAOUIRA</h1>
                     <div className="grid grid-cols-1 sm:grid-cols-4 gap-5">
                         {getGraduates.map(({ id, post, name, pictureUrl }) => (
                             <div key={id} className="min-w-[180px]">

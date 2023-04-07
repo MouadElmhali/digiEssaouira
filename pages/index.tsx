@@ -19,6 +19,7 @@ import { GET_RESOURCES } from '../graphql/resources/queries';
 import { GET_POSTS } from '../graphql/post/queries';
 import { useQuery } from '@apollo/client';
 import { GET_ARTICLES } from '../graphql/article/queries';
+import { Slider } from '../components/slider';
 
 export async function getServerSideProps() {
   const client = initializeApollo();
@@ -71,11 +72,10 @@ export default function Home({
       <Head>
         <title>DigiEssaouire | الرئيسية</title>
       </Head>
-      <Header isHero styles="bg-[url('/images/thumb1.jpg')] h-screen  after:bg-black/10 ">
+      <Header isHero styles="bg-[url('/images/thumb1.jpg')] h-screen  after:bg-black/30 ">
         <p className="text-6xl mt-72 font-bold md:mt-auto ">كن مشاركا في التنمية</p>
-        <p className="text-3xl text-center ">
-          تعرف على صناع القرار, قم بتطوير مهارات جديدة وساهم باقتراحاتك في
-          التنمية المحلية
+        <p className="text-3xl text-center shadow-2xl">
+        تعرف على صناع القرار، قم بتطوير مهارات جديدة وساهم باقتراحاتك في التنمية المحلية  
         </p>
         <div className="flex flex-row gap-x-10 relative md:top-48 xl:top-32 2xl:top-56 invisible w-0 md:w-auto overflow-hidden  md:visible ">
           <div className="flex flex-row justify-content items-center shadow-lg">
@@ -115,7 +115,7 @@ export default function Home({
             <button>
               <p className="text-gray-900 font-bold font-xl py-5 px-5" onClick={() => {
                 router.push("/#graduated")
-              }}>خريجين ديجي الصويرة</p>
+              }}>خريجين DIGIESSAOUIRA</p>
             </button>
             <div className="h-12 w-px bg-orange-600"></div>
             <button>
@@ -135,16 +135,16 @@ export default function Home({
           title="أريد أن"
           className="[&>div]:flex [&>div]:flex-col [&>div]:gap-y-10 -mt-12"
         >
-          <div className="flex flex-col md:flex-row md:flex-wrap justify-center items-center gap-x-5 gap-y-5">
+          <div className="flex flex-col md:flex-row md:flex-wrap justify-center items-center gap-x-5 gap-y-5 ">
             <button
               className=" w-72 md:w-96 h-44 md:h-96 bg-white shadow-xl border"
               onClick = {() => {
                 router.push("/courses")
               }}
             >
-              <img src="/images/courses.jpg" alt="Image" className="object-cover h-28 md:h-80 w-full" />
-              <div className="px-4 py-4 ">
-                <p className=" text-red font-bold text-lg px-3">ألتحق بمسار تدريبي</p>
+              <img src="/images/courses.png" alt="Image" className="object-contain h-28 md:h-80 w-full hover:h-72 ease-in-out duration-700" />
+              <div className="px-4 py-4">
+                <p className=" text-red font-bold text-lg px-3 ">ألتحق بمساق تدريبي</p>
               </div>
             </button>
 
@@ -155,9 +155,9 @@ export default function Home({
                   router.push("/contactUs")
                 }}
               >
-                <img src="/images/share.jpg" alt="Image" className="object-cover h-28 w-full" />
-                <div className="px-4 py-4">
-                  <p className=" text-red font-bold text-md px-3">اشارك تجربتي</p>
+                <img src="/images/share.png" alt="Image" className="object-cover h-28 hover:h-24 ease-in-out duration-700 w-full" />
+                <div className="px-4 py-4 ">
+                  <p className=" text-red font-bold text-md px-3 ">اشارك تجربتي</p>
                 </div>
               </button>
 
@@ -167,8 +167,8 @@ export default function Home({
                   router.push("/askQuestion")
                 }}
               >
-                <img src="/images/questions.jpg" alt="Image" className="object-cover h-28 w-full" />
-                <div className="px-4 py-4">
+                <img src="/images/question.png" alt="Image" className="object-cover h-28 w-full hover:h-24 ease-in-out duration-700" />
+                <div className="px-4 py-4 ">
                   <p className=" text-red font-bold text-md px-3">اطرح سؤال</p>
                 </div>
               </button>
@@ -272,10 +272,12 @@ export default function Home({
                 }}>
                   <p className="text-bold text-2xl text-blue">{"<"}</p>
                 </button>
-                <div className="ease-in-out flex flex-col items-center bg-blue shadow-2xl overflow-hidden h-80 w-44">
-                  <img src={"/images/graduates/" + getGraduates[graduatesCounter]?.pictureUrl} alt="img" className="h-72 object-cover"/>
-                  <div className="py-4 px-4">
-                    <p className="text-bold text-2xl text-white">{getGraduates[graduatesCounter]?.name }</p>
+                <div className="ease-in-out duration-700 flex flex-col items-center bg-blue shadow-2xl overflow-hidden h-80 w-64">
+                  <div className={`h-72 w-full object-cover ease-in-out duration-500  bg-no-repeat bg-center bg-cover bg-[url('/images/graduates/${getGraduates[graduatesCounter]?.pictureUrl}')]`} style={{backgroundImage: `url('/images/graduates/${getGraduates[graduatesCounter]?.pictureUrl}')`}}>
+                    {/* <Image src={"/images/graduates/" + getGraduates[graduatesCounter]?.pictureUrl} alt="img" height={288} width={220} style={{objectFit:"cover"}} /> */}
+                  </div>
+                  <div className="py-4 px-4 ease-in-out duration-700">
+                    <p className="text-bold text-2xl text-white ease-in-out duration-700">{getGraduates[graduatesCounter]?.name }</p>
                   </div>
                 </div>
                 <button onClick={() => {
@@ -293,7 +295,7 @@ export default function Home({
           <Section
             childrenClassName=""
             className="[&>div>h2]:text-primary  [&>div]:flex [&>div]:flex-col  [&>div]:gap-y-16 "
-            title="المقالات"
+            title="فضاء الشباب"
           >
             <div
               className="flex lg:flex-row flex-col  justify-center items-center gap-x-10 gap-y-5 bg-blue-gradient md:px-52 md:pt-16"
@@ -324,12 +326,22 @@ export default function Home({
           :
           <></>
         }
+
+        
         <Section
           className="[&>div>h2]:text-primary  [&>div]:flex [&>div]:flex-col  [&>div]:gap-y-16 "
-          title="الشركاء ومعلومات الإتصال"
+          title="ماذا قالو عن DIGIESSAOUIRA"
+          childrenClassName=""
+        >
+              <Slider />
+        </Section >
+        
+        <Section
+          className="[&>div>h2]:text-primary  [&>div]:flex [&>div]:flex-col  [&>div]:gap-y-16 "
+          title="الشركاء"
         >
           <div className='flex flex-col md:flex-row flex-wrap justify-center items-center gap-5'>
-            {[...Array(9).keys()].map((index) => {
+            {[...Array(8).keys()].map((index) => {
               return (
                 <Image 
                   key={index}
