@@ -30,16 +30,10 @@ export default function Header({
       :
       (
         <header
-        className="flex flex-wrap md:flex-nowrap items-center justify-center px-10 mt-36"
+        className="flex flex-wrap md:flex-nowrap items-center justify-center px-10 mt-36 gap-10"
         >
-           <h1 className="text-4xl font-bold mb-4 text-left text-primary sm:text-center">{title}</h1>
-      
-
-          <div className="w-full lg:w-1/2 mb-12 lg:mb-0 lg:pr-16">
-            <img className="w-full h-auto max-w-md" src={image} alt="Placeholder image"/>
-          </div>
-           
-
+              <h1 className="text-4xl font-bold mb-4 text-center text-primary sm:text-center">{title}</h1>
+              <img className="w-full h-auto max-w-md" src={image} alt="Placeholder image"/>
         </header>
       )
     : (
