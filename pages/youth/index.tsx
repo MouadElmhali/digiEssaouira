@@ -50,7 +50,7 @@ export default function Youth ({
                                         className="object-cover w-full h-44"
                                     />
                                     <div className='flex flex-col mx-5 my-2'>
-                                        <p className='text-white text-xl font-bold'>{title}</p>
+                                        <p className='text-white text-xl font-bold' dangerouslySetInnerHTML={{ __html: title }}></p>
                                         <p className='text-xs text-white mt-2'> {body.substr(0, 100) + " ..."}</p>
                                     </div>
                                 </div>
