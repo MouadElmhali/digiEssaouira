@@ -35,7 +35,7 @@ export default function Courses({
 
       <Header
         isHero
-        title = "مساقاة تدريبية متخصصة في مجال المشاركة العامة الديمقراطية"
+        title = "مساقات تدريبية متخصصة في مجال المشاركة العامة الديمقراطية"
         image = "/images/courses-svg.svg"
       >
        
