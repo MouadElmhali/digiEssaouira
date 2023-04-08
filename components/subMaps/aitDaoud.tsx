@@ -45,13 +45,15 @@ export default function AitDaoudMap() {
 
         {
             city: "جماعة ايت داود",
-            president: "الرئيس محمد ارخى  حزب الإتحاد الإشتراكي للقوات الشعبية",
+            president: "الرئيس محمد ارخى  ",
+            partie:" حزب الإتحاد الإشتراكي للقوات الشعبية",
             image: "/images/electeds/aitdaoud.jpg",
         },
 
         {
             city: "جماعة أكليف  ",
-            president: "الرئيس احمد اشالا حزب التقدم والإشتراكية",
+            president: "الرئيس احمد ",
+            partie:" حزب الإتحاد الإشتراكي للقوات الشعبية",
             image: "/images/electeds/aglif.jpg",
         },
 
@@ -125,6 +127,8 @@ export default function AitDaoudMap() {
                     <span className="text-2xl font-semibold"> {mapData[show].city}</span>
                     <br />
                     <span className="text-2xl font-semibold"> {mapData[show].president}</span>
+                    <br />
+                    <span className="text-2xl font-semibold"> {mapData[show].partie}</span>
                 </div>
             </div>}
     </>

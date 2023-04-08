@@ -46,7 +46,7 @@ export default function HanchanMap() {
 
         {
             city: "جماعة أولاد امرابط",
-            president: "الرئيس جمال خنبوبي حزب الإستقلال",
+            president: "الرئيس جمال خنبوبي  ",
             partie: "حزب الإستقلال",
             image: "/images/electeds/ouladmrabet.jpg",
         },

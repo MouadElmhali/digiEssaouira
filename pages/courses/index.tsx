@@ -35,33 +35,36 @@ export default function Courses({
 
       <Header
         isHero
-        title = "مساقات تدريبية متخصصة في مجال المشاركة العامة الديمقراطية"
-        image = "/images/courses-svg.svg"
+        title="مساقات تدريبية متخصصة في مجال المشاركة العامة الديمقراطية"
+        image="/images/courses-svg.svg"
       >
-       
+
       </Header>
 
       <main>
         <Section>
           <div className="grid  grid-cols-1 sm:grid-cols-4 gap-5">
             {courses.map(({ id, name, pictureUrl }) => (
-              <div key={id} className="min-w-[180px]">
+              <div key={id} className="bg-primary shadow-2xl overflow-hidden flex-1 2xl:mx-10 xl:mx-5 md:mx-2 sm:w-[220px] pb-2"
+              >
                 <Link href={{
                   pathname: `${routes.courses.path}/${name}`,
-                  query: {courseId : id},
+                  query: { courseId: id },
                 }}>
-                <a className="flex flex-col gap-4  h-full">
-                  <Image height={250} width={200} className="object-fill h-[75%]"  alt="" src={`/images/courses/${pictureUrl}`} />
-                  <div className="bg-primary text-white font-bold text-lg text-center py-5 px-3 h-[25%]">
-                    {name}
-                  </div>
-                </a>
-              </Link>
+                  <a className="flex flex-col gap-4  h-full">
+                    <img src={`/images/courses/${pictureUrl}`} className="w-full h-60 object-cover" />
+                    <div
+                      className="px-4 py-2 pb-px">
+                      <p className="text-white px-3 text-center">{name}</p>
+                    </div>
+                  </a>
+                </Link>
               </div>
+
             ))}
-        </div>
-      </Section>
-    </main >
+          </div>
+        </Section>
+      </main >
     </>
   );
 }

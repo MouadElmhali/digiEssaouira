@@ -9,7 +9,8 @@ export default function TmanarMap() {
     const mapData: Array<any> = [
         {
             city: "جماعة أكرض",
-            president: "الرئيس حفيظ اخساي حزب الإستقلال",
+            president: "الرئيس حفيظ اخساي  ",
+            partie:" حزب الإستقلال",
             image: "/images/electeds/aguerd.jpg",
         },
         {
@@ -24,13 +25,15 @@ export default function TmanarMap() {
         },
         {
             city: "جماعة سيدي كاوكي",
-            president: "الرئيس الحسن ابوتزارت  حزب الإستقلال",
+            president: "الرئيس الحسن ابوتزارت   ",
+            partie:" حزب الإستقلال",
             image: "/images/electeds/sidikaouki.jpg",
 
         },
         {
             city: "جماعة تيدزي",
-            president: "الرئيس سعيد اخرضيض حزب التقدم والإشتراكية",
+            president: "الرئيس سعيد اخرضيض ",
+            partie:"حزب التقدم والإشتراكية",
             image: "/images/electeds/tidzi.jpg",
         },
         {
@@ -40,7 +43,8 @@ export default function TmanarMap() {
         },
         {
             city: "جماعة سميمو",
-            president: "الرئيس مصطفى جضهيم حزب الإتحاد الإشتراكي للقوات الشعبية",
+            president: "الرئيس مصطفى جضهيم ",
+            partie:"حزب الإتحاد الإشتراكي للقوات الشعبية",
             image: "/images/electeds/smimou.jpg",
         },
         {
@@ -70,7 +74,8 @@ export default function TmanarMap() {
         },
         {
             city: "جماعة تمنار ",
-            president: "منير اضرضور حزب الإتحاد الإشتراكي للقوات الشعبية",
+            president: "منير اضرضور ",
+            partie:"حزب الإتحاد الإشتراكي للقوات الشعبية",
             image: "/images/electeds/tamanar.jpg",
         },
 
@@ -163,6 +168,8 @@ export default function TmanarMap() {
                     <span className="text-2xl font-semibold"> {mapData[show].city}</span>
                     <br />
                     <span className="text-2xl font-semibold"> {mapData[show].president}</span>
+                    <br />
+                    <span className="text-2xl font-semibold"> {mapData[show].partie}</span>
                 </div>
             </div>}
     </>

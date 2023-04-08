@@ -85,14 +85,14 @@ export default function Map() {
 
         {
             city: "جماعة أوناغة",
-            president: "الرئيسة امال الهنتاتي حزب التجمع الوطني للأحرار",
+            president: "الرئيسة امال الهنتاتي ",
             partie:"حزب التجمع الوطني للأحرار",
             image: "/images/electeds/ounagha.jpg",
         },
 
         {
             city: "جماعة الصويرة",
-            president: "محمد طارق عثماني حزب التجمع الوطني للأحرار",
+            president: "محمد طارق عثماني ",
             partie:"حزب التجمع الوطني للأحرار",
             image: "/images/electeds/essaouira.jpg",
         },
