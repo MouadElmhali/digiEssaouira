@@ -58,8 +58,7 @@ export default function Association({
     }
   };
 
-  
-  
+
   return (
     <>
       <Head>
@@ -128,7 +127,6 @@ export default function Association({
                   </svg>
                 </button>
               </div>
-
             </div>
           </div>
 

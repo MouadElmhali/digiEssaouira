@@ -9,13 +9,13 @@ export default function Footer(): JSX.Element {
       <div
         className={`max-w-7xl mx-auto flex justify-center  gap-20  flex-wrap lg:justify-between lg:flex-nowrap [&>div]:flex-1 `}
       >
-        <div className="md:text-auto text-center">
+        <div className="md:text-auto text-center flex items-start">
           <Image
             alt="digiEssaouira logo"
             src="/images/logo2.png"
             layout="fixed"
             height="80"
-            width="250"
+            width="150"
             objectFit="contain"
             objectPosition="top"
           />

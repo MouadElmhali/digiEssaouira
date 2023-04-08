@@ -63,7 +63,7 @@ export default function AitDaoudMap() {
         },
 
         {
-            city: "جماعة أسيس",
+            city: "جماعة أسايس",
             president: "الرئيس",
             image: "/images/electeds/assais.jpg",
         },

@@ -21,8 +21,8 @@ export default function Test() {
         <div className="flex flex-col items-center bg-primary">
             <div className="flex flex-col sm:flex-row justify-between p-10 mt-28 sm:mt-36">
                 <div className="sm:w-1/2">
-                    <h1 className=" text-white text-4xl mb-5 sm:mt-5"> خريطة تفاعلية لجماعات إقليم الصويرة</h1>
-                    <p className="text-xl">تشكل الجماعة أحد مستويات التنظيم الترابي للمملكة، وهي جماعة ترابية خاضعة للقانون العام، تتمتع بالشخصية الاعتبارية والاستقلال الإداري والمالي.
+                    <h1 className=" text-white text-4xl mb-5 sm:mt-5 "> خريطة تفاعلية لجماعات إقليم الصويرة</h1>
+                    <p className="text-xl text-justify">تشكل الجماعة أحد مستويات التنظيم الترابي للمملكة، وهي جماعة ترابية خاضعة للقانون العام، تتمتع بالشخصية الاعتبارية والاستقلال الإداري والمالي.
                         <br />
                         <br />
                         يرتكز تدبير الجماعة لشؤونها على مبدأ التدبير الحر الذي يخول لها سلطة التداول بكيفية ديمقراطية وسلطة تنفيذ مداولاتها ومقرراتها.

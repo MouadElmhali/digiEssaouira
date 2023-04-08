@@ -100,7 +100,7 @@ export default function ContactUs(): JSX.Element {
                   </div>
                   <div className="py-2 sm:col-span-2">
                     <span className="px-1 text-sm text-gray-600">
-                      ...شارك تجربتك معنا{" "}
+                      شارك تجربتك معنا{" "}
                     </span>
                     <Field
                       name="message"
@@ -111,6 +111,17 @@ export default function ContactUs(): JSX.Element {
                     {errors.message && touched.message ? (
                       <div className="text-red-600 ">{errors.message}</div>
                     ) : null}
+                  </div>
+                  <div className="py-2 sm:col-span-2">
+                    <span className="px-1 text-sm text-gray-600">
+                      شارك  {" "}
+                    </span>
+                    <Field
+                      name="file"
+                      type="file"
+                      className="text-md block px-3 py-2  rounded-lg w-full
+                bg-white border-2 border-gray-300 placeholder-gray-600 shadow-md focus:placeholder-gray-500 focus:bg-white focus:border-primary focus:outline-none"
+                    />
                   </div>
                   <button
                     type="submit"
