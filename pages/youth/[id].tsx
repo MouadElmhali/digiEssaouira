@@ -33,7 +33,7 @@ export default function Young ({
             </Head>
             <main>
                 <div className='mt-48 mb-48 flex flex-col items-center justify-center gap-12 mx-12 lg:mx-48'>
-                    <p className='my-5 font-black text-5xl self-start' dangerouslySetInnerHTML={{ __html: title }}></p>
+                    <p className='my-5 font-black text-3xl text-center' dangerouslySetInnerHTML={{ __html: title }}></p>
                     <img src={"/images/articles/" + pictureUrl} alt="object-cover w-full" />
                     <p className='leading-8' dangerouslySetInnerHTML={{ __html: body }}></p>
                 </div>
