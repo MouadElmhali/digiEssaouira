@@ -98,7 +98,7 @@ export default function Home({
               <img src="/images/icons/book.png" alt="icon" className="w-10 h-10" />
               <p className=" font-md w-24 py-5" onClick={() => {
                 router.push("/courses")
-              }}>اكتشف المسرات تدريبية</p>
+              }}>اكتشف المساقات تدريبية</p>
             </button>
             <button
               onClick={() => {
@@ -301,24 +301,24 @@ export default function Home({
             <div
               className="flex lg:flex-row flex-col  justify-center items-center gap-x-10 gap-y-5 bg-blue-gradient md:px-52 md:pt-16"
             >
-              {articles.slice(articles.length - 3, articles.length).map(({ id, title, pictureUrl }: any) => {
+              {articles.slice(articles.length - 3, articles.length).map(({ id, title, pictureUrl, body }: any) => {
                 return (
+                 
+
+                <button key={id} onClick={() => router.push("/youth/" + id)}>
                   <div
-                    key={id}
-                    className="flex flex-col justify-center items-center mt-8 md:mt-auto"
+                      className="h-72 w-72 bg-black  overflow-hidden shadow-xl mb-20"
                   >
-                    <img src={"/images/articles/" + pictureUrl} alt="Article" className='w-72 object-cover' />
-                    <button
-                      onClick={() => {
-                        router.push("/articles/" + id)
-                      }}
-                      className=" bg-white text-blue font-bold text-2xl text-center py-5 relative -top-12 w-72 md:w-96 shadow-xl"
-                    >
-                      <p 
-                        className="hover:animate-bounce"
-                      >{title}</p>
-                    </button>
+                      <img 
+                          src={"/images/articles/" + pictureUrl}
+                          className="object-cover w-full h-44"
+                      />
+                      <div className='flex flex-col mx-5 my-2'>
+                          <p className='text-white text-xl font-bold' dangerouslySetInnerHTML={{ __html: title.length > 30 ? title.slice(0, 30) + " ..." : title }}></p>
+                          <p className='text-xs text-white mt-2'> {body.substr(0, 100) + " ..."}</p>
+                      </div>
                   </div>
+              </button>
                 )
               })}
 

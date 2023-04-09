@@ -24,7 +24,7 @@ export default function Map() {
         {
 
             city: "جماعة تالمست",
-            president: "الرئيس عبدالقادر زربع حزب الإستقلال",
+            president: "الرئيس عبدالقادر زربع",
             partie:" حزب الإستقلال",
             image: "/images/electeds/talmest.jpg",
         },

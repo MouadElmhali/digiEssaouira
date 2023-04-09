@@ -43,14 +43,14 @@ export default function Youth ({
                         {articles?.map(({id, title, body, pictureUrl}) => (
                             <button key={id} onClick={() => router.push("/youth/" + id)}>
                                 <div
-                                    className="h-72 w-72 bg-blue  overflow-hidden shadow-xl"
+                                    className="h-72 w-72 bg-black  overflow-hidden shadow-xl"
                                 >
                                     <img 
                                         src={"/images/articles/" + pictureUrl}
                                         className="object-cover w-full h-44"
                                     />
                                     <div className='flex flex-col mx-5 my-2'>
-                                        <p className='text-white text-xl font-bold' dangerouslySetInnerHTML={{ __html: title }}></p>
+                                        <p className='text-white text-xl font-bold' dangerouslySetInnerHTML={{ __html: title.length > 30 ? title.slice(0, 30) + " ..." : title }}></p>
                                         <p className='text-xs text-white mt-2'> {body.substr(0, 100) + " ..."}</p>
                                     </div>
                                 </div>
