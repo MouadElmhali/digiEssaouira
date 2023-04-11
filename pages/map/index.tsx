@@ -45,8 +45,8 @@ export default function Test() {
                             enableBackground: "new 0 0 397.2 715.2",
                         }}
                         xmlSpace="preserve"
-                        height={500}
-                        className="mt-10 mb-4"
+                        // height={500}
+                        className="mt-10 mb-4 h-[500px] md:h-[700px]"
                         onClick={handleSVGClick}
 
                     >
