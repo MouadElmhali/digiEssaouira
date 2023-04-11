@@ -28,7 +28,7 @@ export default function NavBar(): JSX.Element {
           <Link href={routes.resources.path}>
             <a className="ml-5">دليل الموارد الرقمية</a>
           </Link>
-          <Link href={routes.privacyPolicy.path} ><a className="ml-5">دليل استعمال منصة</a></Link>
+          <Link href={routes.privacyPolicy.path} ><a className="ml-5">دليل استعمال المنصة </a></Link>
           <Link href={routes.graduates.path}>  خريجي DIGIESSAOUIRA</Link>
         </div>
         <Link href={routes.contactUs.path}> تواصلو معنا</Link>
