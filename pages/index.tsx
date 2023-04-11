@@ -307,15 +307,14 @@ export default function Home({
 
                 <button key={id} onClick={() => router.push("/youth/" + id)}>
                   <div
-                      className="h-72 w-72 bg-black  overflow-hidden shadow-xl mb-20"
+                      className="h-96 w-72 bg-black  overflow-hidden shadow-xl mb-20"
                   >
                       <img 
                           src={"/images/articles/" + pictureUrl}
-                          className="object-cover w-full h-44"
+                          className="object-cover w-full h-72"
                       />
                       <div className='flex flex-col mx-5 my-2'>
-                          <p className='text-white text-xl font-bold' dangerouslySetInnerHTML={{ __html: title.length > 30 ? title.slice(0, 30) + " ..." : title }}></p>
-                          <p className='text-xs text-white mt-2'> {body.substr(0, 100) + " ..."}</p>
+                          <p className='text-white text-xl' dangerouslySetInnerHTML={{ __html: title.length > 85 ? title.slice(0, 85) + " ..." : title }}></p>
                       </div>
                   </div>
               </button>
