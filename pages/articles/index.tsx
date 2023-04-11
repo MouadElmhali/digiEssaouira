@@ -4,7 +4,7 @@ import { InferGetServerSidePropsType } from "next";
 import Head from "next/head";
 import { initializeApollo } from "../../apolloClient";
 
-import Section from "../../components/Section";
+
 import { routes } from "../../constants/routes";
 import { GET_ARTICLES } from '../../graphql/article/queries';
 
