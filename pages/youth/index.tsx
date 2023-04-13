@@ -49,9 +49,9 @@ export default function Youth ({
                                         src={"/images/articles/" + pictureUrl}
                                         className="object-cover w-full h-44"
                                     />
-                                    <div className='flex flex-col mx-5 my-2'>
-                                        <p className='text-white text-xl font-bold' dangerouslySetInnerHTML={{ __html: title.length > 30 ? title.slice(0, 30) + " ..." : title }}></p>
-                                        <p className='text-xs text-white mt-2'> {body.substr(0, 100) + " ..."}</p>
+                                    <div className='flex flex-col mx-5 my-2 h-24 justify-center'>
+                                        <p className='text-white text-xl font-bold' dangerouslySetInnerHTML={{ __html: title.length > 80 ? title.slice(0, 80) + " ..." : title }}></p>
+                                        
                                     </div>
                                 </div>
                             </button>

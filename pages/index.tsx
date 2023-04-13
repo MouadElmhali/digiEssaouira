@@ -301,7 +301,7 @@ export default function Home({
             <div
               className="flex lg:flex-row flex-col  justify-center items-center gap-x-10 gap-y-5 bg-blue-gradient md:px-52 md:pt-16"
             >
-              {articles.slice(articles.length - 3, articles.length).map(({ id, title, pictureUrl, body }: any) => {
+              {articles.slice(articles.length - 3, articles.length-2).map(({ id, title, pictureUrl, body }: any) => {
                 return (
                  
 
