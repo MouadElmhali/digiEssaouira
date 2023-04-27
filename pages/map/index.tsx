@@ -52,7 +52,7 @@ export default function Test() {
                     >
                         <style>
                             {
-                                ".st0{fill:#7db928;stroke:#010202;stroke-width:2;stroke-miterlimit:10}.st0:hover{fill:#427000}.st1{fill:#fff}"
+                                ".st0{fill:#12839e; stroke:#010202; stroke-width:2; stroke-miterlimit:10 }  .st0:hover{ fill:#13d3eb }.st1{fill:#fff}"
                             }
                         </style>
                         <path
