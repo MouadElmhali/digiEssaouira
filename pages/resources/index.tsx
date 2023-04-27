@@ -38,8 +38,8 @@ export default function Resources({ resources }: any): JSX.Element {
               // @ts-ignore
               resources?.map((resource, key): any => {
                 return (
-                  <Link href={`/pdfs/${resource.url}`} key={key}>
-                    <a className="flex flex-col gap-4 flex-1">
+                  <Link key={key} href={`/pdfs/${resource.url}`}>
+                    <a className="flex flex-col gap-4 flex-1" target="_blank">
                       <Image
                         height={200}
                         width={150}

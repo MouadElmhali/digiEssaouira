@@ -248,13 +248,17 @@ export default function Home({
                   <div className="flex flex-row justify-around gap-x-5">
                     <button
                       className=""
-                      onClick={() => router.push("/pdfs/" + resources[resources?.length - 1]?.url)}
+                      onClick={() => 
+                        window.open("/pdfs/" + resources[resources?.length - 1]?.url, "_blank")
+                      }
                     >
                       <p className="py-2 px-4 bg-blue text-bold text-md text-center text-white">تحميل الكتاب</p>
                     </button>
                     <button
                       className=" "
-                      onClick={() => router.push("/pdfs/" + resources[resources?.length - 1]?.url)}
+                      onClick={() => 
+                        window.open("/pdfs/" + resources[resources?.length - 1]?.url, "_blank")
+                      }
                     >
                       <p className="py-2 px-4 bg-blue text-bold text-md text-center text-white">إقرا الكتاب</p>
                     </button>
