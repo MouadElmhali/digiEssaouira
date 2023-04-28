@@ -38,7 +38,7 @@ const MyCard = ({
       
       <div 
         className="w-full px-4  relative -top-2  pb-px">
-        <p className="text-white px-3 text-center">{text.length > 73 ? text?.slice(0, 73) + " ...": text}</p>
+        <p className="text-white px-3 text-center">{text.length > 68 ? text?.slice(0, 68) + " ...": text}</p>
       </div>
 
     </button>
