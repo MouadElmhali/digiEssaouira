@@ -47,7 +47,7 @@ function createApolloClient() {
   });
 
   const httpLink = new HttpLink({
-    uri: "http://localhost:3000/api/graphql",
+    uri: "https://digiessaouira.org/api/graphql",
     credentials: "same-origin",
   });
 
