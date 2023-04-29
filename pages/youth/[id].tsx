@@ -1,7 +1,7 @@
 import React from 'react'
 import Head from "next/head";
 import { initializeApollo } from '../../apolloClient';
-import { GET_ARTICLE_BY_ID } from '../../graphql/article/queries';
+import { GET_ARTICLES, GET_ARTICLE_BY_ID } from '../../graphql/article/queries';
 import { InferGetServerSidePropsType } from 'next';
 import ArticleSection from '../../components/ArticleSection/ArticleSection'
 
@@ -19,11 +19,22 @@ export async function getServerSideProps({
     variables: { id: id },
   });
 
-  return { props: { article, id } };
+  
+  const {
+      data: { articles
+      },
+  } = await client.query({
+      query: GET_ARTICLES,
+  });
+
+    
+
+  return { props: { article, id, articles } };
 }
 
 export default function Young ({
-    article
+    article,
+    articles
   }: InferGetServerSidePropsType<typeof getServerSideProps>): JSX.Element {
     const {title, body, pictureUrl} = article.article
     return (
@@ -31,13 +42,11 @@ export default function Young ({
             <Head>
                 <title>DigiEssaouira | فضاء الشباب</title>
             </Head>
-            <ArticleSection>
-              <main className='container mx-auto'>
-                  <div className='mt-48 mb-48 flex flex-col items-center justify-center gap-12 mx-12 lg:mx-48'>
+            <ArticleSection articles={articles}>
+              <main className='mt-48 mb-48 flex flex-col items-center justify-center gap-12'>
                       <p className='my-5 font-black text-3xl text-center' dangerouslySetInnerHTML={{ __html: title }}></p>
                       <img src={"/images/articles/" + pictureUrl} alt="object-cover w-full" />
                       <p className='leading-8' dangerouslySetInnerHTML={{ __html: body }}></p>
-                  </div>
               </main>
 
             </ArticleSection>

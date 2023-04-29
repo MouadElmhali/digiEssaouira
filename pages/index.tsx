@@ -130,7 +130,7 @@ export default function Home({
 
       </Header>
 
-      <main className="flex flex-col">
+      <main className="flex flex-col container mx-auto">
         <Section
           childrenClassName='md:mx-52'
           title="أريد أن"
