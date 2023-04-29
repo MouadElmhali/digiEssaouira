@@ -5,8 +5,29 @@ import EssaouiraMap from "../../components/subMaps/essaouira";
 import HanchanMap from "../../components/subMaps/hanchan";
 import TmanarMap from "../../components/subMaps/tmanar";
 import AitDaoudMap from "../../components/subMaps/aitDaoud";
+import { initializeApollo } from "../../apolloClient";
+import { GET_ARTICLES } from "../../graphql/article/queries";
+import ArticleSection from "../../components/ArticleSection/ArticleSection";
 
-export default function Test() {
+export async function getServerSideProps() {
+    const client = initializeApollo();
+    const {
+        data: { articles
+        },
+    } = await client.query({
+        query: GET_ARTICLES,
+    });
+  
+    return {
+        props: {
+            articles
+        },
+    };
+  }
+
+export default function Map({
+    articles
+}) {
     const [showPopup, setShowPopup] = useState(false);
     const [mapNum, setMapNum] = useState();
 
@@ -18,7 +39,9 @@ export default function Test() {
 
     };
     return (
-        <div className="flex flex-col items-center bg-primary">
+        <ArticleSection  articles={articles}>
+
+            <div className="flex flex-col items-center ">
                 <div className="flex flex-col sm:flex-row justify-between p-10 mt-28 sm:mt-36">
                     <div className="sm:w-1/2">
                         <h1 className=" text-white text-4xl mb-5 sm:mt-5 "> خريطة تفاعلية لجماعات إقليم الصويرة</h1>
@@ -311,11 +334,16 @@ export default function Test() {
                             {mapNum == 2 && <EssaouiraMap />}
                             {mapNum == 3 && <TmanarMap />}
                             {mapNum == 4 && <AitDaoudMap />}
+                            {mapNum == 1 && <HanchanMap />}
+                            {mapNum == 2 && <EssaouiraMap />}
+                            {mapNum == 3 && <TmanarMap />}
+                            {mapNum == 4 && <AitDaoudMap />}
 
                         </div>
                     </div>
                 )}
             </div>
+        </ArticleSection>
     );
 };
 
