@@ -19,11 +19,12 @@ export default function AritcleSection ({
             <div className="hidden lg:flex lg:flex-col h-92  w-1/3 mt-48 mb-48">
                 <h4 className="text-2xl">نبذة عنا</h4>
                 <div className="border-b-2 w-12 border-blue-400"></div>
-                <p className="mt-5">لوريم إيبسوم(Lorem Ipsum) هو ببساطة نص شكلي (بمعنى أن الغاية هي الشكل وليس المحتوى) ويُستخدم في صناعات المطابع ودور النشر. كان لوريم إيبسوم ولايزال المعيار للنص الشكلي منذ القرن الخامس عشر عندما قامت مطبعة مجهولة برص مجموعة من الأحرف بشكل عشوائي أخذتها من نص، لتكوّن كتيّب بمثابة دليل أو مرجع شكلي لهذه الأحرف. خمسة قرون من الزمن لم تقضي على هذا النص، بل انه حتى صار مستخدماً وبشكله الأصلي في الطباعة والتنضيد الإلكتروني. انتشر بشكل كبير في ستينيّات هذا القرن مع إصدار رقائق "ليتراسيت" (Letraset) البلاستيكية تحوي مقاطع من هذا النص، وعاد لينتشر مرة أخرى مؤخراَ مع ظهور برامج النشر الإلكتروني مثل "ألدوس بايج مايكر" (Aldus PageMaker) والتي حوت أيضاً على نسخ من نص لوريم إيبسوم.</p>
+                <p className="mt-5">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Blanditiis et ut accusamus natus, doloribus autem facere repellat consequatur pariatur suscipit molestiae nam assumenda voluptatibus aspernatur nisi quidem laudantium. Reiciendis, culpa.</p>
                 
                 <h4 className="mt-10 text-2xl ">تابعونا على</h4>
                 <div className="border-b-2 w-12 border-blue-400"></div>
                 <SocialMediaSection className="mt-5 fill-blue-400"/>
+                
                 {
                     articles ? 
                     <div>
