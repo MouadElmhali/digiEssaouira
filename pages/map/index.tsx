@@ -39,13 +39,11 @@ export default function Map({
 
     };
     return (
-        <ArticleSection  articles={articles}>
-
-            <div className="flex flex-col items-center ">
-                <div className="flex flex-col sm:flex-row justify-between p-10 mt-28 sm:mt-36">
+        <div className="flex flex-col items-center bg-primary">
+                <div className="flex flex-col sm:flex-row justify-between p-10 mt-28 sm:mt-36 container mx-auto md:px-20">
                     <div className="sm:w-1/2">
-                        <h1 className=" text-white text-4xl mb-5 sm:mt-5 "> خريطة تفاعلية لجماعات إقليم الصويرة</h1>
-                        <p className="text-xl text-justify">تشكل الجماعة أحد مستويات التنظيم الترابي للمملكة، وهي جماعة ترابية خاضعة للقانون العام، تتمتع بالشخصية الاعتبارية والاستقلال الإداري والمالي.
+                        <h1 className="text-white text-4xl mb-5 sm:mt-8 "> خريطة تفاعلية لجماعات إقليم الصويرة</h1>
+                        <p className="mt-14 text-xl text-justify">تشكل الجماعة أحد مستويات التنظيم الترابي للمملكة، وهي جماعة ترابية خاضعة للقانون العام، تتمتع بالشخصية الاعتبارية والاستقلال الإداري والمالي.
                             <br />
                             <br />
                             يرتكز تدبير الجماعة لشؤونها على مبدأ التدبير الحر الذي يخول لها سلطة التداول بكيفية ديمقراطية وسلطة تنفيذ مداولاتها ومقرراتها.
@@ -334,16 +332,11 @@ export default function Map({
                             {mapNum == 2 && <EssaouiraMap />}
                             {mapNum == 3 && <TmanarMap />}
                             {mapNum == 4 && <AitDaoudMap />}
-                            {mapNum == 1 && <HanchanMap />}
-                            {mapNum == 2 && <EssaouiraMap />}
-                            {mapNum == 3 && <TmanarMap />}
-                            {mapNum == 4 && <AitDaoudMap />}
 
                         </div>
                     </div>
                 )}
             </div>
-        </ArticleSection>
     );
 };
 

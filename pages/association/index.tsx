@@ -150,6 +150,7 @@ export default function AddAssociation({
     regions
     }: InferGetServerSidePropsType<typeof getServerSideProps>): JSX.Element {
 
+    console.log(JSON.stringify(regions))
     const inputRef = useRef();
     const submit = useRef();
     const [formData, setFormData] = useReducer(reducer, {})
@@ -200,7 +201,7 @@ export default function AddAssociation({
         {
             name: "مكان عمل الجمعية (الجماعة / الإقليم)",
             required: true,
-            inputType: "selectInput",
+            inputType: "textInput",
             id : "region",
             type: "text"
         },
