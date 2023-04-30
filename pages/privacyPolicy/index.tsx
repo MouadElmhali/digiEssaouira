@@ -41,7 +41,7 @@ export default function PrivacyPolicy({
           image = "/images/courses-svg.svg"
         ></Header>
         <main className="mb-48">
-          <p className=" text-xl text-rigth">
+          <p className=" text-xl text-justify">
             استنادا إلى الفصل الأول من دستور المغرب الصادر سنة 2011 “يقوم النظام
             الدستوري للمملكة على أساس فصل السلط، وتوازنها وتعاونها، والديمقراطية
             المواطنة والتشاركية، وعلى مبادئ الحكامة الجيدة، وربط المسؤولية
