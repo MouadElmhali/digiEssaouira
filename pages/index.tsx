@@ -130,7 +130,7 @@ export default function Home({
 
       </Header>
 
-      <main className="flex flex-col container mx-auto">
+      <main className="flex flex-col ">
         <Section
           childrenClassName='md:mx-52'
           title="أريد أن"
@@ -303,25 +303,24 @@ export default function Home({
             title="فضاء الشباب"
           >
             <div
-              className="flex lg:flex-row flex-col  justify-center items-center gap-x-10 gap-y-5 bg-blue-gradient md:px-52 md:pt-16"
+              className="flex lg:flex-row flex-col  justify-center items-center gap-x-10 gap-y-5 bg-blue-gradient md:px-52 md:pt-16 md:pb-16" 
             >
-              {articles.slice(articles.length - 3, articles.length-2).map(({ id, title, pictureUrl, body }: any) => {
+              {articles.slice(articles.length - 3, articles.length).map(({ id, title, pictureUrl, body }: any) => {
                 return (
-                 
-
-                <button key={id} onClick={() => router.push("/youth/" + id)}>
-                  <div
-                      className="h-96 w-72 bg-black  overflow-hidden shadow-xl mb-20"
-                  >
-                      <img 
-                          src={"/images/articles/" + pictureUrl}
-                          className="object-cover w-full h-72"
-                      />
-                      <div className='flex flex-col mx-5 my-2'>
-                          <p className='text-white text-xl' dangerouslySetInnerHTML={{ __html: title.length > 85 ? title.slice(0, 85) + " ..." : title }}></p>
+                  <button key={id} onClick={() => router.push("/youth/" + id)}>
+                      <div
+                          className="h-[22rem] w-72 bg-black overflow-hidden shadow-xl"
+                      >
+                          <img 
+                              src={"/images/articles/" + "4.jpg"}
+                              className="object-cover w-full h-44"
+                          />
+                          <div className='flex flex-col my-2 h-24 text-right mx-4'>
+                              <p className='text-white  text-sm text-justify ' dangerouslySetInnerHTML={{ __html: title }}></p>
+                              <p className='text-white font-thin text-xs mt-5 text-justify text-gray-300' dangerouslySetInnerHTML={{ __html: body.length > 80 ? body.slice(0, 80) + " ..." : body }}></p>
+                          </div>
                       </div>
-                  </div>
-              </button>
+                  </button>
                 )
               })}
 
@@ -333,7 +332,7 @@ export default function Home({
 
         
         <Section
-          className="[&>div>h2]:text-primary  [&>div]:flex [&>div]:flex-col  [&>div]:gap-y-16 "
+          className="container mx-auto [&>div>h2]:text-primary  [&>div]:flex [&>div]:flex-col  [&>div]:gap-y-16 "
           title="ماذا قالو عن DIGIESSAOUIRA"
           childrenClassName=""
         >
