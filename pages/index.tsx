@@ -343,7 +343,7 @@ export default function Home({
           className="[&>div>h2]:text-primary  [&>div]:flex [&>div]:flex-col  [&>div]:gap-y-16 "
           title="الشركاء"
         >
-          <div className='flex flex-col md:flex-row flex-wrap justify-center items-center gap-5'>
+          <div id="partners" className='flex flex-col md:flex-row flex-wrap justify-center items-center gap-5'>
             {[...Array(8).keys()].map((index) => {
               return (
                 <Image 
