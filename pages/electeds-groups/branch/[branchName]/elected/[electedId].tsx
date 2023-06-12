@@ -50,12 +50,12 @@ export default function Branch({
       <Head>
         <title>DigiEssaouira | المنتخبين</title>
       </Head>
-      <main className="mt-20">
+      <main className="mt-32 mb-20">
         <Section className="py-20">
           <div className="flex flex-col items-center gap-y-5  gap-x-8 sm:grid sm:grid-cols-[auto,_1fr] sm:grid-rows-[repeat(4,_auto)] shadow-w">
             <div className="row-span-full ">
               <Image
-                alt=""
+                alt={combineStrings([firstName, lastName])}
                 width={300}
                 height={350}
                 src={`/images/electeds/${pictureUrl}`}
