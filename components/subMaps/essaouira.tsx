@@ -16,7 +16,8 @@ export default function Map() {
 
         {
             city: "جماعة سيدي عبد الجليل",
-            president: " الرئيس",
+            president: "الرئيس حميد اشقيف",
+            partie:" حزب التقدم والإشتراكية",
             image: "/images/electeds/sidiabdeljalil.jpg",
         },
 
@@ -33,15 +34,17 @@ export default function Map() {
         {
 
             city: "جماعة سيدي إسحاق",
-            president: "الرئيس ",
+            president: "الرئيس محمد الفيدي",
+            partie:" حزب الإستقلال",
             image: "/images/electeds/sidiishak.jpg",
         },
 
 
         {
 
-            city: "جماعة سيدي علي الكرتي",
-            president: "الرئيس",
+            city: "جماعة سيدي علي الكراتي",
+            president: "الرئيس محمد كريم",
+            partie:" حزب الإستقلال",
             image: "/images/electeds/sidialilkerti.jpg",
         },
 
@@ -98,8 +101,9 @@ export default function Map() {
         },
         {
             city: "جماعة المخاليف",
-            president: "",
-            image: "",
+            president: "الرئيس حفيظ بن سويس",
+            partie:" حزب الإستقلال",
+            image: "/images/electeds/lmkhalif.jpg",
         },
     ]
 

@@ -8,39 +8,39 @@ export default function HanchanMap() {
 
     const mapData: Array<any> = [
         {
-            city: "جماعة سيدي محمد أو مرزوق",
-            president: "الرئيس",
-            partie: "",
+            city: "جماعة سيدي امحمد أو مرزوق",
+            president: "الرئيس عبد اللطيف الحميدي",
+            partie: "حزب الأصالة والمعاصرة",
             image: "/images/electeds/sidimohammedomerzouke.jpg",
         },
 
         {
-            city: "جماعة مزيلات",
-            president: "الرئيس",
-            partie: "",
+            city: "جماعة المزيلات",
+            president: "الرئيس عزالدين سابق	",
+            partie: "حزب الأصالة والمعاصرة",
             image: "/images/electeds/mzilate.jpg",
         },
 
         {
-            city: "جماعة مرامر",
-            president: "الرئيس",
-            partie: "",
+            city: "جماعة امرامر",
+            president: "الرئيس محمد لبيض",
+            partie: "حزب الأصالة والمعاصرة",
             image: "/images/electeds/meramer.jpg",
         },
 
 
         {
-            city: "جماعة سيدي بوعلام",
-            president: "الرئيس",
-            partie: "",
+            city: "جماعة سيدي بولعلام",
+            president: "الرئيس المصطفى الملوسي",
+            partie: "حزب الأصالة والمعاصرة",
             image: "/images/electeds/sidiboualame.jpg",
         },
 
 
         {
             city: "جماعة سيدي عيسى الركراكي",
-            president: "الرئيس",
-            partie: "",
+            president: "الرئيس الركراكي النعيري",
+            partie: "حزب الإستقلال",
             image: "/images/electeds/sidiissaregragi.jpg",
         },
 
@@ -64,15 +64,15 @@ export default function HanchanMap() {
         },
         {
             city: "جماعة لكدادرة",
-            president: "الرئيس",
-            partie: " ",
+            president: "الرئيس السعيد لبروقي",
+            partie: "حزب التقدم والإشتراكية",
             image: "/images/electeds/legdadra.jpg",
         },
 
         {
             city: "جماعة كشولة",
-            president: "الرئيس",
-            partie: "",
+            president: "الرئيس عبد الحكيم شاكر",
+            partie: "حزب الإتحاد الإشتراكي للقوات الشعبية",
             image: "/images/electeds/kechoula.jpg",
         },
 
@@ -106,14 +106,16 @@ export default function HanchanMap() {
         },
 
         {
-            city: "جماعة لمواريد",
-            president: "الرئيس ",
+            city: "جماعة المواريد",
+            president: "الرئيس عبد الوهاب المتوكل ",
+            partie:"حزب التجمع الوطني للأحرار",
             image: "/images/electeds/lmwaride.jpg",
         },
 
         {
-            city: "جماعة مسكالة",
-            president: "الرئيس",
+            city: "جماعة مسكالة ",
+            president: "الرئيس فوزي الشفيق",
+            partie:"حزب التجمع الوطني للأحرار",
             image: "/images/electeds/meskala.jpg",
         },
     ];

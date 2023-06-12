@@ -14,13 +14,15 @@ export default function TmanarMap() {
             image: "/images/electeds/aguerd.jpg",
         },
         {
-            city: "جماعة سيد الجازولي",
-            president: "الرئيس ",
+            city: "جماعة سيدي الجزولي",
+            president: "الرئيس محمد شهيد ",
+            partie:" حزب التقدم والإشتراكية",
             image: "/images/electeds/sidiljazouli.jpg",
         },
         {
-            city: "جماعة أحمد أو احامد",
-            president: "الرئيس",
+            city: "جماعة سيدي احمد أوحامد",
+            president: "الرئيس محمد الباز",
+            partie:" حزب التجمع الوطني للأحرار",
             image: "/images/electeds/sidiahmedouhamed.jpg",
         },
         {
@@ -38,7 +40,8 @@ export default function TmanarMap() {
         },
         {
             city: "جماعة سيدي أحمد السايح",
-            president: "الرئيس",
+            president: "الرئيس ابراهيم اموكاي",
+            partie:"حزب الإتحاد الإشتراكي للقوات الشعبية",
             image: "/images/electeds/sidiahmedsayeh.jpg",
         },
         {
@@ -54,12 +57,14 @@ export default function TmanarMap() {
         },
         {
             city: "جماعة إمكراد",
-            president: "الرئيس",
+            president: "الرئيس البشير اذلامين	",
+            partie:"حزب التقدم والإشتراكية",
             image: "/images/electeds/imtrade.jpg",
         },
         {
-            city: "جماعة إداعزا",
-            president: "الرئيس",
+            city: "جماعة ايدا وعزا",
+            president: "الرئيس حفيظ اسيكي",
+            partie:"حزب التقدم والإشتراكية",
             image: "/images/electeds/idaazza.jpg",
         },
         {
@@ -80,8 +85,9 @@ export default function TmanarMap() {
         },
 
         {
-            city: "جماعة تمزكيدة أوفتاس",
-            president: "الرئيس",
+            city: "جماعة تمزكدة أوفتاس",
+            president: "الرئيس عبد الله ابلا",
+            partie:"حزب الإتحاد الإشتراكي للقوات الشعبية",
             image: "/images/electeds/timzgidaouftasse.jpg",
         },
         {
@@ -90,8 +96,9 @@ export default function TmanarMap() {
             image: "/images/electeds/idaoukazzou.jpg",
         },
         {
-            city: "جماعة ايت عيسى اححان",
-            president: "الرئيس",
+            city: "جماعة ايت عيسي إحاحان",
+            president: "الرئيس حسن ايت واحمان",
+            partie:"حزب الإتحاد الإشتراكي للقوات الشعبية",
             image: "/images/electeds/aissiihnane.jpg",
         },
         {
@@ -100,14 +107,16 @@ export default function TmanarMap() {
             image: "/images/electeds/sidiahmed.jpg",
         },
         {
-            city: "جماعة  سيدي أحمد أو مبارك",
-            president: "الرئيس",
+            city: "جماعة سيدي احمد اومبارك",
+            president: "الرئيسة نعيمة تنسفت",
+            partie:"حزب التقدم والإشتراكية",
             image: "/images/electeds/sidiahmedoumbarek.jpg",
         },
         {
-            city: "تاركانت",
-            president: "الرئيس",
-            image: "",
+            city: "جماعة تاركانت",
+            president: "الرئيس محمد جارف",
+            partie:"حزب الإتحاد الإشتراكي للقوات الشعبية",
+            image: "/images/electeds/targante.jpg",
         },
     ];
 
