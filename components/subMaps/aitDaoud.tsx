@@ -16,29 +16,33 @@ export default function AitDaoudMap() {
 
 
         {
-            city: "جماعة إيزاويت",
-            president: "الرئيس",
+            city: "جماعة الزاويت ",
+            president: "الرئيس حسن حفظ الله",
+            partie:"حزب التقدم والإشتراكية",
             image: "/images/electeds/izaouite.jpg",
         },
 
 
         {
             city: "جماعة سيدي غانم",
-            president: "الرئيس",
+            president: "الرئيس محمد اهدون",
+partie:"حزب التقدم والإشتراكية",
             image: "/images/electeds/sidighanem.jpg",
         },
 
 
         {
-            city: "جماعة تاهلوانت",
-            president: "الرئيس",
+            city: "جماعة تهلوانت",
+            president: "الرئيسة جميلة بوتاتن",
+            partie:"حزب التقدم والإشتراكية",
             image: "/images/electeds/tahelouante.jpg",
         },
 
 
         {
             city: "جماعة تاكوشت",
-            president: "الرئيس",
+            president: "الرئيس احمد اكيمي",
+            partie:"حزب التقدم والإشتراكية",
             image: "/images/electeds/takouchete.jpg",
         },
 
@@ -59,8 +63,9 @@ export default function AitDaoudMap() {
 
 
         {
-            city: "جماعة بوزمور ",
-            president: "الرئيس",
+            city: "جماعة بوزمور",
+            president: "الرئيس سعيد الشادلي",
+            partie:"حزب التقدم والإشتراكية",
             image: "/images/electeds/bouzemoure.jpg",
         },
 
@@ -74,7 +79,7 @@ export default function AitDaoudMap() {
         {
             city: "جماعة أدغاس",
             president: "الرئيس",
-            image: "/images/electeds/adaghass.jpg",
+            image: "/images/electeds/adeghass.jpg",
         },
     ];
 
