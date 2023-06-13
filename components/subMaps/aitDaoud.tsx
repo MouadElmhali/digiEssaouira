@@ -26,7 +26,7 @@ export default function AitDaoudMap() {
         {
             city: "جماعة سيدي غانم",
             president: "الرئيس محمد اهدون",
-partie:"حزب التقدم والإشتراكية",
+            partie:"حزب التقدم والإشتراكية",
             image: "/images/electeds/sidighanem.jpg",
         },
 
