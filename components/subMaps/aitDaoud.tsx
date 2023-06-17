@@ -79,9 +79,11 @@ export default function AitDaoudMap() {
         {
             city: "جماعة أدغاس",
             president: "الرئيس",
-            image: "/images/electeds/adeghass.jpg",
+            image: "/images/electeds/adaghass.jpg",
         },
     ];
+
+
 
     const handleSVGClick = event => {
         const index = event.target.dataset.region;
