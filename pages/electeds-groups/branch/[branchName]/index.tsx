@@ -60,12 +60,14 @@ export default function Branch({
                   lastName,
                   firstName,
                   post: { name: post },
-                  party: { pictureUrl },
+                  // party: { pictureUrl },
+                  pictureUrl
                 }) => (
                   <div key={id}>
                     <LinkCard
                       imageProps={{
-                        src: `/images/parties/${pictureUrl}`,
+                        alt: pictureUrl,
+                        src: `/images/electeds/${pictureUrl}`,
                         objectFit: "contain",
                       }}
                       linkProps={{
