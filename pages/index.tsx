@@ -153,7 +153,7 @@ export default function Home({
               <button
                 className="w-72 md:w-96 h-44 bg-white shadow-xl border"
                 onClick = {() => {
-                  router.push("/contactUs")
+                  router.push("/contactUs", undefined, {shallow: true})
                 }}
               >
                 <img src="/images/share.png" alt="Image" className="object-cover h-28 hover:h-24 ease-in-out duration-700 w-full" />
