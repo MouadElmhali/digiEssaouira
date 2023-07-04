@@ -51,6 +51,8 @@ export default function Course({
     },
   };
 
+  console.table(instructor);
+
   return (
     <main className="mt-28 sm:mt-36 p-8 grid gap-8 sm:grid-cols-2 ">
       <div className="flex justify-center sm:col-span-2 ">
@@ -152,9 +154,9 @@ export default function Course({
           />
           <div className="text-primaryDarker flex flex-col self-center gap-y-2">
             <p className="text-lg">
-              {nameWithTitle(instructor?.firstName, instructor?.lastName, instructor?.title)}
+              {instructor?.firstName + " " + instructor?.lastName}
             </p>
-            <p className="font-bold text-sm">{instructor?.post?.name}</p>
+            <p className="font-bold text-sm">{instructor?.post?.name }</p>
           </div>
         </div>
       </LittleSection>
@@ -215,7 +217,7 @@ const LittleSection = ({
   className,
 }: LittleSectionProps): JSX.Element => (
   <div className={`flex flex-col gap-y-5 ${className}`}>
-    <h2 className="text-primaryDarker font-bold text-2xl">{title}</h2>
+    <h2 className="text-primaryDarker font-bold text-2xl">{title }</h2>
     {description ? <p className="text-gray-600 ">{description}</p> : children}
   </div>
 );
