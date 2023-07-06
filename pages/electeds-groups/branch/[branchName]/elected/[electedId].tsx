@@ -62,7 +62,7 @@ export default function Branch({
                 style={{
                   height: '300px',
                   width: '350px',
-                  objectFit : 'cover'
+                  objectFit : 'contain'
                 }}
                 // objectFit="cover"
                 // layout="fixed"
