@@ -2,7 +2,7 @@ import { InferGetServerSidePropsType, NextPageContext } from "next";
 import Head from "next/head";
 import { useRouter } from "next/router";
 import { initializeApollo } from "../../../../apolloClient";
-import LinkCard from "../../../../components/LinkCard";
+import LinkCardImg from "../../../../components/LinkCardImg";
 import Section from "../../../../components/Section";
 import { routes } from "../../../../constants/routes";
 import { GET_ELECTEDS_BY_BRANCH_ID } from "../../../../graphql/elected/queries";
@@ -60,13 +60,12 @@ export default function Branch({
                   lastName,
                   firstName,
                   post: { name: post },
-                  party: { pictureUrl },
+                  pictureUrl ,
                 }) => (
                   <div key={id}>
-                    <LinkCard
+                    <LinkCardImg
                       imageProps={{
-                        src: `/images/parties/${pictureUrl}`,
-                        objectFit: "contain",
+                        src: `/images/electeds/${pictureUrl}`,
                       }}
                       linkProps={{
                         href: `${routes.branch.path}/${branchId}/elected/${id}`,

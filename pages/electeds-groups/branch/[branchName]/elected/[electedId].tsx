@@ -54,13 +54,18 @@ export default function Branch({
         <Section className="py-20">
           <div className="flex flex-col items-center gap-y-5  gap-x-8 sm:grid sm:grid-cols-[auto,_1fr] sm:grid-rows-[repeat(4,_auto)] shadow-w">
             <div className="row-span-full ">
-              <Image
+              <img
                 alt={combineStrings([firstName, lastName])}
-                width={300}
-                height={350}
+                // width={300}
+                // height={350}
                 src={`/images/electeds/${pictureUrl}`}
-                objectFit="cover"
-                layout="fixed"
+                style={{
+                  height: '300px',
+                  width: '350px',
+                  objectFit : 'contain'
+                }}
+                // objectFit="cover"
+                // layout="fixed"
               />
             </div>
             <div className="flex flex-col gap-3">
