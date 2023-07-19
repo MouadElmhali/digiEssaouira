@@ -1,9 +1,10 @@
 import { mailOptions, transporter } from "../../config/nodemailer";
 
 const CONTACT_MESSAGE_FIELDS = {
-  name: "Name",
+  fullname: "Nom complet",
   email: "Email",
-  subject: "Subject",
+  city: "Ville",
+  phone: "Telephone",
   message: "Message",
 };
 
@@ -26,15 +27,15 @@ const generateEmailContent = (data) => {
 const handler = async (req, res) => {
   if (req.method === "POST") {
     const data = req.body;
-    // if (!data || !data.name || !data.email || !data.subject || !data.message) {
-    //   return res.status(400).send({ message: "Bad request" });
-    // }
+    if (!data || !data.fullname || !data.email || !data.phone || !data.message) {
+      return res.status(400).send({ message: "Bad request" });
+    }
 
     try {
       await transporter.sendMail({
         ...mailOptions,
         ...generateEmailContent(data),
-        subject: data.subject,
+        subject: "تواصلو معنا : DigiEssaouira",
       });
 
       return res.status(200).json({ success: true });

@@ -8,11 +8,11 @@ import { toast } from "react-toastify";
 
 export default function ContactUs(): JSX.Element {
   const ContactSchema = Yup.object().shape({
-    fullname: Yup.string().required("هذه الخانة مطلوبه"),
     email: Yup.string()
-    .email("بريد إلكتروني خاطئ")
-    .required("لم يتم تقديم بريد إلكتروني."),
-    phone: Yup.string().required("هذه الخانة مطلوبه"),
+      .email("بريد إلكتروني خاطئ")
+      .required("لم يتم تقديم بريد إلكتروني."),
+    object: Yup.string().required("هذه الخانة مطلوبه"),
+    fullname: Yup.string().required("هذه الخانة مطلوبه"),
     message: Yup.string().required("هذه الخانة مطلوبه"),
   });
 
@@ -30,17 +30,16 @@ export default function ContactUs(): JSX.Element {
           </div>
           <Formik
             initialValues={{
-              fullname: "",
               email: "",
-              phone: "",
-              city: "",
+              object: "",
+              fullname: "",
               message: "",
             }}
             validationSchema={ContactSchema}
             onSubmit={async (values) => {
               // ask({
               //   variables: {
-              //     email: values.email,
+              //     object: values.object,
               //     email: values.email,
               //     elected: "",
               //     userName: values.fullname,
@@ -55,7 +54,14 @@ export default function ContactUs(): JSX.Element {
                   await sendContactForm(values);
                   // stop loading effect
 
-                  toast('تم إرسال بنجاح', { hideProgressBar: true, autoClose: 2000, type: 'success' })
+                  // toast({
+                  //   title: "Message sent.",
+                  //   status: "success",
+                  //   duration: 2000,
+                  //   position: "top",
+                  // });
+
+                  toast('Toast is good', { hideProgressBar: true, autoClose: 2000, type: 'success' })
                 } catch (error: any) {
                   // stop loading effect
                   console.log(error.message)
@@ -73,9 +79,23 @@ export default function ContactUs(): JSX.Element {
                   تم إرسال بنجاح
                 </div>
                 <Form className="mt-10 p-5 grid grid-cols-1 sm:grid-cols-2 gap-5">
-                  {/* Full name */}
+                  <div className="py-2 sm:col-span-2">
+                    <span className="px-1 text-sm text-gray-600">الموضوع: (*)</span>
+                    <Field
+                      name="object"
+                      type="text"
+                      className="text-md block px-3 py-2  rounded-lg w-full
+                bg-white border-2 border-gray-300 placeholder-gray-600 shadow-md focus:placeholder-gray-500 focus:bg-white focus:border-primary focus:outline-none"
+                    />
+                    {errors.object && touched.object ? (
+                      <div className="text-red-600 ">{errors.object}</div>
+                    ) : null}
+                  </div>
+
                   <div className="py-2">
-                    <span className="px-1 text-sm text-gray-600">الإسم الكامل: (*)</span>
+                    <span className="px-1 text-sm text-gray-600">
+                      الإسم الكامل: (*)
+                    </span>
                     <Field
                       name="fullname"
                       type="text"
@@ -86,15 +106,13 @@ export default function ContactUs(): JSX.Element {
                       <div className="text-red-600 ">{errors.fullname}</div>
                     ) : null}
                   </div>
-                  
-                  {/* Email */}
                   <div className="py-2">
                     <span className="px-1 text-sm text-gray-600">
-                    البريد الإلكتروني: (*)
+                      البريد الإلكتروني: (*)
                     </span>
                     <Field
                       name="email"
-                      type="text"
+                      type="email"
                       className="text-md block px-3 py-2  rounded-lg w-full
                 bg-white border-2 border-gray-300 placeholder-gray-600 shadow-md focus:placeholder-gray-500 focus:bg-white focus:border-primary focus:outline-none"
                     />
@@ -102,39 +120,9 @@ export default function ContactUs(): JSX.Element {
                       <div className="text-red-600 ">{errors.email}</div>
                     ) : null}
                   </div>
-
-                  {/* Phone */}
-                  <div className="py-2">
-                    <span className="px-1 text-sm text-gray-600">
-                    الهاتف: (*)
-                    </span>
-                    <Field
-                      name="phone"
-                      type="phone"
-                      className="text-md block px-3 py-2  rounded-lg w-full
-                bg-white border-2 border-gray-300 placeholder-gray-600 shadow-md focus:placeholder-gray-500 focus:bg-white focus:border-primary focus:outline-none"
-                    />
-                    {errors.phone && touched.phone ? (
-                      <div className="text-red-600 ">{errors.phone}</div>
-                    ) : null}
-                  </div>
-
-                  {/* City */}
-                  <div className="py-2">
-                    <span className="px-1 text-sm text-gray-600">المدينة:</span>
-                    <Field
-                      name="city"
-                      type="text"
-                      className="text-md block px-3 py-2  rounded-lg w-full
-                bg-white border-2 border-gray-300 placeholder-gray-600 shadow-md focus:placeholder-gray-500 focus:bg-white focus:border-primary focus:outline-none"
-                    />
-                    
-                  </div>
-
-                  {/* Message */}
                   <div className="py-2 sm:col-span-2">
                     <span className="px-1 text-sm text-gray-600">
-                    الرسالة: (*)
+                      شارك تجربتك معنا{" "}
                     </span>
                     <Field
                       name="message"
@@ -146,7 +134,17 @@ export default function ContactUs(): JSX.Element {
                       <div className="text-red-600 ">{errors.message}</div>
                     ) : null}
                   </div>
-                  
+                  <div className="py-2 sm:col-span-2">
+                    <span className="px-1 text-sm text-gray-600">
+                      شارك  {" "}
+                    </span>
+                    <Field
+                      name="file"
+                      type="file"
+                      className="text-md block px-3 py-2  rounded-lg w-full
+                bg-white border-2 border-gray-300 placeholder-gray-600 shadow-md focus:placeholder-gray-500 focus:bg-white focus:border-primary focus:outline-none"
+                    />
+                  </div>
                   <button
                     type="submit"
                     className="mt-3 sm:col-span-2 text-lg font-semibold
