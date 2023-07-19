@@ -30,7 +30,7 @@ export default function TmanarMap() {
             president: "الرئيس الحسن ابوتزارت   ",
             partie:" حزب الإستقلال",
             image: "/images/electeds/sidikaouki.jpg",
-
+    
         },
         {
             city: "جماعة تيدزي",
@@ -69,13 +69,14 @@ export default function TmanarMap() {
         },
         {
             city: "جماعة تافضنا",
-            president: "الرئيس",
+            president: "الرئيس حسن الهادي ",
+            partie:"حزب الإتحاد الإشتراكي للقوات الشعبية        ",
             image: "/images/electeds/tafedna.jpg",
         },
         {
             city: "جماعة إذا وجلول",
             president: "الرئيس",
-            image: "/images/electeds/idaoujaloul.jpg",
+            image: "/images/electeds/idaoujeloul.jpg",
         },
         {
             city: "جماعة تمنار ",
@@ -83,7 +84,7 @@ export default function TmanarMap() {
             partie:"حزب الإتحاد الإشتراكي للقوات الشعبية",
             image: "/images/electeds/tamanar.jpg",
         },
-
+    
         {
             city: "جماعة تمزكدة أوفتاس",
             president: "الرئيس عبد الله ابلا",
@@ -103,7 +104,8 @@ export default function TmanarMap() {
         },
         {
             city: "جماعة سيدي أحمد",
-            president: "الرئيس",
+            president: "الرئيس ابراهيم اموكاي	",
+            partie:"حزب الإتحاد الإشتراكي للقوات الشعبية",
             image: "/images/electeds/sidiahmed.jpg",
         },
         {
@@ -119,6 +121,7 @@ export default function TmanarMap() {
             image: "/images/electeds/targante.jpg",
         },
     ];
+    
 
     const handleSVGClick = event => {
         const index = event.target.dataset.region;

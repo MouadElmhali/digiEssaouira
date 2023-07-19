@@ -13,37 +13,37 @@ export default function HanchanMap() {
             partie: "حزب الأصالة والمعاصرة",
             image: "/images/electeds/sidimohammedomerzouke.jpg",
         },
-
+    
         {
             city: "جماعة المزيلات",
             president: "الرئيس عزالدين سابق	",
             partie: "حزب الأصالة والمعاصرة",
             image: "/images/electeds/mzilate.jpg",
         },
-
+    
         {
             city: "جماعة امرامر",
             president: "الرئيس محمد لبيض",
             partie: "حزب الأصالة والمعاصرة",
             image: "/images/electeds/meramer.jpg",
         },
-
-
+    
+    
         {
             city: "جماعة سيدي بولعلام",
             president: "الرئيس المصطفى الملوسي",
             partie: "حزب الأصالة والمعاصرة",
             image: "/images/electeds/sidiboualame.jpg",
         },
-
-
+    
+    
         {
             city: "جماعة سيدي عيسى الركراكي",
             president: "الرئيس الركراكي النعيري",
             partie: "حزب الإستقلال",
             image: "/images/electeds/sidiissaregragi.jpg",
         },
-
+    
         {
             city: "جماعة أولاد امرابط",
             president: "الرئيس جمال خنبوبي  ",
@@ -58,7 +58,7 @@ export default function HanchanMap() {
         },
         {
             city: "جماعة مجي",
-            president: "الرئيس",
+            president: "الرئيس توفيق الفجاج	",
             partie: " حزب الأصالة والمعاصرة",
             image: "/images/electeds/mji.jpg",
         },
@@ -68,50 +68,50 @@ export default function HanchanMap() {
             partie: "حزب التقدم والإشتراكية",
             image: "/images/electeds/legdadra.jpg",
         },
-
+    
         {
             city: "جماعة كشولة",
             president: "الرئيس عبد الحكيم شاكر",
             partie: "حزب الإتحاد الإشتراكي للقوات الشعبية",
             image: "/images/electeds/kechoula.jpg",
         },
-
+    
         {
             city: "جماعة الكريمات",
             president: "الرئيس عزالدين الزريويل ",
             partie: "حزب التجمع الوطني للأحرار",
             image: "/images/electeds/korimate.jpg",
         },
-
+    
         {
             city: "جماعة الحنشان",
             president: "الرئيسة امينة الشليح ",
             partie: " حزب الإتحاد الإشتراكي للقوات الشعبية",
             image: "/images/electeds/elhenchane.jpg",
         },
-
+    
         {
             city: "جماعة الحسينات",
-            president: "الرئيس",
-            partie:"",
+            president: "الرئيس محمد انجار ",
+            partie:"حزب الإستقلال",
             image: "/images/electeds/lehsinate.jpg",
         },
-
-
+    
+    
         {
             city: "جماعة أيت سعيد  ",
             president: "الرئيس المصطفى الاشم ",
             partie:"حزب الأصالة والمعاصرة",
             image: "/images/electeds/aitsaid.jpg",
         },
-
+    
         {
             city: "جماعة المواريد",
             president: "الرئيس عبد الوهاب المتوكل ",
             partie:"حزب التجمع الوطني للأحرار",
             image: "/images/electeds/lmwaride.jpg",
         },
-
+    
         {
             city: "جماعة مسكالة ",
             president: "الرئيس فوزي الشفيق",

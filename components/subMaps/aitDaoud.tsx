@@ -10,76 +10,79 @@ export default function AitDaoudMap() {
 
         {
             city: "جماعة بزضاض",
-            president: "الرئيس",
+            president: "الرئيس رشيد كرمة ",
+            partie:"حزب الإتحاد الإشتراكي للقوات الشعبية",
             image: "/images/electeds/bizdade.jpg",
         },
-
-
+    
+    
         {
             city: "جماعة الزاويت ",
             president: "الرئيس حسن حفظ الله",
             partie:"حزب التقدم والإشتراكية",
             image: "/images/electeds/izaouite.jpg",
         },
-
-
+    
+    
         {
             city: "جماعة سيدي غانم",
             president: "الرئيس محمد اهدون",
-partie:"حزب التقدم والإشتراكية",
+    partie:"حزب التقدم والإشتراكية",
             image: "/images/electeds/sidighanem.jpg",
         },
-
-
+    
+    
         {
             city: "جماعة تهلوانت",
             president: "الرئيسة جميلة بوتاتن",
             partie:"حزب التقدم والإشتراكية",
             image: "/images/electeds/tahelouante.jpg",
         },
-
-
+    
+    
         {
             city: "جماعة تاكوشت",
             president: "الرئيس احمد اكيمي",
             partie:"حزب التقدم والإشتراكية",
             image: "/images/electeds/takouchete.jpg",
         },
-
-
+    
+    
         {
             city: "جماعة ايت داود",
             president: "الرئيس محمد ارخى  ",
             partie:" حزب الإتحاد الإشتراكي للقوات الشعبية",
             image: "/images/electeds/aitdaoud.jpg",
         },
-
+    
         {
             city: "جماعة أكليف  ",
             president: "الرئيس احمد ",
-            partie:" حزب الإتحاد الإشتراكي للقوات الشعبية",
+            partie:" حزب التقدم والإشتراكية        ",
             image: "/images/electeds/aglif.jpg",
         },
-
-
+    
+    
         {
             city: "جماعة بوزمور",
             president: "الرئيس سعيد الشادلي",
             partie:"حزب التقدم والإشتراكية",
             image: "/images/electeds/bouzemoure.jpg",
         },
-
+    
         {
             city: "جماعة أسايس",
-            president: "الرئيس",
+            president: "الرئيس عراب ابن حميدوش",
+            partie:"حزب الإتحاد الإشتراكي للقوات الشعبية",
             image: "/images/electeds/assais.jpg",
         },
-
-
+    
+    
         {
             city: "جماعة أدغاس",
-            president: "الرئيس",
-            image: "/images/electeds/adaghass.jpg",
+            president: "الرئيس ابراهيم اتيك ",
+            partie:"حزب التجمع الوطني للأحرار",
+            image: "/images/electeds/adeghass.jpg",
         },
     ];
 
