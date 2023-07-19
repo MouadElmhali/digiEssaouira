@@ -66,6 +66,7 @@ export default function Branch({
                     <LinkCardImg
                       imageProps={{
                         src: `/images/electeds/${pictureUrl}`,
+                        alt: firstName + " " + lastName,
                       }}
                       linkProps={{
                         href: `${routes.branch.path}/${branchId}/elected/${id}`,
