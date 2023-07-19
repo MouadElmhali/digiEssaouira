@@ -1,9 +1,10 @@
 import { Field, Form, Formik } from "formik";
 import * as Yup from "yup";
 import Head from "next/head";
-import { ASK } from "../../graphql/askQuestion/queries";
+import {sendContactForm} from "../../lib/api";
 
 import { useMutation } from "@apollo/client";
+import { toast } from "react-toastify";
 
 export default function ContactUs(): JSX.Element {
   const ContactSchema = Yup.object().shape({
@@ -15,7 +16,7 @@ export default function ContactUs(): JSX.Element {
     message: Yup.string().required("هذه الخانة مطلوبه"),
   });
 
-  const [ask, { loading, data }] = useMutation(ASK);
+  // const [SendContactForm, { loading, data }] = useMutation(sendContactForm);
 
   return (
     <>
@@ -36,23 +37,43 @@ export default function ContactUs(): JSX.Element {
             }}
             validationSchema={ContactSchema}
             onSubmit={async (values) => {
-              ask({
-                variables: {
-                  object: values.object,
-                  email: values.email,
-                  elected: "",
-                  userName: values.fullname,
-                  message: values.message,
-                  xp: true,
-                },
-              });
+              // ask({
+              //   variables: {
+              //     object: values.object,
+              //     email: values.email,
+              //     elected: "",
+              //     userName: values.fullname,
+              //     message: values.message,
+              //     xp: true,
+              //   },
+              // });
+
+              
+                // Enable loading effect
+                try {
+                  await sendContactForm(values);
+                  // stop loading effect
+
+                  // toast({
+                  //   title: "Message sent.",
+                  //   status: "success",
+                  //   duration: 2000,
+                  //   position: "top",
+                  // });
+                  toast('Toast is good', { hideProgressBar: true, autoClose: 2000, type: 'success' })
+                } catch (error: any) {
+                  // stop loading effect
+                  console.log(error.message)
+                }
+              
+
             }}
           >
             {({ errors, touched }) => (
               <>
                 <div
                   className="bg-green-400 p-2 rounded mx-3 text-white text-center "
-                  style={data ? {} : { display: "none" }}
+                  style={null ? {} : { display: "none" }}
                 >
                   تم إرسال بنجاح
                 </div>
