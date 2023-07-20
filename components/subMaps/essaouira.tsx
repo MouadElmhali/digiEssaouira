@@ -13,86 +13,87 @@ export default function Map() {
             partie:" حزب الإستقلال",
             image: "/images/electeds/sidilaaroussi.jpg",
         },
-
+    
         {
             city: "جماعة سيدي عبد الجليل",
             president: "الرئيس حميد اشقيف",
             partie:" حزب التقدم والإشتراكية",
             image: "/images/electeds/sidiabdeljalil.jpg",
         },
-
-
+    
+    
         {
-
+    
             city: "جماعة تالمست",
             president: "الرئيس عبدالقادر زربع",
             partie:" حزب الإستقلال",
             image: "/images/electeds/talmest.jpg",
         },
-
-
+    
+    
         {
-
+    
             city: "جماعة سيدي إسحاق",
             president: "الرئيس محمد الفيدي",
             partie:" حزب الإستقلال",
             image: "/images/electeds/sidiishak.jpg",
         },
-
-
+    
+    
         {
-
+    
             city: "جماعة سيدي علي الكراتي",
             president: "الرئيس محمد كريم",
             partie:" حزب الإستقلال",
             image: "/images/electeds/sidialilkerti.jpg",
         },
-
-
+    
+    
         {
             city: "جماعة زاوية بن احميدة",
             president: "الرئيس محمد عبد الصادق السعيدي ",
             partie:" حزب الإتحاد الإشتراكي للقوات الشعبية",
             image: "/images/electeds/zaouiatbenhmida.jpg",
         },
-
-
+    
+    
         {
-
-            city: "جماعة أكرمود",
-            president: "الرئيس",
-            image: "/images/electeds/aqermoude.jpg",
+    
+            city: "جماعة أقرمود",
+            president: "الرئيس محمد الزكار",
+            partie:"  حزب الأصالة والمعاصرة",
+            image: "/images/electeds/aqarmoud.jpg",
         },
-
+    
         {
             city: "جماعة تكاط  ",
             president: "الرئيس كمال القلولي ",
             partie:"حزب الأصالة والمعاصرة",
             image: "/images/electeds/takat.jpg",
         },
-
-
+    
+    
         {
             city: "جماعة حد الدرى",
             president: "الرئيس يوسف الصديقي",
             partie:" حزب الإستقلال",
             image: "/images/electeds/heddraa.jpg",
         },
-
+    
         {
             city: "جماعة مولاي بوزرقطون",
             president: "الرئيس ريضا فيض ",
             partie:"حزب التجمع الوطني للأحرار",
             image: "/images/electeds/moulaybouzerktoun.jpg",
         },
-
+    
         {
             city: "جماعة أوناغة",
             president: "الرئيسة امال الهنتاتي ",
             partie:"حزب التجمع الوطني للأحرار",
-            image: "/images/electeds/ounagha.jpg",
+            image: "/images/electeds/ounagha.jpeg",
         },
-
+    
         {
             city: "جماعة الصويرة",
             president: "محمد طارق عثماني ",

@@ -153,7 +153,7 @@ export default function Home({
               <button
                 className="w-72 md:w-96 h-44 bg-white shadow-xl border"
                 onClick = {() => {
-                  router.push("/contactUs")
+                  router.push("/shareUs")
                 }}
               >
                 <img src="/images/share.png" alt="Image" className="object-cover h-28 hover:h-24 ease-in-out duration-700 w-full" />
@@ -236,7 +236,7 @@ export default function Home({
                   <div className="relative -top-5 h-8 border-t-[34px] border-t-transparent border-r-[10px] border-r-orange-600 border-b-[0px] border-b-transparent"></div>
                 </div>
                 <div className="py-2 px-4 relative -top-4">
-                  <p className="text-white  text-md ">{resources[resources?.length - 1]?.name}</p>
+                  <p className="text-white  text-md ">{resources[resources?.length - 1]?.name.substring(0, 68)}</p>
                 </div>
               </div>
 
@@ -278,9 +278,9 @@ export default function Home({
                   <p className="text-bold text-2xl text-blue">{"<"}</p>
                 </button>
                 <div className="ease-in-out duration-700 flex flex-col items-center bg-blue shadow-2xl overflow-hidden h-80 w-64">
-                  <div className={`h-72 w-full object-cover ease-in-out duration-500  bg-no-repeat bg-center bg-cover bg-[url('/images/graduates/${getGraduates[graduatesCounter]?.pictureUrl}')]`} style={{backgroundImage: `url('/images/graduates/${getGraduates[graduatesCounter]?.pictureUrl}')`}}>
-                    {/* <Image src={"/images/graduates/" + getGraduates[graduatesCounter]?.pictureUrl} alt="img" height={288} width={220} style={{objectFit:"cover"}} /> */}
-                  </div>
+                  {/* <div className={`h-72 w-full object-cover ease-in-out duration-500  bg-no-repeat bg-center bg-cover bg-[url('/images/graduates/${getGraduates[graduatesCounter]?.pictureUrl}')]`} style={{backgroundImage: `url('/images/graduates/${getGraduates[graduatesCounter]?.pictureUrl}')`}}> */}
+                    <Image src={"/images/graduates/" + getGraduates[graduatesCounter]?.pictureUrl} alt={getGraduates[graduatesCounter]?.name} height={288} width={256} style={{objectFit:"cover"}} loading='lazy' />
+                  {/* </div> */}
                   <div className="py-4 px-4 ease-in-out duration-700">
                     <p className="text-bold text-2xl text-white ease-in-out duration-700">{getGraduates[graduatesCounter]?.name }</p>
                   </div>
