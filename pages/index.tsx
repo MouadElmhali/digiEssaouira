@@ -312,7 +312,7 @@ export default function Home({
                           className="h-[22rem] w-72 bg-black overflow-hidden shadow-xl"
                       >
                           <img 
-                              src={"/images/articles/" + "4.jpg"}
+                              src={"/images/articles/" + pictureUrl}
                               className="object-cover w-full h-44"
                           />
                           <div className='flex flex-col my-2 h-24 text-right mx-4'>
