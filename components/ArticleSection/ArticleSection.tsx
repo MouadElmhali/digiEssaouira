@@ -4,6 +4,8 @@ import { initializeApollo } from "../../apolloClient";
 import { GET_ARTICLES } from "../../graphql/article/queries";
 import { useRouter } from "next/router";
 
+import {aboutus} from "../../data/data"
+
 export default function AritcleSection ({
     articles,
     children
@@ -19,7 +21,9 @@ export default function AritcleSection ({
             <div className="hidden lg:flex lg:flex-col h-92  w-1/3 mt-48 mb-48">
                 <h4 className="text-2xl">نبذة عنا</h4>
                 <div className="border-b-2 w-12 border-blue-400"></div>
-                <p className="mt-5 text-justify">Lorem, ipsum dolor sit amet consectetur adipisicing elit. In exercitationem suscipit tempora minima nemo unde ea? Sequi laudantium repellendus provident rem impedit obcaecati nesciunt neque ut, similique quisquam unde beatae?</p>
+                <p className="mt-5 text-justify">
+                    {aboutus}
+                </p>
                 
                 <h4 className="mt-10 text-2xl ">تابعونا على</h4>
                 <div className="border-b-2 w-12 border-blue-400"></div>
