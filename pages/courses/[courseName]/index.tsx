@@ -16,6 +16,8 @@ import { routes } from "../../../constants/routes";
 import { getCurrentUser } from "../../../components/utils/index";
 import YouTube from "react-youtube";
 
+
+
 interface IQuery extends ParsedUrlQuery {
   courseId: string;
 }
@@ -189,7 +191,7 @@ export default function Course({
                   {Array.isArray(answer) ? (
                     answer.map((part) => <li key={part}>{part}</li>)
                   ) : (
-                    <p>{answer}</p>
+                    <p dangerouslySetInnerHTML={{__html: answer}} />
                   )}
                 </ul>
               </details>

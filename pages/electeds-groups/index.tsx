@@ -67,7 +67,7 @@ function Group({ group: { title, branches } }: IGroupProps): JSX.Element {
             linkProps={{
               href: {
                 pathname: `${routes.branch.path}/${name}`,
-                query: { branchId: id, title },
+                query: { branchId: id, name },
               },
             }}
             imageProps={{

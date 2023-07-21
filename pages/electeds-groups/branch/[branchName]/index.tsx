@@ -38,7 +38,7 @@ export default function Branch({
   electeds,
 }: InferGetServerSidePropsType<typeof getServerSideProps>): JSX.Element {
   const {
-    query: { title, branchId },
+    query: { name, branchId },
   } = useRouter();
 
   console.log(electeds);
@@ -51,7 +51,7 @@ export default function Branch({
         <Section className="py-20" childrenClassName="w-full px-24">
           <div className="flex flex-col gap-y-12">
             <h2 className="text-primaryDarker text-3xl text-center font-bold">
-              {title}
+              {" تعرف على عضوات وأعضاء " + name}
             </h2>
             <div className="grid gap-3 gap-y-8 md:grid-cols-4 ">
               {(electeds as IElected[])?.map(
