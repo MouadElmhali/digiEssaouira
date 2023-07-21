@@ -40,7 +40,7 @@ export default function Youth ({
                         </div>
                     </div>
                     <div className='mt-24 mx-auto xl:mx-44 2xl:mx-64 flex flex-row flex-wrap gap-8 justify-center items-center'>
-                        {articles?.map(({id, title, body, pictureUrl}) => (
+                        {articles?.toReversed().map(({id, title, body, pictureUrl}) => (
                             <button key={id} onClick={() => router.push("/youth/" + id)}>
                                 <div
                                     className="h-[22rem] w-72 bg-black overflow-hidden shadow-xl"
