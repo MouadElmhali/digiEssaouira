@@ -273,7 +273,7 @@ export default function Home({
             
               <div className="flex flex-row items-center gap-x-5">
                 <button onClick={() => {
-                  setGraduatesCounter( graduatesCounter === 0 ? 3 - 1 : graduatesCounter - 1);
+                  setGraduatesCounter( graduatesCounter === 0 ? 8 - 1 : graduatesCounter - 1);
                 }}>
                   <p className="text-bold text-2xl text-blue">{"<"}</p>
                 </button>
@@ -286,7 +286,7 @@ export default function Home({
                   </div>
                 </div>
                 <button onClick={() => {
-                  setGraduatesCounter(graduatesCounter === 3 ? 0 : graduatesCounter + 1);
+                  setGraduatesCounter(graduatesCounter === 8 ? 0 : graduatesCounter + 1);
                 }}>
                   <p className="text-bold text-2xl text-blue">{">"}</p>
                 </button>
