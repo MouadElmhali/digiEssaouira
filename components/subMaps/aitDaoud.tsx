@@ -82,7 +82,7 @@ export default function AitDaoudMap() {
             city: "جماعة أدغاس",
             president: "الرئيس ابراهيم اتيك ",
             partie:"حزب التجمع الوطني للأحرار",
-            image: "/images/electeds/adaghass.jpg",
+            image: "/images/electeds/adeghass.jpg",
         },
     ];
 

@@ -62,7 +62,7 @@ export default function Map() {
             city: "جماعة أقرمود",
             president: "الرئيس محمد الزكار",
             partie:"  حزب الأصالة والمعاصرة",
-            image: "/images/electeds/aqermoude.jpg",
+            image: "/images/electeds/aqarmoud.jpg",
         },
     
         {
@@ -91,7 +91,7 @@ export default function Map() {
             city: "جماعة أوناغة",
             president: "الرئيسة امال الهنتاتي ",
             partie:"حزب التجمع الوطني للأحرار",
-            image: "/images/electeds/ounagha.jpg",
+            image: "/images/electeds/ounagha.jpeg",
         },
     
         {

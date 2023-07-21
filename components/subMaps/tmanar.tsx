@@ -78,7 +78,7 @@ export default function TmanarMap() {
             city: "جماعة إذا وجلول",
             president: "الرئيس عبدالمالك بورغى "  ,
             partie:"حزب التقدم والإشتراكي ",
-            image: "/images/electeds/idaoujaloul.jpg",
+            image: "/images/electeds/idaoujeloul.jpg",
         },
         {
             city: "جماعة تمنار ",
