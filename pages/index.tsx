@@ -352,6 +352,7 @@ export default function Home({
                   height="150"
                   width="150"
                   objectFit="contain"
+                  loading='lazy'
                 />
               )
             })
