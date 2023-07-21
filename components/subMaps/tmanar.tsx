@@ -52,7 +52,8 @@ export default function TmanarMap() {
         },
         {
             city: "جماعة إمنتليت",
-            president: "الرئيس ",
+            president: "الرئيس رشيد اخرضيض        ",
+            partie:"حزب التجمع الوطني للأحرار",
             image: "/images/electeds/imintlite.jpg",
         },
         {
@@ -75,8 +76,9 @@ export default function TmanarMap() {
         },
         {
             city: "جماعة إذا وجلول",
-            president: "الرئيس",
-            image: "/images/electeds/idaoujeloul.jpg",
+            president: "الرئيس عبدالمالك بورغى "  ,
+            partie:"حزب التقدم والإشتراكي ",
+            image: "/images/electeds/idaoujaloul.jpg",
         },
         {
             city: "جماعة تمنار ",
@@ -93,7 +95,8 @@ export default function TmanarMap() {
         },
         {
             city: "جماعة إدا وكازو",
-            president: "الرئيس",
+            president: "الرئيس حسن بوزار        ",
+            partie:"حزب الإتحاد الإشتراكي للقوات الشعبية",
             image: "/images/electeds/idaoukazzou.jpg",
         },
         {
