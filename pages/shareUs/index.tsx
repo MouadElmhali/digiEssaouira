@@ -1,7 +1,7 @@
 import { Field, Form, Formik } from "formik";
 import * as Yup from "yup";
 import Head from "next/head";
-import {sendContactForm} from "../../lib/api";
+import {sendContactForm, sendShareUsForm} from "../../lib/api";
 
 import { useMutation } from "@apollo/client";
 import { toast } from "react-toastify";
@@ -36,41 +36,22 @@ export default function ContactUs(): JSX.Element {
               message: "",
             }}
             validationSchema={ContactSchema}
-            onSubmit={async (values) => {
-              // ask({
-              //   variables: {
-              //     object: values.object,
-              //     email: values.email,
-              //     elected: "",
-              //     userName: values.fullname,
-              //     message: values.message,
-              //     xp: true,
-              //   },
-              // });
-
-              
+            onSubmit={async (values) => {      
                 // Enable loading effect
                 try {
-                  await sendContactForm(values);
+                  await sendShareUsForm(values);
                   // stop loading effect
 
-                  // toast({
-                  //   title: "Message sent.",
-                  //   status: "success",
-                  //   duration: 2000,
-                  //   position: "top",
-                  // });
-
-                  toast('Toast is good', { hideProgressBar: true, autoClose: 2000, type: 'success' })
+                  toast('تم إرسال بنجاح', { hideProgressBar: false, autoClose: 2000, type: 'success' })
                 } catch (error: any) {
                   // stop loading effect
+                  toast('فشل الارسال', { hideProgressBar: false, autoClose: 2000, type: 'error' })
                   console.log(error.message)
                 }
               
-
             }}
           >
-            {({ errors, touched }) => (
+            {({ errors, touched, isSubmitting }) => (
               <>
                 <div
                   className="bg-green-400 p-2 rounded mx-3 text-white text-center "
@@ -122,7 +103,7 @@ export default function ContactUs(): JSX.Element {
                   </div>
                   <div className="py-2 sm:col-span-2">
                     <span className="px-1 text-sm text-gray-600">
-                      شارك تجربتك معنا{" "}
+                      شارك تجربتك معنا : (*)
                     </span>
                     <Field
                       name="message"
@@ -136,7 +117,7 @@ export default function ContactUs(): JSX.Element {
                   </div>
                   <div className="py-2 sm:col-span-2">
                     <span className="px-1 text-sm text-gray-600">
-                      شارك  {" "}
+                      شارك : (*)
                     </span>
                     <Field
                       name="file"
@@ -145,14 +126,27 @@ export default function ContactUs(): JSX.Element {
                 bg-white border-2 border-gray-300 placeholder-gray-600 shadow-md focus:placeholder-gray-500 focus:bg-white focus:border-primary focus:outline-none"
                     />
                   </div>
-                  <button
-                    type="submit"
-                    className="mt-3 sm:col-span-2 text-lg font-semibold
-                bg-primary w-full text-white rounded-lg
-                px-6 py-3 block shadow-xl hover:text-white hover:bg-primaryDarker"
-                  >
-                    إرسال
-                  </button>
+                  {
+                    isSubmitting ? 
+                      <div
+                        className="mt-3 sm:col-span-2 text-lg font-semibold
+                            h-14 w-full text-white rounded-lg
+                            px-6 py-3  bg-[url('/images/Ellipsis-2.1s-200px.gif')] bg-no-repeat bg-center"
+                      >
+                        
+                      </div>
+                      :
+                      <button
+                        type="submit"
+                        className="mt-3  sm:col-span-2 text-lg font-semibold
+                            bg-primary w-full text-white rounded-lg
+                            px-6 py-3  shadow-xl hover:text-white hover:bg-primaryDarker"
+                        disabled={isSubmitting}
+                      >
+                        إرسال
+                      </button>
+
+                  }
                 </Form>
               </>
             )}
