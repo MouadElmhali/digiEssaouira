@@ -8,12 +8,13 @@ import { toast } from "react-toastify";
 
 export default function ContactUs(): JSX.Element {
   const ContactSchema = Yup.object().shape({
+    object: Yup.string().required("هذه الخانة مطلوبه"),
+    fullname: Yup.string().required("هذه الخانة مطلوبه"),
     email: Yup.string()
       .email("بريد إلكتروني خاطئ")
       .required("لم يتم تقديم بريد إلكتروني."),
-    object: Yup.string().required("هذه الخانة مطلوبه"),
-    fullname: Yup.string().required("هذه الخانة مطلوبه"),
     message: Yup.string().required("هذه الخانة مطلوبه"),
+    file: Yup.string().required("هذه الخانة مطلوبه"),
   });
 
   // const [SendContactForm, { loading, data }] = useMutation(sendContactForm);
@@ -30,10 +31,11 @@ export default function ContactUs(): JSX.Element {
           </div>
           <Formik
             initialValues={{
-              email: "",
               object: "",
               fullname: "",
+              email: "",
               message: "",
+              file: "",
             }}
             validationSchema={ContactSchema}
             onSubmit={async (values) => {      
@@ -125,6 +127,9 @@ export default function ContactUs(): JSX.Element {
                       className="text-md block px-3 py-2  rounded-lg w-full
                 bg-white border-2 border-gray-300 placeholder-gray-600 shadow-md focus:placeholder-gray-500 focus:bg-white focus:border-primary focus:outline-none"
                     />
+                    {errors.file && touched.file ? (
+                      <div className="text-red-600 ">{errors.file}</div>
+                    ) : null}
                   </div>
                   {
                     isSubmitting ? 

@@ -2,10 +2,10 @@ import { mailOptions, transporter } from "../../config/nodemailer";
 
 const CONTACT_MESSAGE_FIELDS = {
   object: "الموضوع",
-  elected: "المعني بالسؤال",
   fullname: "لإسم الكامل",
   email: "البريد الإلكتروني",
   message: "الرسالة",
+  file: "Image",
 };
 
 const generateEmailContent = (data) => {
@@ -15,7 +15,10 @@ const generateEmailContent = (data) => {
     ""
   );
   const htmlData = Object.entries(data).reduce((str, [key, val]) => {
-    return (str += `<h3 class="form-heading" align="left">${CONTACT_MESSAGE_FIELDS[key]}</h3><p class="form-answer" align="left">${val}</p>`);
+    if(key == 'file') 
+        return (str += `<h3 class="form-heading" align="right">${CONTACT_MESSAGE_FIELDS[key]}</h3> <img class="form-answer" src='${val}' alt='${data['fullname']}' />`);
+
+    return (str += `<h3 class="form-heading" align="right">${CONTACT_MESSAGE_FIELDS[key]}</h3><p class="form-answer" align="right">${val}</p>`);
   }, "");
 
   return {
@@ -79,7 +82,7 @@ const generateEmailContent = (data) => {
                 color: #2a2a2a;
                 font-family: "Helvetica Neue", "Helvetica", "Arial", sans-serif;
                 font-weight: 400;
-                text-align: left;
+                text-align: right;
                 line-height: 20px;
                 font-size: 18px;
                 margin: 0 0 8px;
@@ -90,7 +93,7 @@ const generateEmailContent = (data) => {
                 color: #2a2a2a;
                 font-family: "Helvetica Neue", "Helvetica", "Arial", sans-serif;
                 font-weight: 300;
-                text-align: left;
+                text-align: right;
                 line-height: 20px;
                 font-size: 16px;
                 margin: 0 0 24px;
@@ -144,7 +147,7 @@ const generateEmailContent = (data) => {
 const handler = async (req, res) => {
   if (req.method === "POST") {
     const data = req.body;
-    if (!data || !data.object || !data.elected || !data.fullname || !data.email || !data.message) {
+    if (!data || !data.object || !data.fullname || !data.email || !data.message || !data.file) {
       return res.status(400).send({ message: "Bad request" });
     }
 
@@ -152,7 +155,7 @@ const handler = async (req, res) => {
       await transporter.sendMail({
         ...mailOptions,
         ...generateEmailContent(data),
-        subject: "أطرح سؤالا : DigiEssaouira",
+        subject: "أشارك تجربتي : DigiEssaouira",
       });
 
       return res.status(200).json({ success: true });
