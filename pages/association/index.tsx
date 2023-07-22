@@ -316,7 +316,7 @@ export default function AddAssociation({
                         <button 
                             className='bg-red px-10 py-2 rounded-xl text-white self-start' 
                             onClick={() => {submit.current?.click()}}>
-                                تسجبل الجمعية
+                                تسجيل الجمعية
                         </button>
                 </div>
             </form>
