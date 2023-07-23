@@ -4,6 +4,7 @@ import { useRouter } from 'next/router';
 import { initializeApollo } from '../../apolloClient';
 import { GET_ARTICLES } from '../../graphql/article/queries';
 import { InferGetServerSidePropsType } from 'next';
+import Link from 'next/link';
 
 export async function getServerSideProps() {
     const client = initializeApollo();
@@ -31,7 +32,7 @@ export default function Youth ({
             <Head>
                 <title>DigiEssaouira | فضاء الشباب</title>
             </Head>
-            <main className='container width-auto'>
+            <main className='width-full flex flex-column justify-center '>
                 <div className='mt-48 mb-48'>
                     <div className="flex flex-row  justify-center md:justify-start items-center gap-2">
                         <div className="sm:w-5 md:w-60 h-px bg-black"></div>
@@ -39,22 +40,22 @@ export default function Youth ({
                             <h2 className="text-6xl font-bold text-blue">فضاء الشباب</h2>
                         </div>
                     </div>
-                    <div className='mt-24 mx-auto xl:mx-44 2xl:mx-64 flex flex-row flex-wrap gap-8 justify-center items-center'>
+                    <div className='mt-24  flex flex-row flex-wrap gap-8 justify-center items-center  self-center w-full'>
                         {articles?.toReversed().map(({id, title, body, pictureUrl} : any ) => (
-                            <button key={id} onClick={() => router.push("/youth/" + id)}>
-                                <div
-                                    className="h-[22rem] w-72 bg-black overflow-hidden shadow-xl"
-                                >
-                                    <img 
-                                        src={"/images/articles/" + pictureUrl}
-                                        className="object-cover w-full h-44"
-                                    />
-                                    <div className='flex flex-col my-2 h-24 text-right mx-4'>
-                                        <p className='text-white  text-sm text-justify ' dangerouslySetInnerHTML={{ __html: title }}></p>
-                                        <p className='text-white font-thin text-xs mt-5 text-justify text-gray-300' dangerouslySetInnerHTML={{ __html: body.length > 80 ? body.slice(0, 80) + " ..." : body }}></p>
-                                    </div>
-                                </div>
-                            </button>
+                            <Link key={id} href={"/youth/" + id}>
+                                <a  className="h-[22rem] w-72 bg-black overflow-hidden shadow-xl">
+                                    
+                                        <img 
+                                            src={"/images/articles/" + pictureUrl}
+                                            className="object-cover w-full h-44"
+                                        />
+                                        <div className='flex flex-col my-2 h-24 text-right mx-4'>
+                                            <p className='text-white  text-sm text-justify ' dangerouslySetInnerHTML={{ __html: title }}></p>
+                                            <p className='text-white font-thin text-xs mt-5 text-justify text-gray-300' dangerouslySetInnerHTML={{ __html: body.length > 80 ? body.slice(0, 80) + " ..." : body }}></p>
+                                        </div>
+                                    
+                                </a>
+                            </Link>
                         ))}
                     </div>
                 </div>
