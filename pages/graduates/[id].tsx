@@ -70,7 +70,7 @@ export default function Association({
           <div className="flex flex-col items-center gap-y-5  gap-x-8 sm:grid sm:grid-cols-[auto,_1fr] sm:grid-rows-[repeat(4,_auto)] shadow-w">
             <div className="row-span-full ">
               <Image
-                alt=""
+                alt={name}
                 width={300}
                 height={350}
                 src={`/images/graduates/${pictureUrl}`}
@@ -83,7 +83,7 @@ export default function Association({
               <div className="text-xl mt-5">  {post}</div>
               <div dangerouslySetInnerHTML={{ __html: bio }} className="text-xl mt-5">
               </div>
-              <div className="flex gap-3">
+              <div className="flex gap-3 self-end relative sm:top-[30px] lg:top-[130px]">
                 <a href={facebook} title="Share on Facebook">
                   <svg
                     className="fill-primary text-primary"
