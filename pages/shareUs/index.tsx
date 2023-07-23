@@ -5,6 +5,7 @@ import {sendContactForm, sendShareUsForm} from "../../lib/api";
 
 import { useMutation } from "@apollo/client";
 import { toast } from "react-toastify";
+import { useRef, useState } from "react";
 
 export default function ContactUs(): JSX.Element {
   const ContactSchema = Yup.object().shape({
@@ -14,8 +15,12 @@ export default function ContactUs(): JSX.Element {
       .email("بريد إلكتروني خاطئ")
       .required("لم يتم تقديم بريد إلكتروني."),
     message: Yup.string().required("هذه الخانة مطلوبه"),
-    file: Yup.string().required("هذه الخانة مطلوبه"),
+    // file: Yup.string().required("هذه الخانة مطلوبه"),
   });
+
+  const [file, setFile] = useState('');
+  const [inputTouched, setTouched] = useState(false);
+  const fileInput = useRef();
 
   // const [SendContactForm, { loading, data }] = useMutation(sendContactForm);
 
@@ -35,14 +40,26 @@ export default function ContactUs(): JSX.Element {
               fullname: "",
               email: "",
               message: "",
-              file: "",
             }}
             validationSchema={ContactSchema}
-            onSubmit={async (values) => {      
+            onSubmit={async (values, {resetForm}) => {      
                 // Enable loading effect
+
                 try {
-                  await sendShareUsForm(values);
+
+                  const formData = new FormData();
+
+                  Object.entries(values).forEach(([key, value]) => {
+                      formData.set(key, value);
+                  });
+
+                  formData.set('file', file);
+
+                  await sendShareUsForm(formData);
                   // stop loading effect
+                  resetForm();
+                  fileInput.current.value = null;
+
 
                   toast('تم إرسال بنجاح', { hideProgressBar: false, autoClose: 2000, type: 'success' })
                 } catch (error: any) {
@@ -121,14 +138,21 @@ export default function ContactUs(): JSX.Element {
                     <span className="px-1 text-sm text-gray-600">
                       شارك : (*)
                     </span>
-                    <Field
+                    <input
                       name="file"
                       type="file"
+                      onChange={(event) => {
+                        setFile(event.currentTarget.files[0]);
+                      }}
+                      required={true}
+                      accept=".png, .jpg, .jpeg"
+                      ref={fileInput}
+                      onBlur={() => setTouched(true)}
                       className="text-md block px-3 py-2  rounded-lg w-full
                 bg-white border-2 border-gray-300 placeholder-gray-600 shadow-md focus:placeholder-gray-500 focus:bg-white focus:border-primary focus:outline-none"
                     />
-                    {errors.file && touched.file ? (
-                      <div className="text-red-600 ">{errors.file}</div>
+                    {inputTouched && file === '' ? (
+                      <div className="text-red-600 ">{"هذه الخانة مطلوبه"}</div>
                     ) : null}
                   </div>
                   {
