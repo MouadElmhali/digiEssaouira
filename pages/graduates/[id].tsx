@@ -65,7 +65,7 @@ export default function Association({
         <title>DigiEssaouira | المنتخبين</title>
       </Head>
 
-      <main className="mt-20">
+      <main className="mt-20 h-screen sm:min-h-[850px]  md:min-h-[150px] lg:min-h-[50px] container mx-auto px-10">
         <Section className="py-20" childrenClassName="w-full px-24">
           <div className="flex flex-col items-center gap-y-5  gap-x-8 sm:grid sm:grid-cols-[auto,_1fr] sm:grid-rows-[repeat(4,_auto)] shadow-w">
             <div className="row-span-full ">
