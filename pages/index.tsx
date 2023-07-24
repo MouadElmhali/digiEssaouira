@@ -273,20 +273,20 @@ export default function Home({
             
               <div className="flex flex-row items-center gap-x-5">
                 <button onClick={() => {
-                  setGraduatesCounter( graduatesCounter === 0 ? 3 - 1 : graduatesCounter - 1);
+                  setGraduatesCounter( graduatesCounter === 0 ? 8 - 1 : graduatesCounter - 1);
                 }}>
                   <p className="text-bold text-2xl text-blue">{"<"}</p>
                 </button>
-                <div className="ease-in-out duration-700 flex flex-col items-center bg-blue shadow-2xl overflow-hidden h-80 w-64">
+                <div className="ease-in-out duration-700 flex flex-col items-center bg-[url('/images/Ellipsis-2.1s-200px.gif')] bg-no-repeat bg-center		 shadow-2xl overflow-hidden h-80 w-64">
                   {/* <div className={`h-72 w-full object-cover ease-in-out duration-500  bg-no-repeat bg-center bg-cover bg-[url('/images/graduates/${getGraduates[graduatesCounter]?.pictureUrl}')]`} style={{backgroundImage: `url('/images/graduates/${getGraduates[graduatesCounter]?.pictureUrl}')`}}> */}
                     <Image src={"/images/graduates/" + getGraduates[graduatesCounter]?.pictureUrl} alt={getGraduates[graduatesCounter]?.name} height={288} width={256} style={{objectFit:"cover"}} loading='lazy' />
                   {/* </div> */}
-                  <div className="py-4 px-4 ease-in-out duration-700">
+                  <div className="py-4 px-4 ease-in-out duration-700 bg-blue w-full text-center">
                     <p className="text-bold text-2xl text-white ease-in-out duration-700">{getGraduates[graduatesCounter]?.name }</p>
                   </div>
                 </div>
                 <button onClick={() => {
-                  setGraduatesCounter(graduatesCounter === 3 ? 0 : graduatesCounter + 1);
+                  setGraduatesCounter(graduatesCounter === 8 ? 0 : graduatesCounter + 1);
                 }}>
                   <p className="text-bold text-2xl text-blue">{">"}</p>
                 </button>
@@ -312,7 +312,7 @@ export default function Home({
                           className="h-[22rem] w-72 bg-black overflow-hidden shadow-xl"
                       >
                           <img 
-                              src={"/images/articles/" + "4.jpg"}
+                              src={"/images/articles/" + pictureUrl}
                               className="object-cover w-full h-44"
                           />
                           <div className='flex flex-col my-2 h-24 text-right mx-4'>
@@ -352,6 +352,7 @@ export default function Home({
                   height="150"
                   width="150"
                   objectFit="contain"
+                  loading='lazy'
                 />
               )
             })

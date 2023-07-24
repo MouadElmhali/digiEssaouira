@@ -35,7 +35,7 @@ export default function AritcleSection ({
                         <h4 className="mt-10 text-2xl ">آخر المقالات</h4>
                         <div className="border-b-2 w-12 border-blue-400 mb-5"></div>
                         {articles.slice(articles.length - 3, articles.length).map(({title, pictureUrl, id }) => (
-                            <button key={id} onClick={() => router.push("/youth/" + id)} className='flex flex-row items-center divid-y justify-center gap-2'>
+                            <button key={id} onClick={() => router.push("/youth/" + id)} className='flex flex-row items-center divid-y justify-center gap-2 mb-5'>
                                 <img src={"/images/articles/" + pictureUrl} className="object-cover max-h-16" />
                                 <p className='text-xs text-justify' dangerouslySetInnerHTML={{ __html: title }}></p>
                             </button>

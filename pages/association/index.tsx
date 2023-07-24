@@ -32,7 +32,7 @@ const SelectInput = ({name, label, placeholder, id, handleChange, required, valu
             <select name={name} onChange={handleChange} required = {required} id={id} className=" border border-gray-400 rounded-xl px-4 py-2  w-64 md:w-80 ">
                 <option selected>{placeholder}</option>
                 {
-                    values?.map(({id, name}, index) => {
+                    values?.map(({id, name} : any, index: any) => {
                         return (
                             <option key={index} value={id}>{name}</option>
                         )
@@ -46,7 +46,7 @@ const SelectInput = ({name, label, placeholder, id, handleChange, required, valu
 
 // Requires inputRef : useReference object
 const FileInput = ({id, name, label, placeholder,  handleChange, required, uploadText, inputRef}:any) => {
-    const handleUploadClick = (e) => {
+    const handleUploadClick = (e: any) => {
         e.preventDefault();
         // 👇 We redirect the click event onto the hidden input element
         inputRef.current?.click();
@@ -75,7 +75,8 @@ const FileInput = ({id, name, label, placeholder,  handleChange, required, uploa
 
                 <img 
                     src='/icons/upload.png' 
-                    className='h-[15px] w-[15px] object-contain' /> 
+                    className='h-[15px] w-[15px] object-contain' 
+                /> 
 
                 {uploadText ? uploadText : "إختر ملف"} 
             
@@ -89,7 +90,7 @@ const FileInput = ({id, name, label, placeholder,  handleChange, required, uploa
 
 
 
-const reducer = (state, event) => {
+const reducer = ({state, event}: any) => {
     return {
         ...state,
         [event.name] : event.value
@@ -220,7 +221,7 @@ export default function AddAssociation({
         }
     ])
 
-    const handleChangeText = (e) => {
+    const handleChangeText = (e: any) => {
         setFormData({
             name: e.target.name,
             value: e.target.value
@@ -236,7 +237,7 @@ export default function AddAssociation({
 
     const [addAssociation, {data, loading, error}] = useMutation(addAssociationMutation);
 
-    const handleSubmit = (event) => {
+    const handleSubmit = (event: any) => {
         event.preventDefault();
         try {
             addAssociation(
@@ -256,8 +257,9 @@ export default function AddAssociation({
             <div className='mt-40 relative'>
                 <div className={"bg-[url('/images/thumb1.jpg')]  w-full h-64 bg-cover bg-center  "}></div>
                 <div className="absolute top-0 left-0 w-full h-64 bg-black/40 opacity-75 "></div> 
-                <p className='font-black text-4xl text-white relative -top-40 text-center shadow-2xl'>إظافة جمعية</p>
+                <p className='font-black text-4xl text-white relative -top-40 text-center shadow-2xl'>إضافة جمعية</p>
             </div>
+            
             <form className='flex flex-col items-center' onSubmit={handleSubmit}>
                 <div className='flex flex-row w-auto md:w-[50rem] flex-wrap justify-center gap-x-10 mb-5'>
                     <div>
@@ -314,7 +316,7 @@ export default function AddAssociation({
                         <button 
                             className='bg-red px-10 py-2 rounded-xl text-white self-start' 
                             onClick={() => {submit.current?.click()}}>
-                                تسجبل الجمعية
+                                تسجيل الجمعية
                         </button>
                 </div>
             </form>
