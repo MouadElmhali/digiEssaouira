@@ -1,10 +1,7 @@
-import { gql, useMutation } from '@apollo/client'
 import { InferGetServerSidePropsType } from 'next'
-import { type } from 'os'
-import { useEffect, useReducer, useRef, useState } from 'react'
-import { initializeApollo } from '../../apolloClient'
-import { CREATE_ASSOCIATION } from '../../graphql/association/queries'
-import { GET_REGION } from '../../graphql/region/queries'
+import { useReducer, useRef, useState } from 'react'
+import { toast } from 'react-toastify'
+import { addAssociation } from '../../lib/api'
 
 
 const TextArea = ({name, label, placeholder, id, handleChange, required}:any) => {
@@ -69,14 +66,6 @@ const SelectInput = ({name, label, placeholder, id, handleChange, required, valu
 const FileInput = ({id, name, label, placeholder,  handleChange, required, uploadText, inputRef}:any) => {
 
     const [touched, setTouched] = useState(false);
-
-    const handleUploadClick = (e: any) => {
-        e.preventDefault();
-        // 👇 We redirect the click event onto the hidden input element
-        inputRef.current?.click();
-    };
-
-    const [fileName, setFileName] = useState("");
     
     return (
     <>
@@ -85,30 +74,18 @@ const FileInput = ({id, name, label, placeholder,  handleChange, required, uploa
             <input 
                 type = "file" 
                 className='border border-gray-400 rounded-xl px-4 py-2  w-64 md:w-80' 
-                style={{display: 'none'}} 
+                // style={{display: 'none'}} 
                 name={id} 
                 id={id} 
                 ref={inputRef} 
+                accept=".png, .jpg, .jpeg"
                 onChange={(e) => {
-                    setFileName(e.target.files[0].name); 
                     handleChange(e)
                 }} 
                 required = {required} onBlur={() => setTouched(true)} />
-            <button 
-                className='border border-gray-400 rounded-xl px-4 py-2  w-64 md:w-40 flex items-center justify-center gap-x-5' 
-                onClick={handleUploadClick}>
-
-                <img 
-                    src='/icons/upload.png' 
-                    className='h-[15px] w-[15px] object-contain' 
-                /> 
-
-                {uploadText ? uploadText : "إختر ملف"} 
             
-            </button>
-            {fileName}
         </div>
-        {touched && required && fileName == '' ? (
+        {touched && required && !inputRef.current?.files[0] ? (
                 <div className="text-red-600 ">{"هذه الخانة مطلوبه"}</div>
             ) : null}
         </>
@@ -116,64 +93,7 @@ const FileInput = ({id, name, label, placeholder,  handleChange, required, uploa
 }
 
 
-
-
-
-
-
-export async function getServerSideProps() {
-    const client = initializeApollo();
-    const {
-        data: { regions
-        },
-    } = await client.query({
-        query: GET_REGION,
-    });
-
-    
-
-    return {
-        props: {
-            regions
-        },
-    };
-}
-
-export async function postServerSideProps(input: any) {
-    const client = initializeApollo();
-    const message = await client.mutate({
-        mutation: CREATE_ASSOCIATION,
-        variables: {input}
-    })
-    console.log(" Input : " + JSON.stringify(input));
-    console.log(" Message : " + JSON.stringify(message));
-
-    return message;
-}
-
-const addAssociationMutation = gql`
-    mutation($input: AssociationInput!){
-        createAssociation(input: $input){
-                id
-                region
-                name
-                fieldOfWork
-                prisident
-                pictureUrl
-                email
-                phone
-                facebook
-                twitter
-                instagram
-                pictureGallery
-            
-        }
-    }
-`
-
-export default function AddAssociation({
-    regions
-    }: InferGetServerSidePropsType<typeof getServerSideProps>): JSX.Element {
+export default function AddAssociation(): JSX.Element {
 
 
     const reducer = (state, event) => {
@@ -184,7 +104,9 @@ export default function AddAssociation({
     }
     
     const inputRef = useRef();
+    const resetRef = useRef();
     const submit = useRef();
+    const [isSubmitting, setIsSubmitting] = useState(false);
     const [formData, setFormData] = useReducer(reducer, {})
     const [labels, setLabels] = useState([
         {
@@ -248,7 +170,7 @@ export default function AddAssociation({
             name: "الهوية البصرية الخاصة بالجمعية (Logo) : (*)",
             required: true,
             inputType: "fileInput",
-            id : "pictureUrl"
+            id : "file"
         }
     ])
 
@@ -266,30 +188,36 @@ export default function AddAssociation({
         });
     }
 
-    const [addAssociation, {data, loading, error}] = useMutation(addAssociationMutation);
+    const resetForm = () => {
+        resetRef.current.click()
+    }
 
-    const handleSubmit = (event: any) => {
+    const handleSubmit = async (event: any) => {
         event.preventDefault();
 
-        const data = new FormData();
+        try {
+            setIsSubmitting(true);
 
-        Object.entries(formData).forEach(([key, value]) => {
-            data.set(key, value);
-        });
+            const data = new FormData();
 
-        Object.entries(formData).forEach(([key, value]) => {
-            console.log(key, value)
-        });
-        // try {
-        //     addAssociation(
-        //         { variables: 
-                    
-        //                 JSON.parse('{ "input": { "id" : "22", "region": "6427106088708af9522db3a8", "name": "test25", "fieldOfWork": "test", "prisident": "test", "pictureUrl": "test", "email": "test", "phone": "test", "facebook": "test", "twitter": "test", "instagram": "test", "pictureGallery": "test" }}')
-                    
-        //         });
-        // }catch (error: any) {
-        //     alert(error.message())
-        // }
+            Object.entries(formData).forEach(([key, value]) => {
+                data.set(key, value);
+            });
+
+            await addAssociation(formData);
+            // stop loading effect
+            resetForm();
+
+            setIsSubmitting(!true);
+            
+            toast('تم إرسال بنجاح', { hideProgressBar: false, autoClose: 2000, type: 'success' })
+
+          } catch (error: any) {
+            // stop loading effect
+            setIsSubmitting(!true);
+            toast('فشل الارسال', { hideProgressBar: false, autoClose: 2000, type: 'error' })
+            console.log(error.message)
+          }
     }
 
 
@@ -301,8 +229,9 @@ export default function AddAssociation({
                 <p className='font-black text-4xl text-white relative -top-40 text-center shadow-2xl'>إضافة جمعية</p>
             </div>
             
-            <form className='flex flex-col items-center' onSubmit={handleSubmit}>
+            <form className='flex flex-col items-center' onSubmit={handleSubmit} >
                 <div className='flex flex-row w-auto md:w-[50rem] flex-wrap justify-center gap-x-10 mb-5'>
+                    <input type="reset" value="" hidden ref={resetRef}/>
                     <div>
                         {
                             labels.slice(0, 5).map(({id, name, inputType, required, type}, index) => {
@@ -345,21 +274,35 @@ export default function AddAssociation({
                     
                 </div>
 
-                <div 
-                    className='flex self-center  gap-10 mb-5'>
-                        <input 
-                            type="submit" 
-                            style={{display: 'none'}} 
-                            value="Enregistrer" 
-                            ref={submit} 
-                            />
+                {
+                    isSubmitting ?
+                    <div
+                            className="
+                            h-10 w-64
+                            flex self-center  gap-10 mb-5
+                            bg-white px-10 py-2 rounded-xl self-start
+                            bg-[url('/images/Ellipsis-2.1s-200px.gif')] bg-no-repeat bg-center"
+                        >
+                            
+                    </div>
+                    :
+                    <div 
+                        className='flex self-center  gap-10 mb-5'>
+                            <input 
+                                type="submit" 
+                                style={{display: 'none'}} 
+                                value="Enregistrer" 
+                                ref={submit} 
+                                />
 
-                        <button 
-                            className='bg-red px-10 py-2 rounded-xl text-white self-start' 
-                            onClick={() => {submit.current?.click()}}>
-                                تسجيل الجمعية
-                        </button>
-                </div>
+                            <button 
+                                className='bg-red px-10 py-2 rounded-xl text-white self-start' 
+                                onClick={() => {submit.current?.click()}}>
+                                    تسجيل الجمعية
+                            </button>
+                    </div>
+                }
+
             </form>
         </>
     )
