@@ -1,31 +1,49 @@
 import { gql, useMutation } from '@apollo/client'
 import { InferGetServerSidePropsType } from 'next'
 import { type } from 'os'
-import React, { useEffect, useReducer, useRef, useState } from 'react'
+import { useEffect, useReducer, useRef, useState } from 'react'
 import { initializeApollo } from '../../apolloClient'
 import { CREATE_ASSOCIATION } from '../../graphql/association/queries'
 import { GET_REGION } from '../../graphql/region/queries'
 
 
 const TextArea = ({name, label, placeholder, id, handleChange, required}:any) => {
+    const [touched, setTouched] = useState(false);
+    const inputRef = useRef();
     return (
-        <div className='flex flex-col my-5'>
-            <p className='text-md text-blue w-64 md:w-80 mb-2 mx-px' >{label}</p>
-            <textarea className='border border-gray-400 rounded-xl h-[8.5rem] px-4 py-2 w-64 md:w-80' name={id} id={id} placeholder={placeholder} onChange={handleChange} required = {required}/>
-        </div>
+        <>
+            <div className='flex flex-col my-5'>
+                <p className='text-md text-blue w-64 md:w-80 mb-2 mx-px' >{label}</p>
+                <textarea className='border border-gray-400 rounded-xl h-[8.5rem] px-4 py-2 w-64 md:w-80' name={id} id={id} onBlur={() => setTouched(true)} ref={inputRef} placeholder={placeholder} onChange={handleChange} required = {required}/>
+            </div>
+            {touched && required && inputRef.current.value === '' ? (
+                <div className="text-red-600 ">{"هذه الخانة مطلوبه"}</div>
+            ) : null}
+        </>
     )
 }
 
 const TextInput = ({name, label, placeholder, id, handleChange, required, type}:any) => {
+
+    const [touched, setTouched] = useState(false);
+    const inputRef = useRef();
+
     return (
-        <div className='flex flex-col my-5'>
-            <p className='text-md text-blue w-64 md:w-80 mb-2 mx-px' >{label}</p>
-            <input className='border border-gray-400 rounded-xl px-4 py-2  w-64 md:w-80' type={type} name={id} id={id} placeholder={placeholder} onChange={handleChange} required = {required}/>
-        </div>
+        <>
+            <div className='flex flex-col my-5'>
+                <p className='text-md text-blue w-64 md:w-80 mb-2 mx-px' >{label}</p>
+                <input className='border border-gray-400 rounded-xl px-4 py-2  w-64 md:w-80' type={type} name={id} id={id} placeholder={placeholder} onChange={handleChange} required = {required} onBlur={() => setTouched(true)} ref={inputRef}/>
+            </div>
+            {touched && required && inputRef.current.value === '' ? (
+                <div className="text-red-600 ">{"هذه الخانة مطلوبه"}</div>
+            ) : null}
+        </>
     )
 }
 
 const SelectInput = ({name, label, placeholder, id, handleChange, required, values}:any) => {
+    const [touched, setTouched] = useState(false);
+    const inputRef = useRef();
     return (
         <>
             <p className='text-md text-blue w-64 md:w-80 mb-2 mx-px' >{label}</p>
@@ -40,12 +58,18 @@ const SelectInput = ({name, label, placeholder, id, handleChange, required, valu
                     })
                 }
             </select>
+            {touched && required && inputRef.current.value === '' ? (
+                <div className="text-red-600 ">{"هذه الخانة مطلوبه"}</div>
+            ) : null}
         </>
     )
 }
 
 // Requires inputRef : useReference object
 const FileInput = ({id, name, label, placeholder,  handleChange, required, uploadText, inputRef}:any) => {
+
+    const [touched, setTouched] = useState(false);
+
     const handleUploadClick = (e: any) => {
         e.preventDefault();
         // 👇 We redirect the click event onto the hidden input element
@@ -55,6 +79,7 @@ const FileInput = ({id, name, label, placeholder,  handleChange, required, uploa
     const [fileName, setFileName] = useState("");
     
     return (
+    <>
         <div className='flex flex-col my-5'>
             <p className='text-md text-blue w-40 mb-2 mx-px' >{label}</p>
             <input 
@@ -68,7 +93,7 @@ const FileInput = ({id, name, label, placeholder,  handleChange, required, uploa
                     setFileName(e.target.files[0].name); 
                     handleChange(e)
                 }} 
-                required = {required}/>
+                required = {required} onBlur={() => setTouched(true)} />
             <button 
                 className='border border-gray-400 rounded-xl px-4 py-2  w-64 md:w-40 flex items-center justify-center gap-x-5' 
                 onClick={handleUploadClick}>
@@ -83,6 +108,10 @@ const FileInput = ({id, name, label, placeholder,  handleChange, required, uploa
             </button>
             {fileName}
         </div>
+        {touched && required && fileName == '' ? (
+                <div className="text-red-600 ">{"هذه الخانة مطلوبه"}</div>
+            ) : null}
+        </>
     )
 }
 
@@ -90,12 +119,7 @@ const FileInput = ({id, name, label, placeholder,  handleChange, required, uploa
 
 
 
-const reducer = ({state, event}: any) => {
-    return {
-        ...state,
-        [event.name] : event.value
-    }
-}
+
 
 export async function getServerSideProps() {
     const client = initializeApollo();
@@ -151,20 +175,27 @@ export default function AddAssociation({
     regions
     }: InferGetServerSidePropsType<typeof getServerSideProps>): JSX.Element {
 
-    console.log(JSON.stringify(regions))
+
+    const reducer = (state, event) => {
+        return {
+            ...state,
+            [event.name] : event.value
+        }
+    }
+    
     const inputRef = useRef();
     const submit = useRef();
     const [formData, setFormData] = useReducer(reducer, {})
     const [labels, setLabels] = useState([
         {
-            name: "اسم الجمعية",
+            name: "اسم الجمعية : (*)",
             required: true,
             inputType: "textInput",
             id : "name",
             type: "text"
         },
         {
-            name: "تارخ تأسيس الجمعية",
+            name: "تارخ تأسيس الجمعية : (*)",
             required: true,
             inputType: "textInput",
             id : "date",
@@ -172,14 +203,14 @@ export default function AddAssociation({
             
         },
         {
-            name: "الممثل القانوني للجمعية",
+            name: "الممثل القانوني للجمعية : (*)",
             required: true,
             inputType: "textInput",
             id : "prisident",
             type: "text"
         },
         {
-            name: "البريد الالكتروني",
+            name: "البريد الالكتروني : (*)",
             required: true,
             inputType: "textInput",
             id : "email",
@@ -193,28 +224,28 @@ export default function AddAssociation({
             type: "text"
         },
         {
-            name: "مجال اشتغال الجمعية (الأهداف، المشاريع...) ",
+            name: "مجال اشتغال الجمعية (الأهداف، المشاريع...)  : (*)",
             required: true,
             inputType: "textArea",
             id : "fieldOfWork",
             type: "text"
         },
         {
-            name: "مكان عمل الجمعية (الجماعة / الإقليم)",
+            name: "مكان عمل الجمعية (الجماعة / الإقليم) : (*)",
             required: true,
             inputType: "textInput",
             id : "region",
             type: "text"
         },
         {
-            name: "الهاتف",
+            name: "الهاتف : (*)",
             required: true,
             inputType: "textInput",
             id : "phone",
             type: "tel"
         },
         {
-            name: "الهوية البصرية الخاصة بالجمعية (Logo)",
+            name: "الهوية البصرية الخاصة بالجمعية (Logo) : (*)",
             required: true,
             inputType: "fileInput",
             id : "pictureUrl"
@@ -231,7 +262,7 @@ export default function AddAssociation({
     const handleChangeFile = (e) => {
         setFormData({
             name: e.target.name,
-            value: e.target.files[0]
+            value: e.currentTarget.files[0]
         });
     }
 
@@ -239,16 +270,26 @@ export default function AddAssociation({
 
     const handleSubmit = (event: any) => {
         event.preventDefault();
-        try {
-            addAssociation(
-                { variables: 
+
+        const data = new FormData();
+
+        Object.entries(formData).forEach(([key, value]) => {
+            data.set(key, value);
+        });
+
+        Object.entries(formData).forEach(([key, value]) => {
+            console.log(key, value)
+        });
+        // try {
+        //     addAssociation(
+        //         { variables: 
                     
-                        JSON.parse('{ "input": { "id" : "22", "region": "6427106088708af9522db3a8", "name": "test25", "fieldOfWork": "test", "prisident": "test", "pictureUrl": "test", "email": "test", "phone": "test", "facebook": "test", "twitter": "test", "instagram": "test", "pictureGallery": "test" }}')
+        //                 JSON.parse('{ "input": { "id" : "22", "region": "6427106088708af9522db3a8", "name": "test25", "fieldOfWork": "test", "prisident": "test", "pictureUrl": "test", "email": "test", "phone": "test", "facebook": "test", "twitter": "test", "instagram": "test", "pictureGallery": "test" }}')
                     
-                });
-        }catch (error: any) {
-            alert(error.message())
-        }
+        //         });
+        // }catch (error: any) {
+        //     alert(error.message())
+        // }
     }
 
 
