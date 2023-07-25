@@ -1,26 +1,31 @@
 import { mailOptions, transporter } from "../../config/nodemailer";
+import { Writable } from "stream";
+import formidable from "formidable";
 
 const CONTACT_MESSAGE_FIELDS = {
-  object: "الموضوع",
-  elected: "المعني بالسؤال",
-  fullname: "لإسم الكامل",
-  email: "البريد الإلكتروني",
-  message: "الرسالة",
+    name: "اسم الجمعية ",
+    date: "تارخ تأسيس الجمعية ",
+    prisident: "الممثل القانوني للجمعية ",
+    email: "البريد الالكتروني ",
+    facebook: "روابط مواقع التواصل الإجتماعي الخاصة بالجمعية",
+    fieldOfWork: "مجال اشتغال الجمعية  ",
+    region: "مكان عمل الجمعية ",
+    phone: "الهاتف ",
 };
 
 const generateEmailContent = (data) => {
-  const stringData = Object.entries(data).reduce(
-    (str, [key, val]) =>
-      (str += `${CONTACT_MESSAGE_FIELDS[key]}: \n${val} \n \n`),
-    ""
-  );
-  const htmlData = Object.entries(data).reduce((str, [key, val]) => {
-    return (str += `<h3 class="form-heading" align="left">${CONTACT_MESSAGE_FIELDS[key]}</h3><p class="form-answer" align="left">${val}</p>`);
-  }, "");
+    const stringData = Object.entries(data).reduce(
+        (str, [key, val]) =>
+            (str += `${CONTACT_MESSAGE_FIELDS[key]}: \n${val} \n \n`),
+        ""
+    );
+    const htmlData = Object.entries(data).reduce((str, [key, val]) => {
+        return (str += `<h3 class="form-heading" align="right">${CONTACT_MESSAGE_FIELDS[key]}</h3><p class="form-answer" align="right">${val}</p>`);
+    }, "");
 
-  return {
-    text: stringData,
-    html: `
+    return {
+        text: stringData,
+        html: `
     <!DOCTYPE html>
     <html lang="ar">
     
@@ -79,7 +84,7 @@ const generateEmailContent = (data) => {
                 color: #2a2a2a;
                 font-family: "Helvetica Neue", "Helvetica", "Arial", sans-serif;
                 font-weight: 400;
-                text-align: left;
+                text-align: right;
                 line-height: 20px;
                 font-size: 18px;
                 margin: 0 0 8px;
@@ -90,7 +95,7 @@ const generateEmailContent = (data) => {
                 color: #2a2a2a;
                 font-family: "Helvetica Neue", "Helvetica", "Arial", sans-serif;
                 font-weight: 300;
-                text-align: left;
+                text-align: right;
                 line-height: 20px;
                 font-size: 16px;
                 margin: 0 0 24px;
@@ -138,29 +143,125 @@ const generateEmailContent = (data) => {
     </body>
     
     </html>`,
-  };
+    };
 };
+
+// body parser config
+const formidableConfig = {
+    keepExtensions: true,
+    maxFileSize: 10_000_000,
+    maxFieldsSize: 10_000_000,
+    maxFields: 8,
+    allowEmptyFiles: false,
+    multiples: false,
+  };
+  
+  // Disable default parser
+  export const config = {
+    api: {
+      bodyParser: false,
+    },
+  };
+  
+  // Parsing body request
+  function formidablePromise(req, opts) {
+    return new Promise((accept, reject) => {
+      const form = formidable(opts);
+  
+      form.parse(req, (err, fields, files) => {
+        if (err) {
+          return reject(err);
+        }
+        return accept({ fields, files });
+      });
+    });
+  }
+  
+  // File writer
+    const fileConsumer = (acc) => {
+    const writable = new Writable({
+      write: (chunk, _enc, next) => {
+        acc.push(chunk);
+        next();
+      },
+    });
+  
+    return writable;
+  };
 
 const handler = async (req, res) => {
-  if (req.method === "POST") {
-    const data = req.body;
-    if (!data || !data.object || !data.elected || !data.fullname || !data.email || !data.message) {
-      return res.status(400).send({ message: "Bad request" });
+    if (req.method === "POST") {
+        
+        try {
+            
+            // File buffer
+            const chunks = [];
+            
+            // Parsing body of request 
+            const { fields, files } = await formidablePromise(req, {
+                ...formidableConfig,
+                // consume this, otherwise formidable tries to save the file to disk
+                fileWriteStreamHandler: () => fileConsumer(chunks),
+            });
+            
+            
+            // Verify if all fields are filled
+            if (!fields ||
+                !fields.name ||
+                !fields.email ||
+                !fields.phone ||
+                !fields.date ||
+                !fields.prisident ||
+                !fields.fieldOfWork ||
+                !fields.region ||
+                !files.file 
+            ) {
+                return res.status(400).send({ message: "Fill all the required fields", fields });
+            }
+
+            const ext = files.file[0].originalFilename.split(".");
+            
+            if( ext[1] !== 'png' && ext[1] !== 'jpg' && ext[1] !== 'jpeg') {
+                return res.status(400).send({ message: "File extension is forbiden" });
+            }
+            
+            // or the actual field name you used in the front end
+            const { file } = files;
+
+            console.log(file)
+
+            // The content of picture
+            const fileData = Buffer.concat(chunks);
+
+            // Name of picture
+            const filename = file[0]?.originalFilename;
+
+            if(file[0].size >= 5132600) {
+                return res.status(400).send({ message: "File size should be under 5132600 KB" });
+            }
+
+            // Construct attachements
+            const attachments = [{ content: fileData, filename }];
+
+            // Send email
+            await transporter.sendMail({
+                ...mailOptions,
+                ...generateEmailContent(fields),
+                subject: "إضافة جمعية : DigiEssaouira",
+                attachments,
+            });
+
+            // Response with success
+            return res.status(200).json({ success: true });
+
+        } catch (err) {
+            // Response with error message
+            return res.status(400).json({ message: err.message });
+        }
     }
 
-    try {
-      await transporter.sendMail({
-        ...mailOptions,
-        ...generateEmailContent(data),
-        subject: "أطرح سؤالا : DigiEssaouira",
-      });
-
-      return res.status(200).json({ success: true });
-    } catch (err) {
-      console.log(err);
-      return res.status(400).json({ message: err.message });
-    }
-  }
-  return res.status(400).json({ message: "Bad request" });
+    return res.status(400).json({ message: "Bad request" });
 };
+
+
 export default handler;

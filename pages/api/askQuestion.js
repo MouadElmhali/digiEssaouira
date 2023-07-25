@@ -15,7 +15,7 @@ const generateEmailContent = (data) => {
     ""
   );
   const htmlData = Object.entries(data).reduce((str, [key, val]) => {
-    return (str += `<h3 class="form-heading" align="left">${CONTACT_MESSAGE_FIELDS[key]}</h3><p class="form-answer" align="left">${val}</p>`);
+    return (str += `<h3 class="form-heading" align="right">${CONTACT_MESSAGE_FIELDS[key]}</h3><p class="form-answer" align="right">${val}</p>`);
   }, "");
 
   return {
@@ -79,7 +79,7 @@ const generateEmailContent = (data) => {
                 color: #2a2a2a;
                 font-family: "Helvetica Neue", "Helvetica", "Arial", sans-serif;
                 font-weight: 400;
-                text-align: left;
+                text-align: right;
                 line-height: 20px;
                 font-size: 18px;
                 margin: 0 0 8px;
@@ -90,7 +90,7 @@ const generateEmailContent = (data) => {
                 color: #2a2a2a;
                 font-family: "Helvetica Neue", "Helvetica", "Arial", sans-serif;
                 font-weight: 300;
-                text-align: left;
+                text-align: right;
                 line-height: 20px;
                 font-size: 16px;
                 margin: 0 0 24px;
