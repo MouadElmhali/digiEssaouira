@@ -40,10 +40,10 @@ export default function Youth ({
                             <h2 className="text-6xl font-bold text-blue">فضاء الشباب</h2>
                         </div>
                     </div>
-                    <div className='mt-24  flex flex-row flex-wrap gap-8 justify-center items-center  self-center w-full'>
+                    <div className='mt-24  grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 md:gap-y-10'>
                         {articles?.toReversed().map(({id, title, body, pictureUrl} : any ) => (
                             <Link key={id} href={"/youth/" + id}>
-                                <a  className="h-[22rem] w-72 bg-black overflow-hidden shadow-xl">
+                                <a  className="h-[20rem] w-72 bg-black overflow-hidden shadow-xl">
                                     
                                         <img 
                                             src={"/images/articles/" + pictureUrl}
