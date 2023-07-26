@@ -142,8 +142,8 @@ export default function Course({
       <LittleSection title="مقدم المساق">
         <div className="flex gap-x-4">
           <Image
-            width={110}
-            height={110}
+            width={95}
+            height={95}
             src={`/images/instructors/${instructor?.pictureUrl}`}
             className="rounded-full"
             objectFit="cover"
@@ -152,7 +152,7 @@ export default function Course({
               instructor?.lastName,
             ])}`}
           />
-          <div className="text-primaryDarker flex flex-col self-center gap-y-2">
+          <div className="text-primaryDarker flex flex-col self-center gap-y-2 mr-3">
             <p className="text-lg">
               {instructor?.firstName + instructor?.lastName }
             </p>
