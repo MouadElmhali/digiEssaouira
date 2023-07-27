@@ -13,6 +13,10 @@ export const routes: IRouteRecord = Object.freeze({
     name: "quiz",
     makePath: (courseName: string) => `/courses/${courseName}/course`,
   }),
+  courseResources: Object.freeze({
+    name: "Resources",
+    makePath: (courseName: string) => `/courses/${courseName}/resources`,
+  }),
   quiz: Object.freeze({
     name: "quiz",
     makePath: (courseName: string) => `/courses/${courseName}/quiz`,

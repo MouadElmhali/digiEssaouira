@@ -157,6 +157,12 @@ export default function Course({
               {instructor?.firstName + instructor?.lastName }
             </p>
             <p className="font-bold text-sm">{instructor?.post?.name}</p>
+            <Link href={{
+                pathname: routes.courseResources.makePath?.(name),
+                query: { courseId: id },
+              }}>
+                المراجع المعتمدة  
+            </Link>
           </div>
         </div>
       </LittleSection>
