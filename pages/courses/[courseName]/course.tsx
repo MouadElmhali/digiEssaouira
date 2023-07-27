@@ -54,7 +54,8 @@ export default function Course({
   const [hide,setHide] = useState(true);
 
   return (
-    <div className="grid sm:grid-cols-4 w-full mt-32 sm:mt-40 ">
+    <div className="grid sm:grid-cols-4 w-full mt-32 gap-5 sm:mt-40 container mx-auto">
+      {/* Content list section*/}
       <div className="sidebar hidden sm:block  lg:left-0 p-2 w-full overflow-y-auto text-center bg-gray-50">
         <div className=" text-xl">
           <div className="p-2.5 mt-1 flex items-center gap-x-2">
@@ -138,6 +139,7 @@ export default function Course({
           </Link>
         </div>
       </div>
+      {/* Video section */}
       <div className="sm:col-span-3">
         <div className="bg-primary w-full text-white p-5 ">
           <div className="flex items-center justify-between">
@@ -247,6 +249,10 @@ export default function Course({
           opts={opts}
           className="w-full h-60 sm:h-[600px]"
         />
+        <div className="flex flex-row justify-between mx-10 my-5">
+          <button className="rounded-lg py-2 px-4 bg-blue text-bold text-md text-center text-white round">{"< التالي"}</button>
+          <button className="rounded-lg py-2 px-4 bg-blue text-bold text-md text-center text-white round">{"السابق >"}</button>
+        </div>
       </div>
     </div>
   );
