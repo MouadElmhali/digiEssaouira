@@ -24,6 +24,7 @@ import {
 } from "../../../graphql/courses/types";
 import Image from "next/image";
 import Link from "next/link";
+import { getCurrentUser } from "../../../components/utils";
 
 interface IQuery extends ParsedUrlQuery {
   courseId: string;
@@ -72,6 +73,16 @@ export default function Quiz({
   const [answers, setAnswers] = useState<IAnswer[]>([]);
   const router = useRouter();
   const [toggle, setToggle] = useState(true);
+
+
+  const currentUser = getCurrentUser();
+  
+  useEffect(() => {
+    if(!currentUser) 
+      router.push("/signIn");
+
+  }, []);
+
 
   const handleClickNext: MouseEventHandler<HTMLButtonElement> = () => {
     if (currentQuestion === questions.length) {

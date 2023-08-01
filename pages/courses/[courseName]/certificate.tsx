@@ -5,14 +5,25 @@ import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import TextOnImage from "../../../components/certificateDownload";
 import { getCurrentUser } from "../../../components/utils";
+import { redirect } from "next/dist/server/api-utils";
+import { routes } from "../../../constants/routes";
 
 export default function Quiz() {
   const [isClient, setIsClient] = useState(false);
-  useEffect(() => {
-    setIsClient(true);
-  }, []);
+  const router = useRouter();
+
+
+  
   const { courseName } = useRouter().query;
   const currentUser = getCurrentUser();
+  
+  useEffect(() => {
+    if(!currentUser) 
+      router.push("/signIn");
+
+    setIsClient(true);
+  }, []);
+
 
 
   return (
