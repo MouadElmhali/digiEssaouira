@@ -1,8 +1,15 @@
 // @ts-nocheck
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useEffect, useState } from "react";
 
-export default function TextOnImage  ({userName, text })  {
+export default function TextOnImage({
+  userName,
+  text,
+  courseName,
+  instructor,
+}) {
   const canvasRef = useRef(null);
+
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -10,20 +17,39 @@ export default function TextOnImage  ({userName, text })  {
 
     const img = new Image();
     img.src = "/images/certificate.jpeg";
-    img.crossOrigin= '*';
+    img.crossOrigin = "*";
+
     img.onload = () => {
       canvas.width = img.width;
       canvas.height = img.height;
       ctx.drawImage(img, 0, 0);
-      ctx.font = "40px sans-serif";
+      ctx.font = "bolder 40px sans-serif";
       ctx.fillStyle = "black";
-      ctx.fillText(text, 760, 370);
+
+      ctx.textAlign = "center";
+      ctx.fillText(userName ?? "user Test", 635, 370);
+
+      ctx.font = "bold 40px greta";
+      ctx.fillStyle = "#281e54";
+
+      ctx.fillText(courseName, 635, 470);
+
+      ctx.fillText(instructor?.firstName + instructor?.lastName, 635, 560);
+
+      ctx.font = "normal 40px greta";
+      ctx.fillText(instructor.post.name, 635, 600);
+      // ctx.fillText(text, 760, 370);
     };
+
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 8000);
   }, [text]);
 
   const handleDownload = () => {
     const canvas = canvasRef.current;
     const link = document.createElement("a");
+
     link.download = `${userName}-شهادة.png`;
     link.href = canvas.toDataURL();
     link.click();
@@ -32,7 +58,20 @@ export default function TextOnImage  ({userName, text })  {
   return (
     <>
       <canvas style={{ display: "none" }} ref={canvasRef} />
-      <button onClick={handleDownload} className="bg-primary text-white rounded p-3">  تحميل الشهادة</button>
+      {isLoading ? (
+        <div
+          className="mt-3 sm:col-span-2 text-lg font-semibold
+            h-14 w-full text-white rounded-lg
+            px-6 py-3  bg-[url('/images/Ellipsis-2.1s-200px.gif')] bg-no-repeat bg-center"
+        ></div>
+      ) : (
+        <button
+          onClick={handleDownload}
+          className="bg-primary text-white rounded p-3"
+        >
+          تحميل الشهادة
+        </button>
+      )}
     </>
   );
-};
+}

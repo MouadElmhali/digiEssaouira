@@ -88,7 +88,7 @@ export default function Quiz({
     if (currentQuestion === questions.length) {
       if (calculateResult(answers) >= 50) {
         // @ts-ignore
-        router.push(routes.certificate.makePath?.(courseName));
+        router.push({pathname: routes.certificate.makePath?.(courseName), query: {courseId}});
       } else {
         setToggle(false);
       }
@@ -131,7 +131,7 @@ export default function Quiz({
       </Head>
 
       {toggle ? (
-        <main className="mt-44 py-10 px-5 flex flex-col gap-y-5">
+        <main className="mt-44 py-10 px-5 flex flex-col gap-y-5 h-[60vh]">
           <div className="flex flex-col items-center">
             <div className="flex flex-col gap-1 items-center w-5/6 sm:w-1/2 [&>*]:w-full">
               <span className="text-primary text-center font-bold text-sm ">

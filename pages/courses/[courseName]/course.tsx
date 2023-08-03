@@ -1,7 +1,7 @@
 import { GetServerSidePropsContext, InferGetServerSidePropsType } from "next";
 import { ParsedUrlQuery } from "querystring";
 import YouTube from "react-youtube";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import Link from "next/link";
 import { initializeApollo } from "../../../apolloClient";
@@ -11,6 +11,8 @@ import {
 } from "../../../graphql/courses/types";
 import { GET_COURSE_BY_ID } from "../../../graphql/courses/queries";
 import { routes } from "../../../constants/routes";
+import { getCurrentUser } from "../../../components/utils";
+import { useRouter } from "next/router";
 
 interface IQuery extends ParsedUrlQuery {
   courseId: string;
@@ -54,6 +56,15 @@ export default function Course({
   };
 
   const [hide,setHide] = useState(true);
+
+  const router = useRouter();
+
+  const currentUser = getCurrentUser();
+
+  useEffect(() => {
+    if(!currentUser) 
+      router.push("/signIn");
+  }, [])
 
   return (
     <div className="grid sm:grid-cols-4 w-full mt-32 gap-5 sm:mt-40 container mx-auto">
