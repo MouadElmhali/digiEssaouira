@@ -24,7 +24,8 @@ export default function LinkCard({
           width: '200px',
           objectFit: 'contain',
           alignSelf: 'center'
-        }} className="h-[75%]" {...imageProps} />
+        }} className="h-[75%] rounded-md" {...imageProps} />
+        <div className="relative self-center -z-10 -top-36 h-28 w-28 bg-white  bg-[url('/images/loading.gif')] bg-cover bg-no-repeat bg-center"></div>
         <div className="bg-primary text-white h-[25%] font-bold text-lg text-center py-5 px-3">
           {customizedTitle ? customizedTitle : <>{title}</>}
         </div>
