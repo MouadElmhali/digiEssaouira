@@ -18,8 +18,9 @@ export default function LinkCard({
 }: ILinkCardProps): JSX.Element {
   return (
     <Link {...linkProps}>
-      <a className="flex flex-col gap-4 flex-1 h-full">
-        <Image height={250} width={200} alt="" className="h-[75%]" {...imageProps} />
+                    
+      <a className="flex flex-col gap-4 flex-1 h-full ">
+        <Image height={250} width={200} alt="" className="h-[75%] "  {...imageProps} />
         <div className="bg-primary text-white h-[25%] font-bold text-lg text-center py-5 px-3">
           {customizedTitle ? customizedTitle : <>{title}</>}
         </div>

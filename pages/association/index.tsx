@@ -281,7 +281,7 @@ export default function AddAssociation(): JSX.Element {
                             h-10 w-64
                             flex self-center  gap-10 mb-5
                             bg-white px-10 py-2 rounded-xl self-start
-                            bg-[url('/images/Ellipsis-2.1s-200px.gif')] bg-no-repeat bg-center"
+                            bg-[url('/images/loading.gif')] bg-no-repeat bg-center"
                         >
                             
                     </div>

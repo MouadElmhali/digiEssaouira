@@ -43,11 +43,11 @@ export default function Youth ({
                     <div className='mt-24  grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 md:gap-y-10'>
                         {articles?.toReversed().map(({id, title, body, pictureUrl} : any ) => (
                             <Link key={id} href={"/youth/" + id}>
-                                <a  className="h-[20rem] w-72 bg-black overflow-hidden shadow-xl">
+                                <a  className="h-[20rem] w-72 bg-black overflow-hidden shadow-xl ">
                                     
                                         <img 
                                             src={"/images/articles/" + pictureUrl}
-                                            className="object-cover w-full h-44"
+                                            className="object-cover w-full h-44 bg-white bg-[url('/images/loading.gif')] bg-no-repeat bg-center"
                                         />
                                         <div className='flex flex-col my-2 h-24 text-right mx-4'>
                                             <p className='text-white  text-sm text-justify ' dangerouslySetInnerHTML={{ __html: title }}></p>

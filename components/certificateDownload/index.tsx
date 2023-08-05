@@ -62,7 +62,7 @@ export default function TextOnImage({
         <div
           className="mt-3 sm:col-span-2 text-lg font-semibold
             h-14 w-full text-white rounded-lg
-            px-6 py-3  bg-[url('/images/Ellipsis-2.1s-200px.gif')] bg-no-repeat bg-center"
+            px-6 py-3  bg-[url('/images/loading.gif')] bg-no-repeat bg-center"
         ></div>
       ) : (
         <button

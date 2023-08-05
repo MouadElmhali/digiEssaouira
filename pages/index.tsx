@@ -277,7 +277,7 @@ export default function Home({
                 }}>
                   <p className="text-bold text-2xl text-blue">{"<"}</p>
                 </button>
-                <div className="ease-in-out duration-700 flex flex-col items-center bg-[url('/images/Ellipsis-2.1s-200px.gif')] bg-no-repeat bg-center		 shadow-2xl overflow-hidden h-80 w-64">
+                <div className="ease-in-out duration-700 flex flex-col items-center bg-[url('/images/loading.gif')] bg-no-repeat bg-center		 shadow-2xl overflow-hidden h-80 w-64">
                   {/* <div className={`h-72 w-full object-cover ease-in-out duration-500  bg-no-repeat bg-center bg-cover bg-[url('/images/graduates/${getGraduates[graduatesCounter]?.pictureUrl}')]`} style={{backgroundImage: `url('/images/graduates/${getGraduates[graduatesCounter]?.pictureUrl}')`}}> */}
                     <Image src={"/images/graduates/" + getGraduates[graduatesCounter]?.pictureUrl} alt={getGraduates[graduatesCounter]?.name} height={288} width={256} style={{objectFit:"cover"}} loading='lazy' />
                   {/* </div> */}
