@@ -14,18 +14,19 @@ export default function LinkCard({
   customizedTitle,
   linkProps,
   imageProps,
-  styles
 }: ILinkCardProps): JSX.Element {
   return (
     <Link {...linkProps}>
-      <a className="flex flex-col gap-4 flex-1 h-full">
-        <img style={{
-          height: '250px',
-          width: '200px',
-          objectFit: 'contain',
-          alignSelf: 'center'
-        }} className="h-[75%] rounded-md" {...imageProps} />
-        <div className="relative self-center -z-10 -top-36 h-28 w-28 bg-white  bg-[url('/images/loading.gif')] bg-cover bg-no-repeat bg-center"></div>
+      <a className="flex flex-col gap-4  h-full relative">
+        <Image
+          alt={title}
+          height={350}
+          width={150}
+          objectFit="contain"
+          className="w-full h-full transition ease-in-out duration-200 hover:scale-110 "
+          {...imageProps}
+        />
+        <div className="absolute -z-10 left-40 top-24 h-28 w-28 bg-[url('/images/loading.gif')] bg-cover bg-no-repeat bg-center"></div>
         <div className="bg-primary text-white h-[25%] font-bold text-lg text-center py-5 px-3">
           {customizedTitle ? customizedTitle : <>{title}</>}
         </div>
