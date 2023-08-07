@@ -44,7 +44,7 @@ export default function Youth({
               ?.toReversed()
               .map(({ id, title, body, pictureUrl }: any) => (
                 <Link key={id} href={"/youth/" + id}>
-                  <a className="h-[20rem] w-72 bg-black overflow-hidden shadow-xl ">
+                  <a className="h-[20rem] w-72 bg-black overflow-hidden shadow-xl rounded-lg overflow-hidden">
                     <div className="w-full h-44 overflow-hidden">
                       <img
                         src={"/images/articles/" + pictureUrl}

@@ -57,8 +57,7 @@ export default function NavBar(): JSX.Element {
         <div className="items-center hidden space-x-8 sm:flex">
           <Link href={routes.home.path}>
             <a
-              className="ml-8 hover:text-blue-500 
-                    cursor-pointer transition-colors duration-300"
+              className="ml-8 transition duration-200 ease-in-out hover:text-blue-500 hover:scale-110"
             >
               الرئيسية
             </a>
@@ -66,8 +65,7 @@ export default function NavBar(): JSX.Element {
 
           <Link href={routes.courses.path}>
             <a
-              className=" hover:text-blue-500 
-                    cursor-pointer transition-colors duration-300"
+              className=" transition duration-200 ease-in-out hover:text-blue-500 hover:scale-110"
             >
               إلتحق بمساق تدريبي
             </a>
@@ -75,8 +73,7 @@ export default function NavBar(): JSX.Element {
 
           <Link href={routes.electeds.path}>
             <a
-              className=" hover:text-blue-500 
-                    cursor-pointer transition-colors duration-300"
+              className=" transition duration-200 ease-in-out hover:text-blue-500 hover:scale-110"
             >
               تعرف على المنتخبين
             </a>
@@ -84,24 +81,21 @@ export default function NavBar(): JSX.Element {
 
           <Link href={routes.associations.path}>
             <a
-              className=" hover:text-blue-500 
-                    cursor-pointer transition-colors duration-300"
+              className=" transition duration-200 ease-in-out hover:text-blue-500 hover:scale-110"
             >
               تعرف على النسيج الجمعوي
             </a>
           </Link>
           <Link href={routes.map.path}>
             <a
-              className=" hover:text-blue-500 
-                    cursor-pointer transition-colors duration-300"
+              className=" transition duration-200 ease-in-out hover:text-blue-500 hover:scale-110"
             >
               الخريطة التفاعلية
             </a>
           </Link>
           <Link href={routes.youth.path}>
             <a
-              className=" hover:text-blue-500 
-                    cursor-pointer transition-colors duration-300"
+              className=" transition duration-200 ease-in-out hover:text-blue-500 hover:scale-110"
             >
               فضاء الشباب
             </a>
@@ -109,8 +103,7 @@ export default function NavBar(): JSX.Element {
 
           <Link href={routes.galerie.path}>
             <a
-              className=" hover:text-blue-500 
-                    cursor-pointer transition-colors duration-300"
+              className=" transition duration-200 ease-in-out hover:text-blue-500 hover:scale-110"
             >
               معرض الصور
             </a>
@@ -184,8 +177,7 @@ export default function NavBar(): JSX.Element {
           <div className="items-center mt-10 flex flex-col  absolute w-full h-screen top-24 transition-all ease-out duration-500 right-0 left-0 bg-white  space-y-8 lg:hidden">
             <Link href={routes.home.path}>
               <a
-                className="mt-10 hover:text-blue-500 
-                    cursor-pointer transition-colors duration-300"
+                className="mt-10 transition duration-200 ease-in-out hover:text-blue-500 hover:scale-110"
               >
                 الرئيسية
               </a>
@@ -193,8 +185,7 @@ export default function NavBar(): JSX.Element {
 
             <Link href={routes.courses.path}>
               <a
-                className=" hover:text-blue-500 
-                    cursor-pointer transition-colors duration-300"
+                className=" transition duration-200 ease-in-out hover:text-blue-500 hover:scale-110"
               >
                 إلتحق بمساق تدريبي
               </a>
@@ -202,8 +193,7 @@ export default function NavBar(): JSX.Element {
 
             <Link href={routes.electeds.path}>
               <a
-                className=" hover:text-blue-500 
-                    cursor-pointer transition-colors duration-300"
+                className=" transition duration-200 ease-in-out hover:text-blue-500 hover:scale-110"
               >
                 تعرف على المنتخبين
               </a>
@@ -211,8 +201,7 @@ export default function NavBar(): JSX.Element {
 
             <Link href={routes.youth.path}>
               <a
-                className=" hover:text-blue-500 
-                    cursor-pointer transition-colors duration-300"
+                className=" transition duration-200 ease-in-out hover:text-blue-500 hover:scale-110"
               >
                 فضاء الشباب
               </a>
@@ -220,8 +209,7 @@ export default function NavBar(): JSX.Element {
 
             <Link href={routes.galerie.path}>
             <a
-              className=" hover:text-blue-500 
-                    cursor-pointer transition-colors duration-300"
+              className=" transition duration-200 ease-in-out hover:text-blue-500 hover:scale-110"
             >
               معرض الصور
             </a>
@@ -229,38 +217,33 @@ export default function NavBar(): JSX.Element {
 
             <Link href={routes.associations.path}>
               <a
-                className=" hover:text-blue-500 
-                    cursor-pointer transition-colors duration-300"
+                className=" transition duration-200 ease-in-out hover:text-blue-500 hover:scale-110"
               >
                 تعرف على النسيج الجمعوي
               </a>
             </Link>
             <Link
               href={routes.resources.path}
-              className=" hover:text-blue-500 
-                    cursor-pointer transition-colors duration-300"
+              className=" transition duration-200 ease-in-out hover:text-blue-500 hover:scale-110"
             >
               <a className="ml-5">دليل الموارد الرقمية</a>
             </Link>
             <Link
               href={routes.privacyPolicy.path}
-              className=" hover:text-blue-500 
-                    cursor-pointer transition-colors duration-300"
+              className=" transition duration-200 ease-in-out hover:text-blue-500 hover:scale-110"
             >
               <a className="ml-5">دليل استعمال منصة</a>
             </Link>
             <Link
               href={routes.graduates.path}
-              className=" hover:text-blue-500 
-                    cursor-pointer transition-colors duration-300"
+              className=" transition duration-200 ease-in-out hover:text-blue-500 hover:scale-110"
             >
               خريجي DIGIESSAOUIRA
             </Link>
 
             <Link
               href={routes.contactUs.path}
-              className=" hover:text-blue-500 
-                    cursor-pointer transition-colors duration-300"
+              className=" transition duration-200 ease-in-out hover:text-blue-500 hover:scale-110"
             >
               تواصلو معنا
             </Link>
