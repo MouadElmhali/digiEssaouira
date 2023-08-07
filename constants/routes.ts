@@ -80,5 +80,9 @@ export const routes: IRouteRecord = Object.freeze({
   login: Object.freeze({
     name: "signIn",
     path: "/signIn",
+  }),
+  galerie: Object.freeze({
+    name: "galerie",
+    path: "/galerie"
   })
 });

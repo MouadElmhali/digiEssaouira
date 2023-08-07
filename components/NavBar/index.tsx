@@ -28,8 +28,10 @@ export default function NavBar(): JSX.Element {
           <Link href={routes.resources.path}>
             <a className="ml-5">دليل الموارد الرقمية</a>
           </Link>
-          <Link href={routes.privacyPolicy.path} ><a className="ml-5">دليل استعمال المنصة </a></Link>
-          <Link href={routes.graduates.path}>  خريجي DIGIESSAOUIRA</Link>
+          <Link href={routes.privacyPolicy.path}>
+            <a className="ml-5">دليل استعمال المنصة </a>
+          </Link>
+          <Link href={routes.graduates.path}> خريجي DIGIESSAOUIRA</Link>
         </div>
         <Link href={routes.contactUs.path}> تواصلو معنا</Link>
       </div>
@@ -104,6 +106,15 @@ export default function NavBar(): JSX.Element {
               فضاء الشباب
             </a>
           </Link>
+
+          <Link href={routes.galerie.path}>
+            <a
+              className=" hover:text-blue-500 
+                    cursor-pointer transition-colors duration-300"
+            >
+              معرض الصور
+            </a>
+          </Link>
         </div>
 
         {currentUser ? (
@@ -168,6 +179,7 @@ export default function NavBar(): JSX.Element {
             </svg>
           </button>
         </div>
+
         {hidden ? (
           <div className="items-center mt-10 flex flex-col  absolute w-full h-screen top-24 transition-all ease-out duration-500 right-0 left-0 bg-white  space-y-8 lg:hidden">
             <Link href={routes.home.path}>
@@ -197,6 +209,24 @@ export default function NavBar(): JSX.Element {
               </a>
             </Link>
 
+            <Link href={routes.youth.path}>
+              <a
+                className=" hover:text-blue-500 
+                    cursor-pointer transition-colors duration-300"
+              >
+                فضاء الشباب
+              </a>
+            </Link>
+
+            <Link href={routes.galerie.path}>
+            <a
+              className=" hover:text-blue-500 
+                    cursor-pointer transition-colors duration-300"
+            >
+              معرض الصور
+            </a>
+          </Link>
+
             <Link href={routes.associations.path}>
               <a
                 className=" hover:text-blue-500 
@@ -205,16 +235,35 @@ export default function NavBar(): JSX.Element {
                 تعرف على النسيج الجمعوي
               </a>
             </Link>
-            <Link href={routes.resources.path} className=" hover:text-blue-500 
-                    cursor-pointer transition-colors duration-300">
+            <Link
+              href={routes.resources.path}
+              className=" hover:text-blue-500 
+                    cursor-pointer transition-colors duration-300"
+            >
               <a className="ml-5">دليل الموارد الرقمية</a>
             </Link>
-            <Link href={routes.privacyPolicy.path} className=" hover:text-blue-500 
-                    cursor-pointer transition-colors duration-300"><a className="ml-5">دليل استعمال منصة</a></Link>
-            <Link href={routes.graduates.path} className=" hover:text-blue-500 
-                    cursor-pointer transition-colors duration-300">  خريجي DIGIESSAOUIRA</Link>
-            <Link href={routes.contactUs.path} className=" hover:text-blue-500 
-                    cursor-pointer transition-colors duration-300"> تواصلو معنا</Link>
+            <Link
+              href={routes.privacyPolicy.path}
+              className=" hover:text-blue-500 
+                    cursor-pointer transition-colors duration-300"
+            >
+              <a className="ml-5">دليل استعمال منصة</a>
+            </Link>
+            <Link
+              href={routes.graduates.path}
+              className=" hover:text-blue-500 
+                    cursor-pointer transition-colors duration-300"
+            >
+              خريجي DIGIESSAOUIRA
+            </Link>
+
+            <Link
+              href={routes.contactUs.path}
+              className=" hover:text-blue-500 
+                    cursor-pointer transition-colors duration-300"
+            >
+              تواصلو معنا
+            </Link>
             {currentUser ? (
               <div className="items-center hidden lg:flex">
                 <Image
