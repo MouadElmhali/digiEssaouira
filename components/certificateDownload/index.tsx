@@ -16,28 +16,28 @@ export default function TextOnImage({
     const ctx = canvas.getContext("2d");
 
     const img = new Image();
-    img.src = "/images/certificate.jpeg";
+    img.src = "/images/certificate.jpg";
     img.crossOrigin = "*";
 
     img.onload = () => {
       canvas.width = img.width;
       canvas.height = img.height;
       ctx.drawImage(img, 0, 0);
-      ctx.font = "bolder 40px sans-serif";
+      ctx.font = "bolder 30px sans-serif";
       ctx.fillStyle = "black";
 
       ctx.textAlign = "center";
-      ctx.fillText(userName ?? "user Test", 635, 370);
+      ctx.fillText(userName ?? "user Test", 421, 250);
 
-      ctx.font = "bold 40px greta";
+      ctx.font = "bold 20px greta";
       ctx.fillStyle = "#281e54";
 
-      ctx.fillText(courseName, 635, 470);
+      ctx.fillText(courseName, 421, 310);
 
-      ctx.fillText(instructor?.firstName + instructor?.lastName, 635, 560);
+      ctx.fillText(instructor?.firstName + instructor?.lastName, 421, 370);
 
-      ctx.font = "normal 40px greta";
-      ctx.fillText(instructor.post.name, 635, 600);
+      ctx.font = "normal 20px greta";
+      ctx.fillText(instructor.post.name, 421, 400);
       // ctx.fillText(text, 760, 370);
     };
 

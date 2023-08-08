@@ -151,7 +151,7 @@ export default function Quiz({
               <div className="flex justify-between mt-20">
                 {currentQuestion !== 1 && (
                   <button
-                    className="flex items-baseline gap-x-1 mb-5 py-2   text-gray-400 text-sm font-bold"
+                    className="flex items-center justify-center gap-x-1 mb-5 py-2   text-gray-400 text-sm font-bold"
                     onClick={handleClickPrevious}
                   >
                     <span className="leading-[0] text-4xl">&#8594;</span>
@@ -159,7 +159,7 @@ export default function Quiz({
                   </button>
                 )}
                 <button
-                  className="flex items-baseline gap-x-3 pr-4 pl-1 mb-5 py-2 rounded-full  text-white bg-primary text-sm font-bold hover:bg-primary/80 mr-auto disabled:cursor-not-allowed"
+                  className="flex items-center justify-center  gap-x-3 px-4 pl-1 mb-5 py-2 rounded-full  text-white bg-primary text-sm font-bold hover:bg-primary/80 mr-auto disabled:cursor-not-allowed"
                   onClick={handleClickNext}
                   disabled={
                     !Boolean(
