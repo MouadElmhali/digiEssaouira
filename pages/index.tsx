@@ -76,7 +76,7 @@ export default function Home({
           تعرف على صناع القرار, قم بتطوير مهارات جديدة وساهم باقتراحاتك في
           التنمية المحلية
         </p>
-        <div className="flex flex-row gap-x-10 relative md:top-48 xl:top-32 2xl:top-56 invisible w-0 md:w-auto overflow-hidden  md:visible ">
+        <div className="flex flex-row gap-x-10 relative md:top-72 xl:top-52 2xl:top-72 invisible w-0 md:w-auto overflow-hidden  md:visible ">
           <div className="flex flex-row justify-content items-center shadow-lg rounded-lg overflow-hidden">
             <button
               onClick={() => {
@@ -161,7 +161,7 @@ export default function Home({
         >
           <div className="flex flex-col md:flex-row md:flex-wrap justify-center items-center gap-x-5 gap-y-5 ">
             <button
-              className=" w-72 md:w-96 h-44 md:h-96 bg-white shadow-xl border rounded-lg overflow-hidden"
+              className=" w-72 md:w-96 h-44 md:h-96 bg-white shadow-xl border rounded-lg overflow-hidden hover:scale-105 transition ease-in-out duration-200"
               onClick={() => {
                 router.push("/courses");
               }}
@@ -169,7 +169,7 @@ export default function Home({
               <img
                 src="/images/courses.png"
                 alt="Image"
-                className="object-contain h-28 md:h-80 w-full hover:scale-110 transition ease-in-out duration-200"
+                className="object-contain h-28 md:h-80 w-full "
               />
               <div className="px-4 py-4">
                 <p className=" text-red font-bold text-lg px-3 ">
@@ -180,7 +180,7 @@ export default function Home({
 
             <div className="flex flex-col justify-center items-center gap-y-8">
               <button
-                className="w-72 md:w-96 h-44 bg-white shadow-xl border rounded-lg overflow-hidden"
+                className="w-72 md:w-96 h-44 bg-white shadow-xl border rounded-lg overflow-hidden hover:scale-105 transition ease-in-out duration-200"
                 onClick={() => {
                   router.push("/shareUs");
                 }}
@@ -189,7 +189,7 @@ export default function Home({
                   <img
                     src="/images/share.png"
                     alt="Image"
-                    className="object-cover h-full w-full hover:scale-110 transition ease-in-out duration-200 "
+                    className="object-cover h-full w-full "
                   />
                 </div>
                 <div className="px-4 py-4 ">
@@ -200,7 +200,7 @@ export default function Home({
               </button>
 
               <button
-                className="w-72 md:w-96 h-44 bg-white shadow-xl border rounded-lg overflow-hidden"
+                className="w-72 md:w-96 h-44 bg-white shadow-xl border rounded-lg overflow-hidden hover:scale-105 transition ease-in-out duration-200"
                 onClick={() => {
                   router.push("/askQuestion");
                 }}
@@ -209,7 +209,7 @@ export default function Home({
                   <img
                     src="/images/question.png"
                     alt="Image"
-                    className="object-cover h-full w-full hover:scale-110 transition ease-in-out duration-200"
+                    className="object-cover h-full w-full "
                   />
                 </div>
                 <div className="px-4 py-4 ">
@@ -279,7 +279,7 @@ export default function Home({
             className="flex flex-row flex-wrap-reverse gap-y-10 justify-around items-center"
           >
             <div className="flex flex-col md:flex-row items-center">
-              <div className="bg-blue flex flex-col items-center h-72 py-2 w-44 shadow-xl rounded-md overflow-hidden">
+              <div className="bg-blue flex flex-col items-center h-72 py-2 w-44 shadow-xl rounded-md overflow-hidden transition ease-in-out duration-200 hover:scale-105">
                 <Image
                   src={
                     "/images/resources/" +
@@ -321,7 +321,7 @@ export default function Home({
                         )
                       }
                     >
-                      <p className="py-2 px-4 bg-blue text-bold text-md text-center text-white rounded hover:scale-110 transition ease-out duration-200">
+                      <p className="py-2 px-4 bg-blue hover:bg-orange-600 text-bold text-md text-center text-white rounded hover:scale-110 transition ease-out duration-200">
                         تحميل الكتاب
                       </p>
                     </button>
@@ -334,7 +334,7 @@ export default function Home({
                         )
                       }
                     >
-                      <p className="py-2 px-4 bg-blue text-bold text-md text-center text-white rounded hover:scale-110 transition ease-out duration-200">
+                      <p className="py-2 px-4 bg-blue hover:bg-orange-600 text-bold text-md text-center text-white rounded hover:scale-110 transition ease-out duration-200">
                         إقرا الكتاب
                       </p>
                     </button>
@@ -344,7 +344,7 @@ export default function Home({
               </div>
             </div>
             {getGraduates.length > 0 ? (
-              <div className="flex flex-row items-center gap-x-5 ">
+              <div className="flex flex-row items-center gap-x-5 overflow-hidden rounded ">
                 <button
                   onClick={() => {
                     setGraduatesCounter(
@@ -352,7 +352,9 @@ export default function Home({
                     );
                   }}
                 >
-                  <p className="text-bold text-2xl text-blue rounded hover:scale-125 hover:font-extrabold transition ease-out duration-200">{"<"}</p>
+                  <p className="text-bold text-2xl text-blue  hover:scale-125 hover:font-extrabold transition ease-out duration-200">
+                    {"<"}
+                  </p>
                 </button>
                 <div className="ease-in-out duration-700 flex flex-col items-center bg-[url('/images/loading.gif')] bg-no-repeat bg-center	rounded-t-md overflow-hidden	 shadow-2xl overflow-hidden h-80 w-64">
                   {/* <div className={`h-72 w-full object-cover ease-in-out duration-500  bg-no-repeat bg-center bg-cover bg-[url('/images/graduates/${getGraduates[graduatesCounter]?.pictureUrl}')]`} style={{backgroundImage: `url('/images/graduates/${getGraduates[graduatesCounter]?.pictureUrl}')`}}> */}
@@ -382,7 +384,9 @@ export default function Home({
                     );
                   }}
                 >
-                  <p className="text-bold text-2xl text-blue rounded hover:scale-125 hover:font-extrabold transition ease-out duration-200">{">"}</p>
+                  <p className="text-bold text-2xl text-blue rounded hover:scale-125 hover:font-extrabold transition ease-out duration-200">
+                    {">"}
+                  </p>
                 </button>
               </div>
             ) : (
@@ -397,7 +401,7 @@ export default function Home({
             className="[&>div>h2]:text-primary  [&>div]:flex [&>div]:flex-col  [&>div]:gap-y-16 "
             title="فضاء الشباب"
           >
-            <div className="flex lg:flex-row flex-col  justify-center items-center gap-x-10 gap-y-5 bg-blue-gradient md:px-52 md:pt-16 md:pb-16">
+            <div className="flex lg:flex-row flex-col  justify-center items-center gap-x-10 gap-y-0 md:gap-y-5 bg-blue-gradient py-10 md:py-0 md:px-52 md:pt-16 md:pb-16">
               {articles
                 .slice(articles.length - 3, articles.length)
                 .map(({ id, title, pictureUrl, body }: any) => {
@@ -406,11 +410,11 @@ export default function Home({
                       key={id}
                       onClick={() => router.push("/youth/" + id)}
                     >
-                      <div className="h-[22rem] w-72 bg-black overflow-hidden shadow-xl rounded-lg ">
+                      <div className="h-[22rem] w-72 bg-black overflow-hidden shadow-xl rounded-lg transition ease-in-out duration-200 hover:scale-105 my-10 md:my-0">
                         <div className="w-full h-44 overflow-hidden">
                           <img
                             src={"/images/articles/" + pictureUrl}
-                            className="object-cover w-full h-full transition ease-in-out duration-200 hover:scale-110"
+                            className="object-cover w-full h-full "
                           />
                         </div>
                         <div className="flex flex-col my-2 h-24 text-right mx-4">

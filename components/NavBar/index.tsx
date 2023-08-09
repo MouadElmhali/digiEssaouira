@@ -68,7 +68,7 @@ export default function NavBar(): JSX.Element {
           </Link>
         </div>
 
-        <div className="items-center hidden space-x-8 sm:flex">
+        <div className="items-center hidden space-x-8 lg:flex">
           <Link href={routes.home.path}>
             <a className="ml-8 transition duration-200 ease-in-out hover:text-blue-500 hover:scale-110">
               الرئيسية
