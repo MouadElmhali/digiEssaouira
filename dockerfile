@@ -1,10 +1,14 @@
 FROM node:16
 
-# WORKDIR /home/digiEssouira/
+RUN mkdir /home/digiEssouira
 
-COPY package*.json ./
+WORKDIR /home/digiEssouira
+
+COPY package.* .
 
 RUN npm install
+
+COPY . .
 
 EXPOSE 3000
 

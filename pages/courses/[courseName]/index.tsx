@@ -2,7 +2,7 @@ import { GetServerSidePropsContext, InferGetServerSidePropsType } from "next";
 import Image from "next/image";
 
 import { ParsedUrlQuery } from "querystring";
-import { ReactNode } from "react";
+import { ReactNode, useState } from "react";
 import { initializeApollo } from "../../../apolloClient";
 import { GET_COURSE_BY_ID } from "../../../graphql/courses/queries";
 import {
@@ -15,6 +15,7 @@ import Link from "next/link";
 import { routes } from "../../../constants/routes";
 import { getCurrentUser } from "../../../components/utils/index";
 import YouTube from "react-youtube";
+import { FacebookShareButton, TwitterShareButton } from "next-share";
 
 
 
@@ -53,6 +54,11 @@ export default function Course({
     },
   };
 
+  const [shareLink, setShareLink] = useState({
+    title: document.title + " : " + name,
+    url: window.location.href
+  });
+
   return (
     <main className="mt-28 sm:mt-36 p-8 grid gap-8 sm:grid-cols-2 ">
       <div className="flex justify-center sm:col-span-2 ">
@@ -90,10 +96,9 @@ export default function Course({
             </a>
           </Link>
         ) : (
-          <Link    href={{
-            pathname: routes.course.makePath?.(name),
-            query: { courseId: id },
-          }}>
+          <Link    href={
+           routes.login.path
+          }>
             <a>
               <div className="flex gap-x-4 items-center text-white text-2xl bg-primary py-4 px-11  hover:outline-primary hover:outline-2 hover:outline-dashed font-bold">
                 ابدأ الدورة
@@ -142,8 +147,8 @@ export default function Course({
       <LittleSection title="مقدم المساق">
         <div className="flex gap-x-4">
           <Image
-            width={110}
-            height={110}
+            width={95}
+            height={95}
             src={`/images/instructors/${instructor?.pictureUrl}`}
             className="rounded-full"
             objectFit="cover"
@@ -152,11 +157,17 @@ export default function Course({
               instructor?.lastName,
             ])}`}
           />
-          <div className="text-primaryDarker flex flex-col self-center gap-y-2">
+          <div className="text-primaryDarker flex flex-col self-center gap-y-2 mr-3">
             <p className="text-lg">
               {instructor?.firstName + instructor?.lastName }
             </p>
             <p className="font-bold text-sm">{instructor?.post?.name}</p>
+            <Link href={{
+                pathname: routes.courseResources.makePath?.(name),
+                query: { courseId: id },
+              }}>
+                المراجع المعتمدة  
+            </Link>
           </div>
         </div>
       </LittleSection>
@@ -166,15 +177,43 @@ export default function Course({
         className="[&>h2]:sm:text-center"
       >
         <div className="flex gap-4 sm:justify-center">
-          {["twitter", "instagram", "facebook"].map((socialMedia) => (
-            <Image
-              key={socialMedia}
-              alt=""
-              height={50}
-              width={50}
-              src={`/images/icons/${socialMedia}.png`}
-            />
-          ))}
+            <FacebookShareButton
+              url={shareLink.url} 
+              title={shareLink.title}
+            >
+
+              <Image
+                alt="facebook"
+                height={50}
+                width={50}
+                src={`/images/icons/facebook.png`}
+              />  
+            </FacebookShareButton>
+            
+            <div>
+              <Image
+                alt="instagram"
+                height={50}
+                width={50}
+                src={`/images/icons/instagram.png`}
+              />
+            </div>
+              
+            <TwitterShareButton
+              url={shareLink.url} 
+              title={shareLink.title}
+            >
+              <Image
+                alt="Twitter"
+                height={50}
+                width={50}
+                src={`/images/icons/twitter.png`}
+              />
+            </TwitterShareButton>
+
+            
+
+
         </div>
       </LittleSection>
 

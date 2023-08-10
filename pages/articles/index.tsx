@@ -49,7 +49,7 @@ export default function Articles({
                         </div>
                     </div>
                     <div className='mt-24 mx-auto xl:mx-44 2xl:mx-64 flex flex-row flex-wrap gap-8 justify-center items-center'>
-                        {articles?.map(({id, title, body, pictureUrl}) => (
+                        {articles?.map(({id, title, body, pictureUrl}:any) => (
                             <button key={id} onClick={() => router.push(routes.articles.path + "/" + id)}>
                                 <div
                                     className="h-72 w-72 bg-blue  overflow-hidden shadow-xl"

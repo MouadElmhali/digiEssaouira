@@ -5,7 +5,7 @@ import Header from "../../components/Header";
 import { GET_COURSES_NAME_AND_PICTURE } from "../../graphql/courses/queries";
 import { IGetCoursesData } from "../../graphql/courses/types";
 import { useRouter } from "next/router";
-
+import CourseCard from "../../components/CourseCard";
 
 export async function getServerSideProps() {
   const client = initializeApollo();
@@ -35,36 +35,27 @@ export default function Courses({
         isHero
         title="مساقات تدريبية متخصصة في مجال المشاركة العامة الديمقراطية"
         image="/images/courses-svg.svg"
-      >
-
-      </Header>
+      ></Header>
 
       <main>
-        
-      <div className='mb-48 2xl:max-w-[120rem]'>
-        <div className='mt-24 mx-auto xl:mx-44 2xl:mx-64 flex flex-row flex-wrap gap-8  justify-center items-center'>
-          {courses.map(({ id, name, pictureUrl }) => (
-              <button key={id} onClick={() => { 
-                router.push({
-                  pathname: "/courses/" + name,
-                  query: { courseId: id },
-                })}}>
-                  <div
-                      className="h-96 w-72 2xl:w-96 bg-black overflow-hidden shadow-xl"
-                  >
-                      <img 
-                          src={"/images/courses/" + pictureUrl}
-                          className="object-cover w-full h-72"
-                      />
-                      <div className='flex flex-col mx-5 my-2 h-20 items-center justify-center'>
-                          <p className='text-white text-xl font-bold' dangerouslySetInnerHTML={{ __html: name.length > 85 ? name.slice(0, 85) + " ..." : name }}></p>
-                      </div>
-                  </div>
-              </button>
-          ))}
+        <div className="mb-48 2xl:max-w-[120rem]">
+          <div className="mt-24 mx-auto xl:mx-44 2xl:mx-64 flex flex-row flex-wrap gap-8  justify-center items-center">
+            {courses.map(({ id, name, pictureUrl }) => (
+              <CourseCard
+                key={id}
+                onClick={() => {
+                  router.push({
+                    pathname: "/courses/" + name,
+                    query: { courseId: id },
+                  });
+                }}
+                src={"/images/courses/" + pictureUrl}
+                text={name.length > 85 ? name.slice(0, 85) + " ..." : name}
+              />
+            ))}
+          </div>
         </div>
-      </div>
-      </main >
+      </main>
     </>
   );
 }

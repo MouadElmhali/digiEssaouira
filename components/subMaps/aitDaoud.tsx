@@ -133,6 +133,7 @@ export default function AitDaoudMap() {
                     width="140"
                     objectFit="contain"
                     objectPosition="top"
+                    className="bg-white bg-[url('/images/loading.gif')] bg-cover bg-no-repeat bg-center"
                 />
                 <div className="mr-5">
                     <span className="text-2xl font-semibold"> {mapData[show].city}</span>

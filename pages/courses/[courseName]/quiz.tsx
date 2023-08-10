@@ -24,6 +24,7 @@ import {
 } from "../../../graphql/courses/types";
 import Image from "next/image";
 import Link from "next/link";
+import { getCurrentUser } from "../../../components/utils";
 
 interface IQuery extends ParsedUrlQuery {
   courseId: string;
@@ -73,11 +74,21 @@ export default function Quiz({
   const router = useRouter();
   const [toggle, setToggle] = useState(true);
 
+
+  const currentUser = getCurrentUser();
+  
+  useEffect(() => {
+    if(!currentUser) 
+      router.push("/signIn");
+
+  }, []);
+
+
   const handleClickNext: MouseEventHandler<HTMLButtonElement> = () => {
     if (currentQuestion === questions.length) {
       if (calculateResult(answers) >= 50) {
         // @ts-ignore
-        router.push(routes.certificate.makePath?.(courseName));
+        router.push({pathname: routes.certificate.makePath?.(courseName), query: {courseId}});
       } else {
         setToggle(false);
       }
@@ -120,7 +131,7 @@ export default function Quiz({
       </Head>
 
       {toggle ? (
-        <main className="mt-44 py-10 px-5 flex flex-col gap-y-5">
+        <main className="mt-44 py-10 px-5 flex flex-col gap-y-5 h-[60vh]">
           <div className="flex flex-col items-center">
             <div className="flex flex-col gap-1 items-center w-5/6 sm:w-1/2 [&>*]:w-full">
               <span className="text-primary text-center font-bold text-sm ">
@@ -140,7 +151,7 @@ export default function Quiz({
               <div className="flex justify-between mt-20">
                 {currentQuestion !== 1 && (
                   <button
-                    className="flex items-baseline gap-x-1 mb-5 py-2   text-gray-400 text-sm font-bold"
+                    className="flex items-center justify-center gap-x-1 mb-5 py-2   text-gray-400 text-sm font-bold"
                     onClick={handleClickPrevious}
                   >
                     <span className="leading-[0] text-4xl">&#8594;</span>
@@ -148,7 +159,7 @@ export default function Quiz({
                   </button>
                 )}
                 <button
-                  className="flex items-baseline gap-x-3 pr-4 pl-1 mb-5 py-2 rounded-full  text-white bg-primary text-sm font-bold hover:bg-primary/80 mr-auto disabled:cursor-not-allowed"
+                  className="flex items-center justify-center  gap-x-3 px-4 pl-1 mb-5 py-2 rounded-full  text-white bg-primary text-sm font-bold hover:bg-primary/80 mr-auto disabled:cursor-not-allowed"
                   onClick={handleClickNext}
                   disabled={
                     !Boolean(

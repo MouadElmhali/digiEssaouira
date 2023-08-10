@@ -47,6 +47,7 @@ export default function Resources({ resources }: any): JSX.Element {
                         src={`/images/resources/${resource.image}`}
                         objectFit={"contain"}
                       />
+                      <div className="relative self-center -z-10 -top-36 h-24 w-24 bg-white  bg-[url('/images/loading.gif')] bg-cover bg-no-repeat bg-center"></div>
                       <span className="text-primaryDarker text-center font-bold text-lg">
                         {resource.name}
                       </span>

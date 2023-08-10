@@ -18,10 +18,12 @@ const MyCard = ({
   return (
     <button
       onClick={onClick}
-      className="bg-black shadow-2xl overflow-hidden flex flex-col 2xl:mx-10 xl:mx-5 md:mx-2 min-w-[280px] max-w-[360px] min-h-[409px]"
+      className="bg-black shadow-2xl overflow-hidden flex flex-col 2xl:mx-10 xl:mx-5 md:mx-2 min-w-[280px] max-w-[360px] min-h-[409px] rounded-lg overflow-hidden transition ease-in-out duration-200 hover:scale-105"
     >
-      
-      <img src={picture} alt={alt} className="w-full h-80 object-cover" />
+      <div className="w-full h-80 overflow-hidden">
+        <img src={picture} alt={alt} className="w-full h-full object-cover " />
+
+      </div>
       
       <div
           className="flex flex-row x-10 relative -top-5 h-10"

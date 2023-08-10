@@ -1,7 +1,7 @@
 import { GetServerSidePropsContext, InferGetServerSidePropsType } from "next";
 import { ParsedUrlQuery } from "querystring";
 import YouTube from "react-youtube";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import Link from "next/link";
 import { initializeApollo } from "../../../apolloClient";
@@ -11,6 +11,8 @@ import {
 } from "../../../graphql/courses/types";
 import { GET_COURSE_BY_ID } from "../../../graphql/courses/queries";
 import { routes } from "../../../constants/routes";
+import { getCurrentUser } from "../../../components/utils";
+import { useRouter } from "next/router";
 
 interface IQuery extends ParsedUrlQuery {
   courseId: string;
@@ -43,6 +45,8 @@ export default function Course({
     youtube_parser(sections[0].content[0])
   );
 
+  const [sectionIndex, setSectionIndex] = useState(0);
+
   const opts = {
     height: "100%",
     width: "100%",
@@ -53,9 +57,20 @@ export default function Course({
 
   const [hide,setHide] = useState(true);
 
+  const router = useRouter();
+
+  const currentUser = getCurrentUser();
+
+  useEffect(() => {
+    if(!currentUser) 
+      router.push("/signIn");
+  }, [])
+
   return (
-    <div className="grid sm:grid-cols-4 w-full mt-32 sm:mt-40 ">
+    <div className="grid sm:grid-cols-4 w-full mt-32 gap-5 sm:mt-40 container mx-auto">
+      {/* Content list section*/}
       <div className="sidebar hidden sm:block  lg:left-0 p-2 w-full overflow-y-auto text-center bg-gray-50">
+        {/* Content of course */}
         <div className=" text-xl">
           <div className="p-2.5 mt-1 flex items-center gap-x-2">
             <svg
@@ -79,12 +94,15 @@ export default function Course({
           </div>
           <div className="my-2 bg-gray-600 h-[1px]"></div>
         </div>
-        {sections.map((section) => {
+        {sections.map((section, index) => {
           return (
             <div
               key={section.title}
               className="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-primary text-black "
-              onClick={() => setVideoUrl(youtube_parser(section.content[0]))}
+              onClick={() => {
+                setVideoUrl(youtube_parser(section.content[0]))
+                setSectionIndex(index)
+              }}
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -138,6 +156,7 @@ export default function Course({
           </Link>
         </div>
       </div>
+      {/* Video section */}
       <div className="sm:col-span-3">
         <div className="bg-primary w-full text-white p-5 ">
           <div className="flex items-center justify-between">
@@ -247,6 +266,26 @@ export default function Course({
           opts={opts}
           className="w-full h-60 sm:h-[600px]"
         />
+        <div className="flex flex-row justify-between mx-10 my-5">
+          <button 
+            disabled = {sectionIndex == sections.length - 1} 
+            className="rounded-lg py-2 px-4 bg-blue text-bold text-md text-center text-white round" 
+            onClick={() => {
+                if (sectionIndex == sections.length - 1) return;
+                setVideoUrl(youtube_parser(sections[sectionIndex + 1].content[0]))
+                setSectionIndex(sectionIndex + 1)
+            }}
+          >{"< التالي"}</button>
+          <button 
+            disabled = {sectionIndex == 0} 
+            className="rounded-lg py-2 px-4 bg-blue text-bold text-md text-center text-white round" 
+            onClick={() => {
+                if (sectionIndex == 0) return;
+                setVideoUrl(youtube_parser(sections[sectionIndex - 1 ].content[0]))
+                setSectionIndex(sectionIndex - 1)
+            }}
+          >{"السابق >"}</button>
+        </div>
       </div>
     </div>
   );

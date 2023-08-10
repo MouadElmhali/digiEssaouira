@@ -24,14 +24,30 @@ export default function NavBar(): JSX.Element {
   return (
     <nav className="fixed top-0 left-0 right-0 z-10">
       <div className="bg-primary hidden  h-10 sm:flex justify-around items-center text-white">
-        <div>
+        <div className="flex">
           <Link href={routes.resources.path}>
-            <a className="ml-5">دليل الموارد الرقمية</a>
+            <a className="ml-5 transition duration-200 ease-in-out hover:text-gray-200 hover:scale-110">
+              دليل الموارد الرقمية
+            </a>
           </Link>
-          <Link href={routes.privacyPolicy.path} ><a className="ml-5">دليل استعمال المنصة </a></Link>
-          <Link href={routes.graduates.path}>  خريجي DIGIESSAOUIRA</Link>
+          <Link href={routes.privacyPolicy.path}>
+            <a className="ml-5 transition duration-200 ease-in-out hover:text-gray-200 hover:scale-110">
+              دليل استعمال المنصة{" "}
+            </a>
+          </Link>
+          <Link href={routes.graduates.path}>
+            <a className="ml-5 transition duration-200 ease-in-out hover:text-gray-200 hover:scale-110">
+              {" "}
+              خريجي DIGIESSAOUIRA{" "}
+            </a>
+          </Link>
         </div>
-        <Link href={routes.contactUs.path}> تواصلو معنا</Link>
+        <Link href={routes.contactUs.path}>
+          <a className="ml-5 transition duration-200 ease-in-out hover:text-gray-200 hover:scale-110">
+            {" "}
+            تواصلو معنا{" "}
+          </a>
+        </Link>
       </div>
       <div
         className="flex px-8 justify-between md:justify-around py-2 bg-white md:bg-white/80
@@ -52,56 +68,44 @@ export default function NavBar(): JSX.Element {
           </Link>
         </div>
 
-        <div className="items-center hidden space-x-8 sm:flex">
+        <div className="items-center hidden space-x-8 lg:flex">
           <Link href={routes.home.path}>
-            <a
-              className="ml-8 hover:text-blue-500 
-                    cursor-pointer transition-colors duration-300"
-            >
+            <a className="ml-8 transition duration-200 ease-in-out hover:text-blue-500 hover:scale-110">
               الرئيسية
             </a>
           </Link>
 
           <Link href={routes.courses.path}>
-            <a
-              className=" hover:text-blue-500 
-                    cursor-pointer transition-colors duration-300"
-            >
+            <a className=" transition duration-200 ease-in-out hover:text-blue-500 hover:scale-110">
               إلتحق بمساق تدريبي
             </a>
           </Link>
 
           <Link href={routes.electeds.path}>
-            <a
-              className=" hover:text-blue-500 
-                    cursor-pointer transition-colors duration-300"
-            >
+            <a className=" transition duration-200 ease-in-out hover:text-blue-500 hover:scale-110">
               تعرف على المنتخبين
             </a>
           </Link>
 
           <Link href={routes.associations.path}>
-            <a
-              className=" hover:text-blue-500 
-                    cursor-pointer transition-colors duration-300"
-            >
+            <a className=" transition duration-200 ease-in-out hover:text-blue-500 hover:scale-110">
               تعرف على النسيج الجمعوي
             </a>
           </Link>
           <Link href={routes.map.path}>
-            <a
-              className=" hover:text-blue-500 
-                    cursor-pointer transition-colors duration-300"
-            >
+            <a className=" transition duration-200 ease-in-out hover:text-blue-500 hover:scale-110">
               الخريطة التفاعلية
             </a>
           </Link>
           <Link href={routes.youth.path}>
-            <a
-              className=" hover:text-blue-500 
-                    cursor-pointer transition-colors duration-300"
-            >
+            <a className=" transition duration-200 ease-in-out hover:text-blue-500 hover:scale-110">
               فضاء الشباب
+            </a>
+          </Link>
+
+          <Link href={routes.galerie.path}>
+            <a className=" transition duration-200 ease-in-out hover:text-blue-500 hover:scale-110">
+              معرض الصور
             </a>
           </Link>
         </div>
@@ -168,53 +172,69 @@ export default function NavBar(): JSX.Element {
             </svg>
           </button>
         </div>
+
         {hidden ? (
           <div className="items-center mt-10 flex flex-col  absolute w-full h-screen top-24 transition-all ease-out duration-500 right-0 left-0 bg-white  space-y-8 lg:hidden">
             <Link href={routes.home.path}>
-              <a
-                className="mt-10 hover:text-blue-500 
-                    cursor-pointer transition-colors duration-300"
-              >
+              <a className="mt-10 transition duration-200 ease-in-out hover:text-blue-500 hover:scale-110">
                 الرئيسية
               </a>
             </Link>
 
             <Link href={routes.courses.path}>
-              <a
-                className=" hover:text-blue-500 
-                    cursor-pointer transition-colors duration-300"
-              >
+              <a className=" transition duration-200 ease-in-out hover:text-blue-500 hover:scale-110">
                 إلتحق بمساق تدريبي
               </a>
             </Link>
 
             <Link href={routes.electeds.path}>
-              <a
-                className=" hover:text-blue-500 
-                    cursor-pointer transition-colors duration-300"
-              >
+              <a className=" transition duration-200 ease-in-out hover:text-blue-500 hover:scale-110">
                 تعرف على المنتخبين
               </a>
             </Link>
 
+            <Link href={routes.youth.path}>
+              <a className=" transition duration-200 ease-in-out hover:text-blue-500 hover:scale-110">
+                فضاء الشباب
+              </a>
+            </Link>
+
+            <Link href={routes.galerie.path}>
+              <a className=" transition duration-200 ease-in-out hover:text-blue-500 hover:scale-110">
+                معرض الصور
+              </a>
+            </Link>
+
             <Link href={routes.associations.path}>
-              <a
-                className=" hover:text-blue-500 
-                    cursor-pointer transition-colors duration-300"
-              >
+              <a className=" transition duration-200 ease-in-out hover:text-blue-500 hover:scale-110">
                 تعرف على النسيج الجمعوي
               </a>
             </Link>
-            <Link href={routes.resources.path} className=" hover:text-blue-500 
-                    cursor-pointer transition-colors duration-300">
+            <Link
+              href={routes.resources.path}
+              className=" transition duration-200 ease-in-out hover:text-blue-500 hover:scale-110"
+            >
               <a className="ml-5">دليل الموارد الرقمية</a>
             </Link>
-            <Link href={routes.privacyPolicy.path} className=" hover:text-blue-500 
-                    cursor-pointer transition-colors duration-300"><a className="ml-5">دليل استعمال منصة</a></Link>
-            <Link href={routes.graduates.path} className=" hover:text-blue-500 
-                    cursor-pointer transition-colors duration-300">  خريجي DIGIESSAOUIRA</Link>
-            <Link href={routes.contactUs.path} className=" hover:text-blue-500 
-                    cursor-pointer transition-colors duration-300"> تواصلو معنا</Link>
+            <Link
+              href={routes.privacyPolicy.path}
+              className=" transition duration-200 ease-in-out hover:text-blue-500 hover:scale-110"
+            >
+              <a className="ml-5">دليل استعمال منصة</a>
+            </Link>
+            <Link
+              href={routes.graduates.path}
+              className=" transition duration-200 ease-in-out hover:text-blue-500 hover:scale-110"
+            >
+              خريجي DIGIESSAOUIRA
+            </Link>
+
+            <Link
+              href={routes.contactUs.path}
+              className=" transition duration-200 ease-in-out hover:text-blue-500 hover:scale-110"
+            >
+              تواصلو معنا
+            </Link>
             {currentUser ? (
               <div className="items-center hidden lg:flex">
                 <Image

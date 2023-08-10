@@ -20,7 +20,7 @@ export default function SignIn(): JSX.Element {
   }
 
   return (
-    <div className="container max-w-full mx-auto py-24 px-6">
+    <div className="container min-h-[85vh] max-w-full mx-auto py-24 px-6">
       <div className="font-sans">
         <div className="max-w-sm mx-auto px-6">
           <div className="relative flex flex-wrap">
