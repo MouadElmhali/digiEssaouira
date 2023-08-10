@@ -1,8 +1,8 @@
-FROM node:16
+FROM node
 
-# WORKDIR /home/digiEssouira/
+WORKDIR /digiEssouira
 
-COPY package*.json ./
+COPY . .
 
 RUN npm install
 
