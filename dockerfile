@@ -1,6 +1,8 @@
 FROM node:16
 
-WORKDIR /digiEssouira
+RUN mkdir /home/digiEssouira
+
+WORKDIR /home/digiEssouira
 
 COPY package.* .
 
