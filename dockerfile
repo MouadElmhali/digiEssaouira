@@ -1,10 +1,12 @@
-FROM node
+FROM node:16
 
 WORKDIR /digiEssouira
 
-COPY . .
+COPY package.* .
 
 RUN npm install
+
+COPY . .
 
 EXPOSE 3000
 
