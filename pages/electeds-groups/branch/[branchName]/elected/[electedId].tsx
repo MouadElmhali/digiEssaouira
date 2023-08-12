@@ -51,17 +51,17 @@ export default function Branch({
         <title>DigiEssaouira | المنتخبين</title>
       </Head>
       <main className="mt-32 mb-20 min-h-[60vh]">
-        <Section className="py-20">
-          <div className="flex flex-col items-center gap-y-5  gap-x-8 sm:grid sm:grid-cols-[auto,_1fr] sm:grid-rows-[repeat(4,_auto)]">
+        <Section className="md:pt-20">
+          <div className="flex flex-col items-center gap-y-14 md:gap-y-5 gap-x-8 sm:grid sm:grid-cols-[auto,_1fr] sm:grid-rows-[repeat(4,_auto)]">
             <div className="row-span-full overflow-hidden rounded-xl relative h-72 w-72">
               <Image
                 alt={combineStrings([firstName, lastName])}
                 src={`/images/electeds/${pictureUrl}`}
                 layout="fill"
-                objectFit= 'contain'
+                objectFit= 'cover'
               />
             </div>
-            <div className="flex flex-col gap-3">
+            <div className="flex flex-col items-center justify-center gap-3">
               <p className="text-primaryDarker text-4xl font-bold">
                 {combineStrings([firstName, lastName])}
               </p>
@@ -69,7 +69,7 @@ export default function Branch({
               <p className="text-2xl ">{party}</p>
             </div>
             <Link href={routes.askQuestion.path}>
-              <button className="primary-button row-start-4 justify-self-start">
+              <button className="primary-button row-start-4 justify-self-start rounded-lg transition ease-in-out duration-200 hover:scale-110">
  
                 اتصل بالمسؤول المنتخب
               </button>

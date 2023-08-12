@@ -37,7 +37,7 @@ export default function Electeds({
       >
       </Header>
       <main>
-        <Section className="py-20" childrenClassName="w-full mx-14 md:mx-24">
+        <Section className="flex flex-col items-center py-20" childrenClassName="container mx-14 md:mx-auto">
           <div className="flex flex-col gap-y-28 w-full">
             {groups?.map((group) => (
               <Group key={group.id} group={group} />
@@ -55,7 +55,7 @@ interface IGroupProps {
 
 function Group({ group: { title, branches } }: IGroupProps): JSX.Element {
   return (
-    <div className="flex flex-col justify-center items-center gap-y-8">
+    <div className="flex flex-col justify-center items-center gap-y-8 w-full">
       <h2 className="text-primaryDarker text-center font-bold  text-xl md:text-3xl ">
         {title}
       </h2>
