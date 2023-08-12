@@ -53,16 +53,16 @@ export default function Associations({
       <main className="mt-20">
         <Section className="py-20">
           <div className="flex flex-col gap-y-12">
-            <h2 className="text-primaryDarker text-5xl text-center font-bold">
+            <h2 className="text-primaryDarker text-2xl md:text-5xl text-center font-extrabold lg:font-bold">
               {name??"قاعدة البيانات الموحدة لجمعيات المجتمع المدني بالصويرة"}
             </h2>
-            <div className="flex flex-col sm:flex-row items-center justify-center w-full">
-              <h2 className="text-primary text-2xl text-center font-bold">
+            <div className="flex flex-col lg:flex-row items-center justify-center w-full gap-y-10">
+              <h2 className="text-primary text-2xl text-center font-black lg:font-bold">
                 أضف جمعيتك من خلال ملئ الإستمارة
               </h2>
-              <button onClick={() => router.push("/association")} className="bg-primary text-white rounded-full p-2 px-6 mr-10">أضف جمعيتك</button>
+              <button onClick={() => router.push("/association")} className="bg-primary text-white rounded-full py-2 px-6 lg:mr-10 transition ease-in-out duration-200 hover:scale-110 active:bg-orange-400">أضف جمعيتك</button>
             </div>
-            <div className="grid gap-3 gap-y-8 md:grid-cols-4">
+            <div className="grid gap-10 lg:grid-cols-3 2xl:grid-cols-4 mx-8 md:mx-auto">
               {(
                 associations["getAssociationByRegionId"] as IAssociation[]
               )?.map(({ id, name, pictureUrl }) => (
