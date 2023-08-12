@@ -67,7 +67,7 @@ export default function Course({
         />
       </div>
       <div className="col-span-full flex justify-center">
-        {!verifyToken ? (
+        {verifyToken ? (
           <Link
             href={{
               pathname: routes.course.makePath?.(name),
