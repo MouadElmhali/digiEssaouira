@@ -51,8 +51,8 @@ export default function Branch({
         <title>DigiEssaouira | المنتخبين</title>
       </Head>
       <main className="mt-32 mb-20 min-h-[60vh]">
-        <Section className="md:pt-20">
-          <div className="flex flex-col gap-10">
+        <Section className="md:pt-20 " childrenClassName="w-full flex items-center justify-center">
+          <div className="flex flex-col items-center justify-center gap-10">
             <div className="row-span-full overflow-hidden rounded-xl relative h-96 w-72">
               <Image
                 alt={combineStrings([firstName, lastName])}

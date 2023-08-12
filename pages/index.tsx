@@ -67,16 +67,16 @@ export default function Home({
       </Head>
       <Header
         isHero
-        styles="bg-[url('/images/thumb1.jpg')] h-screen  after:bg-black/10 "
+        styles="bg-[url('/images/thumb1.jpg')] h-screen  after:bg-black/20  "
       >
-        <p className="text-6xl mt-72 font-bold md:mt-auto ">
+        <p className="text-6xl mt-72 font-bold md:mt-auto shadow-xl">
           كن مشاركا في التنمية
         </p>
-        <p className="text-3xl text-center ">
+        <p className="text-3xl text-center shadow-xl">
           تعرف على صناع القرار, قم بتطوير مهارات جديدة وساهم باقتراحاتك في
           التنمية المحلية
         </p>
-        <div className="flex flex-row gap-x-10 relative md:top-72 xl:top-52 2xl:top-72 invisible w-0 md:w-auto overflow-hidden  md:visible ">
+        <div className="flex flex-row gap-x-10 relative top-11 invisible w-0 md:w-auto overflow-hidden  md:visible ">
           <div className="flex flex-row justify-content items-center shadow-lg rounded-lg overflow-hidden">
             <button
               onClick={() => {
@@ -396,6 +396,7 @@ export default function Home({
           </div>
         </Section>
 
+        {/* Articles section */}
         {articles.length > 0 ? (
           <Section
             childrenClassName=""
