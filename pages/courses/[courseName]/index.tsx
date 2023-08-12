@@ -17,8 +17,6 @@ import { getCurrentUser } from "../../../components/utils/index";
 import YouTube from "react-youtube";
 import { FacebookShareButton, TwitterShareButton } from "next-share";
 
-
-
 interface IQuery extends ParsedUrlQuery {
   courseId: string;
 }
@@ -56,7 +54,7 @@ export default function Course({
 
   const [shareLink, setShareLink] = useState({
     title: document.title + " : " + name,
-    url: window.location.href
+    url: window.location.href,
   });
 
   return (
@@ -77,7 +75,7 @@ export default function Course({
             }}
           >
             <a>
-              <div className="flex gap-x-4 items-center bg-primary/30 py-2 px-4    hover:outline-primary hover:outline-2 hover:outline-dashed font-bold">
+              <div className="flex gap-x-4 items-center bg-primary/30 py-2 px-4  transition ease-in-out duration-200  hover:scale-110  font-bold rounded-lg shadow-lg">
                 ابدأ الدورة
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -96,11 +94,9 @@ export default function Course({
             </a>
           </Link>
         ) : (
-          <Link    href={
-           routes.login.path
-          }>
+          <Link href={routes.login.path ?? "#"}>
             <a>
-              <div className="flex gap-x-4 items-center text-white text-2xl bg-primary py-4 px-11  hover:outline-primary hover:outline-2 hover:outline-dashed font-bold">
+              <div className="flex gap-x-4 items-center text-white text-2xl bg-primary py-4 px-11  transition ease-in-out duration-200  hover:scale-110 rounded-lg shadow-lg font-bold">
                 ابدأ الدورة
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -150,23 +146,25 @@ export default function Course({
             width={95}
             height={95}
             src={`/images/instructors/${instructor?.pictureUrl}`}
-            className="rounded-full"
+            className="rounded-full "
             objectFit="cover"
             alt={`Picture of ${combineStrings([
-              instructor?.firstName,
-              instructor?.lastName,
+              instructor?.firstName ?? "",
+              instructor?.lastName ?? "",
             ])}`}
           />
           <div className="text-primaryDarker flex flex-col self-center gap-y-2 mr-3">
             <p className="text-lg">
-              {instructor?.firstName + instructor?.lastName }
+              {instructor?.firstName ?? "" + instructor?.lastName ?? ""}
             </p>
             <p className="font-bold text-sm">{instructor?.post?.name}</p>
-            <Link href={{
+            <Link
+              href={{
                 pathname: routes.courseResources.makePath?.(name),
                 query: { courseId: id },
-              }}>
-                المراجع المعتمدة  
+              }}
+            >
+              المراجع المعتمدة
             </Link>
           </div>
         </div>
@@ -177,43 +175,32 @@ export default function Course({
         className="[&>h2]:sm:text-center"
       >
         <div className="flex gap-4 sm:justify-center">
-            <FacebookShareButton
-              url={shareLink.url} 
-              title={shareLink.title}
-            >
+          <FacebookShareButton url={shareLink.url} title={shareLink.title}>
+            <Image
+              alt="facebook"
+              height={50}
+              width={50}
+              src={`/images/icons/facebook.png`}
+            />
+          </FacebookShareButton>
 
-              <Image
-                alt="facebook"
-                height={50}
-                width={50}
-                src={`/images/icons/facebook.png`}
-              />  
-            </FacebookShareButton>
-            
-            <div>
-              <Image
-                alt="instagram"
-                height={50}
-                width={50}
-                src={`/images/icons/instagram.png`}
-              />
-            </div>
-              
-            <TwitterShareButton
-              url={shareLink.url} 
-              title={shareLink.title}
-            >
-              <Image
-                alt="Twitter"
-                height={50}
-                width={50}
-                src={`/images/icons/twitter.png`}
-              />
-            </TwitterShareButton>
+          <div>
+            <Image
+              alt="instagram"
+              height={50}
+              width={50}
+              src={`/images/icons/instagram.png`}
+            />
+          </div>
 
-            
-
-
+          <TwitterShareButton url={shareLink.url} title={shareLink.title}>
+            <Image
+              alt="Twitter"
+              height={50}
+              width={50}
+              src={`/images/icons/twitter.png`}
+            />
+          </TwitterShareButton>
         </div>
       </LittleSection>
 
@@ -230,7 +217,7 @@ export default function Course({
                   {Array.isArray(answer) ? (
                     answer.map((part) => <li key={part}>{part}</li>)
                   ) : (
-                    <p dangerouslySetInnerHTML={{__html: answer}} />
+                    <p dangerouslySetInnerHTML={{ __html: answer }} />
                   )}
                 </ul>
               </details>
