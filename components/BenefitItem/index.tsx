@@ -10,7 +10,7 @@ export default function BenefitItem({
   title,
 }: IBenefitItemProps): JSX.Element {
   return (
-    <div className="flex flex-col items-center gap-8 flex-1 sm:flex-row transition ease-in-out duration-200 hover:scale-110">
+    <div className="flex flex-col items-center gap-8 flex-1 sm:flex-row transition ease-in-out duration-200 hover:scale-110 cursor-pointer">
       <div className="w-full max-w-[128px] sm:max-w-[64px]">
         <Image
           alt=""

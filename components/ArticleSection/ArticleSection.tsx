@@ -14,7 +14,7 @@ export default function AritcleSection ({
     const router = useRouter();
     
     return (
-        <div className="container mx-auto px-28 flex flex-raw gap-8 ">
+        <div className="container mx-auto px-5 md:px-28 flex flex-raw gap-8 ">
             <div className="lg:w-2/3">
                 {children}
             </div>
