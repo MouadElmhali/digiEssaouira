@@ -46,7 +46,7 @@ export default function Association({
         <title>DigiEssaouira | المنتخبين</title>
       </Head>
 
-      <main className="mt-20">
+      <main className="mt-20 text-center md:text-right">
         <Section className="py-20">
           <div className="flex flex-col items-center gap-y-5  gap-x-8 sm:grid sm:grid-cols-[auto,_1fr] sm:grid-rows-[repeat(4,_auto)] shadow-w">
             <div className="row-span-full ">
@@ -59,15 +59,15 @@ export default function Association({
                 layout="fixed"
               />
             </div>
-            <div className="flex flex-col gap-3">
+            <div className="flex flex-col items-center md:items-start  gap-3">
               <p className="text-primaryDarker text-4xl font-bold">{name}</p>
               <div className="text-xl mt-5"> الرئيس: {prisident}</div>
               <div className="text-xl mt-5">مجال الإشتغال: {fieldOfWork}</div>
               <div className="text-xl mt-5">
                 {phone} - {email}
               </div>
-              <div className="flex mt-5 w-full">
-                <a href={facebook}>
+              <div className="flex justify-center md:justify-start mt-5 w-full ">
+                <a href={facebook} className="transition ease-in-out duration-200 hover:scale-110">
                   <Image
                     alt=""
                     width={32}
@@ -77,7 +77,7 @@ export default function Association({
                     layout="fixed"
                   />
                 </a>
-                <a href={instagram} className="mr-3">
+                <a href={instagram} className="mr-3 transition ease-in-out duration-200 hover:scale-110">
                   <Image
                     alt=""
                     width={32}
@@ -87,7 +87,7 @@ export default function Association({
                     layout="fixed"
                   />
                 </a>
-                <a href={twitter} className="mr-3">
+                <a href={twitter} className="mr-3 transition ease-in-out duration-200 hover:scale-110">
                   <Image
                     alt=""
                     width={32}
@@ -103,7 +103,7 @@ export default function Association({
           <h1 className="text-primaryDarker text-4xl text-center font-bold my-10">
             معرض الصور
           </h1>
-          <div className="grid items-center justify-center md:grid-cols-4 gap-4">
+          <div className="grid md:grid-cols-4 gap-4">
             {
               // @ts-ignore
               pictureGallery.map((picture, index) => {
@@ -113,10 +113,10 @@ export default function Association({
                     width={300}
                     height={350}
                     src={`/images/association/${picture}`}
-                    objectFit="cover"
+                    objectFit="contain"
                     layout="fixed"
                     key={index}
-                    className="transform transition duration-500 hover:scale-125"
+                    className="transition ease-in-out duration-200 hover:scale-110"
                   />
                 );
               })

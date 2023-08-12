@@ -52,8 +52,8 @@ export default function Branch({
       </Head>
       <main className="mt-32 mb-20 min-h-[60vh]">
         <Section className="md:pt-20">
-          <div className="flex flex-col items-center gap-y-14 md:gap-y-5 gap-x-8 sm:grid sm:grid-cols-[auto,_1fr] sm:grid-rows-[repeat(4,_auto)]">
-            <div className="row-span-full overflow-hidden rounded-xl relative h-72 w-72">
+          <div className="flex flex-col gap-10">
+            <div className="row-span-full overflow-hidden rounded-xl relative h-96 w-72">
               <Image
                 alt={combineStrings([firstName, lastName])}
                 src={`/images/electeds/${pictureUrl}`}
@@ -68,7 +68,7 @@ export default function Branch({
               <p className="text-3xl ">{post}</p>
               <p className="text-2xl ">{party}</p>
             </div>
-            <Link href={routes.askQuestion.path}>
+            <Link href={routes.askQuestion.path ?? '#'}>
               <button className="primary-button row-start-4 justify-self-start rounded-lg transition ease-in-out duration-200 hover:scale-110">
  
                 اتصل بالمسؤول المنتخب
