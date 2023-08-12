@@ -67,7 +67,7 @@ export default function Course({
         />
       </div>
       <div className="col-span-full flex justify-center">
-        {verifyToken ? (
+        {!verifyToken ? (
           <Link
             href={{
               pathname: routes.course.makePath?.(name),
@@ -75,7 +75,7 @@ export default function Course({
             }}
           >
             <a>
-              <div className="flex gap-x-4 items-center bg-primary/30 py-2 px-4  transition ease-in-out duration-200  hover:scale-110  font-bold rounded-lg shadow-lg">
+              <div className="flex gap-x-4 items-center text-white text-2xl bg-primary py-4 px-11  transition ease-in-out duration-200  hover:scale-110 rounded-lg shadow-lg font-bold">
                 ابدأ الدورة
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
