@@ -34,7 +34,7 @@ export default function Footer(): JSX.Element {
           <SocialMediaSection />
         </div>
         {
-          !currentUser ?
+          currentUser ?
           <div className="flex flex-col float-left sm:mt-14 items-center md:items-end mb-20 md:mb-auto">
             
           </div>
