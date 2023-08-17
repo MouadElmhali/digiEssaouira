@@ -5,6 +5,7 @@ import { initializeApollo } from "../../apolloClient";
 import { GET_ARTICLES } from "../../graphql/article/queries";
 import { InferGetServerSidePropsType } from "next";
 import Link from "next/link";
+import ArticleCard from "../../components/ArticleCard/ArticleCard";
 
 export async function getServerSideProps() {
   const client = initializeApollo();
@@ -25,6 +26,7 @@ export default function Youth({
   articles,
 }: InferGetServerSidePropsType<typeof getServerSideProps>): JSX.Element {
   const router = useRouter();
+  const reversed = articles.reverse()
 
   return (
     <>
@@ -40,35 +42,9 @@ export default function Youth({
             </div>
           </div>
           <div className="mt-24  grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 md:gap-y-10">
-            {articles
-              ?.toReversed()
-              .map(({ id, title, body, pictureUrl }: any) => (
-                <Link key={id} href={"/youth/" + id}>
-                  <a className="h-[20rem] w-72 bg-black overflow-hidden shadow-xl rounded-lg overflow-hidden">
-                    <div className="w-full h-44 overflow-hidden">
-                      <img
-                        src={"/images/articles/" + pictureUrl}
-                        className="object-cover  w-full h-full transition ease-in-out duration-200 hover:scale-110 bg-white bg-[url('/images/loading.gif')] bg-no-repeat bg-center"
-                      />
-                    </div>
-                    <div className="flex flex-col my-2 h-24 text-right mx-4">
-                      <p
-                        className="text-white  text-sm text-justify "
-                        dangerouslySetInnerHTML={{ __html: title }}
-                      ></p>
-                      <p
-                        className="text-white font-thin text-xs mt-5 text-justify text-gray-300"
-                        dangerouslySetInnerHTML={{
-                          __html:
-                            body.length > 80
-                              ? body.slice(0, 80) + " ..."
-                              : body,
-                        }}
-                      ></p>
-                    </div>
-                  </a>
-                </Link>
-              ))}
+            {reversed.map((article: any) => (
+              <ArticleCard key={article.id} values={article} />
+            ))}
           </div>
         </div>
       </main>

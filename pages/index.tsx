@@ -16,10 +16,9 @@ import MyCard from "../components/homePageComponents/MyCard";
 import { arabicOrder } from "../components/utils";
 import { GET_GRADUATES } from "../graphql/graduates/queries";
 import { GET_RESOURCES } from "../graphql/resources/queries";
-import { GET_POSTS } from "../graphql/post/queries";
-import { useQuery } from "@apollo/client";
 import { GET_ARTICLES } from "../graphql/article/queries";
 import { Slider } from "../components/slider";
+import ArticleCard from "../components/ArticleCard/ArticleCard";
 
 export async function getServerSideProps() {
   const client = initializeApollo();
@@ -248,7 +247,7 @@ export default function Home({
             )}
           </div>
         </Section>
-        
+
         {/* What i can learn section */}
         <Section
           title="ماذا ستستفيد؟"
@@ -403,40 +402,11 @@ export default function Home({
             className="[&>div>h2]:text-primary  [&>div]:flex [&>div]:flex-col  [&>div]:gap-y-16 "
             title="فضاء الشباب"
           >
-            <div className="flex lg:flex-row flex-col  justify-center items-center gap-x-10 gap-y-0 md:gap-y-5 bg-blue-gradient py-10 md:py-0 md:px-52 md:pt-16 md:pb-16">
+            <div className="flex lg:flex-row flex-col  justify-center items-center gap-x-10 gap-y-5 bg-blue-gradient py-10 md:py-0 md:px-52 md:pt-16 md:pb-16">
               {articles
                 .slice(articles.length - 3, articles.length)
-                .map(({ id, title, pictureUrl, body }: any) => {
-                  return (
-                    <button
-                      key={id}
-                      onClick={() => router.push("/youth/" + id)}
-                    >
-                      <div className="h-[22rem] w-72 bg-black overflow-hidden shadow-xl rounded-lg transition ease-in-out duration-200 hover:scale-105 my-10 md:my-0">
-                        <div className="w-full h-44 overflow-hidden">
-                          <img
-                            src={"/images/articles/" + pictureUrl}
-                            className="object-cover w-full h-full "
-                          />
-                        </div>
-                        <div className="flex flex-col my-2 h-24 text-right mx-4">
-                          <p
-                            className="text-white  text-sm text-justify "
-                            dangerouslySetInnerHTML={{ __html: title }}
-                          ></p>
-                          <p
-                            className="text-white font-thin text-xs mt-5 text-justify text-gray-300"
-                            dangerouslySetInnerHTML={{
-                              __html:
-                                body.length > 80
-                                  ? body.slice(0, 80) + " ..."
-                                  : body,
-                            }}
-                          ></p>
-                        </div>
-                      </div>
-                    </button>
-                  );
+                .map((article: any) => {
+                  return <ArticleCard key={article.id} values={article} />;
                 })}
             </div>
           </Section>
