@@ -44,7 +44,7 @@ export default function Young ({
             </Head>
             <ArticleSection articles={articles}>
               <main className='mt-48 mb-48 flex flex-col items-center justify-center gap-12'>
-                      <p className='my-5 font-black text-3xl text-justify' dangerouslySetInnerHTML={{ __html: title }}></p>
+                      <p className='my-5 font-black text-lg md:text-3xl text-justify' dangerouslySetInnerHTML={{ __html: title }}></p>
                       <img src={"/images/articles/" + pictureUrl} alt="object-cover w-full" />
                       <p className='leading-8 text-justify' dangerouslySetInnerHTML={{ __html: body }}></p>
               </main>

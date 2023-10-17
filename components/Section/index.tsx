@@ -17,12 +17,12 @@ export default function Section({
 }: SectionProps): JSX.Element {
   return (
     <section className={`${className} [&>div]:py-10 mt-10`}>
-      <div className="flex flex-row justify-center">
+      <div className="flex flex-row ">
         {title && (
           
-            <div className="flex flex-row  justify-center md:justify-start items-center gap-2">
+            <div className="flex flex-row justify-center md:justify-start items-center gap-2">
               <div className="sm:w-5 md:w-60 h-px bg-black"></div>
-              <h2 className="text-4xl font-bold text-blue">{title}</h2>
+              <h2 className="text-4xl font-bold text-blue text-center">{title}</h2>
             </div>
         )}
         {description && (

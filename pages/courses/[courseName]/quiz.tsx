@@ -131,7 +131,7 @@ export default function Quiz({
       </Head>
 
       {toggle ? (
-        <main className="mt-44 py-10 px-5 flex flex-col gap-y-5 h-[60vh]">
+        <main className="mt-44 py-10 px-5 flex flex-col gap-y-5 min-h-[60vh] sm:h-screen">
           <div className="flex flex-col items-center">
             <div className="flex flex-col gap-1 items-center w-5/6 sm:w-1/2 [&>*]:w-full">
               <span className="text-primary text-center font-bold text-sm ">

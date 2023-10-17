@@ -16,10 +16,9 @@ import MyCard from "../components/homePageComponents/MyCard";
 import { arabicOrder } from "../components/utils";
 import { GET_GRADUATES } from "../graphql/graduates/queries";
 import { GET_RESOURCES } from "../graphql/resources/queries";
-import { GET_POSTS } from "../graphql/post/queries";
-import { useQuery } from "@apollo/client";
 import { GET_ARTICLES } from "../graphql/article/queries";
 import { Slider } from "../components/slider";
+import ArticleCard from "../components/ArticleCard/ArticleCard";
 
 export async function getServerSideProps() {
   const client = initializeApollo();
@@ -67,16 +66,16 @@ export default function Home({
       </Head>
       <Header
         isHero
-        styles="bg-[url('/images/thumb1.jpg')] h-screen  after:bg-black/10 "
+        styles="bg-[url('/images/thumb1.jpg')] h-screen  after:bg-black/20  "
       >
-        <p className="text-6xl mt-72 font-bold md:mt-auto ">
+        <p className="text-6xl mt-72 font-bold md:mt-auto shadow-xl">
           كن مشاركا في التنمية
         </p>
-        <p className="text-3xl text-center ">
+        <p className="text-3xl text-center shadow-xl">
           تعرف على صناع القرار, قم بتطوير مهارات جديدة وساهم باقتراحاتك في
           التنمية المحلية
         </p>
-        <div className="flex flex-row gap-x-10 relative md:top-72 xl:top-52 2xl:top-72 invisible w-0 md:w-auto overflow-hidden  md:visible ">
+        <div className="flex flex-row gap-x-10 relative top-11 invisible w-0 md:w-auto overflow-hidden  md:visible ">
           <div className="flex flex-row justify-content items-center shadow-lg rounded-lg overflow-hidden">
             <button
               onClick={() => {
@@ -161,7 +160,7 @@ export default function Home({
         >
           <div className="flex flex-col md:flex-row md:flex-wrap justify-center items-center gap-x-5 gap-y-5 ">
             <button
-              className=" w-72 md:w-96 h-44 md:h-96 bg-white shadow-xl border rounded-lg overflow-hidden hover:scale-105 transition ease-in-out duration-200"
+              className=" w-4/5 md:w-96 h-44 md:h-96 bg-white shadow-xl border rounded-lg overflow-hidden hover:scale-105 transition ease-in-out duration-200"
               onClick={() => {
                 router.push("/courses");
               }}
@@ -178,9 +177,9 @@ export default function Home({
               </div>
             </button>
 
-            <div className="flex flex-col justify-center items-center gap-y-8">
+            <div className="flex flex-col justify-center items-center gap-y-8 w-full md:w-auto">
               <button
-                className="w-72 md:w-96 h-44 bg-white shadow-xl border rounded-lg overflow-hidden hover:scale-105 transition ease-in-out duration-200"
+                className="w-4/5 md:w-96 h-44 bg-white shadow-xl border rounded-lg overflow-hidden hover:scale-105 transition ease-in-out duration-200"
                 onClick={() => {
                   router.push("/shareUs");
                 }}
@@ -200,7 +199,7 @@ export default function Home({
               </button>
 
               <button
-                className="w-72 md:w-96 h-44 bg-white shadow-xl border rounded-lg overflow-hidden hover:scale-105 transition ease-in-out duration-200"
+                className="w-4/5 md:w-96 h-44 bg-white shadow-xl border rounded-lg overflow-hidden hover:scale-105 transition ease-in-out duration-200"
                 onClick={() => {
                   router.push("/askQuestion");
                 }}
@@ -220,6 +219,7 @@ export default function Home({
           </div>
         </Section>
 
+        {/* Courses sectioin */}
         <Section
           className="[&>div]:flex [&>div]:flex-col [&>div]:gap-y-10 -mt-12"
           title="تعرف على مساقاتنا التعليمية"
@@ -248,6 +248,7 @@ export default function Home({
           </div>
         </Section>
 
+        {/* What i can learn section */}
         <Section
           title="ماذا ستستفيد؟"
           className=" [&>div]:flex [&>div]:flex-col [&>div]:gap-y-10"
@@ -268,8 +269,7 @@ export default function Home({
           </div>
         </Section>
 
-        {/* <InteractiveMap /> */}
-
+        {/* Graduated and resources section */}
         <Section
           className="[&>div>h2]:text-primary  [&>div]:flex [&>div]:flex-col  [&>div]:gap-y-16 "
           title="الموارد الرقمية و الخريجين"
@@ -278,7 +278,7 @@ export default function Home({
             id="graduated"
             className="flex flex-row flex-wrap-reverse gap-y-10 justify-around items-center"
           >
-            <div className="flex flex-col md:flex-row items-center">
+            <div className="flex flex-col lg:flex-row items-center">
               <div className="bg-blue flex flex-col items-center h-72 py-2 w-44 shadow-xl rounded-md overflow-hidden transition ease-in-out duration-200 hover:scale-105">
                 <Image
                   src={
@@ -304,8 +304,8 @@ export default function Home({
                 </div>
               </div>
 
-              <div className="flex flex-col md:flex-row">
-                <div className="flex flex-col justify-center bg-gray-900 h-44 w-64 md:w-72 px-5 gap-y-5 ">
+              <div className="flex flex-col lg:flex-row">
+                <div className="flex flex-col justify-center bg-gray-900 min-h-44 w-64 lg:w-72 px-5 gap-y-5 lg:px-5 p-5 lg:p-3 m-10 lg:m-0 rounded-md  lg:rounded-none lg:border-l-gray-900 lg:border-l-8">
                   <div className="flex flex-col items-center">
                     <p className="text-bold text-xl text-white">
                       {resources[resources?.length - 1]?.name}
@@ -340,7 +340,7 @@ export default function Home({
                     </button>
                   </div>
                 </div>
-                <div className="h-44 invisible md:visible border-t-[175px] border-t-transparent border-r-[80px] border-r-gray-900 border-b-[0px] border-b-transparent"></div>
+                <div className="h-44 invisible lg:visible border-t-[175px] border-t-transparent border-r-[80px] border-r-gray-900 border-b-[0px] border-b-transparent"></div>
               </div>
             </div>
             {getGraduates.length > 0 ? (
@@ -395,46 +395,18 @@ export default function Home({
           </div>
         </Section>
 
+        {/* Articles section */}
         {articles.length > 0 ? (
           <Section
             childrenClassName=""
             className="[&>div>h2]:text-primary  [&>div]:flex [&>div]:flex-col  [&>div]:gap-y-16 "
             title="فضاء الشباب"
           >
-            <div className="flex lg:flex-row flex-col  justify-center items-center gap-x-10 gap-y-0 md:gap-y-5 bg-blue-gradient py-10 md:py-0 md:px-52 md:pt-16 md:pb-16">
+            <div className="flex lg:flex-row flex-col  justify-center items-center gap-x-10 gap-y-5 bg-blue-gradient py-10 md:py-0 md:px-52 md:pt-16 md:pb-16">
               {articles
                 .slice(articles.length - 3, articles.length)
-                .map(({ id, title, pictureUrl, body }: any) => {
-                  return (
-                    <button
-                      key={id}
-                      onClick={() => router.push("/youth/" + id)}
-                    >
-                      <div className="h-[22rem] w-72 bg-black overflow-hidden shadow-xl rounded-lg transition ease-in-out duration-200 hover:scale-105 my-10 md:my-0">
-                        <div className="w-full h-44 overflow-hidden">
-                          <img
-                            src={"/images/articles/" + pictureUrl}
-                            className="object-cover w-full h-full "
-                          />
-                        </div>
-                        <div className="flex flex-col my-2 h-24 text-right mx-4">
-                          <p
-                            className="text-white  text-sm text-justify "
-                            dangerouslySetInnerHTML={{ __html: title }}
-                          ></p>
-                          <p
-                            className="text-white font-thin text-xs mt-5 text-justify text-gray-300"
-                            dangerouslySetInnerHTML={{
-                              __html:
-                                body.length > 80
-                                  ? body.slice(0, 80) + " ..."
-                                  : body,
-                            }}
-                          ></p>
-                        </div>
-                      </div>
-                    </button>
-                  );
+                .map((article: any) => {
+                  return <ArticleCard key={article.id} values={article} />;
                 })}
             </div>
           </Section>

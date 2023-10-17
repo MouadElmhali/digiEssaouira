@@ -32,25 +32,25 @@ export default function Resources({ resources }: any): JSX.Element {
         image = "/images/resources-svg.svg"
       ></Header>
       <main>
-        <Section className="py-20">
-          <div className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 gap-8">
+        <Section className="md:py-20 mx-14 md:mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-y-24 md:gap-x-10">
             {
               // @ts-ignore
               resources?.map((resource, key): any => {
                 return (
                   <Link key={key} href={`/pdfs/${resource.url}`}>
-                    <a className="flex flex-col gap-4 flex-1" target="_blank">
+                    <a className="flex flex-col items-center justify-between gap-y-10 shadow-lg overflow-hidden rounded-xl transition duration-200 ease-in-out hover:scale-110 max-w-xs" target="_blank">
                       <Image
-                        height={200}
-                        width={150}
+                        height={250}
+                        width={200}
                         alt=""
                         src={`/images/resources/${resource.image}`}
-                        objectFit={"contain"}
+                        objectFit={"cover"}
+                        className="bg-[url('/images/loading.gif')] bg-contain bg-no-repeat bg-center" 
                       />
-                      <div className="relative self-center -z-10 -top-36 h-24 w-24 bg-white  bg-[url('/images/loading.gif')] bg-cover bg-no-repeat bg-center"></div>
-                      <span className="text-primaryDarker text-center font-bold text-lg">
+                      <div className="flex items-center justify-center bg-blue text-white text-center font-medium text-lg min-w-full min-h-[5rem]">
                         {resource.name}
-                      </span>
+                      </div>
                     </a>
                   </Link>
                 );
