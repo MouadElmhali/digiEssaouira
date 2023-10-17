@@ -210,6 +210,11 @@ export default function NavBar(): JSX.Element {
                 تعرف على النسيج الجمعوي
               </a>
             </Link>
+            <Link href={routes.map.path}>
+              <a className=" transition duration-200 ease-in-out hover:text-blue-500 hover:scale-110">
+                الخريطة التفاعلية
+              </a>
+            </Link>
             <Link
               href={routes.resources.path}
               className=" transition duration-200 ease-in-out hover:text-blue-500 hover:scale-110"
