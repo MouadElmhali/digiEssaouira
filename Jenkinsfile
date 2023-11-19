@@ -10,12 +10,12 @@ pipeline {
     }
     stage('Cleaning PM2') {
       steps {
-        sh pm2 stop
+        sh 'echo "pm2 stop"'
       }
     }
     stage('Deploy') {
       steps {
-        sh pm2 start "npm start"
+        sh 'echo "pm2 start npm start"'
       }
     }
   }
