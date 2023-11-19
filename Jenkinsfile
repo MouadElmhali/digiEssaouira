@@ -3,20 +3,19 @@ pipeline {
   stages {
     stage('Build') {
       steps {
-        echo "building"
-        sleep 10
+        sh 'pwd'
+        sh 'npm install'
+        sh 'npm run build'
       }
     }
-    stage('Test') {
+    stage('Cleaning PM2') {
       steps {
-        echo "testing"
-        sleep 30
+        sh pm2 stop
       }
     }
     stage('Deploy') {
       steps {
-        echo "deploying"
-        stageMessage "sample stage message"
+        sh pm2 start "npm start"
       }
     }
   }
