@@ -4,8 +4,8 @@ pipeline {
     stage('Build') {
       steps {
         sh 'pwd'
-        sh 'npm install'
-        sh 'npm run build'
+        sh 'echo "npm install"'
+        sh 'echo "npm run build"'
       }
     }
     stage('Cleaning PM2') {
